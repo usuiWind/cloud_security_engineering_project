@@ -41,35 +41,35 @@ controls:
   - id: AC-2
     title: Account Management
     baseline: moderate
-    status: planned
+    status: implemented
     milestone: M1
     threats: [T-01, T-32]
     implementation: "Identity Center only, no IAM users; permission sets AuditReadOnly, Engineer, PlatformAdmin, BreakGlass (1 h); BreakGlass use alerts via EventBridge to SNS."
     terraform: envs/persistent/org
     evidence: evidence/M1/AC-2-permission-sets.txt
-    tested: null
+    tested: 2026-10-19
     residual_risk: "One person holds every role, so AC-5 separation of duties cannot be shown (POA&M)."
   - id: AC-3
     title: Access Enforcement
     baseline: moderate
-    status: planned
+    status: implemented
     milestone: M1
     threats: [T-04, T-06, T-11, T-20, T-24, T-25, T-29, T-35]
     implementation: "Deploy role trust pinned to repo:OWNER/REPO:ref:refs/heads/main; Entra federated credential pinned to main (M2); tool-caselookup LeadingKeys bound to caller tag (M4)."
     terraform: envs/persistent/workload
     evidence: evidence/M1/AC-3-oidc-pr-denied.txt
-    tested: null
+    tested: 2026-10-19
     residual_risk: ""
   - id: AC-6
     title: Least Privilege
     baseline: moderate
-    status: planned
+    status: partial
     milestone: M1
     threats: [T-01, T-06, T-11, T-20, T-24, T-28, T-30, T-32, T-33]
     implementation: "Deploy role cut to observed calls (deploy_policy_mode = scoped); app-task has no data access; one role per tool; scoped_tools on after Run B (M4)."
     terraform: envs/persistent/workload
     evidence: evidence/M1/AC-6-deploy-role-after.txt
-    tested: null
+    tested: 2026-10-19
     residual_risk: "PlatformAdmin reaches the workload account through OrganizationAccountAccessRole, full admin (POA&M). Partial until M4."
   - id: AC-17
     title: Remote Access
@@ -96,35 +96,35 @@ controls:
   - id: IA-5
     title: Authenticator Management
     baseline: moderate
-    status: planned
+    status: implemented
     milestone: M1
     threats: [T-01, T-12]
     implementation: "Zero IAM users and access keys; root credentials centrally managed; scripts/key_scan.sh gates every CI run."
     terraform: envs/persistent/org
     evidence: evidence/M1/IA-5-key-scan-workload.txt
-    tested: null
+    tested: 2026-10-19
     residual_risk: "Management account root cannot be removed; MFA on, no keys (POA&M)."
   - id: IA-8
     title: Identification and Authentication of Non Organizational Users
     baseline: moderate
-    status: planned
+    status: implemented
     milestone: M1
     threats: [T-14]
     implementation: "GitHub Actions federated through OIDC to AWS and Entra; no stored secret."
     terraform: envs/persistent/workload
     evidence: evidence/M1/IA-8-oidc-main-success.txt
-    tested: null
+    tested: 2026-10-19
     residual_risk: ""
   - id: AU-2
     title: Event Logging
     baseline: moderate
-    status: planned
+    status: partial
     milestone: M1
     threats: [T-08]
     implementation: "Organization trail, multi region, log file validation; data events on the cases table (M3)."
     terraform: envs/persistent/org
     evidence: evidence/M1/AU-2-org-trail.txt
-    tested: null
+    tested: 2026-10-19
     residual_risk: "Partial until Sentinel ingestion in M5."
   - id: CM-5
     title: Access Restrictions for Change

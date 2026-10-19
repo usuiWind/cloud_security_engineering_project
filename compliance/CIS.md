@@ -5,14 +5,14 @@
 | PL-8 | Security and Privacy Architectures | partial | M0 | docs/threat-model-v1.docx |
 | RA-3 | Risk Assessment | partial | M0 | docs/threat-model-v1.docx |
 | SA-8 | Security and Privacy Engineering Principles | partial | M0 | docs/threat-model-v1.docx |
-| AC-2 | Account Management | planned | M1 | evidence/M1/AC-2-permission-sets.txt |
-| AC-3 | Access Enforcement | planned | M1 | evidence/M1/AC-3-oidc-pr-denied.txt |
-| AC-6 | Least Privilege | planned | M1 | evidence/M1/AC-6-deploy-role-after.txt |
+| AC-2 | Account Management | implemented | M1 | evidence/M1/AC-2-permission-sets.txt |
+| AC-3 | Access Enforcement | implemented | M1 | evidence/M1/AC-3-oidc-pr-denied.txt |
+| AC-6 | Least Privilege | partial | M1 | evidence/M1/AC-6-deploy-role-after.txt |
 | AC-17 | Remote Access | planned | M1 | evidence/M1/AC-17-mfa-required.png |
 | IA-2 | Identification and Authentication of Organizational Users | planned | M1 | evidence/M1/AC-17-mfa-required.png |
-| IA-5 | Authenticator Management | planned | M1 | evidence/M1/IA-5-key-scan-workload.txt |
-| IA-8 | Identification and Authentication of Non Organizational Users | planned | M1 | evidence/M1/IA-8-oidc-main-success.txt |
-| AU-2 | Event Logging | planned | M1 | evidence/M1/AU-2-org-trail.txt |
+| IA-5 | Authenticator Management | implemented | M1 | evidence/M1/IA-5-key-scan-workload.txt |
+| IA-8 | Identification and Authentication of Non Organizational Users | implemented | M1 | evidence/M1/IA-8-oidc-main-success.txt |
+| AU-2 | Event Logging | partial | M1 | evidence/M1/AU-2-org-trail.txt |
 | CM-5 | Access Restrictions for Change | planned | M1 | evidence/M1/AC-3-oidc-pr-denied.txt |
 | CM-2 | Baseline Configuration | planned | M2 | evidence/M2/CM-2-effective-policies.txt |
 | CM-6 | Configuration Settings | planned | M2 | evidence/M2/CM-6-checkov-blocked.txt |
@@ -62,9 +62,9 @@
 | Milestone | Implemented | Cumulative |
 |---|---|---|
 | M0 | 0 | 0 |
-| M1 | 0 | 0 |
-| M2 | 0 | 0 |
-| M3 | 0 | 0 |
-| M4 | 0 | 0 |
-| M5 | 0 | 0 |
-| M6 | 0 | 0 |
+| M1 | 4 | 4 |
+| M2 | 0 | 4 |
+| M3 | 0 | 4 |
+| M4 | 0 | 4 |
+| M5 | 0 | 4 |
+| M6 | 0 | 4 |
