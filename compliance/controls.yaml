@@ -1,0 +1,611 @@
+# Source: docs/threat-model-v1.docx (threat register T-01..T-35) and the compressed build plan.
+# `evidence` is the primary proof path the plan captures; render.py only checks it once status is implemented.
+# `threats` cross references the threat register, as Appendix A of the threat model asks.
+controls:
+  # M0 threat model
+  - id: PL-8
+    title: Security and Privacy Architectures
+    baseline: moderate
+    status: partial
+    milestone: M0
+    threats: []
+    implementation: "Architecture v1 with boundaries B1-B9 and flows F1-F18; v2 delta after M3 records the compressed build (Lambda, stores behind gateway endpoints, APIM deferred)."
+    terraform: ""
+    evidence: docs/threat-model-v1.docx
+    tested: null
+    residual_risk: "Diagram is still v1 until threat-model-v2.md lands in M3."
+  - id: RA-3
+    title: Risk Assessment
+    baseline: moderate
+    status: partial
+    milestone: M0
+    threats: []
+    implementation: "STRIDE per flow plus OWASP LLM Top 10, 35 threats rated; v2 after M3, v3 after M4 testing."
+    terraform: ""
+    evidence: docs/threat-model-v1.docx
+    tested: null
+    residual_risk: "Section 8.3 flows and Section 10 acceptances still to complete."
+  - id: SA-8
+    title: Security and Privacy Engineering Principles
+    baseline: moderate
+    status: partial
+    milestone: M0
+    threats: [T-27]
+    implementation: "Authorization enforced outside the model by scoped tool roles; all model and tool output treated as untrusted input (Section 9)."
+    terraform: ""
+    evidence: docs/threat-model-v1.docx
+    tested: null
+    residual_risk: ""
+
+  # M1 identity and access
+  - id: AC-2
+    title: Account Management
+    baseline: moderate
+    status: planned
+    milestone: M1
+    threats: [T-01, T-32]
+    implementation: "Identity Center only, no IAM users; permission sets AuditReadOnly, Engineer, PlatformAdmin, BreakGlass (1 h); BreakGlass use alerts via EventBridge to SNS."
+    terraform: envs/persistent/org
+    evidence: evidence/M1/AC-2-permission-sets.txt
+    tested: null
+    residual_risk: "One person holds every role, so AC-5 separation of duties cannot be shown (POA&M)."
+  - id: AC-3
+    title: Access Enforcement
+    baseline: moderate
+    status: planned
+    milestone: M1
+    threats: [T-04, T-06, T-11, T-20, T-24, T-25, T-29, T-35]
+    implementation: "Deploy role trust pinned to repo:OWNER/REPO:ref:refs/heads/main; Entra federated credential pinned to main (M2); tool-caselookup LeadingKeys bound to caller tag (M4)."
+    terraform: envs/persistent/workload
+    evidence: evidence/M1/AC-3-oidc-pr-denied.txt
+    tested: null
+    residual_risk: ""
+  - id: AC-6
+    title: Least Privilege
+    baseline: moderate
+    status: planned
+    milestone: M1
+    threats: [T-01, T-06, T-11, T-20, T-24, T-28, T-30, T-32, T-33]
+    implementation: "Deploy role cut to observed calls (deploy_policy_mode = scoped); app-task has no data access; one role per tool; scoped_tools on after Run B (M4)."
+    terraform: envs/persistent/workload
+    evidence: evidence/M1/AC-6-deploy-role-after.txt
+    tested: null
+    residual_risk: "PlatformAdmin reaches the workload account through OrganizationAccountAccessRole, full admin (POA&M). Partial until M4."
+  - id: AC-17
+    title: Remote Access
+    baseline: moderate
+    status: planned
+    milestone: M1
+    threats: []
+    implementation: "Human access only through Identity Center with MFA; Entra Conditional Access MFA for Azure (M2)."
+    terraform: envs/persistent/org
+    evidence: evidence/M1/AC-17-mfa-required.png
+    tested: null
+    residual_risk: ""
+  - id: IA-2
+    title: Identification and Authentication of Organizational Users
+    baseline: moderate
+    status: planned
+    milestone: M1
+    threats: [T-06, T-12, T-14, T-32]
+    implementation: "MFA on Identity Center and Entra; caller id bound as session tag on every case lookup."
+    terraform: envs/persistent/org
+    evidence: evidence/M1/AC-17-mfa-required.png
+    tested: null
+    residual_risk: "Caller id comes from the test harness until APIM forwards the Entra claim (T-06)."
+  - id: IA-5
+    title: Authenticator Management
+    baseline: moderate
+    status: planned
+    milestone: M1
+    threats: [T-01, T-12]
+    implementation: "Zero IAM users and access keys; root credentials centrally managed; scripts/key_scan.sh gates every CI run."
+    terraform: envs/persistent/org
+    evidence: evidence/M1/IA-5-key-scan-workload.txt
+    tested: null
+    residual_risk: "Management account root cannot be removed; MFA on, no keys (POA&M)."
+  - id: IA-8
+    title: Identification and Authentication of Non Organizational Users
+    baseline: moderate
+    status: planned
+    milestone: M1
+    threats: [T-14]
+    implementation: "GitHub Actions federated through OIDC to AWS and Entra; no stored secret."
+    terraform: envs/persistent/workload
+    evidence: evidence/M1/IA-8-oidc-main-success.txt
+    tested: null
+    residual_risk: ""
+  - id: AU-2
+    title: Event Logging
+    baseline: moderate
+    status: planned
+    milestone: M1
+    threats: [T-08]
+    implementation: "Organization trail, multi region, log file validation; data events on the cases table (M3)."
+    terraform: envs/persistent/org
+    evidence: evidence/M1/AU-2-org-trail.txt
+    tested: null
+    residual_risk: "Partial until Sentinel ingestion in M5."
+  - id: CM-5
+    title: Access Restrictions for Change
+    baseline: moderate
+    status: planned
+    milestone: M1
+    threats: [T-23, T-30, T-34]
+    implementation: "Only the main branch pipeline can assume the deploy role; runtime config (/meridian/config/model_id) changes only through it; code signing Enforce (M6)."
+    terraform: envs/persistent/workload
+    evidence: evidence/M1/AC-3-oidc-pr-denied.txt
+    tested: null
+    residual_risk: ""
+
+  # M2 configuration baseline
+  - id: CM-2
+    title: Baseline Configuration
+    baseline: moderate
+    status: planned
+    milestone: M2
+    threats: []
+    implementation: "One intent file renders SCPs and the Azure Policy initiative."
+    terraform: policy/intent.auto.tfvars
+    evidence: evidence/M2/CM-2-effective-policies.txt
+    tested: null
+    residual_risk: ""
+  - id: CM-6
+    title: Configuration Settings
+    baseline: moderate
+    status: planned
+    milestone: M2
+    threats: []
+    implementation: "checkov on the Terraform plan in CI, no soft fail; every inline skip becomes a POA&M line."
+    terraform: .github/workflows/deploy.yml
+    evidence: evidence/M2/CM-6-checkov-blocked.txt
+    tested: null
+    residual_risk: "CKV_AWS_26 skip on the break glass SNS topic (POA&M)."
+  - id: CM-7
+    title: Least Functionality
+    baseline: moderate
+    status: planned
+    milestone: M2
+    threats: []
+    implementation: "SCP denies regions outside allowed_regions.aws; Azure allowed locations; IMDSv2 required."
+    terraform: modules/governance
+    evidence: evidence/M2/CM-7-aws-region-denied.txt
+    tested: null
+    residual_risk: ""
+  - id: CM-8
+    title: System Component Inventory
+    baseline: moderate
+    status: planned
+    milestone: M2
+    threats: []
+    implementation: "Required tags (project, owner, milestone, data_class) enforced at create in both clouds."
+    terraform: modules/governance
+    evidence: evidence/M2/CM-8-aws-untagged-denied.txt
+    tested: null
+    residual_risk: ""
+  - id: AC-7
+    title: Unsuccessful Logon Attempts
+    baseline: moderate
+    status: planned
+    milestone: M2
+    threats: [T-12]
+    implementation: "Entra smart lockout plus Conditional Access MFA for all users."
+    terraform: envs/persistent/azure
+    evidence: evidence/M2/AC-7-entra-lockout.png
+    tested: null
+    residual_risk: "Token replay at the APIM edge deferred with APIM (T-12)."
+
+  # M3 network and crypto
+  - id: AC-4
+    title: Information Flow Enforcement
+    baseline: moderate
+    status: planned
+    milestone: M3
+    threats: [T-22]
+    implementation: "Bedrock endpoint policy allows only app-task on one model and guardrail; gateway endpoint policies name only the corpus bucket and cases table."
+    terraform: envs/ephemeral
+    evidence: evidence/M3/AC-4-endpoint-policy-deny.txt
+    tested: null
+    residual_risk: ""
+  - id: IA-3
+    title: Device Identification and Authentication
+    baseline: moderate
+    status: planned
+    milestone: M3
+    threats: [T-17]
+    implementation: "Lambda invocable only by IAM principals, no function URL; APIM caller verification deferred."
+    terraform: envs/ephemeral
+    evidence: evidence/M3/IA-3-lambda-resource-policy.txt
+    tested: null
+    residual_risk: "T-17 open: assistant trusts caller_id from its invoker until the APIM path is built (POA&M)."
+  - id: SC-5
+    title: Denial of Service Protection
+    baseline: moderate
+    status: planned
+    milestone: M3
+    threats: [T-05, T-10, T-13, T-31]
+    implementation: "Reserved concurrency 5, 60 s timeout, max 3 tool turns per request; budget alerts at $25/$50/$75."
+    terraform: envs/ephemeral
+    evidence: evidence/M3/SC-5-lambda-limits.txt
+    tested: null
+    residual_risk: "Edge rate limiting deferred with APIM (T-13)."
+  - id: SC-7
+    title: Boundary Protection
+    baseline: moderate
+    status: planned
+    milestone: M3
+    threats: [T-22]
+    implementation: "Private subnet, no IGW or NAT; SG egress 443 to endpoints and prefix lists only; S3 account public access block locked by SCP (M2); Azure storage and vault private only."
+    terraform: envs/ephemeral
+    evidence: evidence/M3/SC-7-no-path-without-endpoint.txt
+    tested: null
+    residual_risk: "Single AZ (POA&M)."
+  - id: SC-8
+    title: Transmission Confidentiality and Integrity
+    baseline: moderate
+    status: planned
+    milestone: M3
+    threats: [T-17, T-18, T-22]
+    implementation: "Bedrock calls cross the interface endpoint over TLS; Azure blob and vault through private endpoints."
+    terraform: envs/ephemeral
+    evidence: evidence/M3/SC-8-bedrock-via-vpce.json
+    tested: null
+    residual_risk: "Cross cloud F4 path deferred with APIM (T-18)."
+  - id: SC-12
+    title: Cryptographic Key Establishment and Management
+    baseline: moderate
+    status: planned
+    milestone: M3
+    threats: [T-20]
+    implementation: "Two CMKs (corpus, records) with rotation; admin and user statements split; SCP blocks key deletion; Key Vault key with purge protection."
+    terraform: envs/persistent/workload
+    evidence: evidence/M3/SC-12-key-config.txt
+    tested: null
+    residual_risk: ""
+  - id: SC-13
+    title: Cryptographic Protection
+    baseline: moderate
+    status: planned
+    milestone: M3
+    threats: [T-18]
+    implementation: "AWS KMS and Azure Key Vault managed keys; TLS on every endpoint."
+    terraform: envs/persistent/workload
+    evidence: evidence/M3/SC-12-key-config.txt
+    tested: null
+    residual_risk: ""
+  - id: SC-28
+    title: Protection of Information at Rest
+    baseline: moderate
+    status: planned
+    milestone: M3
+    threats: [T-09, T-20, T-33]
+    implementation: "Corpus and cases encrypted with CMKs scoped by kms:ViaService to the tool roles; state bucket encrypted; Azure storage CMK."
+    terraform: envs/persistent/workload
+    evidence: evidence/M3/SC-28-kms-denied.txt
+    tested: null
+    residual_risk: ""
+  - id: SC-23
+    title: Session Authenticity
+    baseline: moderate
+    status: planned
+    milestone: M3
+    threats: [T-14, T-17, T-19]
+    implementation: "AWS side uses SigV4 on every call; cross cloud request token from APIM deferred."
+    terraform: ""
+    evidence: null
+    tested: null
+    residual_risk: "Deferred with APIM; no evidence planned until it is built (POA&M)."
+
+  # M4 AI guardrails
+  - id: SI-10
+    title: Information Input Validation
+    baseline: moderate
+    status: planned
+    milestone: M4
+    threats: [T-02, T-07, T-15, T-21, T-27]
+    implementation: "Guardrail prompt attack filter HIGH on guardContent; ApplyGuardrail INPUT on every tool result; scored A/B/C runs of 30 payloads."
+    terraform: envs/persistent/workload
+    evidence: evidence/M4/SI-10-results-summary.md
+    tested: null
+    residual_risk: "Closest and weakest fit for prompt injection (Section 9); Run C residual rate goes to POA&M."
+  - id: SI-11
+    title: Error Handling
+    baseline: moderate
+    status: planned
+    milestone: M4
+    threats: []
+    implementation: "Handler returns a fixed message when a guardrail intervenes or a tool is denied; no stack trace or ARN reaches the caller."
+    terraform: ""
+    evidence: evidence/M4/SI-11-error-response.txt
+    tested: null
+    residual_risk: "Not cited by any threat; no capture step in the plan yet."
+  - id: SI-15
+    title: Information Output Filtering
+    baseline: moderate
+    status: planned
+    milestone: M4
+    threats: [T-09, T-25, T-26]
+    implementation: "Guardrail output: PII anonymize, markdown image regex block, contextual grounding 0.7; app strips non-allowlisted links."
+    terraform: envs/persistent/workload
+    evidence: evidence/M4/SI-15-guardrail-config.json
+    tested: null
+    residual_risk: ""
+  - id: AC-24
+    title: Access Control Decisions
+    baseline: moderate
+    status: planned
+    milestone: M4
+    threats: [T-04, T-24]
+    implementation: "tool-caselookup decides access on dynamodb:LeadingKeys = aws:PrincipalTag/caseworker, never on model arguments."
+    terraform: envs/persistent/workload
+    evidence: evidence/M4/AC-6-tool-coercion-denied.txt
+    tested: null
+    residual_risk: "T-04: document search is not entitlement scoped; every caseworker can retrieve every doc."
+  - id: SC-18
+    title: Mobile Code
+    baseline: moderate
+    status: planned
+    milestone: M4
+    threats: [T-26]
+    implementation: "Markdown image syntax blocked by guardrail regex; app link allowlist strips other domains."
+    terraform: envs/persistent/workload
+    evidence: evidence/M4/run-C-full.csv
+    tested: null
+    residual_risk: ""
+  - id: SC-24
+    title: Fail in Known State
+    baseline: moderate
+    status: planned
+    milestone: M4
+    threats: [T-16]
+    implementation: "Handler refuses the request if the guardrail call errors (fail closed)."
+    terraform: ""
+    evidence: evidence/M4/SC-24-guardrail-fail-closed.txt
+    tested: null
+    residual_risk: "Fail closed branch is not in the plan's handler spec yet; add it to app/handler.py and test with a bad GUARDRAIL_ID."
+  - id: SI-3
+    title: Malicious Code Protection
+    baseline: moderate
+    status: planned
+    milestone: M4
+    threats: [T-15, T-16]
+    implementation: "Guardrail prompt attack filter; Prompt Shields run on the same payloads as comparison."
+    terraform: envs/persistent/workload
+    evidence: evidence/M4/SI-10-prompt-shields.csv
+    tested: null
+    residual_risk: "Prompt Shields is offline comparison only, not in the request path."
+  - id: SI-12
+    title: Information Management and Retention
+    baseline: moderate
+    status: planned
+    milestone: M4
+    threats: [T-09]
+    implementation: "Guardrail anonymizes PII on output; guardrail_intervened log line carries category and caller, not content."
+    terraform: envs/persistent/workload
+    evidence: evidence/M4/SI-15-guardrail-config.json
+    tested: null
+    residual_risk: ""
+
+  # M5 logging, detection, response
+  - id: AU-3
+    title: Content of Audit Records
+    baseline: moderate
+    status: planned
+    milestone: M5
+    threats: [T-03, T-08]
+    implementation: "CloudTrail session tag carries the caseworker on every GetItem; guardrail_intervened line carries category and caller."
+    terraform: envs/persistent/workload
+    evidence: evidence/M4/AC-6-tool-coercion-cloudtrail.json
+    tested: null
+    residual_risk: "T-03 mitigation (log retrieved chunk ids and hashes under a correlation id) is not in the build plan."
+  - id: AU-5
+    title: Response to Audit Logging Process Failures
+    baseline: moderate
+    status: planned
+    milestone: M5
+    threats: []
+    implementation: ""
+    terraform: ""
+    evidence: null
+    tested: null
+    residual_risk: "Not cited by any threat and no build step in the plan; add a trail delivery failure alarm or drop from scope."
+  - id: AU-6
+    title: Audit Record Review Analysis and Reporting
+    baseline: moderate
+    status: planned
+    milestone: M5
+    threats: [T-32]
+    implementation: "Sentinel rules R1-R3 every 5 min over 1 h; MTTD measured per simulation."
+    terraform: detections
+    evidence: evidence/M5/AU-6-mttd.md
+    tested: null
+    residual_risk: "5 to 20 min detection lag from S3 delivery."
+  - id: AU-9
+    title: Protection of Audit Information
+    baseline: moderate
+    status: planned
+    milestone: M5
+    threats: [T-28, T-29]
+    implementation: "SCP denies StopLogging, DeleteTrail, UpdateTrail except BreakGlass; versioned log archive bucket with public access blocked."
+    terraform: modules/governance
+    evidence: evidence/M2/AU-9-stoplogging-denied.txt
+    tested: null
+    residual_risk: ""
+  - id: AU-10
+    title: Non Repudiation
+    baseline: moderate
+    status: planned
+    milestone: M5
+    threats: [T-03, T-08, T-19]
+    implementation: "CloudTrail log file validation; caller bound to every record read through the session tag."
+    terraform: envs/persistent/org
+    evidence: evidence/M5/AU-10-validate-logs.txt
+    tested: null
+    residual_risk: ""
+  - id: AU-11
+    title: Audit Record Retention
+    baseline: moderate
+    status: planned
+    milestone: M5
+    threats: [T-28]
+    implementation: "Versioned log archive bucket; workload cannot delete; retention period set by lifecycle rule."
+    terraform: envs/persistent/org
+    evidence: evidence/M5/AU-11-log-retention.txt
+    tested: null
+    residual_risk: "Plan sets no retention period; add a lifecycle rule."
+  - id: AU-12
+    title: Audit Record Generation
+    baseline: moderate
+    status: planned
+    milestone: M5
+    threats: []
+    implementation: "CloudTrail and VPC flow logs from the archive bucket into Sentinel via the S3 connector."
+    terraform: envs/persistent/azure
+    evidence: evidence/M5/AU-12-aws-in-sentinel.txt
+    tested: null
+    residual_risk: ""
+  - id: CM-3
+    title: Configuration Change Control
+    baseline: moderate
+    status: planned
+    milestone: M5
+    threats: [T-23, T-33, T-35]
+    implementation: "Every change through a PR, checkov gate, and the main branch pipeline; state bucket versioned with native lock."
+    terraform: .github/workflows/deploy.yml
+    evidence: evidence/M2/CM-6-checkov-blocked.txt
+    tested: null
+    residual_risk: "T-35: corpus publishing review not modelled; corpus is static synthetic data."
+  - id: IR-4
+    title: Incident Handling
+    baseline: moderate
+    status: planned
+    milestone: M5
+    threats: [T-30, T-31]
+    implementation: "Runbooks R1-R3: what it means, first checks, containment, false positives."
+    terraform: ""
+    evidence: detections/runbooks/R1.md
+    tested: null
+    residual_risk: "F15b auto remediation Lambda is cut from the build; containment is manual."
+  - id: IR-5
+    title: Incident Monitoring
+    baseline: moderate
+    status: planned
+    milestone: M5
+    threats: []
+    implementation: "Sentinel incidents from R1-R3 simulations."
+    terraform: detections
+    evidence: evidence/M5/SI-4-R1-incident.png
+    tested: null
+    residual_risk: ""
+  - id: SI-4
+    title: System Monitoring
+    baseline: moderate
+    status: planned
+    milestone: M5
+    threats: []
+    implementation: "GuardDuty, Security Hub CSPM, Config, Defender for Cloud; R1 region, R2 non app model use, R3 injection spike."
+    terraform: detections
+    evidence: evidence/M5/SI-4-R1-incident.png
+    tested: null
+    residual_risk: ""
+  - id: AC-20
+    title: Use of External Systems
+    baseline: moderate
+    status: planned
+    milestone: M5
+    threats: [T-29]
+    implementation: "Sentinel reads the log archive through a read only role scoped to the connector queues and bucket."
+    terraform: envs/persistent/org
+    evidence: evidence/M5/AC-20-sentinel-role.txt
+    tested: null
+    residual_risk: ""
+
+  # M6 assessment and supply chain
+  - id: CA-2
+    title: Control Assessments
+    baseline: moderate
+    status: planned
+    milestone: M6
+    threats: []
+    implementation: "Prowler NIST 800-53 scan, fix, rescan."
+    terraform: ""
+    evidence: evidence/M6/RA-5-prowler-after
+    tested: null
+    residual_risk: ""
+  - id: CA-5
+    title: Plan of Action and Milestones
+    baseline: moderate
+    status: planned
+    milestone: M6
+    threats: []
+    implementation: "compliance/poam.md: id, weakness, control, risk, decision, date."
+    terraform: ""
+    evidence: compliance/poam.md
+    tested: null
+    residual_risk: ""
+  - id: CA-7
+    title: Continuous Monitoring
+    baseline: moderate
+    status: planned
+    milestone: M6
+    threats: []
+    implementation: "Security Hub NIST standard and Azure NIST initiative, before and after."
+    terraform: ""
+    evidence: evidence/M6/CA-7-azure-compliance.txt
+    tested: null
+    residual_risk: ""
+  - id: RA-5
+    title: Vulnerability Monitoring and Scanning
+    baseline: moderate
+    status: planned
+    milestone: M6
+    threats: []
+    implementation: "Prowler before and after with fix commits noted."
+    terraform: ""
+    evidence: evidence/M6/RA-5-prowler-after
+    tested: null
+    residual_risk: "Unfixed Prowler findings go to POA&M."
+  - id: SA-11
+    title: Developer Testing and Evaluation
+    baseline: moderate
+    status: planned
+    milestone: M6
+    threats: []
+    implementation: "Key scan and checkov in every CI run; payload harness tests/run.py."
+    terraform: .github/workflows/deploy.yml
+    evidence: evidence/M6/SA-11-ci-security-tests.txt
+    tested: null
+    residual_risk: ""
+  - id: SR-4
+    title: Provenance
+    baseline: moderate
+    status: planned
+    milestone: M6
+    threats: []
+    implementation: "Syft SPDX SBOM of app/ in CI."
+    terraform: .github/workflows/deploy.yml
+    evidence: evidence/M6/SR-4-sbom.spdx.json
+    tested: null
+    residual_risk: ""
+  - id: SR-11
+    title: Component Authenticity
+    baseline: moderate
+    status: planned
+    milestone: M6
+    threats: [T-34]
+    implementation: "AWS Signer profile and Lambda code signing config set to Enforce; pipeline deploys only the signed object."
+    terraform: envs/persistent/workload
+    evidence: evidence/M6/SR-11-unsigned-deploy-denied.txt
+    tested: null
+    residual_risk: ""
+  - id: SI-7
+    title: Software Firmware and Information Integrity
+    baseline: moderate
+    status: planned
+    milestone: M6
+    threats: [T-23, T-34, T-35]
+    implementation: "Code signing Enforce refuses unsigned code; versioned artifact bucket."
+    terraform: envs/persistent/workload
+    evidence: evidence/M6/SR-11-unsigned-deploy-denied.txt
+    tested: null
+    residual_risk: ""

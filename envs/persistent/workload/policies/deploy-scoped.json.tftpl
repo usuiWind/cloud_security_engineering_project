@@ -1,0 +1,43 @@
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "KeyScan",
+      "Effect": "Allow",
+      "Action": ["iam:GetAccountSummary", "iam:ListUsers"],
+      "Resource": "*"
+    },
+    {
+      "Sid": "StateList",
+      "Effect": "Allow",
+      "Action": "s3:ListBucket",
+      "Resource": "arn:aws:s3:::${state_bucket}"
+    },
+    {
+      "Sid": "StateObjects",
+      "Effect": "Allow",
+      "Action": ["s3:GetObject", "s3:PutObject", "s3:DeleteObject"],
+      "Resource": "arn:aws:s3:::${state_bucket}/*"
+    },
+    {
+      "Sid": "AppConfig",
+      "Effect": "Allow",
+      "Action": [
+        "ssm:PutParameter",
+        "ssm:GetParameter",
+        "ssm:GetParameters",
+        "ssm:DeleteParameter",
+        "ssm:AddTagsToResource",
+        "ssm:RemoveTagsFromResource",
+        "ssm:ListTagsForResource"
+      ],
+      "Resource": "arn:aws:ssm:${region}:${account_id}:parameter/meridian/*"
+    },
+    {
+      "Sid": "AppConfigDescribe",
+      "Effect": "Allow",
+      "Action": "ssm:DescribeParameters",
+      "Resource": "*"
+    }
+  ]
+}

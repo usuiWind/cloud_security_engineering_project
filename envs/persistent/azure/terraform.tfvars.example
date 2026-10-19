@@ -1,0 +1,5 @@
+owner           = "austin"
+subscription_id = "00000000-0000-0000-0000-000000000000"
+emergency_upn   = "emergency@yourtenant.onmicrosoft.com"
+github_owner    = "usuiWind"
+github_repo     = "cloud_security_engineering_project"

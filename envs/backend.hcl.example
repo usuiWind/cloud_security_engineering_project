@@ -1,0 +1,6 @@
+# Copy to envs/backend.hcl and set bucket to the bootstrap output.
+# Every stack passes its own key:  -backend-config="key=org/terraform.tfstate"
+bucket       = "meridian-tfstate-111111111111"
+region       = "us-east-1"
+use_lockfile = true
+encrypt      = true

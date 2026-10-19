@@ -1,0 +1,17 @@
+/dist
+# Working docs, local only: projectplan, runbooks, running state
+projectplan.md
+runbook*.md
+RESUME.md
+.claude/
+
+# Terraform
+.terraform/
+*.tfstate
+*.tfstate.*
+*.tfplan
+tfplan*
+terraform.tfvars
+envs/backend.hcl
+crash.log
+__pycache__/

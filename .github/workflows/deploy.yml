@@ -1,0 +1,39 @@
+name: deploy
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  id-token: write
+  contents: read
+
+jobs:
+  deploy:
+    # Skipped until Session 1 Part E sets the repo variable.
+    if: ${{ vars.AWS_DEPLOY_ROLE_ARN != '' }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Federate into AWS, no stored secret
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          role-to-assume: ${{ vars.AWS_DEPLOY_ROLE_ARN }}
+          aws-region: us-east-1
+
+      - name: Fail on any static credential
+        run: ./scripts/key_scan.sh
+
+      - uses: hashicorp/setup-terraform@v3
+        with:
+          terraform_version: "^1.11.0"
+
+      - name: Init
+        working-directory: envs/app
+        run: terraform init -input=false -backend-config="bucket=${{ vars.TF_STATE_BUCKET }}"
+
+      - name: Apply
+        working-directory: envs/app
+        run: terraform apply -input=false -auto-approve

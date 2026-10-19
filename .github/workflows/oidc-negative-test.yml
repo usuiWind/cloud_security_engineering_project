@@ -1,0 +1,32 @@
+# Regression test: a pull request must NOT be able to assume the deploy role.
+# Passes when AWS refuses the token, fails if the role is ever opened up.
+name: oidc-negative-test
+
+on:
+  pull_request:
+
+permissions:
+  id-token: write
+  contents: read
+
+jobs:
+  pr-cannot-deploy:
+    # Skipped until the role exists, so it can never pass vacuously.
+    if: ${{ vars.AWS_DEPLOY_ROLE_ARN != '' }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Try the deploy role from a pull request
+        id: assume
+        continue-on-error: true
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          role-to-assume: ${{ vars.AWS_DEPLOY_ROLE_ARN }}
+          aws-region: us-east-1
+
+      - name: Assert it was refused
+        run: |
+          if [ "${{ steps.assume.outcome }}" = "success" ]; then
+            echo "FAIL pull_request token assumed the deploy role"
+            exit 1
+          fi
+          echo "PASS deploy role refused for a pull_request token"
