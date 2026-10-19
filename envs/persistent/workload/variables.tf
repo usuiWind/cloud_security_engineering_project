@@ -13,7 +13,7 @@ variable "workload_account_id" {
 
 variable "github_owner" {
   type        = string
-  description = "GitHub user or org, exactly as it appears in the repo URL"
+  description = "GitHub owner as it appears in the OIDC sub claim; with immutable subjects that is name@owner_id"
 }
 
 variable "github_repo" {
