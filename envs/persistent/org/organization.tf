@@ -9,6 +9,7 @@ resource "aws_organizations_organization" "this" {
   feature_set = "ALL"
   # Plan must show no removals here. If it does, add the missing principal.
   aws_service_access_principals = [
+    "account.amazonaws.com",
     "sso.amazonaws.com",
     "cloudtrail.amazonaws.com",
     "iam.amazonaws.com",
@@ -34,7 +35,8 @@ resource "aws_organizations_account" "workload" {
 
   lifecycle {
     prevent_destroy = true
-    ignore_changes  = [role_name]
+    # email changes go through `aws account start-primary-email-update`; in Terraform they force replacement
+    ignore_changes = [role_name, email]
   }
 }
 
