@@ -44,7 +44,7 @@ controls:
     status: implemented
     milestone: M1
     threats: [T-01, T-32]
-    implementation: "Identity Center only, no IAM users; permission sets AuditReadOnly, Engineer, PlatformAdmin, BreakGlass (1 h); BreakGlass use alerts via EventBridge to SNS."
+    implementation: "Identity Center only, no IAM users; permission sets AuditReadOnly, Engineer, PlatformAdmin, BreakGlass (1 h); BreakGlass use alerts via EventBridge to SNS. Entra groups meridian-audit/engineer/breakglass mirror them (evidence/M2/AC-2-entra-groups.txt)."
     terraform: envs/persistent/org
     evidence: evidence/M1/AC-2-permission-sets.txt
     tested: 2026-10-19
@@ -142,12 +142,12 @@ controls:
   - id: CM-2
     title: Baseline Configuration
     baseline: moderate
-    status: planned
+    status: partial
     milestone: M2
     threats: []
     implementation: "One intent file renders SCPs and the Azure Policy initiative."
     terraform: policy/intent.auto.tfvars
-    evidence: evidence/M2/CM-2-effective-policies.txt
+    evidence: evidence/M2/CM-2-azure-policy-assignments.txt
     tested: null
     residual_risk: ""
   - id: CM-6
@@ -164,29 +164,29 @@ controls:
   - id: CM-7
     title: Least Functionality
     baseline: moderate
-    status: planned
+    status: partial
     milestone: M2
     threats: []
     implementation: "SCP denies regions outside allowed_regions.aws; Azure allowed locations; IMDSv2 required."
     terraform: envs/persistent/org/scp.tf, envs/persistent/azure/governance.tf
-    evidence: evidence/M2/CM-7-aws-region-denied.txt
+    evidence: evidence/M2/CM-7-azure-location-denied.txt
     tested: null
     residual_risk: ""
   - id: CM-8
     title: System Component Inventory
     baseline: moderate
-    status: planned
+    status: partial
     milestone: M2
     threats: []
     implementation: "Required tags (project, owner, milestone, data_class) enforced at create in both clouds."
     terraform: envs/persistent/org/scp.tf, envs/persistent/azure/governance.tf
-    evidence: evidence/M2/CM-8-aws-untagged-denied.txt
+    evidence: evidence/M2/CM-8-azure-untagged-denied.txt
     tested: null
     residual_risk: ""
   - id: AC-7
     title: Unsuccessful Logon Attempts
     baseline: moderate
-    status: planned
+    status: implemented
     milestone: M2
     threats: [T-12]
     implementation: "Entra smart lockout plus Security Defaults MFA for all users."

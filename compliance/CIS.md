@@ -14,11 +14,11 @@
 | IA-8 | Identification and Authentication of Non Organizational Users | implemented | M1 | evidence/M1/IA-8-oidc-main-success.txt |
 | AU-2 | Event Logging | partial | M1 | evidence/M1/AU-2-org-trail.txt |
 | CM-5 | Access Restrictions for Change | planned | M1 | evidence/M1/AC-3-oidc-pr-denied.txt |
-| CM-2 | Baseline Configuration | planned | M2 | evidence/M2/CM-2-effective-policies.txt |
+| CM-2 | Baseline Configuration | partial | M2 | evidence/M2/CM-2-azure-policy-assignments.txt |
 | CM-6 | Configuration Settings | planned | M2 | evidence/M2/CM-6-checkov-blocked.txt |
-| CM-7 | Least Functionality | planned | M2 | evidence/M2/CM-7-aws-region-denied.txt |
-| CM-8 | System Component Inventory | planned | M2 | evidence/M2/CM-8-aws-untagged-denied.txt |
-| AC-7 | Unsuccessful Logon Attempts | planned | M2 | evidence/M2/AC-7-entra-lockout.png |
+| CM-7 | Least Functionality | partial | M2 | evidence/M2/CM-7-azure-location-denied.txt |
+| CM-8 | System Component Inventory | partial | M2 | evidence/M2/CM-8-azure-untagged-denied.txt |
+| AC-7 | Unsuccessful Logon Attempts | implemented | M2 | evidence/M2/AC-7-entra-lockout.png |
 | AC-4 | Information Flow Enforcement | planned | M3 | evidence/M3/AC-4-endpoint-policy-deny.txt |
 | IA-3 | Device Identification and Authentication | planned | M3 | evidence/M3/IA-3-lambda-resource-policy.txt |
 | SC-5 | Denial of Service Protection | planned | M3 | evidence/M3/SC-5-lambda-limits.txt |
@@ -63,8 +63,8 @@
 |---|---|---|
 | M0 | 0 | 0 |
 | M1 | 4 | 4 |
-| M2 | 0 | 4 |
-| M3 | 0 | 4 |
-| M4 | 0 | 4 |
-| M5 | 0 | 4 |
-| M6 | 0 | 4 |
+| M2 | 1 | 5 |
+| M3 | 0 | 5 |
+| M4 | 0 | 5 |
+| M5 | 0 | 5 |
+| M6 | 0 | 5 |
