@@ -7,3 +7,9 @@
 | M1-3 | Management account root cannot be removed. MFA on, no keys, not used. | IA-5 | M1 |
 | M1-4 | One person holds every role, so separation of duties cannot be shown in the lab. | AC-5 | M1 |
 | M1-5 | Actions added by hand to the scoped deploy policy in 1.9: one line per action with its commit (to fill in). | AC-6 | M1 |
+| M2-1 | PIM not configured. Threat model B9 claims time bound activation; the breakglass group has no standing role and the hand-made emergency account is the real break glass. Revisit after M5. | AC-2 | M2 |
+| M2-2 | Emergency account sign in is not yet alerted. Alert on it in Session 5 (Sentinel). | AC-2 | M2 |
+| M2-3 | MFA is enforced by Entra Security Defaults, not Conditional Access: the P1/P2 trial cannot be activated on a tenant created by a personal Microsoft account. Covers every user, emergency account included; no per-app or per-location conditions, and the setting is a tenant switch, not code. Revisit if a P1 license becomes available. | IA-2 | M2 |
+| M2-4 | `meridian-deploy` custom role adds `Microsoft.Resources` resource group and deployment actions beyond the plan's five namespaces; the pipeline cannot create a resource group without them. | AC-6 | M2 |
+| M2-5 | NIST SP 800-53 Rev. 5 initiative assigned with enforcement off (audit only). | CA-7 | M2 |
+| M2-6 | Required tag Deny can block resource groups that Azure services create automatically; handled by hand. | CM-8 | M2 |
