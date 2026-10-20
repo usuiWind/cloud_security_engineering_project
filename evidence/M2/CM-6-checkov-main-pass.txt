@@ -1,0 +1,28 @@
+﻿# 2026-10-20T23:14:35Z  profile=mgmt-platform  exit=0
+$ gh run view 39379150178 --log | Select-String "Passed checks|Failed checks|Skipped"
+
+checkov	UNKNOWN STEP	2026-10-20T06:13:54.1424860Z Passed checks: 143, Failed checks: 0, Skipped checks: 21
+checkov	UNKNOWN STEP	2026-10-20T06:13:54.1896970Z 	SKIPPED for resource: aws_cloudtrail.org
+checkov	UNKNOWN STEP	2026-10-20T06:13:54.1899948Z 	SKIPPED for resource: aws_cloudtrail.org
+checkov	UNKNOWN STEP	2026-10-20T06:13:54.1902853Z 	SKIPPED for resource: module.breakglass_alert.aws_sns_topic.this
+checkov	UNKNOWN STEP	2026-10-20T06:13:54.1906323Z 	SKIPPED for resource: module.breakglass_alert.aws_sns_topic.this
+checkov	UNKNOWN STEP	2026-10-20T06:13:54.1910034Z 	SKIPPED for resource: module.state.aws_s3_bucket.this
+checkov	UNKNOWN STEP	2026-10-20T06:13:54.1912553Z 	SKIPPED for resource: module.log_archive.aws_s3_bucket.this
+checkov	UNKNOWN STEP	2026-10-20T06:13:54.1915224Z 	SKIPPED for resource: module.pipeline_state.aws_s3_bucket.this
+checkov	UNKNOWN STEP	2026-10-20T06:13:54.1917656Z 	SKIPPED for resource: module.state.aws_s3_bucket.this
+checkov	UNKNOWN STEP	2026-10-20T06:13:54.1920592Z 	SKIPPED for resource: module.log_archive.aws_s3_bucket.this
+checkov	UNKNOWN STEP	2026-10-20T06:13:54.1923281Z 	SKIPPED for resource: module.pipeline_state.aws_s3_bucket.this
+checkov	UNKNOWN STEP	2026-10-20T06:13:54.1925929Z 	SKIPPED for resource: aws_ssm_parameter.model_id
+checkov	UNKNOWN STEP	2026-10-20T06:13:54.1928849Z 	SKIPPED for resource: module.state.aws_s3_bucket.this
+checkov	UNKNOWN STEP	2026-10-20T06:13:54.1932079Z 	SKIPPED for resource: module.log_archive.aws_s3_bucket.this
+checkov	UNKNOWN STEP	2026-10-20T06:13:54.1935226Z 	SKIPPED for resource: module.pipeline_state.aws_s3_bucket.this
+checkov	UNKNOWN STEP	2026-10-20T06:13:54.1938203Z 	SKIPPED for resource: aws_cloudtrail.org
+checkov	UNKNOWN STEP	2026-10-20T06:13:54.1941581Z 	SKIPPED for resource: module.state.aws_s3_bucket.this
+checkov	UNKNOWN STEP	2026-10-20T06:13:54.1945112Z 	SKIPPED for resource: module.log_archive.aws_s3_bucket.this
+checkov	UNKNOWN STEP	2026-10-20T06:13:54.1948622Z 	SKIPPED for resource: module.pipeline_state.aws_s3_bucket.this
+checkov	UNKNOWN STEP	2026-10-20T06:13:54.1952238Z 	SKIPPED for resource: module.state.aws_s3_bucket.this
+checkov	UNKNOWN STEP	2026-10-20T06:13:54.1954917Z 	SKIPPED for resource: module.log_archive.aws_s3_bucket.this
+checkov	UNKNOWN STEP	2026-10-20T06:13:54.1957750Z 	SKIPPED for resource: module.pipeline_state.aws_s3_bucket.this
+
+
+

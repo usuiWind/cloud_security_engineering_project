@@ -1,0 +1,4 @@
+﻿# 2026-10-20T23:30:59Z  profile=mgmt-platform  exit=254
+$ aws ec2 run-instances --dry-run --image-id resolve:ssm:/aws/service/ami-amazon-linux-latest/al2023-ami-kernel-default-x86_64 --instance-type t3.micro --metadata-options HttpTokens=required --region us-east-1 --profile workload-engineer
+An error occurred (DryRunOperation) when calling the RunInstances operation: Request would have succeeded, but DryRun flag is set.
+

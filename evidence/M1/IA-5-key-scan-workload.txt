@@ -1,0 +1,6 @@
+﻿# 2026-10-19T06:33:10Z  profile=mgmt-platform  exit=0
+$ aws sts get-caller-identity --query Account --output text --profile workload-audit; aws iam get-account-summary --query "SummaryMap.AccountAccessKeysPresent" --profile workload-audit; aws iam list-users --query "length(Users)" --profile workload-audit
+622896097641
+0
+0
+

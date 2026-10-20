@@ -142,46 +142,46 @@ controls:
   - id: CM-2
     title: Baseline Configuration
     baseline: moderate
-    status: partial
+    status: implemented
     milestone: M2
     threats: []
-    implementation: "One intent file renders SCPs and the Azure Policy initiative."
+    implementation: "One intent file renders SCPs (meridian-allowed-regions, meridian-guardrails on the workloads OU) and the Azure Policy initiative at management group meridian; Azure detail in evidence/M2/CM-2-azure-policy-assignments.txt."
     terraform: policy/intent.auto.tfvars
-    evidence: evidence/M2/CM-2-azure-policy-assignments.txt
-    tested: null
+    evidence: evidence/M2/CM-2-effective-policies.txt
+    tested: 2026-10-20
     residual_risk: ""
   - id: CM-6
     title: Configuration Settings
     baseline: moderate
-    status: planned
+    status: implemented
     milestone: M2
     threats: []
-    implementation: "checkov on the Terraform plan in CI, no soft fail; every inline skip becomes a POA&M line."
+    implementation: "checkov 3.3.29 over every Terraform stack on each PR and push to main, no soft fail; every inline skip becomes a POA&M line. Scans source, not a plan (POA&M). Green baseline in evidence/M2/CM-6-checkov-main-pass.txt; Azure baseline settings in evidence/M2/CM-2-azure-policy-assignments.txt."
     terraform: .github/workflows/policy-gate.yml
     evidence: evidence/M2/CM-6-checkov-blocked.txt
-    tested: null
+    tested: 2026-10-20
     residual_risk: "CKV_AWS_26 skip on the break glass SNS topic (POA&M)."
   - id: CM-7
     title: Least Functionality
     baseline: moderate
-    status: partial
+    status: implemented
     milestone: M2
     threats: []
-    implementation: "SCP denies regions outside allowed_regions.aws; Azure allowed locations; IMDSv2 required."
+    implementation: "SCP denies regions outside allowed_regions.aws; IMDSv2 required (evidence/M2/CM-7-aws-imdsv1-denied.txt, success pair CM-7-aws-imdsv2-ok.txt); Azure allowed locations (evidence/M2/CM-7-azure-location-denied.txt, success pair CM-7-azure-compliant-ok.txt)."
     terraform: envs/persistent/org/scp.tf, envs/persistent/azure/governance.tf
-    evidence: evidence/M2/CM-7-azure-location-denied.txt
-    tested: null
+    evidence: evidence/M2/CM-7-aws-region-denied.txt
+    tested: 2026-10-20
     residual_risk: ""
   - id: CM-8
     title: System Component Inventory
     baseline: moderate
-    status: partial
+    status: implemented
     milestone: M2
     threats: []
-    implementation: "Required tags (project, owner, milestone, data_class) enforced at create in both clouds."
+    implementation: "Required tags (project, owner, milestone, data_class) enforced at create in both clouds: SCP one statement per tag on Lambda, DynamoDB, KMS, VPC creates (success pair evidence/M2/CM-8-aws-tagged-ok.txt); Azure tag policies on resource groups and resources (evidence/M2/CM-8-azure-untagged-denied.txt)."
     terraform: envs/persistent/org/scp.tf, envs/persistent/azure/governance.tf
-    evidence: evidence/M2/CM-8-azure-untagged-denied.txt
-    tested: null
+    evidence: evidence/M2/CM-8-aws-untagged-denied.txt
+    tested: 2026-10-20
     residual_risk: ""
   - id: AC-7
     title: Unsuccessful Logon Attempts
@@ -232,13 +232,13 @@ controls:
   - id: SC-7
     title: Boundary Protection
     baseline: moderate
-    status: planned
+    status: partial
     milestone: M3
     threats: [T-22]
-    implementation: "Private subnet, no IGW or NAT; SG egress 443 to endpoints and prefix lists only; S3 account public access block locked by SCP (M2); Azure storage and vault private only."
-    terraform: envs/ephemeral
-    evidence: evidence/M3/SC-7-no-path-without-endpoint.txt
-    tested: null
+    implementation: "M2: S3 account public access block locked by SCP; Azure public blob access denied by policy (evidence/M2/SC-7-azure-public-blob-denied.txt). M3: private subnet, no IGW or NAT; SG egress 443 to endpoints and prefix lists only; Azure storage and vault private only."
+    terraform: envs/persistent/org/scp.tf, envs/ephemeral
+    evidence: evidence/M2/SC-7-aws-public-access-denied.txt
+    tested: 2026-10-20
     residual_risk: "Single AZ (POA&M)."
   - id: SC-8
     title: Transmission Confidentiality and Integrity

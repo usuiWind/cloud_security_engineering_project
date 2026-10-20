@@ -1,0 +1,31 @@
+﻿# 2026-10-19T06:57:23Z  profile=  exit=0
+$ aws cloudtrail describe-trails --trail-name-list meridian-org-trail --profile mgmt-audit; aws cloudtrail get-trail-status --name meridian-org-trail --profile mgmt-audit
+{
+    "trailList": [
+        {
+            "Name": "meridian-org-trail",
+            "S3BucketName": "meridian-logs-797260139831",
+            "IncludeGlobalServiceEvents": true,
+            "IsMultiRegionTrail": true,
+            "HomeRegion": "us-east-1",
+            "TrailARN": "arn:aws:cloudtrail:us-east-1:797260139831:trail/meridian-org-trail",
+            "LogFileValidationEnabled": true,
+            "HasCustomEventSelectors": false,
+            "HasInsightSelectors": false,
+            "IsOrganizationTrail": true
+        }
+    ]
+}
+{
+    "IsLogging": true,
+    "LatestDeliveryTime": "2026-10-19T01:47:42.766000-05:00",
+    "StartLoggingTime": "2026-10-18T23:44:32.828000-05:00",
+    "LatestDigestDeliveryTime": "2026-10-19T01:08:54.103000-05:00",
+    "LatestDeliveryAttemptTime": "2026-10-19T06:47:42Z",
+    "LatestNotificationAttemptTime": "",
+    "LatestNotificationAttemptSucceeded": "",
+    "LatestDeliveryAttemptSucceeded": "2026-10-19T06:47:42Z",
+    "TimeLoggingStarted": "2026-10-19T04:44:32Z",
+    "TimeLoggingStopped": ""
+}
+

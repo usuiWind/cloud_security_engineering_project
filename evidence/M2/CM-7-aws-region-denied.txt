@@ -1,0 +1,4 @@
+﻿# 2026-10-20T23:28:38Z  profile=mgmt-platform  exit=254
+$ aws s3api create-bucket --bucket "m-test-$(Get-Random -Maximum 99999)" --region eu-central-1 --create-bucket-configuration LocationConstraint=eu-central-1 --profile workload-engineer
+An error occurred (AccessDenied) when calling the CreateBucket operation: User: arn:aws:sts::622896097641:assumed-role/AWSReservedSSO_Engineer_2572360652bc3d64/nextuse is not authorized to perform: s3:CreateBucket on resource: "arn:aws:s3:::m-test-32662" with an explicit deny in a service control policy: arn:aws:organizations::797260139831:policy/o-hsguteqhwe/service_control_policy/p-xevy7zc4
+

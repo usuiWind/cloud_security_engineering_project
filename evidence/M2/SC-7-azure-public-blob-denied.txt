@@ -1,0 +1,58 @@
+﻿# 2026-10-20T05:32:16Z  profile=  exit=1
+$ az storage account create -n "mtest$(Get-Random -Maximum 99999)" -g rg-meridian -l eastus --sku Standard_LRS --allow-blob-public-access true --tags project=meridian owner=austin milestone=M2 data_class=internal
+ERROR: (RequestDisallowedByPolicy) Resource 'mtest67885' was disallowed by policy. Policy identifiers: '[{"policyAssignment":{"name":"meridian baseline","id":"/providers/Microsoft.Management/managementGroups/meridian/providers/Microsoft.Authorization/policyAssignments/meridian-baseline"},"policyDefinition":{"name":"Storage account public access should be disallowed","id":"/providers/Microsoft.Authorization/policyDefinitions/4fa4b6c0-31ca-4c0d-b10d-24b96f62a751","version":"3.1.1"},"policySetDefinition":{"name":"meridian baseline","id":"/providers/Microsoft.Management/managementGroups/meridian/providers/Microsoft.Authorization/policySetDefinitions/meridian-baseline","version":"1.0.0"}}]'.
+Code: RequestDisallowedByPolicy
+Message: Resource 'mtest67885' was disallowed by policy. Policy identifiers: '[{"policyAssignment":{"name":"meridian baseline","id":"/providers/Microsoft.Management/managementGroups/meridian/providers/Microsoft.Authorization/policyAssignments/meridian-baseline"},"policyDefinition":{"name":"Storage account public access should be disallowed","id":"/providers/Microsoft.Authorization/policyDefinitions/4fa4b6c0-31ca-4c0d-b10d-24b96f62a751","version":"3.1.1"},"policySetDefinition":{"name":"meridian baseline","id":"/providers/Microsoft.Management/managementGroups/meridian/providers/Microsoft.Authorization/policySetDefinitions/meridian-baseline","version":"1.0.0"}}]'.
+Target: mtest67885
+Additional Information:Type: PolicyViolation
+Info: {
+    "evaluationDetails": {
+        "evaluatedExpressions": [
+            {
+                "result": "True",
+                "expressionKind": "Field",
+                "expression": "type",
+                "path": "type",
+                "expressionValue": "Microsoft.Storage/storageAccounts",
+                "targetValue": "Microsoft.Storage/storageAccounts",
+                "operator": "Equals"
+            },
+            {
+                "result": "False",
+                "expressionKind": "Field",
+                "expression": "id",
+                "path": "id",
+                "expressionValue": "/subscriptions/11b88d87-2dc9-41c0-b10d-e3dffd37b00e/resourceGroups/rg-meridian/providers/Microsoft.Storage/storageAccounts/mtest67885",
+                "targetValue": "/resourceGroups/aro-",
+                "operator": "Contains"
+            },
+            {
+                "result": "False",
+                "expressionKind": "Field",
+                "expression": "Microsoft.Storage/storageAccounts/allowBlobPublicAccess",
+                "path": "properties.allowBlobPublicAccess",
+                "expressionValue": true,
+                "targetValue": "false",
+                "operator": "Equals"
+            }
+        ]
+    },
+    "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/4fa4b6c0-31ca-4c0d-b10d-24b96f62a751",
+    "policySetDefinitionId": "/providers/Microsoft.Management/managementGroups/meridian/providers/Microsoft.Authorization/policySetDefinitions/meridian-baseline",
+    "policyDefinitionReferenceId": "storage-no-public-blob",
+    "policySetDefinitionName": "meridian-baseline",
+    "policySetDefinitionDisplayName": "meridian baseline",
+    "policySetDefinitionVersion": "1.0.0",
+    "policyDefinitionName": "4fa4b6c0-31ca-4c0d-b10d-24b96f62a751",
+    "policyDefinitionDisplayName": "Storage account public access should be disallowed",
+    "policyDefinitionVersion": "3.1.1",
+    "policyDefinitionEffect": "Deny",
+    "policyAssignmentId": "/providers/Microsoft.Management/managementGroups/meridian/providers/Microsoft.Authorization/policyAssignments/meridian-baseline",
+    "policyAssignmentName": "meridian-baseline",
+    "policyAssignmentDisplayName": "meridian baseline",
+    "policyAssignmentScope": "/providers/Microsoft.Management/managementGroups/meridian",
+    "policyAssignmentParameters": {},
+    "policyExemptionIds": [],
+    "policyEnrollmentIds": []
+}
+

@@ -1,0 +1,57 @@
+﻿# 2026-10-19T06:31:21Z  profile=mgmt-platform  exit=0
+$ aws iam get-role-policy --role-name meridian-gha-deploy --policy-name scoped --profile workload-audit
+{
+    "RoleName": "meridian-gha-deploy",
+    "PolicyName": "scoped",
+    "PolicyDocument": {
+        "Version": "2012-10-17",
+        "Statement": [
+            {
+                "Action": [
+                    "iam:GetAccountSummary",
+                    "iam:ListUsers"
+                ],
+                "Effect": "Allow",
+                "Resource": "*",
+                "Sid": "KeyScan"
+            },
+            {
+                "Action": "s3:ListBucket",
+                "Effect": "Allow",
+                "Resource": "arn:aws:s3:::meridian-tfstate-622896097641",
+                "Sid": "StateList"
+            },
+            {
+                "Action": [
+                    "s3:GetObject",
+                    "s3:PutObject",
+                    "s3:DeleteObject"
+                ],
+                "Effect": "Allow",
+                "Resource": "arn:aws:s3:::meridian-tfstate-622896097641/*",
+                "Sid": "StateObjects"
+            },
+            {
+                "Action": [
+                    "ssm:PutParameter",
+                    "ssm:GetParameter",
+                    "ssm:GetParameters",
+                    "ssm:DeleteParameter",
+                    "ssm:AddTagsToResource",
+                    "ssm:RemoveTagsFromResource",
+                    "ssm:ListTagsForResource"
+                ],
+                "Effect": "Allow",
+                "Resource": "arn:aws:ssm:us-east-1:622896097641:parameter/meridian/*",
+                "Sid": "AppConfig"
+            },
+            {
+                "Action": "ssm:DescribeParameters",
+                "Effect": "Allow",
+                "Resource": "*",
+                "Sid": "AppConfigDescribe"
+            }
+        ]
+    }
+}
+

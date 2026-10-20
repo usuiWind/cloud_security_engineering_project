@@ -1,0 +1,15 @@
+﻿# 2026-10-19T06:20:21Z  profile=mgmt-platform  exit=0
+$ (aws cloudtrail lookup-events --lookup-attributes AttributeKey=Username,AttributeValue=GitHubActions --max-items 200 --query "Events[].EventName" --output text --profile workload-audit) -split "\s+" | Group-Object | Sort-Object Count -Descending | Format-Table Count, Name -AutoSize
+
+Count Name               
+----- ----               
+    8 GetCallerIdentity  
+    1 GetParameter       
+    1 ListUsers          
+    1 GetAccountSummary  
+    1 DescribeParameters 
+    1 PutParameter       
+    1 ListTagsForResource
+
+
+

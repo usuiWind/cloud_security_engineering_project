@@ -1,0 +1,287 @@
+﻿# 2026-10-20T06:13:51Z  profile=  exit=0
+$ gh run view 39379150198 --log
+azure-login	Set up job	∩╗┐2026-10-20T06:13:29.7078369Z Current runner version: '2.337.0'
+azure-login	Set up job	2026-10-20T06:13:29.7104345Z ##[group]Runner Image Provisioner
+azure-login	Set up job	2026-10-20T06:13:29.7105314Z Hosted Compute Agent
+azure-login	Set up job	2026-10-20T06:13:29.7105957Z Version: 20261012.601
+azure-login	Set up job	2026-10-20T06:13:29.7106678Z Commit: f3dc54e1fb89da6852db922499a0233137369e1d
+azure-login	Set up job	2026-10-20T06:13:29.7107502Z Build Date: 2026-10-12T17:48:21Z
+azure-login	Set up job	2026-10-20T06:13:29.7108203Z Worker ID: {985567cf-a3b7-436a-b063-f2cd822500b7}
+azure-login	Set up job	2026-10-20T06:13:29.7108955Z Region: westus
+azure-login	Set up job	2026-10-20T06:13:29.7109537Z Cloud: Azure
+azure-login	Set up job	2026-10-20T06:13:29.7110121Z ##[endgroup]
+azure-login	Set up job	2026-10-20T06:13:29.7112270Z ##[group]Operating System
+azure-login	Set up job	2026-10-20T06:13:29.7112962Z Ubuntu
+azure-login	Set up job	2026-10-20T06:13:29.7113489Z 24.04.5
+azure-login	Set up job	2026-10-20T06:13:29.7114126Z LTS
+azure-login	Set up job	2026-10-20T06:13:29.7114722Z ##[endgroup]
+azure-login	Set up job	2026-10-20T06:13:29.7115722Z ##[group]Runner Image
+azure-login	Set up job	2026-10-20T06:13:29.7116405Z Image: ubuntu-24.04
+azure-login	Set up job	2026-10-20T06:13:29.7116980Z Version: 20261012.334.1
+azure-login	Set up job	2026-10-20T06:13:29.7118125Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20261012.334/images/ubuntu/Ubuntu2404-Readme.md
+azure-login	Set up job	2026-10-20T06:13:29.7120007Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20261012.334
+azure-login	Set up job	2026-10-20T06:13:29.7121236Z ##[endgroup]
+azure-login	Set up job	2026-10-20T06:13:29.7122408Z ##[group]GITHUB_TOKEN Permissions
+azure-login	Set up job	2026-10-20T06:13:29.7124629Z Contents: read
+azure-login	Set up job	2026-10-20T06:13:29.7125259Z Metadata: read
+azure-login	Set up job	2026-10-20T06:13:29.7125997Z ##[endgroup]
+azure-login	Set up job	2026-10-20T06:13:29.7128078Z Secret source: Actions
+azure-login	Set up job	2026-10-20T06:13:29.7129215Z Cache mode: write
+azure-login	Set up job	2026-10-20T06:13:29.7129973Z Prepare workflow directory
+azure-login	Set up job	2026-10-20T06:13:29.7480043Z Prepare all required actions
+azure-login	Set up job	2026-10-20T06:13:29.7532835Z Getting action download info
+azure-login	Set up job	2026-10-20T06:13:30.1086114Z Download action repository 'azure/login@v2' (SHA:7184910d9eb2b1c5e48f7073824a90609bb9b6d6)
+azure-login	Set up job	2026-10-20T06:13:30.5090406Z Complete job name: azure-login
+azure-login	Federate into Azure, no stored secret	∩╗┐2026-10-20T06:13:30.6029179Z ##[group]Run azure/login@v2
+azure-login	Federate into Azure, no stored secret	2026-10-20T06:13:30.6030117Z with:
+azure-login	Federate into Azure, no stored secret	2026-10-20T06:13:30.6030643Z   client-id: cff9f2cc-6989-4506-a871-62c6d3c43d40
+azure-login	Federate into Azure, no stored secret	2026-10-20T06:13:30.6031592Z   tenant-id: 201d985b-1557-4012-9958-564c74cb2d60
+azure-login	Federate into Azure, no stored secret	2026-10-20T06:13:30.6032305Z   subscription-id: 11b88d87-2dc9-41c0-b10d-e3dffd37b00e
+azure-login	Federate into Azure, no stored secret	2026-10-20T06:13:30.6032969Z   enable-AzPSSession: false
+azure-login	Federate into Azure, no stored secret	2026-10-20T06:13:30.6033488Z   environment: azurecloud
+azure-login	Federate into Azure, no stored secret	2026-10-20T06:13:30.6034011Z   allow-no-subscriptions: false
+azure-login	Federate into Azure, no stored secret	2026-10-20T06:13:30.6034581Z   audience: api://AzureADTokenExchange
+azure-login	Federate into Azure, no stored secret	2026-10-20T06:13:30.6035165Z   auth-type: SERVICE_PRINCIPAL
+azure-login	Federate into Azure, no stored secret	2026-10-20T06:13:30.6035940Z ##[endgroup]
+azure-login	Federate into Azure, no stored secret	2026-10-20T06:13:30.6596561Z Running Azure CLI Login.
+azure-login	Federate into Azure, no stored secret	2026-10-20T06:13:31.3903217Z [command]/usr/bin/az cloud set -n azurecloud
+azure-login	Federate into Azure, no stored secret	2026-10-20T06:13:31.7561075Z Done setting cloud: "azurecloud"
+azure-login	Federate into Azure, no stored secret	2026-10-20T06:13:32.0694569Z Federated token details:
+azure-login	Federate into Azure, no stored secret	2026-10-20T06:13:32.0695440Z  issuer - https://token.actions.githubusercontent.com
+azure-login	Federate into Azure, no stored secret	2026-10-20T06:13:32.0696796Z  subject claim - repo:usuiWind@178834418/cloud_security_engineering_project@1406480055:ref:refs/heads/main
+azure-login	Federate into Azure, no stored secret	2026-10-20T06:13:32.0697708Z  audience - api://AzureADTokenExchange
+azure-login	Federate into Azure, no stored secret	2026-10-20T06:13:32.0698525Z  job_workflow_ref - usuiWind/cloud_security_engineering_project/.github/workflows/deploy.yml@refs/heads/main
+azure-login	Federate into Azure, no stored secret	2026-10-20T06:13:32.0699362Z Attempting Azure CLI login by using OIDC...
+azure-login	Federate into Azure, no stored secret	2026-10-20T06:13:33.5183327Z Subscription is set successfully.
+azure-login	Federate into Azure, no stored secret	2026-10-20T06:13:33.5197966Z Azure CLI login succeeds by using OIDC.
+azure-login	Show who we are	∩╗┐2026-10-20T06:13:33.5409281Z ##[group]Run az account show --query "{subscription:id, tenant:tenantId, principal:user.name, type:user.type}" -o json
+azure-login	Show who we are	2026-10-20T06:13:33.5410643Z ^[[36;1maz account show --query "{subscription:id, tenant:tenantId, principal:user.name, type:user.type}" -o json^[[0m
+azure-login	Show who we are	2026-10-20T06:13:33.5693799Z shell: /usr/bin/bash -e {0}
+azure-login	Show who we are	2026-10-20T06:13:33.5694356Z ##[endgroup]
+azure-login	Show who we are	2026-10-20T06:13:33.8676064Z {
+azure-login	Show who we are	2026-10-20T06:13:33.8678433Z   "principal": "***",
+azure-login	Show who we are	2026-10-20T06:13:33.8679005Z   "subscription": "11b88d87-2dc9-41c0-b10d-e3dffd37b00e",
+azure-login	Show who we are	2026-10-20T06:13:33.8679649Z   "tenant": "201d985b-1557-4012-9958-564c74cb2d60",
+azure-login	Show who we are	2026-10-20T06:13:33.8680220Z   "type": "servicePrincipal"
+azure-login	Show who we are	2026-10-20T06:13:33.8681458Z }
+azure-login	Post Federate into Azure, no stored secret	∩╗┐2026-10-20T06:13:33.9229108Z Post job cleanup.
+azure-login	Post Federate into Azure, no stored secret	2026-10-20T06:13:33.9723861Z Clearing azure cli accounts from the local cache.
+azure-login	Post Federate into Azure, no stored secret	2026-10-20T06:13:33.9733898Z [command]/usr/bin/az account clear
+azure-login	Complete job	∩╗┐2026-10-20T06:13:34.8438681Z Cleaning up orphan processes
+azure-login	Complete job	2026-10-20T06:13:34.9124628Z Terminate orphan process: pid (2354) (python3)
+azure-login	Complete job	2026-10-20T06:13:34.9142862Z ##[warning]Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: azure/login@v2. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+deploy	Set up job	∩╗┐2026-10-20T06:13:36.3933980Z Current runner version: '2.337.0'
+deploy	Set up job	2026-10-20T06:13:36.3962146Z ##[group]Runner Image Provisioner
+deploy	Set up job	2026-10-20T06:13:36.3963204Z Hosted Compute Agent
+deploy	Set up job	2026-10-20T06:13:36.3963949Z Version: 20261012.601
+deploy	Set up job	2026-10-20T06:13:36.3964935Z Commit: f3dc54e1fb89da6852db922499a0233137369e1d
+deploy	Set up job	2026-10-20T06:13:36.3965824Z Build Date: 2026-10-12T17:48:21Z
+deploy	Set up job	2026-10-20T06:13:36.3966645Z Worker ID: {1b067e6d-cc77-44c4-a807-c07eceed3ad8}
+deploy	Set up job	2026-10-20T06:13:36.3967587Z Region: eastus
+deploy	Set up job	2026-10-20T06:13:36.3968264Z Cloud: Azure
+deploy	Set up job	2026-10-20T06:13:36.3969334Z ##[endgroup]
+deploy	Set up job	2026-10-20T06:13:36.3971361Z ##[group]Operating System
+deploy	Set up job	2026-10-20T06:13:36.3972141Z Ubuntu
+deploy	Set up job	2026-10-20T06:13:36.3972824Z 24.04.5
+deploy	Set up job	2026-10-20T06:13:36.3973510Z LTS
+deploy	Set up job	2026-10-20T06:13:36.3974152Z ##[endgroup]
+deploy	Set up job	2026-10-20T06:13:36.3975037Z ##[group]Runner Image
+deploy	Set up job	2026-10-20T06:13:36.3975769Z Image: ubuntu-24.04
+deploy	Set up job	2026-10-20T06:13:36.3976546Z Version: 20261012.334.1
+deploy	Set up job	2026-10-20T06:13:36.3977876Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20261012.334/images/ubuntu/Ubuntu2404-Readme.md
+deploy	Set up job	2026-10-20T06:13:36.3980079Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20261012.334
+deploy	Set up job	2026-10-20T06:13:36.3981295Z ##[endgroup]
+deploy	Set up job	2026-10-20T06:13:36.3982765Z ##[group]GITHUB_TOKEN Permissions
+deploy	Set up job	2026-10-20T06:13:36.3985156Z Contents: read
+deploy	Set up job	2026-10-20T06:13:36.3985982Z Metadata: read
+deploy	Set up job	2026-10-20T06:13:36.3986648Z ##[endgroup]
+deploy	Set up job	2026-10-20T06:13:36.3988949Z Secret source: Actions
+deploy	Set up job	2026-10-20T06:13:36.3990301Z Cache mode: write
+deploy	Set up job	2026-10-20T06:13:36.3991373Z Prepare workflow directory
+deploy	Set up job	2026-10-20T06:13:36.4350076Z Prepare all required actions
+deploy	Set up job	2026-10-20T06:13:36.4403791Z Getting action download info
+deploy	Set up job	2026-10-20T06:13:36.6209293Z Download action repository 'actions/checkout@v4' (SHA:11d5960a326750d5838078e36cf38b85af677262)
+deploy	Set up job	2026-10-20T06:13:36.7776999Z Download action repository 'aws-actions/configure-aws-credentials@v4' (SHA:7474bc4690e29a8392af63c5b98e7449536d5c3a)
+deploy	Set up job	2026-10-20T06:13:36.9279060Z Download action repository 'hashicorp/setup-terraform@v3' (SHA:b9cd54a3c349d3f38e8881555d616ced269862dd)
+deploy	Set up job	2026-10-20T06:13:37.1215233Z Complete job name: deploy
+deploy	Run actions/checkout@v4	∩╗┐2026-10-20T06:13:37.1822832Z ##[group]Run actions/checkout@v4
+deploy	Run actions/checkout@v4	2026-10-20T06:13:37.1823564Z with:
+deploy	Run actions/checkout@v4	2026-10-20T06:13:37.1823997Z   repository: usuiWind/cloud_security_engineering_project
+deploy	Run actions/checkout@v4	2026-10-20T06:13:37.1827484Z   token: ***
+deploy	Run actions/checkout@v4	2026-10-20T06:13:37.1827838Z   ssh-strict: true
+deploy	Run actions/checkout@v4	2026-10-20T06:13:37.1828186Z   ssh-user: git
+deploy	Run actions/checkout@v4	2026-10-20T06:13:37.1828542Z   persist-credentials: true
+deploy	Run actions/checkout@v4	2026-10-20T06:13:37.1828932Z   clean: true
+deploy	Run actions/checkout@v4	2026-10-20T06:13:37.1829292Z   sparse-checkout-cone-mode: true
+deploy	Run actions/checkout@v4	2026-10-20T06:13:37.1829701Z   fetch-depth: 1
+deploy	Run actions/checkout@v4	2026-10-20T06:13:37.1830045Z   fetch-tags: false
+deploy	Run actions/checkout@v4	2026-10-20T06:13:37.1830401Z   show-progress: true
+deploy	Run actions/checkout@v4	2026-10-20T06:13:37.1830759Z   lfs: false
+deploy	Run actions/checkout@v4	2026-10-20T06:13:37.1831093Z   submodules: false
+deploy	Run actions/checkout@v4	2026-10-20T06:13:37.1831451Z   set-safe-directory: true
+deploy	Run actions/checkout@v4	2026-10-20T06:13:37.1831849Z   allow-unsafe-pr-checkout: false
+deploy	Run actions/checkout@v4	2026-10-20T06:13:37.1832433Z ##[endgroup]
+deploy	Run actions/checkout@v4	2026-10-20T06:13:37.2680421Z Syncing repository: usuiWind/cloud_security_engineering_project
+deploy	Run actions/checkout@v4	2026-10-20T06:13:37.2682360Z ##[group]Getting Git version info
+deploy	Run actions/checkout@v4	2026-10-20T06:13:37.2683234Z Working directory is '/home/runner/work/cloud_security_engineering_project/cloud_security_engineering_project'
+deploy	Run actions/checkout@v4	2026-10-20T06:13:37.2684261Z [command]/usr/bin/git version
+deploy	Run actions/checkout@v4	2026-10-20T06:13:37.4449920Z git version 2.55.0
+deploy	Run actions/checkout@v4	2026-10-20T06:13:37.4466880Z ##[endgroup]
+deploy	Run actions/checkout@v4	2026-10-20T06:13:37.4479997Z Temporarily overriding HOME='/home/runner/work/_temp/3e87a1ed-4fee-43c8-a871-ef8ff60eeaaf' before making global git config changes
+deploy	Run actions/checkout@v4	2026-10-20T06:13:37.4481788Z Adding repository directory to the temporary git global config as a safe directory
+deploy	Run actions/checkout@v4	2026-10-20T06:13:37.4485794Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/cloud_security_engineering_project/cloud_security_engineering_project
+deploy	Run actions/checkout@v4	2026-10-20T06:13:37.4529594Z Deleting the contents of '/home/runner/work/cloud_security_engineering_project/cloud_security_engineering_project'
+deploy	Run actions/checkout@v4	2026-10-20T06:13:37.4533424Z ##[group]Initializing the repository
+deploy	Run actions/checkout@v4	2026-10-20T06:13:37.4537717Z [command]/usr/bin/git init /home/runner/work/cloud_security_engineering_project/cloud_security_engineering_project
+deploy	Run actions/checkout@v4	2026-10-20T06:13:37.4627671Z hint: Using 'master' as the name for the initial branch. This default branch name
+deploy	Run actions/checkout@v4	2026-10-20T06:13:37.4628996Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+deploy	Run actions/checkout@v4	2026-10-20T06:13:37.4630138Z hint: to use in all of your new repositories, which will suppress this warning,
+deploy	Run actions/checkout@v4	2026-10-20T06:13:37.4631048Z hint: call:
+deploy	Run actions/checkout@v4	2026-10-20T06:13:37.4631602Z hint:
+deploy	Run actions/checkout@v4	2026-10-20T06:13:37.4632285Z hint: 	git config --global init.defaultBranch <name>
+deploy	Run actions/checkout@v4	2026-10-20T06:13:37.4633046Z hint:
+deploy	Run actions/checkout@v4	2026-10-20T06:13:37.4633745Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+deploy	Run actions/checkout@v4	2026-10-20T06:13:37.4635068Z hint: 'development'. The just-created branch can be renamed via this command:
+deploy	Run actions/checkout@v4	2026-10-20T06:13:37.4636046Z hint:
+deploy	Run actions/checkout@v4	2026-10-20T06:13:37.4636580Z hint: 	git branch -m <name>
+deploy	Run actions/checkout@v4	2026-10-20T06:13:37.4637182Z hint:
+deploy	Run actions/checkout@v4	2026-10-20T06:13:37.4637967Z hint: Disable this message with "git config set advice.defaultBranchName false"
+deploy	Run actions/checkout@v4	2026-10-20T06:13:37.4639697Z Initialized empty Git repository in /home/runner/work/cloud_security_engineering_project/cloud_security_engineering_project/.git/
+deploy	Run actions/checkout@v4	2026-10-20T06:13:37.4641879Z [command]/usr/bin/git remote add origin https://github.com/usuiWind/cloud_security_engineering_project
+deploy	Run actions/checkout@v4	2026-10-20T06:13:37.4684499Z ##[endgroup]
+deploy	Run actions/checkout@v4	2026-10-20T06:13:37.4685649Z ##[group]Disabling automatic garbage collection
+deploy	Run actions/checkout@v4	2026-10-20T06:13:37.4688555Z [command]/usr/bin/git config --local gc.auto 0
+deploy	Run actions/checkout@v4	2026-10-20T06:13:37.4720685Z ##[endgroup]
+deploy	Run actions/checkout@v4	2026-10-20T06:13:37.4721292Z ##[group]Setting up auth
+deploy	Run actions/checkout@v4	2026-10-20T06:13:37.4727104Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+deploy	Run actions/checkout@v4	2026-10-20T06:13:37.4757019Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+deploy	Run actions/checkout@v4	2026-10-20T06:13:37.5117236Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+deploy	Run actions/checkout@v4	2026-10-20T06:13:37.5147771Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+deploy	Run actions/checkout@v4	2026-10-20T06:13:37.5341249Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+deploy	Run actions/checkout@v4	2026-10-20T06:13:37.5372427Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+deploy	Run actions/checkout@v4	2026-10-20T06:13:37.5566974Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+deploy	Run actions/checkout@v4	2026-10-20T06:13:37.5604706Z ##[endgroup]
+deploy	Run actions/checkout@v4	2026-10-20T06:13:37.5605759Z ##[group]Fetching the repository
+deploy	Run actions/checkout@v4	2026-10-20T06:13:37.5613676Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +2233aaa0d3b57f4d1a3ef0fd0aa0794eeef4b2b9:refs/remotes/origin/main
+deploy	Run actions/checkout@v4	2026-10-20T06:13:38.1948444Z From https://github.com/usuiWind/cloud_security_engineering_project
+deploy	Run actions/checkout@v4	2026-10-20T06:13:38.1949851Z  * [new ref]         2233aaa0d3b57f4d1a3ef0fd0aa0794eeef4b2b9 -> origin/main
+deploy	Run actions/checkout@v4	2026-10-20T06:13:38.1976459Z ##[endgroup]
+deploy	Run actions/checkout@v4	2026-10-20T06:13:38.1977435Z ##[group]Determining the checkout info
+deploy	Run actions/checkout@v4	2026-10-20T06:13:38.1978472Z ##[endgroup]
+deploy	Run actions/checkout@v4	2026-10-20T06:13:38.1979198Z [command]/usr/bin/git sparse-checkout disable
+deploy	Run actions/checkout@v4	2026-10-20T06:13:38.2015144Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+deploy	Run actions/checkout@v4	2026-10-20T06:13:38.2060550Z ##[group]Checking out the ref
+deploy	Run actions/checkout@v4	2026-10-20T06:13:38.2061355Z [command]/usr/bin/git checkout --progress --force -B main refs/remotes/origin/main
+deploy	Run actions/checkout@v4	2026-10-20T06:13:38.2177025Z Switched to a new branch 'main'
+deploy	Run actions/checkout@v4	2026-10-20T06:13:38.2225252Z branch 'main' set up to track 'origin/main'.
+deploy	Run actions/checkout@v4	2026-10-20T06:13:38.2231285Z ##[endgroup]
+deploy	Run actions/checkout@v4	2026-10-20T06:13:38.2271873Z [command]/usr/bin/git log -1 --format=%H
+deploy	Run actions/checkout@v4	2026-10-20T06:13:38.2296296Z 2233aaa0d3b57f4d1a3ef0fd0aa0794eeef4b2b9
+deploy	Federate into AWS, no stored secret	∩╗┐2026-10-20T06:13:38.2674392Z ##[group]Run aws-actions/configure-aws-credentials@v4
+deploy	Federate into AWS, no stored secret	2026-10-20T06:13:38.2675617Z with:
+deploy	Federate into AWS, no stored secret	2026-10-20T06:13:38.2676514Z   role-to-assume: arn:aws:iam::622896097641:role/meridian-gha-deploy
+deploy	Federate into AWS, no stored secret	2026-10-20T06:13:38.2677643Z   aws-region: us-east-1
+deploy	Federate into AWS, no stored secret	2026-10-20T06:13:38.2678373Z   audience: sts.amazonaws.com
+deploy	Federate into AWS, no stored secret	2026-10-20T06:13:38.2679171Z   output-env-credentials: true
+deploy	Federate into AWS, no stored secret	2026-10-20T06:13:38.2679928Z ##[endgroup]
+deploy	Federate into AWS, no stored secret	2026-10-20T06:13:38.4685738Z Assuming role with OIDC
+deploy	Federate into AWS, no stored secret	2026-10-20T06:13:38.5457567Z Authenticated as assumedRoleId AROAZCB4AFFU37G65KW6Y:GitHubActions
+deploy	Fail on any static credential	∩╗┐2026-10-20T06:13:38.5746909Z ##[group]Run ./scripts/key_scan.sh
+deploy	Fail on any static credential	2026-10-20T06:13:38.5747496Z ^[[36;1m./scripts/key_scan.sh^[[0m
+deploy	Fail on any static credential	2026-10-20T06:13:38.5949588Z shell: /usr/bin/bash -e {0}
+deploy	Fail on any static credential	2026-10-20T06:13:38.5950115Z env:
+deploy	Fail on any static credential	2026-10-20T06:13:38.5950488Z   AWS_DEFAULT_REGION: us-east-1
+deploy	Fail on any static credential	2026-10-20T06:13:38.5950910Z   AWS_REGION: us-east-1
+deploy	Fail on any static credential	2026-10-20T06:13:38.5951795Z   AWS_ACCESS_KEY_ID: ***
+deploy	Fail on any static credential	2026-10-20T06:13:38.5952400Z   AWS_SECRET_ACCESS_KEY: ***
+deploy	Fail on any static credential	2026-10-20T06:13:38.5956736Z   AWS_SESSION_TOKEN: ***
+deploy	Fail on any static credential	2026-10-20T06:13:38.5957139Z ##[endgroup]
+deploy	Fail on any static credential	2026-10-20T06:13:45.9950501Z account: 622896097641  root access keys: 0  iam users: 0
+deploy	Fail on any static credential	2026-10-20T06:13:45.9951526Z PASS no static credentials
+deploy	Run hashicorp/setup-terraform@v3	∩╗┐2026-10-20T06:13:46.0034879Z ##[group]Run hashicorp/setup-terraform@v3
+deploy	Run hashicorp/setup-terraform@v3	2026-10-20T06:13:46.0035172Z with:
+deploy	Run hashicorp/setup-terraform@v3	2026-10-20T06:13:46.0035360Z   terraform_version: ^1.11.0
+deploy	Run hashicorp/setup-terraform@v3	2026-10-20T06:13:46.0035604Z   cli_config_credentials_hostname: app.terraform.io
+deploy	Run hashicorp/setup-terraform@v3	2026-10-20T06:13:46.0035873Z   terraform_wrapper: true
+deploy	Run hashicorp/setup-terraform@v3	2026-10-20T06:13:46.0036072Z env:
+deploy	Run hashicorp/setup-terraform@v3	2026-10-20T06:13:46.0036247Z   AWS_DEFAULT_REGION: us-east-1
+deploy	Run hashicorp/setup-terraform@v3	2026-10-20T06:13:46.0036858Z   AWS_REGION: us-east-1
+deploy	Run hashicorp/setup-terraform@v3	2026-10-20T06:13:46.0037192Z   AWS_ACCESS_KEY_ID: ***
+deploy	Run hashicorp/setup-terraform@v3	2026-10-20T06:13:46.0037489Z   AWS_SECRET_ACCESS_KEY: ***
+deploy	Run hashicorp/setup-terraform@v3	2026-10-20T06:13:46.0040969Z   AWS_SESSION_TOKEN: ***
+deploy	Run hashicorp/setup-terraform@v3	2026-10-20T06:13:46.0041185Z ##[endgroup]
+deploy	Run hashicorp/setup-terraform@v3	2026-10-20T06:13:46.1128689Z (node:2175) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
+deploy	Run hashicorp/setup-terraform@v3	2026-10-20T06:13:46.1129856Z (Use `node --trace-deprecation ...` to show where the warning was created)
+deploy	Run hashicorp/setup-terraform@v3	2026-10-20T06:13:46.4034665Z [command]/usr/bin/unzip -o -q /home/runner/work/_temp/756a81a5-ea07-4753-ac0e-1735cb68d7c1
+deploy	Init	∩╗┐2026-10-20T06:13:47.0721428Z ##[group]Run terraform init -input=false -backend-config="bucket=meridian-tfstate-622896097641"
+deploy	Init	2026-10-20T06:13:47.0722048Z ^[[36;1mterraform init -input=false -backend-config="bucket=meridian-tfstate-622896097641"^[[0m
+deploy	Init	2026-10-20T06:13:47.0783943Z shell: /usr/bin/bash -e {0}
+deploy	Init	2026-10-20T06:13:47.0784178Z env:
+deploy	Init	2026-10-20T06:13:47.0784361Z   AWS_DEFAULT_REGION: us-east-1
+deploy	Init	2026-10-20T06:13:47.0784780Z   AWS_REGION: us-east-1
+deploy	Init	2026-10-20T06:13:47.0785096Z   AWS_ACCESS_KEY_ID: ***
+deploy	Init	2026-10-20T06:13:47.0785384Z   AWS_SECRET_ACCESS_KEY: ***
+deploy	Init	2026-10-20T06:13:47.0788882Z   AWS_SESSION_TOKEN: ***
+deploy	Init	2026-10-20T06:13:47.0789197Z   TERRAFORM_CLI_PATH: /home/runner/work/_temp/17fb8fe3-927b-4b2c-926a-dd1335ab5824
+deploy	Init	2026-10-20T06:13:47.0789534Z ##[endgroup]
+deploy	Init	2026-10-20T06:13:47.8084725Z ^[[0m^[[1mInitializing the backend...^[[0m
+deploy	Init	2026-10-20T06:13:47.9654784Z ^[[0m^[[32m
+deploy	Init	2026-10-20T06:13:47.9655372Z Successfully configured the backend "s3"! Terraform will automatically
+deploy	Init	2026-10-20T06:13:47.9655896Z use this backend unless the backend configuration changes.^[[0m
+deploy	Init	2026-10-20T06:13:47.9656230Z 
+deploy	Init	2026-10-20T06:13:48.0371245Z ^[[0m^[[1mInitializing provider plugins...^[[0m
+deploy	Init	2026-10-20T06:13:48.0371851Z - Finding hashicorp/aws versions matching "~> 6.0"...
+deploy	Init	2026-10-20T06:13:48.1423335Z - Installing hashicorp/aws v6.69.1...
+deploy	Init	2026-10-20T06:13:51.7141485Z - Installed hashicorp/aws v6.69.1 (signed by HashiCorp)
+deploy	Init	2026-10-20T06:13:51.7141904Z 
+deploy	Init	2026-10-20T06:13:51.7142471Z Terraform has created a lock file ^[[1m.terraform.lock.hcl^[[0m to record the provider
+deploy	Init	2026-10-20T06:13:51.7143319Z selections it made above. Include this file in your version control repository
+deploy	Init	2026-10-20T06:13:51.7154382Z so that Terraform can guarantee to make the same selections by default when
+deploy	Init	2026-10-20T06:13:51.7155322Z you run "terraform init" in the future.^[[0m
+deploy	Init	2026-10-20T06:13:51.7155647Z 
+deploy	Init	2026-10-20T06:13:51.7155970Z ^[[0m^[[1m^[[32mTerraform has been successfully initialized!^[[0m^[[32m^[[0m
+deploy	Init	2026-10-20T06:13:51.7156358Z ^[[0m^[[32m
+deploy	Init	2026-10-20T06:13:51.7156629Z You may now begin working with Terraform. Try running "terraform plan" to see
+deploy	Init	2026-10-20T06:13:51.7157059Z any changes that are required for your infrastructure. All Terraform commands
+deploy	Init	2026-10-20T06:13:51.7157377Z should now work.
+deploy	Init	2026-10-20T06:13:51.7157488Z 
+deploy	Init	2026-10-20T06:13:51.7157646Z If you ever set or change modules or backend configuration for Terraform,
+deploy	Init	2026-10-20T06:13:51.7158074Z rerun this command to reinitialize your working directory. If you forget, other
+deploy	Init	2026-10-20T06:13:51.7158502Z commands will detect it and remind you to do so if necessary.^[[0m
+deploy	Apply	∩╗┐2026-10-20T06:13:51.7274737Z ##[group]Run terraform apply -input=false -auto-approve
+deploy	Apply	2026-10-20T06:13:51.7275188Z ^[[36;1mterraform apply -input=false -auto-approve^[[0m
+deploy	Apply	2026-10-20T06:13:51.7330918Z shell: /usr/bin/bash -e {0}
+deploy	Apply	2026-10-20T06:13:51.7331138Z env:
+deploy	Apply	2026-10-20T06:13:51.7331326Z   AWS_DEFAULT_REGION: us-east-1
+deploy	Apply	2026-10-20T06:13:51.7331542Z   AWS_REGION: us-east-1
+deploy	Apply	2026-10-20T06:13:51.7331880Z   AWS_ACCESS_KEY_ID: ***
+deploy	Apply	2026-10-20T06:13:51.7332153Z   AWS_SECRET_ACCESS_KEY: ***
+deploy	Apply	2026-10-20T06:13:51.7335817Z   AWS_SESSION_TOKEN: ***
+deploy	Apply	2026-10-20T06:13:51.7336121Z   TERRAFORM_CLI_PATH: /home/runner/work/_temp/17fb8fe3-927b-4b2c-926a-dd1335ab5824
+deploy	Apply	2026-10-20T06:13:51.7336451Z ##[endgroup]
+deploy	Apply	2026-10-20T06:13:54.1937266Z ^[[0m^[[1maws_ssm_parameter.model_id: Refreshing state... [id=/meridian/config/model_id]^[[0m
+deploy	Apply	2026-10-20T06:13:54.4418426Z 
+deploy	Apply	2026-10-20T06:13:54.4419412Z ^[[0m^[[1m^[[32mNo changes.^[[0m^[[1m Your infrastructure matches the configuration.^[[0m
+deploy	Apply	2026-10-20T06:13:54.4419850Z 
+deploy	Apply	2026-10-20T06:13:54.4420210Z ^[[0mTerraform has compared your real infrastructure against your configuration
+deploy	Apply	2026-10-20T06:13:54.4420870Z and found no differences, so no changes are needed.
+deploy	Apply	2026-10-20T06:13:54.7596325Z ^[[0m^[[1m^[[32m
+deploy	Apply	2026-10-20T06:13:54.7596836Z Apply complete! Resources: 0 added, 0 changed, 0 destroyed.^[[0m
+deploy	Post Federate into AWS, no stored secret	∩╗┐2026-10-20T06:13:54.7786426Z Post job cleanup.
+deploy	Post Run actions/checkout@v4	∩╗┐2026-10-20T06:13:54.8730435Z Post job cleanup.
+deploy	Post Run actions/checkout@v4	2026-10-20T06:13:54.9442076Z [command]/usr/bin/git version
+deploy	Post Run actions/checkout@v4	2026-10-20T06:13:54.9479102Z git version 2.55.0
+deploy	Post Run actions/checkout@v4	2026-10-20T06:13:54.9511164Z Temporarily overriding HOME='/home/runner/work/_temp/31697afe-0832-499a-8b43-c8920e13212f' before making global git config changes
+deploy	Post Run actions/checkout@v4	2026-10-20T06:13:54.9511936Z Adding repository directory to the temporary git global config as a safe directory
+deploy	Post Run actions/checkout@v4	2026-10-20T06:13:54.9516433Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/cloud_security_engineering_project/cloud_security_engineering_project
+deploy	Post Run actions/checkout@v4	2026-10-20T06:13:54.9547812Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+deploy	Post Run actions/checkout@v4	2026-10-20T06:13:54.9576872Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+deploy	Post Run actions/checkout@v4	2026-10-20T06:13:54.9796668Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+deploy	Post Run actions/checkout@v4	2026-10-20T06:13:54.9819693Z http.https://github.com/.extraheader
+deploy	Post Run actions/checkout@v4	2026-10-20T06:13:54.9829178Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+deploy	Post Run actions/checkout@v4	2026-10-20T06:13:54.9858975Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+deploy	Post Run actions/checkout@v4	2026-10-20T06:13:55.0078382Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+deploy	Post Run actions/checkout@v4	2026-10-20T06:13:55.0115560Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+deploy	Complete job	∩╗┐2026-10-20T06:13:55.0470655Z Cleaning up orphan processes
+deploy	Complete job	2026-10-20T06:13:55.0704921Z ##[warning]Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4, aws-actions/configure-aws-credentials@v4, hashicorp/setup-terraform@v3. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+

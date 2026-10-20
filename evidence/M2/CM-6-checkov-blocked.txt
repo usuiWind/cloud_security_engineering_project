@@ -1,0 +1,1301 @@
+﻿# 2026-10-20T23:23:06Z  profile=mgmt-platform  exit=0
+$ gh run view 39514293479 --log
+checkov	Set up job	∩╗┐2026-10-20T23:19:58.9235631Z Current runner version: '2.338.0'
+checkov	Set up job	2026-10-20T23:19:58.9260550Z ##[group]Runner Image Provisioner
+checkov	Set up job	2026-10-20T23:19:58.9261652Z Hosted Compute Agent
+checkov	Set up job	2026-10-20T23:19:58.9262270Z Version: 20261012.601
+checkov	Set up job	2026-10-20T23:19:58.9263011Z Commit: f3dc54e1fb89da6852db922499a0233137369e1d
+checkov	Set up job	2026-10-20T23:19:58.9263760Z Build Date: 2026-10-12T17:48:21Z
+checkov	Set up job	2026-10-20T23:19:58.9264438Z Worker ID: {117160d2-69c4-4da6-a165-0934df471425}
+checkov	Set up job	2026-10-20T23:19:58.9265214Z Region: westus
+checkov	Set up job	2026-10-20T23:19:58.9266039Z Cloud: Azure
+checkov	Set up job	2026-10-20T23:19:58.9266683Z ##[endgroup]
+checkov	Set up job	2026-10-20T23:19:58.9268540Z ##[group]Operating System
+checkov	Set up job	2026-10-20T23:19:58.9269208Z Ubuntu
+checkov	Set up job	2026-10-20T23:19:58.9269863Z 24.04.5
+checkov	Set up job	2026-10-20T23:19:58.9270386Z LTS
+checkov	Set up job	2026-10-20T23:19:58.9271316Z ##[endgroup]
+checkov	Set up job	2026-10-20T23:19:58.9271943Z ##[group]Runner Image
+checkov	Set up job	2026-10-20T23:19:58.9272554Z Image: ubuntu-24.04
+checkov	Set up job	2026-10-20T23:19:58.9273178Z Version: 20261012.334.1
+checkov	Set up job	2026-10-20T23:19:58.9274264Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20261012.334/images/ubuntu/Ubuntu2404-Readme.md
+checkov	Set up job	2026-10-20T23:19:58.9276324Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20261012.334
+checkov	Set up job	2026-10-20T23:19:58.9277484Z ##[endgroup]
+checkov	Set up job	2026-10-20T23:19:58.9278709Z ##[group]GITHUB_TOKEN Permissions
+checkov	Set up job	2026-10-20T23:19:58.9280629Z Contents: read
+checkov	Set up job	2026-10-20T23:19:58.9281372Z Metadata: read
+checkov	Set up job	2026-10-20T23:19:58.9282273Z ##[endgroup]
+checkov	Set up job	2026-10-20T23:19:58.9285255Z Secret source: Actions
+checkov	Set up job	2026-10-20T23:19:58.9287259Z Cache mode: write
+checkov	Set up job	2026-10-20T23:19:58.9288162Z Prepare workflow directory
+checkov	Set up job	2026-10-20T23:19:58.9643479Z Prepare all required actions
+checkov	Set up job	2026-10-20T23:19:58.9717439Z Getting action download info
+checkov	Set up job	2026-10-20T23:19:59.3371094Z Download action repository 'actions/checkout@v4' (SHA:11d5960a326750d5838078e36cf38b85af677262)
+checkov	Set up job	2026-10-20T23:19:59.4301225Z Download action repository 'actions/setup-python@v5' (SHA:a26af69be951a213d495a4c3e4e4022e16d87065)
+checkov	Set up job	2026-10-20T23:19:59.6260452Z Complete job name: checkov
+checkov	Run actions/checkout@v4	∩╗┐2026-10-20T23:19:59.7062575Z ##[group]Run actions/checkout@v4
+checkov	Run actions/checkout@v4	2026-10-20T23:19:59.7063523Z with:
+checkov	Run actions/checkout@v4	2026-10-20T23:19:59.7064087Z   repository: usuiWind/cloud_security_engineering_project
+checkov	Run actions/checkout@v4	2026-10-20T23:19:59.7068222Z   token: ***
+checkov	Run actions/checkout@v4	2026-10-20T23:19:59.7068692Z   ssh-strict: true
+checkov	Run actions/checkout@v4	2026-10-20T23:19:59.7069150Z   ssh-user: git
+checkov	Run actions/checkout@v4	2026-10-20T23:19:59.7069609Z   persist-credentials: true
+checkov	Run actions/checkout@v4	2026-10-20T23:19:59.7070194Z   clean: true
+checkov	Run actions/checkout@v4	2026-10-20T23:19:59.7070659Z   sparse-checkout-cone-mode: true
+checkov	Run actions/checkout@v4	2026-10-20T23:19:59.7071185Z   fetch-depth: 1
+checkov	Run actions/checkout@v4	2026-10-20T23:19:59.7071668Z   fetch-tags: false
+checkov	Run actions/checkout@v4	2026-10-20T23:19:59.7072125Z   show-progress: true
+checkov	Run actions/checkout@v4	2026-10-20T23:19:59.7072581Z   lfs: false
+checkov	Run actions/checkout@v4	2026-10-20T23:19:59.7073003Z   submodules: false
+checkov	Run actions/checkout@v4	2026-10-20T23:19:59.7073459Z   set-safe-directory: true
+checkov	Run actions/checkout@v4	2026-10-20T23:19:59.7073975Z   allow-unsafe-pr-checkout: false
+checkov	Run actions/checkout@v4	2026-10-20T23:19:59.7074808Z ##[endgroup]
+checkov	Run actions/checkout@v4	2026-10-20T23:19:59.8053823Z Syncing repository: usuiWind/cloud_security_engineering_project
+checkov	Run actions/checkout@v4	2026-10-20T23:19:59.8057055Z ##[group]Getting Git version info
+checkov	Run actions/checkout@v4	2026-10-20T23:19:59.8058882Z Working directory is '/home/runner/work/cloud_security_engineering_project/cloud_security_engineering_project'
+checkov	Run actions/checkout@v4	2026-10-20T23:19:59.8061279Z [command]/usr/bin/git version
+checkov	Run actions/checkout@v4	2026-10-20T23:19:59.8138585Z git version 2.55.0
+checkov	Run actions/checkout@v4	2026-10-20T23:19:59.8162874Z ##[endgroup]
+checkov	Run actions/checkout@v4	2026-10-20T23:19:59.8180853Z Temporarily overriding HOME='/home/runner/work/_temp/c03ed736-634c-4827-8f19-de85301bb8ab' before making global git config changes
+checkov	Run actions/checkout@v4	2026-10-20T23:19:59.8182524Z Adding repository directory to the temporary git global config as a safe directory
+checkov	Run actions/checkout@v4	2026-10-20T23:19:59.8187928Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/cloud_security_engineering_project/cloud_security_engineering_project
+checkov	Run actions/checkout@v4	2026-10-20T23:19:59.8243510Z Deleting the contents of '/home/runner/work/cloud_security_engineering_project/cloud_security_engineering_project'
+checkov	Run actions/checkout@v4	2026-10-20T23:19:59.8248962Z ##[group]Initializing the repository
+checkov	Run actions/checkout@v4	2026-10-20T23:19:59.8254071Z [command]/usr/bin/git init /home/runner/work/cloud_security_engineering_project/cloud_security_engineering_project
+checkov	Run actions/checkout@v4	2026-10-20T23:19:59.8365279Z hint: Using 'master' as the name for the initial branch. This default branch name
+checkov	Run actions/checkout@v4	2026-10-20T23:19:59.8367209Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+checkov	Run actions/checkout@v4	2026-10-20T23:19:59.8368815Z hint: to use in all of your new repositories, which will suppress this warning,
+checkov	Run actions/checkout@v4	2026-10-20T23:19:59.8370035Z hint: call:
+checkov	Run actions/checkout@v4	2026-10-20T23:19:59.8370678Z hint:
+checkov	Run actions/checkout@v4	2026-10-20T23:19:59.8371544Z hint: 	git config --global init.defaultBranch <name>
+checkov	Run actions/checkout@v4	2026-10-20T23:19:59.8372657Z hint:
+checkov	Run actions/checkout@v4	2026-10-20T23:19:59.8373720Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+checkov	Run actions/checkout@v4	2026-10-20T23:19:59.8375339Z hint: 'development'. The just-created branch can be renamed via this command:
+checkov	Run actions/checkout@v4	2026-10-20T23:19:59.8376829Z hint:
+checkov	Run actions/checkout@v4	2026-10-20T23:19:59.8377553Z hint: 	git branch -m <name>
+checkov	Run actions/checkout@v4	2026-10-20T23:19:59.8378378Z hint:
+checkov	Run actions/checkout@v4	2026-10-20T23:19:59.8379461Z hint: Disable this message with "git config set advice.defaultBranchName false"
+checkov	Run actions/checkout@v4	2026-10-20T23:19:59.8381792Z Initialized empty Git repository in /home/runner/work/cloud_security_engineering_project/cloud_security_engineering_project/.git/
+checkov	Run actions/checkout@v4	2026-10-20T23:19:59.8385552Z [command]/usr/bin/git remote add origin https://github.com/usuiWind/cloud_security_engineering_project
+checkov	Run actions/checkout@v4	2026-10-20T23:19:59.8427838Z ##[endgroup]
+checkov	Run actions/checkout@v4	2026-10-20T23:19:59.8429083Z ##[group]Disabling automatic garbage collection
+checkov	Run actions/checkout@v4	2026-10-20T23:19:59.8431793Z [command]/usr/bin/git config --local gc.auto 0
+checkov	Run actions/checkout@v4	2026-10-20T23:19:59.8469250Z ##[endgroup]
+checkov	Run actions/checkout@v4	2026-10-20T23:19:59.8470540Z ##[group]Setting up auth
+checkov	Run actions/checkout@v4	2026-10-20T23:19:59.8474475Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+checkov	Run actions/checkout@v4	2026-10-20T23:19:59.8512579Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+checkov	Run actions/checkout@v4	2026-10-20T23:19:59.8896546Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+checkov	Run actions/checkout@v4	2026-10-20T23:19:59.8939150Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+checkov	Run actions/checkout@v4	2026-10-20T23:19:59.9183718Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+checkov	Run actions/checkout@v4	2026-10-20T23:19:59.9222990Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+checkov	Run actions/checkout@v4	2026-10-20T23:19:59.9451882Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+checkov	Run actions/checkout@v4	2026-10-20T23:19:59.9493574Z ##[endgroup]
+checkov	Run actions/checkout@v4	2026-10-20T23:19:59.9494710Z ##[group]Fetching the repository
+checkov	Run actions/checkout@v4	2026-10-20T23:19:59.9503978Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +37b7cd91c1f27dc786179255286c5f0bb6680d3a:refs/remotes/pull/4/merge
+checkov	Run actions/checkout@v4	2026-10-20T23:20:00.5414825Z From https://github.com/usuiWind/cloud_security_engineering_project
+checkov	Run actions/checkout@v4	2026-10-20T23:20:00.5416972Z  * [new ref]         37b7cd91c1f27dc786179255286c5f0bb6680d3a -> pull/4/merge
+checkov	Run actions/checkout@v4	2026-10-20T23:20:00.5420535Z ##[endgroup]
+checkov	Run actions/checkout@v4	2026-10-20T23:20:00.5421555Z ##[group]Determining the checkout info
+checkov	Run actions/checkout@v4	2026-10-20T23:20:00.5422812Z ##[endgroup]
+checkov	Run actions/checkout@v4	2026-10-20T23:20:00.5429882Z [command]/usr/bin/git sparse-checkout disable
+checkov	Run actions/checkout@v4	2026-10-20T23:20:00.5483464Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+checkov	Run actions/checkout@v4	2026-10-20T23:20:00.5540502Z ##[group]Checking out the ref
+checkov	Run actions/checkout@v4	2026-10-20T23:20:00.5543550Z [command]/usr/bin/git checkout --progress --force refs/remotes/pull/4/merge
+checkov	Run actions/checkout@v4	2026-10-20T23:20:00.5656733Z Note: switching to 'refs/remotes/pull/4/merge'.
+checkov	Run actions/checkout@v4	2026-10-20T23:20:00.5657584Z 
+checkov	Run actions/checkout@v4	2026-10-20T23:20:00.5658216Z You are in 'detached HEAD' state. You can look around, make experimental
+checkov	Run actions/checkout@v4	2026-10-20T23:20:00.5659271Z changes and commit them, and you can discard any commits you make in this
+checkov	Run actions/checkout@v4	2026-10-20T23:20:00.5660295Z state without impacting any branches by switching back to a branch.
+checkov	Run actions/checkout@v4	2026-10-20T23:20:00.5661213Z 
+checkov	Run actions/checkout@v4	2026-10-20T23:20:00.5661663Z If you want to create a new branch to retain commits you create, you may
+checkov	Run actions/checkout@v4	2026-10-20T23:20:00.5662605Z do so (now or later) by using -c with the switch command. Example:
+checkov	Run actions/checkout@v4	2026-10-20T23:20:00.5663208Z 
+checkov	Run actions/checkout@v4	2026-10-20T23:20:00.5663460Z   git switch -c <new-branch-name>
+checkov	Run actions/checkout@v4	2026-10-20T23:20:00.5663852Z 
+checkov	Run actions/checkout@v4	2026-10-20T23:20:00.5664087Z Or undo this operation with:
+checkov	Run actions/checkout@v4	2026-10-20T23:20:00.5664456Z 
+checkov	Run actions/checkout@v4	2026-10-20T23:20:00.5664728Z   git switch -
+checkov	Run actions/checkout@v4	2026-10-20T23:20:00.5665057Z 
+checkov	Run actions/checkout@v4	2026-10-20T23:20:00.5665911Z Turn off this advice by setting config variable advice.detachedHead to false
+checkov	Run actions/checkout@v4	2026-10-20T23:20:00.5667067Z 
+checkov	Run actions/checkout@v4	2026-10-20T23:20:00.5668255Z HEAD is now at 37b7cd9 Merge c6092a9a41ddc98f86493f5bfacbd56337e5ac9b into 54a552d7eb1aec3b260bdf715a8026db8fe3f7c3
+checkov	Run actions/checkout@v4	2026-10-20T23:20:00.5670568Z ##[endgroup]
+checkov	Run actions/checkout@v4	2026-10-20T23:20:00.5713069Z [command]/usr/bin/git log -1 --format=%H
+checkov	Run actions/checkout@v4	2026-10-20T23:20:00.5739496Z 37b7cd91c1f27dc786179255286c5f0bb6680d3a
+checkov	Run actions/setup-python@v5	∩╗┐2026-10-20T23:20:00.6044955Z ##[group]Run actions/setup-python@v5
+checkov	Run actions/setup-python@v5	2026-10-20T23:20:00.6045900Z with:
+checkov	Run actions/setup-python@v5	2026-10-20T23:20:00.6046371Z   python-version: 3.12
+checkov	Run actions/setup-python@v5	2026-10-20T23:20:00.6046890Z   check-latest: false
+checkov	Run actions/setup-python@v5	2026-10-20T23:20:00.6050542Z   token: ***
+checkov	Run actions/setup-python@v5	2026-10-20T23:20:00.6051019Z   update-environment: true
+checkov	Run actions/setup-python@v5	2026-10-20T23:20:00.6051553Z   allow-prereleases: false
+checkov	Run actions/setup-python@v5	2026-10-20T23:20:00.6052091Z   freethreaded: false
+checkov	Run actions/setup-python@v5	2026-10-20T23:20:00.6052571Z ##[endgroup]
+checkov	Run actions/setup-python@v5	2026-10-20T23:20:00.7399905Z ##[group]Installed versions
+checkov	Run actions/setup-python@v5	2026-10-20T23:20:00.7493005Z (node:2227) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+checkov	Run actions/setup-python@v5	2026-10-20T23:20:00.7496003Z (Use `node --trace-deprecation ...` to show where the warning was created)
+checkov	Run actions/setup-python@v5	2026-10-20T23:20:00.7497900Z Successfully set up CPython (3.12.15)
+checkov	Run actions/setup-python@v5	2026-10-20T23:20:00.7500107Z ##[endgroup]
+checkov	Install checkov	∩╗┐2026-10-20T23:20:00.7703323Z ##[group]Run pip install checkov==3.3.29
+checkov	Install checkov	2026-10-20T23:20:00.7704216Z ^[[36;1mpip install checkov==3.3.29^[[0m
+checkov	Install checkov	2026-10-20T23:20:00.8005242Z shell: /usr/bin/bash -e {0}
+checkov	Install checkov	2026-10-20T23:20:00.8006573Z env:
+checkov	Install checkov	2026-10-20T23:20:00.8007486Z   pythonLocation: /opt/hostedtoolcache/Python/3.12.15/x64
+checkov	Install checkov	2026-10-20T23:20:00.8009025Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.12.15/x64/lib/pkgconfig
+checkov	Install checkov	2026-10-20T23:20:00.8010538Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.15/x64
+checkov	Install checkov	2026-10-20T23:20:00.8011843Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.15/x64
+checkov	Install checkov	2026-10-20T23:20:00.8012841Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.15/x64
+checkov	Install checkov	2026-10-20T23:20:00.8013861Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.12.15/x64/lib
+checkov	Install checkov	2026-10-20T23:20:00.8014709Z ##[endgroup]
+checkov	Install checkov	2026-10-20T23:20:02.1477961Z Collecting checkov==3.3.29
+checkov	Install checkov	2026-10-20T23:20:02.2266860Z   Downloading checkov-3.3.29-py3-none-any.whl.metadata (26 kB)
+checkov	Install checkov	2026-10-20T23:20:02.2632763Z Collecting bc-jsonpath-ng==1.6.1 (from checkov==3.3.29)
+checkov	Install checkov	2026-10-20T23:20:02.2783272Z   Downloading bc_jsonpath_ng-1.6.1-py3-none-any.whl.metadata (17 kB)
+checkov	Install checkov	2026-10-20T23:20:02.3296962Z Collecting pycep-parser==0.5.1 (from checkov==3.3.29)
+checkov	Install checkov	2026-10-20T23:20:02.3435691Z   Downloading pycep_parser-0.5.1-py3-none-any.whl.metadata (2.6 kB)
+checkov	Install checkov	2026-10-20T23:20:02.3649723Z Collecting tabulate<0.10.0,>=0.9.0 (from checkov==3.3.29)
+checkov	Install checkov	2026-10-20T23:20:02.3768109Z   Downloading tabulate-0.9.0-py3-none-any.whl.metadata (34 kB)
+checkov	Install checkov	2026-10-20T23:20:02.4078463Z Collecting colorama<0.5.0,>=0.4.3 (from checkov==3.3.29)
+checkov	Install checkov	2026-10-20T23:20:02.4196762Z   Downloading colorama-0.4.6-py2.py3-none-any.whl.metadata (17 kB)
+checkov	Install checkov	2026-10-20T23:20:02.4421935Z Collecting termcolor<2.4.0,>=1.1.0 (from checkov==3.3.29)
+checkov	Install checkov	2026-10-20T23:20:02.4540863Z   Downloading termcolor-2.3.0-py3-none-any.whl.metadata (5.3 kB)
+checkov	Install checkov	2026-10-20T23:20:02.4746785Z Collecting junit-xml<2.0,>=1.9 (from checkov==3.3.29)
+checkov	Install checkov	2026-10-20T23:20:02.4859155Z   Downloading junit_xml-1.9-py2.py3-none-any.whl.metadata (3.2 kB)
+checkov	Install checkov	2026-10-20T23:20:02.5103842Z Collecting dpath==2.1.3 (from checkov==3.3.29)
+checkov	Install checkov	2026-10-20T23:20:02.5241010Z   Downloading dpath-2.1.3-py3-none-any.whl.metadata (15 kB)
+checkov	Install checkov	2026-10-20T23:20:02.5760018Z Collecting pyyaml<7.0.0,>=6.0.0 (from checkov==3.3.29)
+checkov	Install checkov	2026-10-20T23:20:02.5883775Z   Downloading pyyaml-6.0.3-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (2.4 kB)
+checkov	Install checkov	2026-10-20T23:20:03.1050751Z Collecting boto3==1.35.49 (from checkov==3.3.29)
+checkov	Install checkov	2026-10-20T23:20:03.1172513Z   Downloading boto3-1.35.49-py3-none-any.whl.metadata (6.7 kB)
+checkov	Install checkov	2026-10-20T23:20:03.1476615Z Collecting gitpython<4.0.0,>=3.1.30 (from checkov==3.3.29)
+checkov	Install checkov	2026-10-20T23:20:03.1592420Z   Downloading gitpython-3.2.1-py3-none-any.whl.metadata (13 kB)
+checkov	Install checkov	2026-10-20T23:20:03.1861674Z Collecting jmespath<2.0.0,>=1.0.0 (from checkov==3.3.29)
+checkov	Install checkov	2026-10-20T23:20:03.1974091Z   Downloading jmespath-1.1.0-py3-none-any.whl.metadata (7.6 kB)
+checkov	Install checkov	2026-10-20T23:20:03.2332220Z Collecting tqdm<5.0.0,>=4.65.0 (from checkov==3.3.29)
+checkov	Install checkov	2026-10-20T23:20:03.2450444Z   Downloading tqdm-4.70.1-py3-none-any.whl.metadata (57 kB)
+checkov	Install checkov	2026-10-20T23:20:03.2759842Z Collecting packaging<24.0,>=23.0 (from checkov==3.3.29)
+checkov	Install checkov	2026-10-20T23:20:03.2878312Z   Downloading packaging-23.2-py3-none-any.whl.metadata (3.2 kB)
+checkov	Install checkov	2026-10-20T23:20:03.3125315Z Collecting cloudsplaining<0.8.0,>=0.7.0 (from checkov==3.3.29)
+checkov	Install checkov	2026-10-20T23:20:03.3252673Z   Downloading cloudsplaining-0.7.0-py3-none-any.whl.metadata (21 kB)
+checkov	Install checkov	2026-10-20T23:20:03.3595439Z Collecting networkx<2.7 (from checkov==3.3.29)
+checkov	Install checkov	2026-10-20T23:20:03.3721464Z   Downloading networkx-2.6.3-py3-none-any.whl.metadata (5.0 kB)
+checkov	Install checkov	2026-10-20T23:20:03.3961567Z Collecting dockerfile-parse<3.0.0,>=2.0.0 (from checkov==3.3.29)
+checkov	Install checkov	2026-10-20T23:20:03.4086389Z   Downloading dockerfile_parse-2.0.1-py2.py3-none-any.whl.metadata (3.3 kB)
+checkov	Install checkov	2026-10-20T23:20:03.4385067Z Collecting docker<8.0.0,>=6.0.1 (from checkov==3.3.29)
+checkov	Install checkov	2026-10-20T23:20:03.4495181Z   Downloading docker-7.2.0-py3-none-any.whl.metadata (3.8 kB)
+checkov	Install checkov	2026-10-20T23:20:03.4736651Z Collecting configargparse<2.0.0,>=1.5.3 (from checkov==3.3.29)
+checkov	Install checkov	2026-10-20T23:20:03.4850662Z   Downloading configargparse-1.8.0-py3-none-any.whl.metadata (23 kB)
+checkov	Install checkov	2026-10-20T23:20:03.5209092Z Collecting argcomplete<4.0.0,>=3.0.0 (from checkov==3.3.29)
+checkov	Install checkov	2026-10-20T23:20:03.5331438Z   Downloading argcomplete-3.7.2-py3-none-any.whl.metadata (16 kB)
+checkov	Install checkov	2026-10-20T23:20:03.5648258Z Collecting typing-extensions<5.0.0,>=4.5.0 (from checkov==3.3.29)
+checkov	Install checkov	2026-10-20T23:20:03.5759251Z   Downloading typing_extensions-4.16.0-py3-none-any.whl.metadata (3.3 kB)
+checkov	Install checkov	2026-10-20T23:20:03.6129144Z Collecting importlib-metadata<8.0.0,>=6.0.0 (from checkov==3.3.29)
+checkov	Install checkov	2026-10-20T23:20:03.6262934Z   Downloading importlib_metadata-7.2.1-py3-none-any.whl.metadata (4.6 kB)
+checkov	Install checkov	2026-10-20T23:20:03.6578827Z Collecting cachetools<6.0.0,>=5.2.0 (from checkov==3.3.29)
+checkov	Install checkov	2026-10-20T23:20:03.6697737Z   Downloading cachetools-5.5.2-py3-none-any.whl.metadata (5.4 kB)
+checkov	Install checkov	2026-10-20T23:20:03.7128124Z Collecting cyclonedx-python-lib<8.0.0,>=6.0.0 (from checkov==3.3.29)
+checkov	Install checkov	2026-10-20T23:20:03.7249283Z   Downloading cyclonedx_python_lib-7.6.2-py3-none-any.whl.metadata (6.7 kB)
+checkov	Install checkov	2026-10-20T23:20:03.7506621Z Collecting packageurl-python<0.14.0,>=0.11.1 (from checkov==3.3.29)
+checkov	Install checkov	2026-10-20T23:20:03.7632204Z   Downloading packageurl_python-0.13.4-py3-none-any.whl.metadata (5.1 kB)
+checkov	Install checkov	2026-10-20T23:20:03.7907916Z Collecting click<9.0.0,>=8.1.0 (from checkov==3.3.29)
+checkov	Install checkov	2026-10-20T23:20:03.8025221Z   Downloading click-8.5.0-py3-none-any.whl.metadata (2.6 kB)
+checkov	Install checkov	2026-10-20T23:20:04.4023958Z Collecting aiohttp<3.15.0,>=3.8.0 (from checkov==3.3.29)
+checkov	Install checkov	2026-10-20T23:20:04.4144963Z   Downloading aiohttp-3.14.5-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (8.3 kB)
+checkov	Install checkov	2026-10-20T23:20:04.4390420Z Collecting aiodns<4.0.0,>=3.0.0 (from checkov==3.3.29)
+checkov	Install checkov	2026-10-20T23:20:04.4514770Z   Downloading aiodns-3.6.1-py3-none-any.whl.metadata (5.8 kB)
+checkov	Install checkov	2026-10-20T23:20:04.4783291Z Collecting aiomultiprocess<0.10.0,>=0.9.0 (from checkov==3.3.29)
+checkov	Install checkov	2026-10-20T23:20:04.4901199Z   Downloading aiomultiprocess-0.9.1-py3-none-any.whl.metadata (4.8 kB)
+checkov	Install checkov	2026-10-20T23:20:04.5146429Z Collecting schema<=0.7.5 (from checkov==3.3.29)
+checkov	Install checkov	2026-10-20T23:20:04.5274897Z   Downloading schema-0.7.5-py2.py3-none-any.whl.metadata (34 kB)
+checkov	Install checkov	2026-10-20T23:20:04.5608544Z Collecting jsonschema<5.0.0,>=4.17.0 (from checkov==3.3.29)
+checkov	Install checkov	2026-10-20T23:20:04.5725928Z   Downloading jsonschema-4.26.0-py3-none-any.whl.metadata (7.6 kB)
+checkov	Install checkov	2026-10-20T23:20:04.5990420Z Collecting prettytable<4.0.0,>=3.6.0 (from checkov==3.3.29)
+checkov	Install checkov	2026-10-20T23:20:04.6100594Z   Downloading prettytable-3.18.0-py3-none-any.whl.metadata (37 kB)
+checkov	Install checkov	2026-10-20T23:20:04.7509571Z Collecting charset-normalizer<4.0.0,>=3.1.0 (from checkov==3.3.29)
+checkov	Install checkov	2026-10-20T23:20:04.7626543Z   Downloading charset_normalizer-3.5.2-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (46 kB)
+checkov	Install checkov	2026-10-20T23:20:04.7961676Z Collecting requests<3.0.0,>=2.28.0 (from checkov==3.3.29)
+checkov	Install checkov	2026-10-20T23:20:04.8075661Z   Downloading requests-2.34.2-py3-none-any.whl.metadata (4.8 kB)
+checkov	Install checkov	2026-10-20T23:20:05.0814398Z Collecting yarl<2.0.0,>=1.9.1 (from checkov==3.3.29)
+checkov	Install checkov	2026-10-20T23:20:05.0932751Z   Downloading yarl-1.25.1-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (111 kB)
+checkov	Install checkov	2026-10-20T23:20:05.1299855Z Collecting spdx-tools<0.9.0,>=0.8.0 (from checkov==3.3.29)
+checkov	Install checkov	2026-10-20T23:20:05.1421914Z   Downloading spdx_tools-0.8.5-py3-none-any.whl.metadata (15 kB)
+checkov	Install checkov	2026-10-20T23:20:05.1682572Z Collecting license-expression<31.0.0,>=30.1.0 (from checkov==3.3.29)
+checkov	Install checkov	2026-10-20T23:20:05.1793572Z   Downloading license_expression-30.4.4-py3-none-any.whl.metadata (11 kB)
+checkov	Install checkov	2026-10-20T23:20:05.2257548Z Collecting rustworkx<1.0.0,>=0.13.0 (from checkov==3.3.29)
+checkov	Install checkov	2026-10-20T23:20:05.2384354Z   Downloading rustworkx-0.18.1-cp310-abi3-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (10 kB)
+checkov	Install checkov	2026-10-20T23:20:05.3571005Z Collecting pydantic<3.0.0,>=2.0.0 (from checkov==3.3.29)
+checkov	Install checkov	2026-10-20T23:20:05.3688956Z   Downloading pydantic-2.14.1-py3-none-any.whl.metadata (133 kB)
+checkov	Install checkov	2026-10-20T23:20:05.3992728Z Collecting asteval==1.0.6 (from checkov==3.3.29)
+checkov	Install checkov	2026-10-20T23:20:05.4107156Z   Downloading asteval-1.0.6-py3-none-any.whl.metadata (6.2 kB)
+checkov	Install checkov	2026-10-20T23:20:05.4829151Z Collecting bc-detect-secrets==1.5.52 (from checkov==3.3.29)
+checkov	Install checkov	2026-10-20T23:20:05.4950222Z   Downloading bc_detect_secrets-1.5.52-py3-none-any.whl.metadata (23 kB)
+checkov	Install checkov	2026-10-20T23:20:05.5252491Z Collecting urllib3>=1.26.20 (from checkov==3.3.29)
+checkov	Install checkov	2026-10-20T23:20:05.5364489Z   Downloading urllib3-2.8.0-py3-none-any.whl.metadata (7.4 kB)
+checkov	Install checkov	2026-10-20T23:20:05.5616189Z Collecting bc-python-hcl2==0.4.3 (from checkov==3.3.29)
+checkov	Install checkov	2026-10-20T23:20:05.5734626Z   Downloading bc_python_hcl2-0.4.3-py3-none-any.whl.metadata (4.2 kB)
+checkov	Install checkov	2026-10-20T23:20:05.6042168Z Collecting platformdirs<5.0.0,>=4.0.0 (from checkov==3.3.29)
+checkov	Install checkov	2026-10-20T23:20:05.6154199Z   Downloading platformdirs-4.13.5-py3-none-any.whl.metadata (5.5 kB)
+checkov	Install checkov	2026-10-20T23:20:05.6388007Z Collecting ecdsa<1.0.0,>=0.19.0 (from checkov==3.3.29)
+checkov	Install checkov	2026-10-20T23:20:05.6503580Z   Downloading ecdsa-0.19.2-py2.py3-none-any.whl.metadata (29 kB)
+checkov	Install checkov	2026-10-20T23:20:05.6776116Z Collecting unidiff (from bc-detect-secrets==1.5.52->checkov==3.3.29)
+checkov	Install checkov	2026-10-20T23:20:05.6887402Z   Downloading unidiff-1.0.1-py3-none-any.whl.metadata (8.2 kB)
+checkov	Install checkov	2026-10-20T23:20:05.7090296Z Collecting ply (from bc-jsonpath-ng==1.6.1->checkov==3.3.29)
+checkov	Install checkov	2026-10-20T23:20:05.7199592Z   Downloading ply-3.11-py2.py3-none-any.whl.metadata (844 bytes)
+checkov	Install checkov	2026-10-20T23:20:05.7454964Z Collecting decorator (from bc-jsonpath-ng==1.6.1->checkov==3.3.29)
+checkov	Install checkov	2026-10-20T23:20:05.7565157Z   Downloading decorator-5.3.1-py3-none-any.whl.metadata (3.9 kB)
+checkov	Install checkov	2026-10-20T23:20:05.7818815Z Collecting lark>=1.0.0 (from bc-python-hcl2==0.4.3->checkov==3.3.29)
+checkov	Install checkov	2026-10-20T23:20:05.7945632Z   Downloading lark-1.3.1-py3-none-any.whl.metadata (1.8 kB)
+checkov	Install checkov	2026-10-20T23:20:06.0427693Z Collecting botocore<1.36.0,>=1.35.49 (from boto3==1.35.49->checkov==3.3.29)
+checkov	Install checkov	2026-10-20T23:20:06.0541744Z   Downloading botocore-1.35.99-py3-none-any.whl.metadata (5.7 kB)
+checkov	Install checkov	2026-10-20T23:20:06.0805986Z Collecting s3transfer<0.11.0,>=0.10.0 (from boto3==1.35.49->checkov==3.3.29)
+checkov	Install checkov	2026-10-20T23:20:06.0914651Z   Downloading s3transfer-0.10.4-py3-none-any.whl.metadata (1.7 kB)
+checkov	Install checkov	2026-10-20T23:20:06.5532148Z Collecting regex>=2022.1.18 (from pycep-parser==0.5.1->checkov==3.3.29)
+checkov	Install checkov	2026-10-20T23:20:06.5651404Z   Downloading regex-2026.9.29-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (40 kB)
+checkov	Install checkov	2026-10-20T23:20:06.6588023Z Collecting pycares<5,>=4.9.0 (from aiodns<4.0.0,>=3.0.0->checkov==3.3.29)
+checkov	Install checkov	2026-10-20T23:20:06.6719112Z   Downloading pycares-4.11.0-cp312-cp312-manylinux_2_28_x86_64.whl.metadata (4.5 kB)
+checkov	Install checkov	2026-10-20T23:20:06.6969807Z Collecting aiohappyeyeballs>=2.5.0 (from aiohttp<3.15.0,>=3.8.0->checkov==3.3.29)
+checkov	Install checkov	2026-10-20T23:20:06.7096423Z   Downloading aiohappyeyeballs-2.7.1-py3-none-any.whl.metadata (5.9 kB)
+checkov	Install checkov	2026-10-20T23:20:06.7336464Z Collecting aiosignal>=1.4.0 (from aiohttp<3.15.0,>=3.8.0->checkov==3.3.29)
+checkov	Install checkov	2026-10-20T23:20:06.7444601Z   Downloading aiosignal-1.4.0-py3-none-any.whl.metadata (3.7 kB)
+checkov	Install checkov	2026-10-20T23:20:06.7687586Z Collecting attrs>=17.3.0 (from aiohttp<3.15.0,>=3.8.0->checkov==3.3.29)
+checkov	Install checkov	2026-10-20T23:20:06.7798510Z   Downloading attrs-26.1.0-py3-none-any.whl.metadata (8.8 kB)
+checkov	Install checkov	2026-10-20T23:20:06.8512913Z Collecting frozenlist>=1.1.1 (from aiohttp<3.15.0,>=3.8.0->checkov==3.3.29)
+checkov	Install checkov	2026-10-20T23:20:06.8626145Z   Downloading frozenlist-1.8.0-cp312-cp312-manylinux1_x86_64.manylinux_2_28_x86_64.manylinux_2_5_x86_64.whl.metadata (20 kB)
+checkov	Install checkov	2026-10-20T23:20:07.1284090Z Collecting multidict<8.0,>=4.5 (from aiohttp<3.15.0,>=3.8.0->checkov==3.3.29)
+checkov	Install checkov	2026-10-20T23:20:07.1409943Z   Downloading multidict-7.1.0-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (6.2 kB)
+checkov	Install checkov	2026-10-20T23:20:07.2240688Z Collecting propcache>=0.2.0 (from aiohttp<3.15.0,>=3.8.0->checkov==3.3.29)
+checkov	Install checkov	2026-10-20T23:20:07.2356929Z   Downloading propcache-0.5.4-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (25 kB)
+checkov	Install checkov	2026-10-20T23:20:07.2653757Z Collecting python-dateutil<3.0.0,>=2.1 (from botocore<1.36.0,>=1.35.49->boto3==1.35.49->checkov==3.3.29)
+checkov	Install checkov	2026-10-20T23:20:07.2785223Z   Downloading python_dateutil-2.9.0.post0-py2.py3-none-any.whl.metadata (8.4 kB)
+checkov	Install checkov	2026-10-20T23:20:07.3051824Z Collecting cached-property (from cloudsplaining<0.8.0,>=0.7.0->checkov==3.3.29)
+checkov	Install checkov	2026-10-20T23:20:07.3164507Z   Downloading cached_property-2.0.1-py3-none-any.whl.metadata (10 kB)
+checkov	Install checkov	2026-10-20T23:20:07.3387202Z Collecting click-option-group (from cloudsplaining<0.8.0,>=0.7.0->checkov==3.3.29)
+checkov	Install checkov	2026-10-20T23:20:07.3494082Z   Downloading click_option_group-0.5.9-py3-none-any.whl.metadata (5.8 kB)
+checkov	Install checkov	2026-10-20T23:20:07.3737208Z Collecting jinja2 (from cloudsplaining<0.8.0,>=0.7.0->checkov==3.3.29)
+checkov	Install checkov	2026-10-20T23:20:07.3847231Z   Downloading jinja2-3.1.6-py3-none-any.whl.metadata (2.9 kB)
+checkov	Install checkov	2026-10-20T23:20:07.4109325Z Collecting markdown (from cloudsplaining<0.8.0,>=0.7.0->checkov==3.3.29)
+checkov	Install checkov	2026-10-20T23:20:07.4222926Z   Downloading markdown-3.11.2-py3-none-any.whl.metadata (5.1 kB)
+checkov	Install checkov	2026-10-20T23:20:07.4517994Z Collecting policy-sentry<0.14,>=0.13.0 (from cloudsplaining<0.8.0,>=0.7.0->checkov==3.3.29)
+checkov	Install checkov	2026-10-20T23:20:07.4637752Z   Downloading policy_sentry-0.13.2-py3-none-any.whl.metadata (1.3 kB)
+checkov	Install checkov	2026-10-20T23:20:07.4943807Z Collecting py-serializable<2.0.0,>=1.1.0 (from cyclonedx-python-lib<8.0.0,>=6.0.0->checkov==3.3.29)
+checkov	Install checkov	2026-10-20T23:20:07.5069209Z   Downloading py_serializable-1.1.2-py3-none-any.whl.metadata (4.2 kB)
+checkov	Install checkov	2026-10-20T23:20:07.5351042Z Collecting sortedcontainers<3.0.0,>=2.4.0 (from cyclonedx-python-lib<8.0.0,>=6.0.0->checkov==3.3.29)
+checkov	Install checkov	2026-10-20T23:20:07.5460561Z   Downloading sortedcontainers-2.4.0-py2.py3-none-any.whl.metadata (10 kB)
+checkov	Install checkov	2026-10-20T23:20:07.5746094Z Collecting six>=1.9.0 (from ecdsa<1.0.0,>=0.19.0->checkov==3.3.29)
+checkov	Install checkov	2026-10-20T23:20:07.5855018Z   Downloading six-1.17.0-py2.py3-none-any.whl.metadata (1.7 kB)
+checkov	Install checkov	2026-10-20T23:20:07.6064043Z Collecting gitdb<5,>=4.0.1 (from gitpython<4.0.0,>=3.1.30->checkov==3.3.29)
+checkov	Install checkov	2026-10-20T23:20:07.6183623Z   Downloading gitdb-4.0.12-py3-none-any.whl.metadata (1.2 kB)
+checkov	Install checkov	2026-10-20T23:20:07.6408811Z Collecting smmap<6,>=3.0.1 (from gitdb<5,>=4.0.1->gitpython<4.0.0,>=3.1.30->checkov==3.3.29)
+checkov	Install checkov	2026-10-20T23:20:07.6521355Z   Downloading smmap-5.0.3-py3-none-any.whl.metadata (4.6 kB)
+checkov	Install checkov	2026-10-20T23:20:07.6792693Z Collecting zipp>=0.5 (from importlib-metadata<8.0.0,>=6.0.0->checkov==3.3.29)
+checkov	Install checkov	2026-10-20T23:20:07.6904499Z   Downloading zipp-4.1.1-py3-none-any.whl.metadata (3.6 kB)
+checkov	Install checkov	2026-10-20T23:20:07.7160864Z Collecting jsonschema-specifications>=2023.03.6 (from jsonschema<5.0.0,>=4.17.0->checkov==3.3.29)
+checkov	Install checkov	2026-10-20T23:20:07.7294334Z   Downloading jsonschema_specifications-2025.9.1-py3-none-any.whl.metadata (2.9 kB)
+checkov	Install checkov	2026-10-20T23:20:07.8334132Z Collecting referencing>=0.28.4 (from jsonschema<5.0.0,>=4.17.0->checkov==3.3.29)
+checkov	Install checkov	2026-10-20T23:20:07.8441532Z   Downloading referencing-0.37.0-py3-none-any.whl.metadata (2.8 kB)
+checkov	Install checkov	2026-10-20T23:20:08.1518901Z Collecting rpds-py>=0.25.0 (from jsonschema<5.0.0,>=4.17.0->checkov==3.3.29)
+checkov	Install checkov	2026-10-20T23:20:08.1630549Z   Downloading rpds_py-2026.9.1-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (4.1 kB)
+checkov	Install checkov	2026-10-20T23:20:08.8664843Z Collecting boolean.py>=4.0 (from license-expression<31.0.0,>=30.1.0->checkov==3.3.29)
+checkov	Install checkov	2026-10-20T23:20:08.8784693Z   Downloading boolean_py-5.0-py3-none-any.whl.metadata (2.3 kB)
+checkov	Install checkov	2026-10-20T23:20:09.1485017Z Collecting beautifulsoup4 (from policy-sentry<0.14,>=0.13.0->cloudsplaining<0.8.0,>=0.7.0->checkov==3.3.29)
+checkov	Install checkov	2026-10-20T23:20:09.1602036Z   Downloading beautifulsoup4-4.15.0-py3-none-any.whl.metadata (3.8 kB)
+checkov	Install checkov	2026-10-20T23:20:09.4131605Z Collecting orjson (from policy-sentry<0.14,>=0.13.0->cloudsplaining<0.8.0,>=0.7.0->checkov==3.3.29)
+checkov	Install checkov	2026-10-20T23:20:09.4265130Z   Downloading orjson-3.13.0-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (42 kB)
+checkov	Install checkov	2026-10-20T23:20:09.4598178Z Collecting wcwidth>=0.3.5 (from prettytable<4.0.0,>=3.6.0->checkov==3.3.29)
+checkov	Install checkov	2026-10-20T23:20:09.4727448Z   Downloading wcwidth-0.9.3-cp310-abi3-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (23 kB)
+checkov	Install checkov	2026-10-20T23:20:09.4952264Z Collecting defusedxml<0.8.0,>=0.7.1 (from py-serializable<2.0.0,>=1.1.0->cyclonedx-python-lib<8.0.0,>=6.0.0->checkov==3.3.29)
+checkov	Install checkov	2026-10-20T23:20:09.5063338Z   Downloading defusedxml-0.7.1-py2.py3-none-any.whl.metadata (32 kB)
+checkov	Install checkov	2026-10-20T23:20:09.6256923Z Collecting cffi>=1.5.0 (from pycares<5,>=4.9.0->aiodns<4.0.0,>=3.0.0->checkov==3.3.29)
+checkov	Install checkov	2026-10-20T23:20:09.6382909Z   Downloading cffi-2.1.1-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (2.5 kB)
+checkov	Install checkov	2026-10-20T23:20:09.6591769Z Collecting annotated-types>=0.6.0 (from pydantic<3.0.0,>=2.0.0->checkov==3.3.29)
+checkov	Install checkov	2026-10-20T23:20:09.6701860Z   Downloading annotated_types-0.8.0-py3-none-any.whl.metadata (15 kB)
+checkov	Install checkov	2026-10-20T23:20:10.4081703Z Collecting pydantic-core==2.50.1 (from pydantic<3.0.0,>=2.0.0->checkov==3.3.29)
+checkov	Install checkov	2026-10-20T23:20:10.4200176Z   Downloading pydantic_core-2.50.1-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (6.5 kB)
+checkov	Install checkov	2026-10-20T23:20:10.4409618Z Collecting typing-inspection>=0.4.4 (from pydantic<3.0.0,>=2.0.0->checkov==3.3.29)
+checkov	Install checkov	2026-10-20T23:20:10.4523947Z   Downloading typing_inspection-0.4.4-py3-none-any.whl.metadata (2.6 kB)
+checkov	Install checkov	2026-10-20T23:20:10.4817680Z Collecting idna<4,>=2.5 (from requests<3.0.0,>=2.28.0->checkov==3.3.29)
+checkov	Install checkov	2026-10-20T23:20:10.4929436Z   Downloading idna-3.20-py3-none-any.whl.metadata (7.2 kB)
+checkov	Install checkov	2026-10-20T23:20:10.5346433Z Collecting certifi>=2023.5.7 (from requests<3.0.0,>=2.28.0->checkov==3.3.29)
+checkov	Install checkov	2026-10-20T23:20:10.5456257Z   Downloading certifi-2026.10.19-py3-none-any.whl.metadata (2.5 kB)
+checkov	Install checkov	2026-10-20T23:20:10.8440229Z Collecting numpy<3,>=1.16.0 (from rustworkx<1.0.0,>=0.13.0->checkov==3.3.29)
+checkov	Install checkov	2026-10-20T23:20:10.8556136Z   Downloading numpy-2.5.4-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata (6.6 kB)
+checkov	Install checkov	2026-10-20T23:20:10.8965034Z Collecting contextlib2>=0.5.5 (from schema<=0.7.5->checkov==3.3.29)
+checkov	Install checkov	2026-10-20T23:20:10.9123920Z   Downloading contextlib2-21.6.0-py2.py3-none-any.whl.metadata (4.1 kB)
+checkov	Install checkov	2026-10-20T23:20:10.9412979Z Collecting beartype (from spdx-tools<0.9.0,>=0.8.0->checkov==3.3.29)
+checkov	Install checkov	2026-10-20T23:20:10.9522776Z   Downloading beartype-0.23.1-py3-none-any.whl.metadata (35 kB)
+checkov	Install checkov	2026-10-20T23:20:10.9895988Z Collecting rdflib (from spdx-tools<0.9.0,>=0.8.0->checkov==3.3.29)
+checkov	Install checkov	2026-10-20T23:20:11.0013806Z   Downloading rdflib-7.6.0-py3-none-any.whl.metadata (12 kB)
+checkov	Install checkov	2026-10-20T23:20:11.0268598Z Collecting semantic_version (from spdx-tools<0.9.0,>=0.8.0->checkov==3.3.29)
+checkov	Install checkov	2026-10-20T23:20:11.0385404Z   Downloading semantic_version-2.10.0-py2.py3-none-any.whl.metadata (9.7 kB)
+checkov	Install checkov	2026-10-20T23:20:11.0651097Z Collecting uritools (from spdx-tools<0.9.0,>=0.8.0->checkov==3.3.29)
+checkov	Install checkov	2026-10-20T23:20:11.0767629Z   Downloading uritools-6.1.3-py3-none-any.whl.metadata (5.1 kB)
+checkov	Install checkov	2026-10-20T23:20:11.0987606Z Collecting xmltodict (from spdx-tools<0.9.0,>=0.8.0->checkov==3.3.29)
+checkov	Install checkov	2026-10-20T23:20:11.1107525Z   Downloading xmltodict-1.0.4-py3-none-any.whl.metadata (14 kB)
+checkov	Install checkov	2026-10-20T23:20:11.1513801Z Collecting pycparser (from cffi>=1.5.0->pycares<5,>=4.9.0->aiodns<4.0.0,>=3.0.0->checkov==3.3.29)
+checkov	Install checkov	2026-10-20T23:20:11.1626062Z   Downloading pycparser-3.11-py3-none-any.whl.metadata (8.2 kB)
+checkov	Install checkov	2026-10-20T23:20:11.2048113Z Collecting soupsieve>=1.6.1 (from beautifulsoup4->policy-sentry<0.14,>=0.13.0->cloudsplaining<0.8.0,>=0.7.0->checkov==3.3.29)
+checkov	Install checkov	2026-10-20T23:20:11.2160300Z   Downloading soupsieve-3.0.3-py3-none-any.whl.metadata (4.4 kB)
+checkov	Install checkov	2026-10-20T23:20:11.2874304Z Collecting MarkupSafe>=2.0 (from jinja2->cloudsplaining<0.8.0,>=0.7.0->checkov==3.3.29)
+checkov	Install checkov	2026-10-20T23:20:11.2988792Z   Downloading markupsafe-3.0.4-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (2.7 kB)
+checkov	Install checkov	2026-10-20T23:20:11.3380689Z Collecting pyparsing<4,>=2.1.0 (from rdflib->spdx-tools<0.9.0,>=0.8.0->checkov==3.3.29)
+checkov	Install checkov	2026-10-20T23:20:11.3494381Z   Downloading pyparsing-3.3.3-py3-none-any.whl.metadata (5.9 kB)
+checkov	Install checkov	2026-10-20T23:20:11.3701580Z Downloading checkov-3.3.29-py3-none-any.whl (2.3 MB)
+checkov	Install checkov	2026-10-20T23:20:11.4160952Z    ΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöü 2.3/2.3 MB 60.5 MB/s  0:00:00
+checkov	Install checkov	2026-10-20T23:20:11.4286446Z Downloading asteval-1.0.6-py3-none-any.whl (22 kB)
+checkov	Install checkov	2026-10-20T23:20:11.4441099Z Downloading bc_detect_secrets-1.5.52-py3-none-any.whl (126 kB)
+checkov	Install checkov	2026-10-20T23:20:11.4598263Z Downloading bc_jsonpath_ng-1.6.1-py3-none-any.whl (29 kB)
+checkov	Install checkov	2026-10-20T23:20:11.4749268Z Downloading bc_python_hcl2-0.4.3-py3-none-any.whl (15 kB)
+checkov	Install checkov	2026-10-20T23:20:11.4889460Z Downloading boto3-1.35.49-py3-none-any.whl (139 kB)
+checkov	Install checkov	2026-10-20T23:20:11.5029031Z Downloading dpath-2.1.3-py3-none-any.whl (17 kB)
+checkov	Install checkov	2026-10-20T23:20:11.5169258Z Downloading pycep_parser-0.5.1-py3-none-any.whl (23 kB)
+checkov	Install checkov	2026-10-20T23:20:11.5300973Z Downloading aiodns-3.6.1-py3-none-any.whl (8.0 kB)
+checkov	Install checkov	2026-10-20T23:20:11.5436800Z Downloading aiohttp-3.14.5-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (1.9 MB)
+checkov	Install checkov	2026-10-20T23:20:11.5583809Z    ΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöü 1.9/1.9 MB 135.9 MB/s  0:00:00
+checkov	Install checkov	2026-10-20T23:20:11.5701490Z Downloading aiomultiprocess-0.9.1-py3-none-any.whl (17 kB)
+checkov	Install checkov	2026-10-20T23:20:11.5833563Z Downloading argcomplete-3.7.2-py3-none-any.whl (43 kB)
+checkov	Install checkov	2026-10-20T23:20:11.5970431Z Downloading botocore-1.35.99-py3-none-any.whl (13.3 MB)
+checkov	Install checkov	2026-10-20T23:20:11.6806526Z    ΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöü 13.3/13.3 MB 160.9 MB/s  0:00:00
+checkov	Install checkov	2026-10-20T23:20:11.6926188Z Downloading cachetools-5.5.2-py3-none-any.whl (10 kB)
+checkov	Install checkov	2026-10-20T23:20:11.7057805Z Downloading charset_normalizer-3.5.2-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (257 kB)
+checkov	Install checkov	2026-10-20T23:20:11.7190876Z Downloading click-8.5.0-py3-none-any.whl (125 kB)
+checkov	Install checkov	2026-10-20T23:20:11.7388766Z Downloading cloudsplaining-0.7.0-py3-none-any.whl (1.8 MB)
+checkov	Install checkov	2026-10-20T23:20:11.7527930Z    ΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöü 1.8/1.8 MB 137.4 MB/s  0:00:00
+checkov	Install checkov	2026-10-20T23:20:11.7640468Z Downloading colorama-0.4.6-py2.py3-none-any.whl (25 kB)
+checkov	Install checkov	2026-10-20T23:20:11.7768572Z Downloading configargparse-1.8.0-py3-none-any.whl (34 kB)
+checkov	Install checkov	2026-10-20T23:20:11.7899961Z Downloading cyclonedx_python_lib-7.6.2-py3-none-any.whl (361 kB)
+checkov	Install checkov	2026-10-20T23:20:11.8052569Z Downloading docker-7.2.0-py3-none-any.whl (148 kB)
+checkov	Install checkov	2026-10-20T23:20:11.8191956Z Downloading dockerfile_parse-2.0.1-py2.py3-none-any.whl (14 kB)
+checkov	Install checkov	2026-10-20T23:20:11.8318572Z Downloading ecdsa-0.19.2-py2.py3-none-any.whl (150 kB)
+checkov	Install checkov	2026-10-20T23:20:11.8452254Z Downloading gitpython-3.2.1-py3-none-any.whl (231 kB)
+checkov	Install checkov	2026-10-20T23:20:11.8585383Z Downloading gitdb-4.0.12-py3-none-any.whl (62 kB)
+checkov	Install checkov	2026-10-20T23:20:11.8742604Z Downloading importlib_metadata-7.2.1-py3-none-any.whl (25 kB)
+checkov	Install checkov	2026-10-20T23:20:11.8877554Z Downloading jmespath-1.1.0-py3-none-any.whl (20 kB)
+checkov	Install checkov	2026-10-20T23:20:11.9007359Z Downloading jsonschema-4.26.0-py3-none-any.whl (90 kB)
+checkov	Install checkov	2026-10-20T23:20:11.9158865Z Downloading junit_xml-1.9-py2.py3-none-any.whl (7.1 kB)
+checkov	Install checkov	2026-10-20T23:20:11.9285133Z Downloading license_expression-30.4.4-py3-none-any.whl (120 kB)
+checkov	Install checkov	2026-10-20T23:20:11.9420765Z Downloading multidict-7.1.0-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (483 kB)
+checkov	Install checkov	2026-10-20T23:20:11.9596802Z Downloading networkx-2.6.3-py3-none-any.whl (1.9 MB)
+checkov	Install checkov	2026-10-20T23:20:11.9693741Z    ΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöü 1.9/1.9 MB 233.9 MB/s  0:00:00
+checkov	Install checkov	2026-10-20T23:20:11.9826679Z Downloading packageurl_python-0.13.4-py3-none-any.whl (26 kB)
+checkov	Install checkov	2026-10-20T23:20:11.9952052Z Downloading packaging-23.2-py3-none-any.whl (53 kB)
+checkov	Install checkov	2026-10-20T23:20:12.0084460Z Downloading platformdirs-4.13.5-py3-none-any.whl (32 kB)
+checkov	Install checkov	2026-10-20T23:20:12.0249554Z Downloading policy_sentry-0.13.2-py3-none-any.whl (966 kB)
+checkov	Install checkov	2026-10-20T23:20:12.0310477Z    ΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöü 966.6/966.6 kB 201.3 MB/s  0:00:00
+checkov	Install checkov	2026-10-20T23:20:12.0448561Z Downloading prettytable-3.18.0-py3-none-any.whl (37 kB)
+checkov	Install checkov	2026-10-20T23:20:12.0588510Z Downloading py_serializable-1.1.2-py3-none-any.whl (22 kB)
+checkov	Install checkov	2026-10-20T23:20:12.0718294Z Downloading defusedxml-0.7.1-py2.py3-none-any.whl (25 kB)
+checkov	Install checkov	2026-10-20T23:20:12.0880268Z Downloading pycares-4.11.0-cp312-cp312-manylinux_2_28_x86_64.whl (641 kB)
+checkov	Install checkov	2026-10-20T23:20:12.0933739Z    ΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöü 641.1/641.1 kB 124.7 MB/s  0:00:00
+checkov	Install checkov	2026-10-20T23:20:12.1046860Z Downloading pydantic-2.14.1-py3-none-any.whl (488 kB)
+checkov	Install checkov	2026-10-20T23:20:12.1190873Z Downloading pydantic_core-2.50.1-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (2.2 MB)
+checkov	Install checkov	2026-10-20T23:20:12.1286499Z    ΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöü 2.2/2.2 MB 273.1 MB/s  0:00:00
+checkov	Install checkov	2026-10-20T23:20:12.1398229Z Downloading python_dateutil-2.9.0.post0-py2.py3-none-any.whl (229 kB)
+checkov	Install checkov	2026-10-20T23:20:12.1535045Z Downloading pyyaml-6.0.3-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (807 kB)
+checkov	Install checkov	2026-10-20T23:20:12.1591507Z    ΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöü 807.9/807.9 kB 185.0 MB/s  0:00:00
+checkov	Install checkov	2026-10-20T23:20:12.1725307Z Downloading requests-2.34.2-py3-none-any.whl (73 kB)
+checkov	Install checkov	2026-10-20T23:20:12.1862609Z Downloading idna-3.20-py3-none-any.whl (69 kB)
+checkov	Install checkov	2026-10-20T23:20:12.2026297Z Downloading rustworkx-0.18.1-cp310-abi3-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (2.4 MB)
+checkov	Install checkov	2026-10-20T23:20:12.2277734Z    ΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöü 2.4/2.4 MB 93.3 MB/s  0:00:00
+checkov	Install checkov	2026-10-20T23:20:12.2394884Z Downloading numpy-2.5.4-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (16.7 MB)
+checkov	Install checkov	2026-10-20T23:20:12.2932502Z    ΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöü 16.7/16.7 MB 321.3 MB/s  0:00:00
+checkov	Install checkov	2026-10-20T23:20:12.3069885Z Downloading s3transfer-0.10.4-py3-none-any.whl (83 kB)
+checkov	Install checkov	2026-10-20T23:20:12.3204514Z Downloading schema-0.7.5-py2.py3-none-any.whl (17 kB)
+checkov	Install checkov	2026-10-20T23:20:12.3334343Z Downloading smmap-5.0.3-py3-none-any.whl (24 kB)
+checkov	Install checkov	2026-10-20T23:20:12.3461199Z Downloading sortedcontainers-2.4.0-py2.py3-none-any.whl (29 kB)
+checkov	Install checkov	2026-10-20T23:20:12.3595187Z Downloading spdx_tools-0.8.5-py3-none-any.whl (286 kB)
+checkov	Install checkov	2026-10-20T23:20:12.3733848Z Downloading tabulate-0.9.0-py3-none-any.whl (35 kB)
+checkov	Install checkov	2026-10-20T23:20:12.3872363Z Downloading termcolor-2.3.0-py3-none-any.whl (6.9 kB)
+checkov	Install checkov	2026-10-20T23:20:12.3998607Z Downloading tqdm-4.70.1-py3-none-any.whl (80 kB)
+checkov	Install checkov	2026-10-20T23:20:12.4128849Z Downloading typing_extensions-4.16.0-py3-none-any.whl (45 kB)
+checkov	Install checkov	2026-10-20T23:20:12.4257426Z Downloading urllib3-2.8.0-py3-none-any.whl (135 kB)
+checkov	Install checkov	2026-10-20T23:20:12.4388083Z Downloading yarl-1.25.1-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (117 kB)
+checkov	Install checkov	2026-10-20T23:20:12.4543319Z Downloading aiohappyeyeballs-2.7.1-py3-none-any.whl (15 kB)
+checkov	Install checkov	2026-10-20T23:20:12.4673359Z Downloading aiosignal-1.4.0-py3-none-any.whl (7.5 kB)
+checkov	Install checkov	2026-10-20T23:20:12.4801178Z Downloading annotated_types-0.8.0-py3-none-any.whl (13 kB)
+checkov	Install checkov	2026-10-20T23:20:12.4931126Z Downloading attrs-26.1.0-py3-none-any.whl (67 kB)
+checkov	Install checkov	2026-10-20T23:20:12.5063044Z Downloading boolean_py-5.0-py3-none-any.whl (26 kB)
+checkov	Install checkov	2026-10-20T23:20:12.5194767Z Downloading certifi-2026.10.19-py3-none-any.whl (136 kB)
+checkov	Install checkov	2026-10-20T23:20:12.5329924Z Downloading cffi-2.1.1-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (221 kB)
+checkov	Install checkov	2026-10-20T23:20:12.5469773Z Downloading contextlib2-21.6.0-py2.py3-none-any.whl (13 kB)
+checkov	Install checkov	2026-10-20T23:20:12.5607869Z Downloading frozenlist-1.8.0-cp312-cp312-manylinux1_x86_64.manylinux_2_28_x86_64.manylinux_2_5_x86_64.whl (242 kB)
+checkov	Install checkov	2026-10-20T23:20:12.5749161Z Downloading jsonschema_specifications-2025.9.1-py3-none-any.whl (18 kB)
+checkov	Install checkov	2026-10-20T23:20:12.5878611Z Downloading lark-1.3.1-py3-none-any.whl (113 kB)
+checkov	Install checkov	2026-10-20T23:20:12.6018558Z Downloading propcache-0.5.4-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (250 kB)
+checkov	Install checkov	2026-10-20T23:20:12.6158931Z Downloading referencing-0.37.0-py3-none-any.whl (26 kB)
+checkov	Install checkov	2026-10-20T23:20:12.6295866Z Downloading regex-2026.9.29-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (807 kB)
+checkov	Install checkov	2026-10-20T23:20:12.6351798Z    ΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöü 807.8/807.8 kB 172.3 MB/s  0:00:00
+checkov	Install checkov	2026-10-20T23:20:12.6460220Z Downloading rpds_py-2026.9.1-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (371 kB)
+checkov	Install checkov	2026-10-20T23:20:12.6597730Z Downloading six-1.17.0-py2.py3-none-any.whl (11 kB)
+checkov	Install checkov	2026-10-20T23:20:12.6743689Z Downloading typing_inspection-0.4.4-py3-none-any.whl (14 kB)
+checkov	Install checkov	2026-10-20T23:20:12.6885909Z Downloading wcwidth-0.9.3-cp310-abi3-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (770 kB)
+checkov	Install checkov	2026-10-20T23:20:12.6938788Z    ΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöü 770.0/770.0 kB 172.4 MB/s  0:00:00
+checkov	Install checkov	2026-10-20T23:20:12.7052865Z Downloading zipp-4.1.1-py3-none-any.whl (10 kB)
+checkov	Install checkov	2026-10-20T23:20:12.7183438Z Downloading beartype-0.23.1-py3-none-any.whl (1.6 MB)
+checkov	Install checkov	2026-10-20T23:20:12.7347436Z    ΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöü 1.6/1.6 MB 102.9 MB/s  0:00:00
+checkov	Install checkov	2026-10-20T23:20:12.7455039Z Downloading beautifulsoup4-4.15.0-py3-none-any.whl (109 kB)
+checkov	Install checkov	2026-10-20T23:20:12.7586188Z Downloading soupsieve-3.0.3-py3-none-any.whl (41 kB)
+checkov	Install checkov	2026-10-20T23:20:12.7726710Z Downloading cached_property-2.0.1-py3-none-any.whl (7.4 kB)
+checkov	Install checkov	2026-10-20T23:20:12.7858600Z Downloading click_option_group-0.5.9-py3-none-any.whl (11 kB)
+checkov	Install checkov	2026-10-20T23:20:12.7982881Z Downloading decorator-5.3.1-py3-none-any.whl (10 kB)
+checkov	Install checkov	2026-10-20T23:20:12.8114630Z Downloading jinja2-3.1.6-py3-none-any.whl (134 kB)
+checkov	Install checkov	2026-10-20T23:20:12.8244912Z Downloading markupsafe-3.0.4-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (22 kB)
+checkov	Install checkov	2026-10-20T23:20:12.8377723Z Downloading markdown-3.11.2-py3-none-any.whl (114 kB)
+checkov	Install checkov	2026-10-20T23:20:12.8528512Z Downloading orjson-3.13.0-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (130 kB)
+checkov	Install checkov	2026-10-20T23:20:12.8660657Z Downloading ply-3.11-py2.py3-none-any.whl (49 kB)
+checkov	Install checkov	2026-10-20T23:20:12.8787941Z Downloading pycparser-3.11-py3-none-any.whl (51 kB)
+checkov	Install checkov	2026-10-20T23:20:12.8921531Z Downloading rdflib-7.6.0-py3-none-any.whl (615 kB)
+checkov	Install checkov	2026-10-20T23:20:12.8977649Z    ΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöü 615.4/615.4 kB 121.0 MB/s  0:00:00
+checkov	Install checkov	2026-10-20T23:20:12.9086746Z Downloading pyparsing-3.3.3-py3-none-any.whl (126 kB)
+checkov	Install checkov	2026-10-20T23:20:12.9222154Z Downloading semantic_version-2.10.0-py2.py3-none-any.whl (15 kB)
+checkov	Install checkov	2026-10-20T23:20:12.9356066Z Downloading unidiff-1.0.1-py3-none-any.whl (18 kB)
+checkov	Install checkov	2026-10-20T23:20:12.9480724Z Downloading uritools-6.1.3-py3-none-any.whl (11 kB)
+checkov	Install checkov	2026-10-20T23:20:12.9614054Z Downloading xmltodict-1.0.4-py3-none-any.whl (13 kB)
+checkov	Install checkov	2026-10-20T23:20:13.4908361Z Installing collected packages: sortedcontainers, ply, boolean.py, zipp, xmltodict, wcwidth, urllib3, uritools, unidiff, typing-extensions, tqdm, termcolor, tabulate, soupsieve, smmap, six, semantic_version, rpds-py, regex, pyyaml, pyparsing, pycparser, propcache, platformdirs, packaging, packageurl-python, orjson, numpy, networkx, multidict, MarkupSafe, markdown, license-expression, lark, jmespath, idna, frozenlist, dpath, dockerfile-parse, defusedxml, decorator, contextlib2, configargparse, colorama, click, charset-normalizer, certifi, cachetools, cached-property, beartype, attrs, asteval, argcomplete, annotated-types, aiomultiprocess, aiohappyeyeballs, yarl, typing-inspection, schema, rustworkx, requests, referencing, rdflib, python-dateutil, pydantic-core, pycep-parser, py-serializable, prettytable, junit-xml, jinja2, importlib-metadata, gitdb, ecdsa, click-option-group, cffi, beautifulsoup4, bc-python-hcl2, bc-jsonpath-ng, aiosignal, spdx-tools, pydantic, pycares, policy-sentry, jsonschema-specifications, gitpython, docker, cyclonedx-python-lib, botocore, bc-detect-secrets, aiohttp, s3transfer, jsonschema, aiodns, boto3, cloudsplaining, checkov
+checkov	Install checkov	2026-10-20T23:20:23.7584344Z 
+checkov	Install checkov	2026-10-20T23:20:23.7665207Z Successfully installed MarkupSafe-3.0.4 aiodns-3.6.1 aiohappyeyeballs-2.7.1 aiohttp-3.14.5 aiomultiprocess-0.9.1 aiosignal-1.4.0 annotated-types-0.8.0 argcomplete-3.7.2 asteval-1.0.6 attrs-26.1.0 bc-detect-secrets-1.5.52 bc-jsonpath-ng-1.6.1 bc-python-hcl2-0.4.3 beartype-0.23.1 beautifulsoup4-4.15.0 boolean.py-5.0 boto3-1.35.49 botocore-1.35.99 cached-property-2.0.1 cachetools-5.5.2 certifi-2026.10.19 cffi-2.1.1 charset-normalizer-3.5.2 checkov-3.3.29 click-8.5.0 click-option-group-0.5.9 cloudsplaining-0.7.0 colorama-0.4.6 configargparse-1.8.0 contextlib2-21.6.0 cyclonedx-python-lib-7.6.2 decorator-5.3.1 defusedxml-0.7.1 docker-7.2.0 dockerfile-parse-2.0.1 dpath-2.1.3 ecdsa-0.19.2 frozenlist-1.8.0 gitdb-4.0.12 gitpython-3.2.1 idna-3.20 importlib-metadata-7.2.1 jinja2-3.1.6 jmespath-1.1.0 jsonschema-4.26.0 jsonschema-specifications-2025.9.1 junit-xml-1.9 lark-1.3.1 license-expression-30.4.4 markdown-3.11.2 multidict-7.1.0 networkx-2.6.3 numpy-2.5.4 orjson-3.13.0 packageurl-python-0.13.4 packaging-23.2 platformdirs-4.13.5 ply-3.11 policy-sentry-0.13.2 prettytable-3.18.0 propcache-0.5.4 py-serializable-1.1.2 pycares-4.11.0 pycep-parser-0.5.1 pycparser-3.11 pydantic-2.14.1 pydantic-core-2.50.1 pyparsing-3.3.3 python-dateutil-2.9.0.post0 pyyaml-6.0.3 rdflib-7.6.0 referencing-0.37.0 regex-2026.9.29 requests-2.34.2 rpds-py-2026.9.1 rustworkx-0.18.1 s3transfer-0.10.4 schema-0.7.5 semantic_version-2.10.0 six-1.17.0 smmap-5.0.3 sortedcontainers-2.4.0 soupsieve-3.0.3 spdx-tools-0.8.5 tabulate-0.9.0 termcolor-2.3.0 tqdm-4.70.1 typing-extensions-4.16.0 typing-inspection-0.4.4 unidiff-1.0.1 uritools-6.1.3 urllib3-2.8.0 wcwidth-0.9.3 xmltodict-1.0.4 yarl-1.25.1 zipp-4.1.1
+checkov	Install checkov	2026-10-20T23:20:23.7678635Z 
+checkov	Install checkov	2026-10-20T23:20:23.7678983Z [notice] A new release of pip is available: 26.2.1 -> 26.2.2
+checkov	Install checkov	2026-10-20T23:20:23.7679983Z [notice] To update, run: pip install --upgrade pip
+checkov	Scan Terraform	∩╗┐2026-10-20T23:20:24.1617075Z ##[group]Run checkov -d . --framework terraform --compact
+checkov	Scan Terraform	2026-10-20T23:20:24.1617610Z ^[[36;1mcheckov -d . --framework terraform --compact^[[0m
+checkov	Scan Terraform	2026-10-20T23:20:24.1686528Z shell: /usr/bin/bash -e {0}
+checkov	Scan Terraform	2026-10-20T23:20:24.1686855Z env:
+checkov	Scan Terraform	2026-10-20T23:20:24.1687200Z   pythonLocation: /opt/hostedtoolcache/Python/3.12.15/x64
+checkov	Scan Terraform	2026-10-20T23:20:24.1687784Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.12.15/x64/lib/pkgconfig
+checkov	Scan Terraform	2026-10-20T23:20:24.1688352Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.15/x64
+checkov	Scan Terraform	2026-10-20T23:20:24.1688866Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.15/x64
+checkov	Scan Terraform	2026-10-20T23:20:24.1689371Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.15/x64
+checkov	Scan Terraform	2026-10-20T23:20:24.1689881Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.12.15/x64/lib
+checkov	Scan Terraform	2026-10-20T23:20:24.1690308Z ##[endgroup]
+checkov	Scan Terraform	2026-10-20T23:20:29.1048058Z 
+checkov	Scan Terraform	2026-10-20T23:20:29.1048267Z 
+checkov	Scan Terraform	2026-10-20T23:20:29.1048804Z        _               _
+checkov	Scan Terraform	2026-10-20T23:20:29.1049209Z    ___| |__   ___  ___| | _______   __
+checkov	Scan Terraform	2026-10-20T23:20:29.1049892Z   / __| '_ \ / _ \/ __| |/ / _ \ \ / /
+checkov	Scan Terraform	2026-10-20T23:20:29.1050306Z  | (__| | | |  __/ (__|   < (_) \ V /
+checkov	Scan Terraform	2026-10-20T23:20:29.1050739Z   \___|_| |_|\___|\___|_|\_\___/ \_/
+checkov	Scan Terraform	2026-10-20T23:20:29.1051049Z 
+checkov	Scan Terraform	2026-10-20T23:20:29.1051240Z By Prisma Cloud | version: 3.3.29 
+checkov	Scan Terraform	2026-10-20T23:20:29.1051728Z Update available 3.3.29 -> 3.3.30
+checkov	Scan Terraform	2026-10-20T23:20:29.1052235Z Run pip3 install -U checkov to update 
+checkov	Scan Terraform	2026-10-20T23:20:29.1052614Z 
+checkov	Scan Terraform	2026-10-20T23:20:29.1052623Z 
+checkov	Scan Terraform	2026-10-20T23:20:29.1145540Z terraform scan results:
+checkov	Scan Terraform	2026-10-20T23:20:29.1146000Z 
+checkov	Scan Terraform	2026-10-20T23:20:29.1146697Z Passed checks: 147, Failed checks: 11, Skipped checks: 21
+checkov	Scan Terraform	2026-10-20T23:20:29.1147397Z 
+checkov	Scan Terraform	2026-10-20T23:20:29.1148146Z Check: CKV_AWS_41: "Ensure no hard coded AWS access key and secret key exists in provider"
+checkov	Scan Terraform	2026-10-20T23:20:29.1149496Z 	PASSED for resource: aws.default
+checkov	Scan Terraform	2026-10-20T23:20:29.1150217Z 	File: /envs/app/main.tf:26-36
+checkov	Scan Terraform	2026-10-20T23:20:29.1151904Z 	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/secrets-policies/bc-aws-secrets-5
+checkov	Scan Terraform	2026-10-20T23:20:29.1153884Z Check: CKV_AWS_337: "Ensure SSM parameters are using KMS CMK"
+checkov	Scan Terraform	2026-10-20T23:20:29.1154798Z 	PASSED for resource: aws_ssm_parameter.model_id
+checkov	Scan Terraform	2026-10-20T23:20:29.1155742Z 	File: /envs/app/main.tf:38-44
+checkov	Scan Terraform	2026-10-20T23:20:29.1157012Z 	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-general-policies/bc-aws-337
+checkov	Scan Terraform	2026-10-20T23:20:29.1159014Z Check: CKV_AWS_93: "Ensure S3 bucket policy does not lockout all but root user. (Prevent lockouts needing root account fixes)"
+checkov	Scan Terraform	2026-10-20T23:20:29.1160390Z 	PASSED for resource: aws_s3_bucket.public_test
+checkov	Scan Terraform	2026-10-20T23:20:29.1161108Z 	File: /envs/app/public_test.tf:1-3
+checkov	Scan Terraform	2026-10-20T23:20:29.1162350Z 	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/s3-policies/bc-aws-s3-24
+checkov	Scan Terraform	2026-10-20T23:20:29.1164108Z Check: CKV_AWS_41: "Ensure no hard coded AWS access key and secret key exists in provider"
+checkov	Scan Terraform	2026-10-20T23:20:29.1164998Z 	PASSED for resource: aws.default
+checkov	Scan Terraform	2026-10-20T23:20:29.1165632Z 	File: /envs/bootstrap/main.tf:19-29
+checkov	Scan Terraform	2026-10-20T23:20:29.1166608Z 	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/secrets-policies/bc-aws-secrets-5
+checkov	Scan Terraform	2026-10-20T23:20:29.1167885Z Check: CKV_AZURE_249: "Ensure Azure GitHub Actions OIDC trust policy is configured securely"
+checkov	Scan Terraform	2026-10-20T23:20:29.1168856Z 	PASSED for resource: azuread_application_federated_identity_credential.main
+checkov	Scan Terraform	2026-10-20T23:20:29.1169575Z 	File: /envs/persistent/azure/github.tf:12-18
+checkov	Scan Terraform	2026-10-20T23:20:29.1170578Z 	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/azure-policies/azure-iam-policies/azr-iam-249
+checkov	Scan Terraform	2026-10-20T23:20:29.1171770Z Check: CKV_AZURE_39: "Ensure that no custom subscription owner roles are created"
+checkov	Scan Terraform	2026-10-20T23:20:29.1172520Z 	PASSED for resource: azurerm_role_definition.deploy
+checkov	Scan Terraform	2026-10-20T23:20:29.1173476Z 	File: /envs/persistent/azure/github.tf:20-38
+checkov	Scan Terraform	2026-10-20T23:20:29.1174727Z 	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/azure-policies/azure-iam-policies/do-not-create-custom-subscription-owner-roles
+checkov	Scan Terraform	2026-10-20T23:20:29.1176925Z Check: CKV_AWS_109: "Ensure IAM policies does not allow permissions management / resource exposure without constraints"
+checkov	Scan Terraform	2026-10-20T23:20:29.1177963Z 	PASSED for resource: aws_iam_policy_document.engineer_guard
+checkov	Scan Terraform	2026-10-20T23:20:29.1178604Z 	File: /envs/persistent/org/identity_center.tf:75-89
+checkov	Scan Terraform	2026-10-20T23:20:29.1180297Z 	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-iam-policies/ensure-iam-policies-do-not-allow-permissions-management-resource-exposure-without-constraint
+checkov	Scan Terraform	2026-10-20T23:20:29.1182109Z Check: CKV_AWS_107: "Ensure IAM policies does not allow credentials exposure"
+checkov	Scan Terraform	2026-10-20T23:20:29.1182878Z 	PASSED for resource: aws_iam_policy_document.engineer_guard
+checkov	Scan Terraform	2026-10-20T23:20:29.1183524Z 	File: /envs/persistent/org/identity_center.tf:75-89
+checkov	Scan Terraform	2026-10-20T23:20:29.1184844Z 	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-iam-policies/ensure-iam-policies-do-not-allow-credentials-exposure
+checkov	Scan Terraform	2026-10-20T23:20:29.1186685Z Check: CKV_AWS_283: "Ensure no IAM policies documents allow ALL or any AWS principal permissions to the resource"
+checkov	Scan Terraform	2026-10-20T23:20:29.1187664Z 	PASSED for resource: aws_iam_policy_document.engineer_guard
+checkov	Scan Terraform	2026-10-20T23:20:29.1188292Z 	File: /envs/persistent/org/identity_center.tf:75-89
+checkov	Scan Terraform	2026-10-20T23:20:29.1189273Z 	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-iam-policies/bc-aws-283
+checkov	Scan Terraform	2026-10-20T23:20:29.1190382Z Check: CKV_AWS_108: "Ensure IAM policies does not allow data exfiltration"
+checkov	Scan Terraform	2026-10-20T23:20:29.1191130Z 	PASSED for resource: aws_iam_policy_document.engineer_guard
+checkov	Scan Terraform	2026-10-20T23:20:29.1191753Z 	File: /envs/persistent/org/identity_center.tf:75-89
+checkov	Scan Terraform	2026-10-20T23:20:29.1193038Z 	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-iam-policies/ensure-iam-policies-do-not-allow-data-exfiltration
+checkov	Scan Terraform	2026-10-20T23:20:29.1194689Z Check: CKV_AWS_358: "Ensure AWS GitHub Actions OIDC authorization policies only allow safe claims and claim order"
+checkov	Scan Terraform	2026-10-20T23:20:29.1203598Z 	PASSED for resource: aws_iam_policy_document.engineer_guard
+checkov	Scan Terraform	2026-10-20T23:20:29.1204302Z 	File: /envs/persistent/org/identity_center.tf:75-89
+checkov	Scan Terraform	2026-10-20T23:20:29.1205308Z 	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-iam-policies/iam-358
+checkov	Scan Terraform	2026-10-20T23:20:29.1206745Z Check: CKV_AWS_111: "Ensure IAM policies does not allow write access without constraints"
+checkov	Scan Terraform	2026-10-20T23:20:29.1207598Z 	PASSED for resource: aws_iam_policy_document.engineer_guard
+checkov	Scan Terraform	2026-10-20T23:20:29.1208244Z 	File: /envs/persistent/org/identity_center.tf:75-89
+checkov	Scan Terraform	2026-10-20T23:20:29.1209650Z 	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-iam-policies/ensure-iam-policies-do-not-allow-write-access-without-constraint
+checkov	Scan Terraform	2026-10-20T23:20:29.1211402Z Check: CKV_AWS_356: "Ensure no IAM policies documents allow "*" as a statement's resource for restrictable actions"
+checkov	Scan Terraform	2026-10-20T23:20:29.1212389Z 	PASSED for resource: aws_iam_policy_document.engineer_guard
+checkov	Scan Terraform	2026-10-20T23:20:29.1213022Z 	File: /envs/persistent/org/identity_center.tf:75-89
+checkov	Scan Terraform	2026-10-20T23:20:29.1214005Z 	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-iam-policies/bc-aws-356
+checkov	Scan Terraform	2026-10-20T23:20:29.1215286Z Check: CKV_AWS_1: "Ensure IAM policies that allow full "*-*" administrative privileges are not created"
+checkov	Scan Terraform	2026-10-20T23:20:29.1216380Z 	PASSED for resource: aws_iam_policy_document.engineer_guard
+checkov	Scan Terraform	2026-10-20T23:20:29.1217021Z 	File: /envs/persistent/org/identity_center.tf:75-89
+checkov	Scan Terraform	2026-10-20T23:20:29.1218004Z 	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-iam-policies/iam-23
+checkov	Scan Terraform	2026-10-20T23:20:29.1219223Z Check: CKV_AWS_49: "Ensure no IAM policies documents allow "*" as a statement's actions"
+checkov	Scan Terraform	2026-10-20T23:20:29.1239595Z 	PASSED for resource: aws_iam_policy_document.engineer_guard
+checkov	Scan Terraform	2026-10-20T23:20:29.1240733Z 	File: /envs/persistent/org/identity_center.tf:75-89
+checkov	Scan Terraform	2026-10-20T23:20:29.1241402Z 	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-iam-policies/bc-aws-iam-43
+checkov	Scan Terraform	2026-10-20T23:20:29.1242127Z Check: CKV_AWS_110: "Ensure IAM policies does not allow privilege escalation"
+checkov	Scan Terraform	2026-10-20T23:20:29.1242618Z 	PASSED for resource: aws_iam_policy_document.engineer_guard
+checkov	Scan Terraform	2026-10-20T23:20:29.1243035Z 	File: /envs/persistent/org/identity_center.tf:75-89
+checkov	Scan Terraform	2026-10-20T23:20:29.1243828Z 	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-iam-policies/ensure-iam-policies-does-not-allow-privilege-escalation
+checkov	Scan Terraform	2026-10-20T23:20:29.1244776Z Check: CKV_AWS_274: "Disallow IAM roles, users, and groups from using the AWS AdministratorAccess policy"
+checkov	Scan Terraform	2026-10-20T23:20:29.1245597Z 	PASSED for resource: aws_ssoadmin_managed_policy_attachment.this
+checkov	Scan Terraform	2026-10-20T23:20:29.1246057Z 	File: /envs/persistent/org/identity_center.tf:68-73
+checkov	Scan Terraform	2026-10-20T23:20:29.1246672Z 	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-iam-policies/bc-aws-274
+checkov	Scan Terraform	2026-10-20T23:20:29.1247441Z Check: CKV_AWS_62: "Ensure IAM policies that allow full "*-*" administrative privileges are not created"
+checkov	Scan Terraform	2026-10-20T23:20:29.1248024Z 	PASSED for resource: aws_ssoadmin_permission_set_inline_policy.engineer
+checkov	Scan Terraform	2026-10-20T23:20:29.1248529Z 	File: /envs/persistent/org/identity_center.tf:91-95
+checkov	Scan Terraform	2026-10-20T23:20:29.1249201Z 	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-iam-policies/bc-aws-iam-45
+checkov	Scan Terraform	2026-10-20T23:20:29.1249912Z Check: CKV_AWS_63: "Ensure no IAM policies documents allow "*" as a statement's actions"
+checkov	Scan Terraform	2026-10-20T23:20:29.1250451Z 	PASSED for resource: aws_ssoadmin_permission_set_inline_policy.engineer
+checkov	Scan Terraform	2026-10-20T23:20:29.1250885Z 	File: /envs/persistent/org/identity_center.tf:91-95
+checkov	Scan Terraform	2026-10-20T23:20:29.1251473Z 	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-iam-policies/iam-48
+checkov	Scan Terraform	2026-10-20T23:20:29.1252283Z Check: CKV_AWS_109: "Ensure IAM policies does not allow permissions management / resource exposure without constraints"
+checkov	Scan Terraform	2026-10-20T23:20:29.1252908Z 	PASSED for resource: aws_iam_policy_document.cloudtrail
+checkov	Scan Terraform	2026-10-20T23:20:29.1253260Z 	File: /envs/persistent/org/trail.tf:11-44
+checkov	Scan Terraform	2026-10-20T23:20:29.1254205Z 	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-iam-policies/ensure-iam-policies-do-not-allow-permissions-management-resource-exposure-without-constraint
+checkov	Scan Terraform	2026-10-20T23:20:29.1255249Z Check: CKV_AWS_107: "Ensure IAM policies does not allow credentials exposure"
+checkov	Scan Terraform	2026-10-20T23:20:29.1256005Z 	PASSED for resource: aws_iam_policy_document.cloudtrail
+checkov	Scan Terraform	2026-10-20T23:20:29.1256369Z 	File: /envs/persistent/org/trail.tf:11-44
+checkov	Scan Terraform	2026-10-20T23:20:29.1257121Z 	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-iam-policies/ensure-iam-policies-do-not-allow-credentials-exposure
+checkov	Scan Terraform	2026-10-20T23:20:29.1258101Z Check: CKV_AWS_283: "Ensure no IAM policies documents allow ALL or any AWS principal permissions to the resource"
+checkov	Scan Terraform	2026-10-20T23:20:29.1258664Z 	PASSED for resource: aws_iam_policy_document.cloudtrail
+checkov	Scan Terraform	2026-10-20T23:20:29.1259012Z 	File: /envs/persistent/org/trail.tf:11-44
+checkov	Scan Terraform	2026-10-20T23:20:29.1259561Z 	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-iam-policies/bc-aws-283
+checkov	Scan Terraform	2026-10-20T23:20:29.1260212Z Check: CKV_AWS_108: "Ensure IAM policies does not allow data exfiltration"
+checkov	Scan Terraform	2026-10-20T23:20:29.1260644Z 	PASSED for resource: aws_iam_policy_document.cloudtrail
+checkov	Scan Terraform	2026-10-20T23:20:29.1260985Z 	File: /envs/persistent/org/trail.tf:11-44
+checkov	Scan Terraform	2026-10-20T23:20:29.1261702Z 	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-iam-policies/ensure-iam-policies-do-not-allow-data-exfiltration
+checkov	Scan Terraform	2026-10-20T23:20:29.1262822Z Check: CKV_AWS_358: "Ensure AWS GitHub Actions OIDC authorization policies only allow safe claims and claim order"
+checkov	Scan Terraform	2026-10-20T23:20:29.1263502Z 	PASSED for resource: aws_iam_policy_document.cloudtrail
+checkov	Scan Terraform	2026-10-20T23:20:29.1263847Z 	File: /envs/persistent/org/trail.tf:11-44
+checkov	Scan Terraform	2026-10-20T23:20:29.1264387Z 	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-iam-policies/iam-358
+checkov	Scan Terraform	2026-10-20T23:20:29.1265072Z Check: CKV_AWS_111: "Ensure IAM policies does not allow write access without constraints"
+checkov	Scan Terraform	2026-10-20T23:20:29.1266163Z 	PASSED for resource: aws_iam_policy_document.cloudtrail
+checkov	Scan Terraform	2026-10-20T23:20:29.1266784Z 	File: /envs/persistent/org/trail.tf:11-44
+checkov	Scan Terraform	2026-10-20T23:20:29.1267749Z 	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-iam-policies/ensure-iam-policies-do-not-allow-write-access-without-constraint
+checkov	Scan Terraform	2026-10-20T23:20:29.1268815Z Check: CKV_AWS_356: "Ensure no IAM policies documents allow "*" as a statement's resource for restrictable actions"
+checkov	Scan Terraform	2026-10-20T23:20:29.1269418Z 	PASSED for resource: aws_iam_policy_document.cloudtrail
+checkov	Scan Terraform	2026-10-20T23:20:29.1269790Z 	File: /envs/persistent/org/trail.tf:11-44
+checkov	Scan Terraform	2026-10-20T23:20:29.1270369Z 	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-iam-policies/bc-aws-356
+checkov	Scan Terraform	2026-10-20T23:20:29.1271136Z Check: CKV_AWS_1: "Ensure IAM policies that allow full "*-*" administrative privileges are not created"
+checkov	Scan Terraform	2026-10-20T23:20:29.1271673Z 	PASSED for resource: aws_iam_policy_document.cloudtrail
+checkov	Scan Terraform	2026-10-20T23:20:29.1272039Z 	File: /envs/persistent/org/trail.tf:11-44
+checkov	Scan Terraform	2026-10-20T23:20:29.1272583Z 	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-iam-policies/iam-23
+checkov	Scan Terraform	2026-10-20T23:20:29.1273257Z Check: CKV_AWS_49: "Ensure no IAM policies documents allow "*" as a statement's actions"
+checkov	Scan Terraform	2026-10-20T23:20:29.1273741Z 	PASSED for resource: aws_iam_policy_document.cloudtrail
+checkov	Scan Terraform	2026-10-20T23:20:29.1274074Z 	File: /envs/persistent/org/trail.tf:11-44
+checkov	Scan Terraform	2026-10-20T23:20:29.1274633Z 	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-iam-policies/bc-aws-iam-43
+checkov	Scan Terraform	2026-10-20T23:20:29.1275310Z Check: CKV_AWS_110: "Ensure IAM policies does not allow privilege escalation"
+checkov	Scan Terraform	2026-10-20T23:20:29.1275911Z 	PASSED for resource: aws_iam_policy_document.cloudtrail
+checkov	Scan Terraform	2026-10-20T23:20:29.1276263Z 	File: /envs/persistent/org/trail.tf:11-44
+checkov	Scan Terraform	2026-10-20T23:20:29.1277010Z 	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-iam-policies/ensure-iam-policies-does-not-allow-privilege-escalation
+checkov	Scan Terraform	2026-10-20T23:20:29.1277802Z Check: CKV_AWS_251: "Ensure CloudTrail logging is enabled"
+checkov	Scan Terraform	2026-10-20T23:20:29.1278146Z 	PASSED for resource: aws_cloudtrail.org
+checkov	Scan Terraform	2026-10-20T23:20:29.1278441Z 	File: /envs/persistent/org/trail.tf:52-63
+checkov	Scan Terraform	2026-10-20T23:20:29.1279123Z 	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-general-policies/ensure-aws-cloudtrail-logging-is-enabled
+checkov	Scan Terraform	2026-10-20T23:20:29.1279903Z Check: CKV_AWS_36: "Ensure CloudTrail log file validation is enabled"
+checkov	Scan Terraform	2026-10-20T23:20:29.1280288Z 	PASSED for resource: aws_cloudtrail.org
+checkov	Scan Terraform	2026-10-20T23:20:29.1280588Z 	File: /envs/persistent/org/trail.tf:52-63
+checkov	Scan Terraform	2026-10-20T23:20:29.1281144Z 	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-logging-policies/logging-2
+checkov	Scan Terraform	2026-10-20T23:20:29.1281774Z Check: CKV_AWS_67: "Ensure CloudTrail is enabled in all Regions"
+checkov	Scan Terraform	2026-10-20T23:20:29.1282141Z 	PASSED for resource: aws_cloudtrail.org
+checkov	Scan Terraform	2026-10-20T23:20:29.1282427Z 	File: /envs/persistent/org/trail.tf:52-63
+checkov	Scan Terraform	2026-10-20T23:20:29.1282976Z 	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-logging-policies/logging-1
+checkov	Scan Terraform	2026-10-20T23:20:29.1283683Z Check: CKV_AWS_41: "Ensure no hard coded AWS access key and secret key exists in provider"
+checkov	Scan Terraform	2026-10-20T23:20:29.1284124Z 	PASSED for resource: aws.default
+checkov	Scan Terraform	2026-10-20T23:20:29.1284411Z 	File: /envs/persistent/org/versions.tf:12-22
+checkov	Scan Terraform	2026-10-20T23:20:29.1285169Z 	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/secrets-policies/bc-aws-secrets-5
+checkov	Scan Terraform	2026-10-20T23:20:29.1286246Z Check: CKV_AWS_109: "Ensure IAM policies does not allow permissions management / resource exposure without constraints"
+checkov	Scan Terraform	2026-10-20T23:20:29.1286846Z 	PASSED for resource: aws_iam_policy_document.deploy_trust
+checkov	Scan Terraform	2026-10-20T23:20:29.1287203Z 	File: /envs/persistent/workload/main.tf:9-29
+checkov	Scan Terraform	2026-10-20T23:20:29.1288153Z 	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-iam-policies/ensure-iam-policies-do-not-allow-permissions-management-resource-exposure-without-constraint
+checkov	Scan Terraform	2026-10-20T23:20:29.1289183Z Check: CKV_AWS_107: "Ensure IAM policies does not allow credentials exposure"
+checkov	Scan Terraform	2026-10-20T23:20:29.1289639Z 	PASSED for resource: aws_iam_policy_document.deploy_trust
+checkov	Scan Terraform	2026-10-20T23:20:29.1289985Z 	File: /envs/persistent/workload/main.tf:9-29
+checkov	Scan Terraform	2026-10-20T23:20:29.1290716Z 	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-iam-policies/ensure-iam-policies-do-not-allow-credentials-exposure
+checkov	Scan Terraform	2026-10-20T23:20:29.1291688Z Check: CKV_AWS_283: "Ensure no IAM policies documents allow ALL or any AWS principal permissions to the resource"
+checkov	Scan Terraform	2026-10-20T23:20:29.1292259Z 	PASSED for resource: aws_iam_policy_document.deploy_trust
+checkov	Scan Terraform	2026-10-20T23:20:29.1292606Z 	File: /envs/persistent/workload/main.tf:9-29
+checkov	Scan Terraform	2026-10-20T23:20:29.1293158Z 	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-iam-policies/bc-aws-283
+checkov	Scan Terraform	2026-10-20T23:20:29.1293800Z Check: CKV_AWS_108: "Ensure IAM policies does not allow data exfiltration"
+checkov	Scan Terraform	2026-10-20T23:20:29.1294232Z 	PASSED for resource: aws_iam_policy_document.deploy_trust
+checkov	Scan Terraform	2026-10-20T23:20:29.1294581Z 	File: /envs/persistent/workload/main.tf:9-29
+checkov	Scan Terraform	2026-10-20T23:20:29.1295323Z 	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-iam-policies/ensure-iam-policies-do-not-allow-data-exfiltration
+checkov	Scan Terraform	2026-10-20T23:20:29.1297329Z Check: CKV_AWS_358: "Ensure AWS GitHub Actions OIDC authorization policies only allow safe claims and claim order"
+checkov	Scan Terraform	2026-10-20T23:20:29.1297935Z 	PASSED for resource: aws_iam_policy_document.deploy_trust
+checkov	Scan Terraform	2026-10-20T23:20:29.1298303Z 	File: /envs/persistent/workload/main.tf:9-29
+checkov	Scan Terraform	2026-10-20T23:20:29.1298873Z 	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-iam-policies/iam-358
+checkov	Scan Terraform	2026-10-20T23:20:29.1299561Z Check: CKV_AWS_111: "Ensure IAM policies does not allow write access without constraints"
+checkov	Scan Terraform	2026-10-20T23:20:29.1300053Z 	PASSED for resource: aws_iam_policy_document.deploy_trust
+checkov	Scan Terraform	2026-10-20T23:20:29.1300410Z 	File: /envs/persistent/workload/main.tf:9-29
+checkov	Scan Terraform	2026-10-20T23:20:29.1301213Z 	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-iam-policies/ensure-iam-policies-do-not-allow-write-access-without-constraint
+checkov	Scan Terraform	2026-10-20T23:20:29.1302231Z Check: CKV_AWS_356: "Ensure no IAM policies documents allow "*" as a statement's resource for restrictable actions"
+checkov	Scan Terraform	2026-10-20T23:20:29.1302804Z 	PASSED for resource: aws_iam_policy_document.deploy_trust
+checkov	Scan Terraform	2026-10-20T23:20:29.1303166Z 	File: /envs/persistent/workload/main.tf:9-29
+checkov	Scan Terraform	2026-10-20T23:20:29.1303753Z 	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-iam-policies/bc-aws-356
+checkov	Scan Terraform	2026-10-20T23:20:29.1304502Z Check: CKV_AWS_1: "Ensure IAM policies that allow full "*-*" administrative privileges are not created"
+checkov	Scan Terraform	2026-10-20T23:20:29.1305041Z 	PASSED for resource: aws_iam_policy_document.deploy_trust
+checkov	Scan Terraform	2026-10-20T23:20:29.1305589Z 	File: /envs/persistent/workload/main.tf:9-29
+checkov	Scan Terraform	2026-10-20T23:20:29.1306203Z 	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-iam-policies/iam-23
+checkov	Scan Terraform	2026-10-20T23:20:29.1306884Z Check: CKV_AWS_49: "Ensure no IAM policies documents allow "*" as a statement's actions"
+checkov	Scan Terraform	2026-10-20T23:20:29.1307367Z 	PASSED for resource: aws_iam_policy_document.deploy_trust
+checkov	Scan Terraform	2026-10-20T23:20:29.1307880Z 	File: /envs/persistent/workload/main.tf:9-29
+checkov	Scan Terraform	2026-10-20T23:20:29.1308470Z 	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-iam-policies/bc-aws-iam-43
+checkov	Scan Terraform	2026-10-20T23:20:29.1309253Z Check: CKV_AWS_110: "Ensure IAM policies does not allow privilege escalation"
+checkov	Scan Terraform	2026-10-20T23:20:29.1309713Z 	PASSED for resource: aws_iam_policy_document.deploy_trust
+checkov	Scan Terraform	2026-10-20T23:20:29.1310070Z 	File: /envs/persistent/workload/main.tf:9-29
+checkov	Scan Terraform	2026-10-20T23:20:29.1310828Z 	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-iam-policies/ensure-iam-policies-does-not-allow-privilege-escalation
+checkov	Scan Terraform	2026-10-20T23:20:29.1311739Z Check: CKV_AWS_61: "Ensure AWS IAM policy does not allow assume role permission across all services"
+checkov	Scan Terraform	2026-10-20T23:20:29.1312220Z 	PASSED for resource: aws_iam_role.deploy
+checkov	Scan Terraform	2026-10-20T23:20:29.1312529Z 	File: /envs/persistent/workload/main.tf:31-35
+checkov	Scan Terraform	2026-10-20T23:20:29.1313100Z 	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-iam-policies/bc-aws-iam-45
+checkov	Scan Terraform	2026-10-20T23:20:29.1313866Z Check: CKV_AWS_274: "Disallow IAM roles, users, and groups from using the AWS AdministratorAccess policy"
+checkov	Scan Terraform	2026-10-20T23:20:29.1314371Z 	PASSED for resource: aws_iam_role.deploy
+checkov	Scan Terraform	2026-10-20T23:20:29.1314671Z 	File: /envs/persistent/workload/main.tf:31-35
+checkov	Scan Terraform	2026-10-20T23:20:29.1315224Z 	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-iam-policies/bc-aws-274
+checkov	Scan Terraform	2026-10-20T23:20:29.1316073Z Check: CKV_AWS_60: "Ensure IAM role allows only specific services or principals to assume it"
+checkov	Scan Terraform	2026-10-20T23:20:29.1316531Z 	PASSED for resource: aws_iam_role.deploy
+checkov	Scan Terraform	2026-10-20T23:20:29.1316832Z 	File: /envs/persistent/workload/main.tf:31-35
+checkov	Scan Terraform	2026-10-20T23:20:29.1317417Z 	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-iam-policies/bc-aws-iam-44
+checkov	Scan Terraform	2026-10-20T23:20:29.1318244Z Check: CKV_AWS_393: "Ensure AWS GitHub Actions OIDC authorization policies only allow safe claims and claim order on IAM role"
+checkov	Scan Terraform	2026-10-20T23:20:29.1318827Z 	PASSED for resource: aws_iam_role.deploy
+checkov	Scan Terraform	2026-10-20T23:20:29.1319141Z 	File: /envs/persistent/workload/main.tf:31-35
+checkov	Scan Terraform	2026-10-20T23:20:29.1319640Z Check: CKV_AWS_274: "Disallow IAM roles, users, and groups from using the AWS AdministratorAccess policy"
+checkov	Scan Terraform	2026-10-20T23:20:29.1320202Z 	PASSED for resource: aws_iam_role_policy_attachment.broad[0]
+checkov	Scan Terraform	2026-10-20T23:20:29.1320574Z 	File: /envs/persistent/workload/main.tf:38-42
+checkov	Scan Terraform	2026-10-20T23:20:29.1321142Z 	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-iam-policies/bc-aws-274
+checkov	Scan Terraform	2026-10-20T23:20:29.1321949Z Check: CKV_AWS_289: "Ensure IAM policies does not allow permissions management / resource exposure without constraints"
+checkov	Scan Terraform	2026-10-20T23:20:29.1322548Z 	PASSED for resource: aws_iam_role_policy.broad_key_scan[0]
+checkov	Scan Terraform	2026-10-20T23:20:29.1322912Z 	File: /envs/persistent/workload/main.tf:44-52
+checkov	Scan Terraform	2026-10-20T23:20:29.1323474Z 	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-iam-policies/bc-aws-289
+checkov	Scan Terraform	2026-10-20T23:20:29.1324221Z Check: CKV_AWS_62: "Ensure IAM policies that allow full "*-*" administrative privileges are not created"
+checkov	Scan Terraform	2026-10-20T23:20:29.1324763Z 	PASSED for resource: aws_iam_role_policy.broad_key_scan[0]
+checkov	Scan Terraform	2026-10-20T23:20:29.1325159Z 	File: /envs/persistent/workload/main.tf:44-52
+checkov	Scan Terraform	2026-10-20T23:20:29.1325848Z 	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-iam-policies/bc-aws-iam-45
+checkov	Scan Terraform	2026-10-20T23:20:29.1326512Z Check: CKV_AWS_287: "Ensure IAM policies does not allow credentials exposure"
+checkov	Scan Terraform	2026-10-20T23:20:29.1326959Z 	PASSED for resource: aws_iam_role_policy.broad_key_scan[0]
+checkov	Scan Terraform	2026-10-20T23:20:29.1327314Z 	File: /envs/persistent/workload/main.tf:44-52
+checkov	Scan Terraform	2026-10-20T23:20:29.1327865Z 	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-iam-policies/bc-aws-287
+checkov	Scan Terraform	2026-10-20T23:20:29.1328641Z Check: CKV_AWS_355: "Ensure no IAM policies documents allow "*" as a statement's resource for restrictable actions"
+checkov	Scan Terraform	2026-10-20T23:20:29.1329328Z 	PASSED for resource: aws_iam_role_policy.broad_key_scan[0]
+checkov	Scan Terraform	2026-10-20T23:20:29.1329784Z 	File: /envs/persistent/workload/main.tf:44-52
+checkov	Scan Terraform	2026-10-20T23:20:29.1330335Z 	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-iam-policies/bc-aws-355
+checkov	Scan Terraform	2026-10-20T23:20:29.1330969Z Check: CKV_AWS_288: "Ensure IAM policies does not allow data exfiltration"
+checkov	Scan Terraform	2026-10-20T23:20:29.1331406Z 	PASSED for resource: aws_iam_role_policy.broad_key_scan[0]
+checkov	Scan Terraform	2026-10-20T23:20:29.1331755Z 	File: /envs/persistent/workload/main.tf:44-52
+checkov	Scan Terraform	2026-10-20T23:20:29.1332302Z 	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-iam-policies/bc-aws-288
+checkov	Scan Terraform	2026-10-20T23:20:29.1332978Z Check: CKV_AWS_63: "Ensure no IAM policies documents allow "*" as a statement's actions"
+checkov	Scan Terraform	2026-10-20T23:20:29.1333448Z 	PASSED for resource: aws_iam_role_policy.broad_key_scan[0]
+checkov	Scan Terraform	2026-10-20T23:20:29.1333799Z 	File: /envs/persistent/workload/main.tf:44-52
+checkov	Scan Terraform	2026-10-20T23:20:29.1334340Z 	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-iam-policies/iam-48
+checkov	Scan Terraform	2026-10-20T23:20:29.1335019Z Check: CKV_AWS_290: "Ensure IAM policies does not allow write access without constraints"
+checkov	Scan Terraform	2026-10-20T23:20:29.1335723Z 	PASSED for resource: aws_iam_role_policy.broad_key_scan[0]
+checkov	Scan Terraform	2026-10-20T23:20:29.1336163Z 	File: /envs/persistent/workload/main.tf:44-52
+checkov	Scan Terraform	2026-10-20T23:20:29.1336709Z 	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-iam-policies/bc-aws-290
+checkov	Scan Terraform	2026-10-20T23:20:29.1337357Z Check: CKV_AWS_286: "Ensure IAM policies does not allow privilege escalation"
+checkov	Scan Terraform	2026-10-20T23:20:29.1337798Z 	PASSED for resource: aws_iam_role_policy.broad_key_scan[0]
+checkov	Scan Terraform	2026-10-20T23:20:29.1338144Z 	File: /envs/persistent/workload/main.tf:44-52
+checkov	Scan Terraform	2026-10-20T23:20:29.1338689Z 	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-iam-policies/bc-aws-286
+checkov	Scan Terraform	2026-10-20T23:20:29.1339373Z Check: CKV_AWS_41: "Ensure no hard coded AWS access key and secret key exists in provider"
+checkov	Scan Terraform	2026-10-20T23:20:29.1339814Z 	PASSED for resource: aws.default
+checkov	Scan Terraform	2026-10-20T23:20:29.1340116Z 	File: /envs/persistent/workload/versions.tf:16-30
+checkov	Scan Terraform	2026-10-20T23:20:29.1340716Z 	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/secrets-policies/bc-aws-secrets-5
+checkov	Scan Terraform	2026-10-20T23:20:29.1341536Z Check: CKV_AWS_109: "Ensure IAM policies does not allow permissions management / resource exposure without constraints"
+checkov	Scan Terraform	2026-10-20T23:20:29.1342183Z 	PASSED for resource: module.breakglass_alert.aws_iam_policy_document.topic
+checkov	Scan Terraform	2026-10-20T23:20:29.1342602Z 	File: /modules/breakglass-alert/main.tf:31-45
+checkov	Scan Terraform	2026-10-20T23:20:29.1342938Z 	Calling File: /envs/persistent/workload/main.tf:71-74
+checkov	Scan Terraform	2026-10-20T23:20:29.1343904Z 	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-iam-policies/ensure-iam-policies-do-not-allow-permissions-management-resource-exposure-without-constraint
+checkov	Scan Terraform	2026-10-20T23:20:29.1344939Z Check: CKV_AWS_107: "Ensure IAM policies does not allow credentials exposure"
+checkov	Scan Terraform	2026-10-20T23:20:29.1345706Z 	PASSED for resource: module.breakglass_alert.aws_iam_policy_document.topic
+checkov	Scan Terraform	2026-10-20T23:20:29.1346151Z 	File: /modules/breakglass-alert/main.tf:31-45
+checkov	Scan Terraform	2026-10-20T23:20:29.1346488Z 	Calling File: /envs/persistent/workload/main.tf:71-74
+checkov	Scan Terraform	2026-10-20T23:20:29.1347256Z 	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-iam-policies/ensure-iam-policies-do-not-allow-credentials-exposure
+checkov	Scan Terraform	2026-10-20T23:20:29.1348202Z Check: CKV_AWS_283: "Ensure no IAM policies documents allow ALL or any AWS principal permissions to the resource"
+checkov	Scan Terraform	2026-10-20T23:20:29.1348824Z 	PASSED for resource: module.breakglass_alert.aws_iam_policy_document.topic
+checkov	Scan Terraform	2026-10-20T23:20:29.1349350Z 	File: /modules/breakglass-alert/main.tf:31-45
+checkov	Scan Terraform	2026-10-20T23:20:29.1349871Z 	Calling File: /envs/persistent/workload/main.tf:71-74
+checkov	Scan Terraform	2026-10-20T23:20:29.1350749Z 	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-iam-policies/bc-aws-283
+checkov	Scan Terraform	2026-10-20T23:20:29.1351521Z Check: CKV_AWS_108: "Ensure IAM policies does not allow data exfiltration"
+checkov	Scan Terraform	2026-10-20T23:20:29.1352022Z 	PASSED for resource: module.breakglass_alert.aws_iam_policy_document.topic
+checkov	Scan Terraform	2026-10-20T23:20:29.1352442Z 	File: /modules/breakglass-alert/main.tf:31-45
+checkov	Scan Terraform	2026-10-20T23:20:29.1352785Z 	Calling File: /envs/persistent/workload/main.tf:71-74
+checkov	Scan Terraform	2026-10-20T23:20:29.1353541Z 	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-iam-policies/ensure-iam-policies-do-not-allow-data-exfiltration
+checkov	Scan Terraform	2026-10-20T23:20:29.1354488Z Check: CKV_AWS_358: "Ensure AWS GitHub Actions OIDC authorization policies only allow safe claims and claim order"
+checkov	Scan Terraform	2026-10-20T23:20:29.1355128Z 	PASSED for resource: module.breakglass_alert.aws_iam_policy_document.topic
+checkov	Scan Terraform	2026-10-20T23:20:29.1355698Z 	File: /modules/breakglass-alert/main.tf:31-45
+checkov	Scan Terraform	2026-10-20T23:20:29.1356041Z 	Calling File: /envs/persistent/workload/main.tf:71-74
+checkov	Scan Terraform	2026-10-20T23:20:29.1356607Z 	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-iam-policies/iam-358
+checkov	Scan Terraform	2026-10-20T23:20:29.1357285Z Check: CKV_AWS_111: "Ensure IAM policies does not allow write access without constraints"
+checkov	Scan Terraform	2026-10-20T23:20:29.1357824Z 	PASSED for resource: module.breakglass_alert.aws_iam_policy_document.topic
+checkov	Scan Terraform	2026-10-20T23:20:29.1358238Z 	File: /modules/breakglass-alert/main.tf:31-45
+checkov	Scan Terraform	2026-10-20T23:20:29.1358569Z 	Calling File: /envs/persistent/workload/main.tf:71-74
+checkov	Scan Terraform	2026-10-20T23:20:29.1359381Z 	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-iam-policies/ensure-iam-policies-do-not-allow-write-access-without-constraint
+checkov	Scan Terraform	2026-10-20T23:20:29.1360380Z Check: CKV_AWS_356: "Ensure no IAM policies documents allow "*" as a statement's resource for restrictable actions"
+checkov	Scan Terraform	2026-10-20T23:20:29.1360991Z 	PASSED for resource: module.breakglass_alert.aws_iam_policy_document.topic
+checkov	Scan Terraform	2026-10-20T23:20:29.1361417Z 	File: /modules/breakglass-alert/main.tf:31-45
+checkov	Scan Terraform	2026-10-20T23:20:29.1361754Z 	Calling File: /envs/persistent/workload/main.tf:71-74
+checkov	Scan Terraform	2026-10-20T23:20:29.1362327Z 	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-iam-policies/bc-aws-356
+checkov	Scan Terraform	2026-10-20T23:20:29.1363052Z Check: CKV_AWS_1: "Ensure IAM policies that allow full "*-*" administrative privileges are not created"
+checkov	Scan Terraform	2026-10-20T23:20:29.1363636Z 	PASSED for resource: module.breakglass_alert.aws_iam_policy_document.topic
+checkov	Scan Terraform	2026-10-20T23:20:29.1364052Z 	File: /modules/breakglass-alert/main.tf:31-45
+checkov	Scan Terraform	2026-10-20T23:20:29.1364383Z 	Calling File: /envs/persistent/workload/main.tf:71-74
+checkov	Scan Terraform	2026-10-20T23:20:29.1364942Z 	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-iam-policies/iam-23
+checkov	Scan Terraform	2026-10-20T23:20:29.1365725Z Check: CKV_AWS_49: "Ensure no IAM policies documents allow "*" as a statement's actions"
+checkov	Scan Terraform	2026-10-20T23:20:29.1366266Z 	PASSED for resource: module.breakglass_alert.aws_iam_policy_document.topic
+checkov	Scan Terraform	2026-10-20T23:20:29.1366682Z 	File: /modules/breakglass-alert/main.tf:31-45
+checkov	Scan Terraform	2026-10-20T23:20:29.1367020Z 	Calling File: /envs/persistent/workload/main.tf:71-74
+checkov	Scan Terraform	2026-10-20T23:20:29.1367607Z 	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-iam-policies/bc-aws-iam-43
+checkov	Scan Terraform	2026-10-20T23:20:29.1368275Z Check: CKV_AWS_110: "Ensure IAM policies does not allow privilege escalation"
+checkov	Scan Terraform	2026-10-20T23:20:29.1368770Z 	PASSED for resource: module.breakglass_alert.aws_iam_policy_document.topic
+checkov	Scan Terraform	2026-10-20T23:20:29.1369183Z 	File: /modules/breakglass-alert/main.tf:31-45
+checkov	Scan Terraform	2026-10-20T23:20:29.1369510Z 	Calling File: /envs/persistent/workload/main.tf:71-74
+checkov	Scan Terraform	2026-10-20T23:20:29.1370277Z 	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-iam-policies/ensure-iam-policies-does-not-allow-privilege-escalation
+checkov	Scan Terraform	2026-10-20T23:20:29.1371259Z Check: CKV_AWS_109: "Ensure IAM policies does not allow permissions management / resource exposure without constraints"
+checkov	Scan Terraform	2026-10-20T23:20:29.1371983Z 	PASSED for resource: module.state.aws_iam_policy_document.this
+checkov	Scan Terraform	2026-10-20T23:20:29.1372456Z 	File: /modules/secure-bucket/main.tf:55-73
+checkov	Scan Terraform	2026-10-20T23:20:29.1372764Z 	Calling File: /envs/bootstrap/main.tf:33-36
+checkov	Scan Terraform	2026-10-20T23:20:29.1373697Z 	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-iam-policies/ensure-iam-policies-do-not-allow-permissions-management-resource-exposure-without-constraint
+checkov	Scan Terraform	2026-10-20T23:20:29.1374732Z Check: CKV_AWS_107: "Ensure IAM policies does not allow credentials exposure"
+checkov	Scan Terraform	2026-10-20T23:20:29.1375198Z 	PASSED for resource: module.state.aws_iam_policy_document.this
+checkov	Scan Terraform	2026-10-20T23:20:29.1375842Z 	File: /modules/secure-bucket/main.tf:55-73
+checkov	Scan Terraform	2026-10-20T23:20:29.1376159Z 	Calling File: /envs/bootstrap/main.tf:33-36
+checkov	Scan Terraform	2026-10-20T23:20:29.1376892Z 	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-iam-policies/ensure-iam-policies-do-not-allow-credentials-exposure
+checkov	Scan Terraform	2026-10-20T23:20:29.1377842Z Check: CKV_AWS_283: "Ensure no IAM policies documents allow ALL or any AWS principal permissions to the resource"
+checkov	Scan Terraform	2026-10-20T23:20:29.1378424Z 	PASSED for resource: module.state.aws_iam_policy_document.this
+checkov	Scan Terraform	2026-10-20T23:20:29.1378786Z 	File: /modules/secure-bucket/main.tf:55-73
+checkov	Scan Terraform	2026-10-20T23:20:29.1379083Z 	Calling File: /envs/bootstrap/main.tf:33-36
+checkov	Scan Terraform	2026-10-20T23:20:29.1379637Z 	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-iam-policies/bc-aws-283
+checkov	Scan Terraform	2026-10-20T23:20:29.1380274Z Check: CKV_AWS_108: "Ensure IAM policies does not allow data exfiltration"
+checkov	Scan Terraform	2026-10-20T23:20:29.1380719Z 	PASSED for resource: module.state.aws_iam_policy_document.this
+checkov	Scan Terraform	2026-10-20T23:20:29.1381080Z 	File: /modules/secure-bucket/main.tf:55-73
+checkov	Scan Terraform	2026-10-20T23:20:29.1381374Z 	Calling File: /envs/bootstrap/main.tf:33-36
+checkov	Scan Terraform	2026-10-20T23:20:29.1382083Z 	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-iam-policies/ensure-iam-policies-do-not-allow-data-exfiltration
+checkov	Scan Terraform	2026-10-20T23:20:29.1383027Z Check: CKV_AWS_358: "Ensure AWS GitHub Actions OIDC authorization policies only allow safe claims and claim order"
+checkov	Scan Terraform	2026-10-20T23:20:29.1383621Z 	PASSED for resource: module.state.aws_iam_policy_document.this
+checkov	Scan Terraform	2026-10-20T23:20:29.1383981Z 	File: /modules/secure-bucket/main.tf:55-73
+checkov	Scan Terraform	2026-10-20T23:20:29.1384276Z 	Calling File: /envs/bootstrap/main.tf:33-36
+checkov	Scan Terraform	2026-10-20T23:20:29.1384820Z 	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-iam-policies/iam-358
+checkov	Scan Terraform	2026-10-20T23:20:29.1385776Z Check: CKV_AWS_111: "Ensure IAM policies does not allow write access without constraints"
+checkov	Scan Terraform	2026-10-20T23:20:29.1386291Z 	PASSED for resource: module.state.aws_iam_policy_document.this
+checkov	Scan Terraform	2026-10-20T23:20:29.1386652Z 	File: /modules/secure-bucket/main.tf:55-73
+checkov	Scan Terraform	2026-10-20T23:20:29.1386946Z 	Calling File: /envs/bootstrap/main.tf:33-36
+checkov	Scan Terraform	2026-10-20T23:20:29.1387727Z 	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-iam-policies/ensure-iam-policies-do-not-allow-write-access-without-constraint
+checkov	Scan Terraform	2026-10-20T23:20:29.1388747Z Check: CKV_AWS_356: "Ensure no IAM policies documents allow "*" as a statement's resource for restrictable actions"
+checkov	Scan Terraform	2026-10-20T23:20:29.1389323Z 	PASSED for resource: module.state.aws_iam_policy_document.this
+checkov	Scan Terraform	2026-10-20T23:20:29.1389684Z 	File: /modules/secure-bucket/main.tf:55-73
+checkov	Scan Terraform	2026-10-20T23:20:29.1389979Z 	Calling File: /envs/bootstrap/main.tf:33-36
+checkov	Scan Terraform	2026-10-20T23:20:29.1390522Z 	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-iam-policies/bc-aws-356
+checkov	Scan Terraform	2026-10-20T23:20:29.1391254Z Check: CKV_AWS_1: "Ensure IAM policies that allow full "*-*" administrative privileges are not created"
+checkov	Scan Terraform	2026-10-20T23:20:29.1391804Z 	PASSED for resource: module.state.aws_iam_policy_document.this
+checkov	Scan Terraform	2026-10-20T23:20:29.1392168Z 	File: /modules/secure-bucket/main.tf:55-73
+checkov	Scan Terraform	2026-10-20T23:20:29.1392462Z 	Calling File: /envs/bootstrap/main.tf:33-36
+checkov	Scan Terraform	2026-10-20T23:20:29.1393137Z 	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-iam-policies/iam-23
+checkov	Scan Terraform	2026-10-20T23:20:29.1393958Z Check: CKV_AWS_49: "Ensure no IAM policies documents allow "*" as a statement's actions"
+checkov	Scan Terraform	2026-10-20T23:20:29.1394444Z 	PASSED for resource: module.state.aws_iam_policy_document.this
+checkov	Scan Terraform	2026-10-20T23:20:29.1394799Z 	File: /modules/secure-bucket/main.tf:55-73
+checkov	Scan Terraform	2026-10-20T23:20:29.1395094Z 	Calling File: /envs/bootstrap/main.tf:33-36
+checkov	Scan Terraform	2026-10-20T23:20:29.1395783Z 	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-iam-policies/bc-aws-iam-43
+checkov	Scan Terraform	2026-10-20T23:20:29.1396453Z Check: CKV_AWS_110: "Ensure IAM policies does not allow privilege escalation"
+checkov	Scan Terraform	2026-10-20T23:20:29.1396914Z 	PASSED for resource: module.state.aws_iam_policy_document.this
+checkov	Scan Terraform	2026-10-20T23:20:29.1397276Z 	File: /modules/secure-bucket/main.tf:55-73
+checkov	Scan Terraform	2026-10-20T23:20:29.1397568Z 	Calling File: /envs/bootstrap/main.tf:33-36
+checkov	Scan Terraform	2026-10-20T23:20:29.1398311Z 	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-iam-policies/ensure-iam-policies-does-not-allow-privilege-escalation
+checkov	Scan Terraform	2026-10-20T23:20:29.1399313Z Check: CKV_AWS_93: "Ensure S3 bucket policy does not lockout all but root user. (Prevent lockouts needing root account fixes)"
+checkov	Scan Terraform	2026-10-20T23:20:29.1399903Z 	PASSED for resource: module.state.aws_s3_bucket.this
+checkov	Scan Terraform	2026-10-20T23:20:29.1400233Z 	File: /modules/secure-bucket/main.tf:14-21
+checkov	Scan Terraform	2026-10-20T23:20:29.1400534Z 	Calling File: /envs/bootstrap/main.tf:33-36
+checkov	Scan Terraform	2026-10-20T23:20:29.1401071Z 	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/s3-policies/bc-aws-s3-24
+checkov	Scan Terraform	2026-10-20T23:20:29.1401681Z Check: CKV_AWS_55: "Ensure S3 bucket has ignore public ACLs enabled"
+checkov	Scan Terraform	2026-10-20T23:20:29.1402142Z 	PASSED for resource: module.state.aws_s3_bucket_public_access_block.this
+checkov	Scan Terraform	2026-10-20T23:20:29.1402540Z 	File: /modules/secure-bucket/main.tf:30-36
+checkov	Scan Terraform	2026-10-20T23:20:29.1402839Z 	Calling File: /envs/bootstrap/main.tf:33-36
+checkov	Scan Terraform	2026-10-20T23:20:29.1403370Z 	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/s3-policies/bc-aws-s3-21
+checkov	Scan Terraform	2026-10-20T23:20:29.1403982Z Check: CKV_AWS_53: "Ensure S3 bucket has block public ACLS enabled"
+checkov	Scan Terraform	2026-10-20T23:20:29.1404445Z 	PASSED for resource: module.state.aws_s3_bucket_public_access_block.this
+checkov	Scan Terraform	2026-10-20T23:20:29.1404840Z 	File: /modules/secure-bucket/main.tf:30-36
+checkov	Scan Terraform	2026-10-20T23:20:29.1405134Z 	Calling File: /envs/bootstrap/main.tf:33-36
+checkov	Scan Terraform	2026-10-20T23:20:29.1405781Z 	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/s3-policies/bc-aws-s3-19
+checkov	Scan Terraform	2026-10-20T23:20:29.1406405Z Check: CKV_AWS_56: "Ensure S3 bucket has 'restrict_public_buckets' enabled"
+checkov	Scan Terraform	2026-10-20T23:20:29.1406887Z 	PASSED for resource: module.state.aws_s3_bucket_public_access_block.this
+checkov	Scan Terraform	2026-10-20T23:20:29.1407280Z 	File: /modules/secure-bucket/main.tf:30-36
+checkov	Scan Terraform	2026-10-20T23:20:29.1407579Z 	Calling File: /envs/bootstrap/main.tf:33-36
+checkov	Scan Terraform	2026-10-20T23:20:29.1408117Z 	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/s3-policies/bc-aws-s3-22
+checkov	Scan Terraform	2026-10-20T23:20:29.1408734Z Check: CKV_AWS_54: "Ensure S3 bucket has block public policy enabled"
+checkov	Scan Terraform	2026-10-20T23:20:29.1409196Z 	PASSED for resource: module.state.aws_s3_bucket_public_access_block.this
+checkov	Scan Terraform	2026-10-20T23:20:29.1409591Z 	File: /modules/secure-bucket/main.tf:30-36
+checkov	Scan Terraform	2026-10-20T23:20:29.1409893Z 	Calling File: /envs/bootstrap/main.tf:33-36
+checkov	Scan Terraform	2026-10-20T23:20:29.1410417Z 	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/s3-policies/bc-aws-s3-20
+checkov	Scan Terraform	2026-10-20T23:20:29.1411204Z Check: CKV_AWS_93: "Ensure S3 bucket policy does not lockout all but root user. (Prevent lockouts needing root account fixes)"
+checkov	Scan Terraform	2026-10-20T23:20:29.1411812Z 	PASSED for resource: module.state.aws_s3_bucket_policy.this
+checkov	Scan Terraform	2026-10-20T23:20:29.1412174Z 	File: /modules/secure-bucket/main.tf:75-79
+checkov	Scan Terraform	2026-10-20T23:20:29.1412472Z 	Calling File: /envs/bootstrap/main.tf:33-36
+checkov	Scan Terraform	2026-10-20T23:20:29.1413126Z 	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/s3-policies/bc-aws-s3-24
+checkov	Scan Terraform	2026-10-20T23:20:29.1414008Z Check: CKV_AWS_109: "Ensure IAM policies does not allow permissions management / resource exposure without constraints"
+checkov	Scan Terraform	2026-10-20T23:20:29.1414632Z 	PASSED for resource: module.log_archive.aws_iam_policy_document.this
+checkov	Scan Terraform	2026-10-20T23:20:29.1415021Z 	File: /modules/secure-bucket/main.tf:55-73
+checkov	Scan Terraform	2026-10-20T23:20:29.1415452Z 	Calling File: /envs/persistent/org/trail.tf:46-50
+checkov	Scan Terraform	2026-10-20T23:20:29.1416590Z 	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-iam-policies/ensure-iam-policies-do-not-allow-permissions-management-resource-exposure-without-constraint
+checkov	Scan Terraform	2026-10-20T23:20:29.1417641Z Check: CKV_AWS_107: "Ensure IAM policies does not allow credentials exposure"
+checkov	Scan Terraform	2026-10-20T23:20:29.1418127Z 	PASSED for resource: module.log_archive.aws_iam_policy_document.this
+checkov	Scan Terraform	2026-10-20T23:20:29.1418514Z 	File: /modules/secure-bucket/main.tf:55-73
+checkov	Scan Terraform	2026-10-20T23:20:29.1418850Z 	Calling File: /envs/persistent/org/trail.tf:46-50
+checkov	Scan Terraform	2026-10-20T23:20:29.1419608Z 	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-iam-policies/ensure-iam-policies-do-not-allow-credentials-exposure
+checkov	Scan Terraform	2026-10-20T23:20:29.1420569Z Check: CKV_AWS_283: "Ensure no IAM policies documents allow ALL or any AWS principal permissions to the resource"
+checkov	Scan Terraform	2026-10-20T23:20:29.1421167Z 	PASSED for resource: module.log_archive.aws_iam_policy_document.this
+checkov	Scan Terraform	2026-10-20T23:20:29.1421550Z 	File: /modules/secure-bucket/main.tf:55-73
+checkov	Scan Terraform	2026-10-20T23:20:29.1421863Z 	Calling File: /envs/persistent/org/trail.tf:46-50
+checkov	Scan Terraform	2026-10-20T23:20:29.1422429Z 	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-iam-policies/bc-aws-283
+checkov	Scan Terraform	2026-10-20T23:20:29.1423079Z Check: CKV_AWS_108: "Ensure IAM policies does not allow data exfiltration"
+checkov	Scan Terraform	2026-10-20T23:20:29.1423556Z 	PASSED for resource: module.log_archive.aws_iam_policy_document.this
+checkov	Scan Terraform	2026-10-20T23:20:29.1423955Z 	File: /modules/secure-bucket/main.tf:55-73
+checkov	Scan Terraform	2026-10-20T23:20:29.1424269Z 	Calling File: /envs/persistent/org/trail.tf:46-50
+checkov	Scan Terraform	2026-10-20T23:20:29.1425054Z 	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-iam-policies/ensure-iam-policies-do-not-allow-data-exfiltration
+checkov	Scan Terraform	2026-10-20T23:20:29.1426250Z Check: CKV_AWS_358: "Ensure AWS GitHub Actions OIDC authorization policies only allow safe claims and claim order"
+checkov	Scan Terraform	2026-10-20T23:20:29.1426864Z 	PASSED for resource: module.log_archive.aws_iam_policy_document.this
+checkov	Scan Terraform	2026-10-20T23:20:29.1427251Z 	File: /modules/secure-bucket/main.tf:55-73
+checkov	Scan Terraform	2026-10-20T23:20:29.1427565Z 	Calling File: /envs/persistent/org/trail.tf:46-50
+checkov	Scan Terraform	2026-10-20T23:20:29.1428281Z 	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-iam-policies/iam-358
+checkov	Scan Terraform	2026-10-20T23:20:29.1429373Z Check: CKV_AWS_111: "Ensure IAM policies does not allow write access without constraints"
+checkov	Scan Terraform	2026-10-20T23:20:29.1429919Z 	PASSED for resource: module.log_archive.aws_iam_policy_document.this
+checkov	Scan Terraform	2026-10-20T23:20:29.1430319Z 	File: /modules/secure-bucket/main.tf:55-73
+checkov	Scan Terraform	2026-10-20T23:20:29.1430664Z 	Calling File: /envs/persistent/org/trail.tf:46-50
+checkov	Scan Terraform	2026-10-20T23:20:29.1431509Z 	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-iam-policies/ensure-iam-policies-do-not-allow-write-access-without-constraint
+checkov	Scan Terraform	2026-10-20T23:20:29.1432533Z Check: CKV_AWS_356: "Ensure no IAM policies documents allow "*" as a statement's resource for restrictable actions"
+checkov	Scan Terraform	2026-10-20T23:20:29.1433145Z 	PASSED for resource: module.log_archive.aws_iam_policy_document.this
+checkov	Scan Terraform	2026-10-20T23:20:29.1433545Z 	File: /modules/secure-bucket/main.tf:55-73
+checkov	Scan Terraform	2026-10-20T23:20:29.1433872Z 	Calling File: /envs/persistent/org/trail.tf:46-50
+checkov	Scan Terraform	2026-10-20T23:20:29.1434448Z 	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-iam-policies/bc-aws-356
+checkov	Scan Terraform	2026-10-20T23:20:29.1435189Z Check: CKV_AWS_1: "Ensure IAM policies that allow full "*-*" administrative privileges are not created"
+checkov	Scan Terraform	2026-10-20T23:20:29.1436087Z 	PASSED for resource: module.log_archive.aws_iam_policy_document.this
+checkov	Scan Terraform	2026-10-20T23:20:29.1436602Z 	File: /modules/secure-bucket/main.tf:55-73
+checkov	Scan Terraform	2026-10-20T23:20:29.1436924Z 	Calling File: /envs/persistent/org/trail.tf:46-50
+checkov	Scan Terraform	2026-10-20T23:20:29.1437499Z 	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-iam-policies/iam-23
+checkov	Scan Terraform	2026-10-20T23:20:29.1438192Z Check: CKV_AWS_49: "Ensure no IAM policies documents allow "*" as a statement's actions"
+checkov	Scan Terraform	2026-10-20T23:20:29.1438716Z 	PASSED for resource: module.log_archive.aws_iam_policy_document.this
+checkov	Scan Terraform	2026-10-20T23:20:29.1439110Z 	File: /modules/secure-bucket/main.tf:55-73
+checkov	Scan Terraform	2026-10-20T23:20:29.1439433Z 	Calling File: /envs/persistent/org/trail.tf:46-50
+checkov	Scan Terraform	2026-10-20T23:20:29.1440025Z 	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-iam-policies/bc-aws-iam-43
+checkov	Scan Terraform	2026-10-20T23:20:29.1440708Z Check: CKV_AWS_110: "Ensure IAM policies does not allow privilege escalation"
+checkov	Scan Terraform	2026-10-20T23:20:29.1441195Z 	PASSED for resource: module.log_archive.aws_iam_policy_document.this
+checkov	Scan Terraform	2026-10-20T23:20:29.1441590Z 	File: /modules/secure-bucket/main.tf:55-73
+checkov	Scan Terraform	2026-10-20T23:20:29.1441920Z 	Calling File: /envs/persistent/org/trail.tf:46-50
+checkov	Scan Terraform	2026-10-20T23:20:29.1442685Z 	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-iam-policies/ensure-iam-policies-does-not-allow-privilege-escalation
+checkov	Scan Terraform	2026-10-20T23:20:29.1443686Z Check: CKV_AWS_93: "Ensure S3 bucket policy does not lockout all but root user. (Prevent lockouts needing root account fixes)"
+checkov	Scan Terraform	2026-10-20T23:20:29.1444291Z 	PASSED for resource: module.log_archive.aws_s3_bucket.this
+checkov	Scan Terraform	2026-10-20T23:20:29.1444653Z 	File: /modules/secure-bucket/main.tf:14-21
+checkov	Scan Terraform	2026-10-20T23:20:29.1444969Z 	Calling File: /envs/persistent/org/trail.tf:46-50
+checkov	Scan Terraform	2026-10-20T23:20:29.1445688Z 	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/s3-policies/bc-aws-s3-24
+checkov	Scan Terraform	2026-10-20T23:20:29.1446329Z Check: CKV_AWS_55: "Ensure S3 bucket has ignore public ACLs enabled"
+checkov	Scan Terraform	2026-10-20T23:20:29.1446817Z 	PASSED for resource: module.log_archive.aws_s3_bucket_public_access_block.this
+checkov	Scan Terraform	2026-10-20T23:20:29.1447242Z 	File: /modules/secure-bucket/main.tf:30-36
+checkov	Scan Terraform	2026-10-20T23:20:29.1447556Z 	Calling File: /envs/persistent/org/trail.tf:46-50
+checkov	Scan Terraform	2026-10-20T23:20:29.1448133Z 	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/s3-policies/bc-aws-s3-21
+checkov	Scan Terraform	2026-10-20T23:20:29.1448772Z Check: CKV_AWS_53: "Ensure S3 bucket has block public ACLS enabled"
+checkov	Scan Terraform	2026-10-20T23:20:29.1449261Z 	PASSED for resource: module.log_archive.aws_s3_bucket_public_access_block.this
+checkov	Scan Terraform	2026-10-20T23:20:29.1449686Z 	File: /modules/secure-bucket/main.tf:30-36
+checkov	Scan Terraform	2026-10-20T23:20:29.1450009Z 	Calling File: /envs/persistent/org/trail.tf:46-50
+checkov	Scan Terraform	2026-10-20T23:20:29.1450579Z 	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/s3-policies/bc-aws-s3-19
+checkov	Scan Terraform	2026-10-20T23:20:29.1451219Z Check: CKV_AWS_56: "Ensure S3 bucket has 'restrict_public_buckets' enabled"
+checkov	Scan Terraform	2026-10-20T23:20:29.1451730Z 	PASSED for resource: module.log_archive.aws_s3_bucket_public_access_block.this
+checkov	Scan Terraform	2026-10-20T23:20:29.1452150Z 	File: /modules/secure-bucket/main.tf:30-36
+checkov	Scan Terraform	2026-10-20T23:20:29.1452465Z 	Calling File: /envs/persistent/org/trail.tf:46-50
+checkov	Scan Terraform	2026-10-20T23:20:29.1453027Z 	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/s3-policies/bc-aws-s3-22
+checkov	Scan Terraform	2026-10-20T23:20:29.1453653Z Check: CKV_AWS_54: "Ensure S3 bucket has block public policy enabled"
+checkov	Scan Terraform	2026-10-20T23:20:29.1454147Z 	PASSED for resource: module.log_archive.aws_s3_bucket_public_access_block.this
+checkov	Scan Terraform	2026-10-20T23:20:29.1454563Z 	File: /modules/secure-bucket/main.tf:30-36
+checkov	Scan Terraform	2026-10-20T23:20:29.1454876Z 	Calling File: /envs/persistent/org/trail.tf:46-50
+checkov	Scan Terraform	2026-10-20T23:20:29.1455549Z 	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/s3-policies/bc-aws-s3-20
+checkov	Scan Terraform	2026-10-20T23:20:29.1456488Z Check: CKV_AWS_93: "Ensure S3 bucket policy does not lockout all but root user. (Prevent lockouts needing root account fixes)"
+checkov	Scan Terraform	2026-10-20T23:20:29.1457233Z 	PASSED for resource: module.log_archive.aws_s3_bucket_policy.this
+checkov	Scan Terraform	2026-10-20T23:20:29.1457614Z 	File: /modules/secure-bucket/main.tf:75-79
+checkov	Scan Terraform	2026-10-20T23:20:29.1457926Z 	Calling File: /envs/persistent/org/trail.tf:46-50
+checkov	Scan Terraform	2026-10-20T23:20:29.1458497Z 	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/s3-policies/bc-aws-s3-24
+checkov	Scan Terraform	2026-10-20T23:20:29.1459298Z Check: CKV_AWS_109: "Ensure IAM policies does not allow permissions management / resource exposure without constraints"
+checkov	Scan Terraform	2026-10-20T23:20:29.1459942Z 	PASSED for resource: module.pipeline_state.aws_iam_policy_document.this
+checkov	Scan Terraform	2026-10-20T23:20:29.1460380Z 	File: /modules/secure-bucket/main.tf:55-73
+checkov	Scan Terraform	2026-10-20T23:20:29.1460715Z 	Calling File: /envs/persistent/workload/main.tf:66-69
+checkov	Scan Terraform	2026-10-20T23:20:29.1461702Z 	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-iam-policies/ensure-iam-policies-do-not-allow-permissions-management-resource-exposure-without-constraint
+checkov	Scan Terraform	2026-10-20T23:20:29.1462763Z Check: CKV_AWS_107: "Ensure IAM policies does not allow credentials exposure"
+checkov	Scan Terraform	2026-10-20T23:20:29.1463273Z 	PASSED for resource: module.pipeline_state.aws_iam_policy_document.this
+checkov	Scan Terraform	2026-10-20T23:20:29.1463680Z 	File: /modules/secure-bucket/main.tf:55-73
+checkov	Scan Terraform	2026-10-20T23:20:29.1464008Z 	Calling File: /envs/persistent/workload/main.tf:66-69
+checkov	Scan Terraform	2026-10-20T23:20:29.1464786Z 	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-iam-policies/ensure-iam-policies-do-not-allow-credentials-exposure
+checkov	Scan Terraform	2026-10-20T23:20:29.1466041Z Check: CKV_AWS_283: "Ensure no IAM policies documents allow ALL or any AWS principal permissions to the resource"
+checkov	Scan Terraform	2026-10-20T23:20:29.1466669Z 	PASSED for resource: module.pipeline_state.aws_iam_policy_document.this
+checkov	Scan Terraform	2026-10-20T23:20:29.1467070Z 	File: /modules/secure-bucket/main.tf:55-73
+checkov	Scan Terraform	2026-10-20T23:20:29.1467405Z 	Calling File: /envs/persistent/workload/main.tf:66-69
+checkov	Scan Terraform	2026-10-20T23:20:29.1468006Z 	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-iam-policies/bc-aws-283
+checkov	Scan Terraform	2026-10-20T23:20:29.1468666Z Check: CKV_AWS_108: "Ensure IAM policies does not allow data exfiltration"
+checkov	Scan Terraform	2026-10-20T23:20:29.1469152Z 	PASSED for resource: module.pipeline_state.aws_iam_policy_document.this
+checkov	Scan Terraform	2026-10-20T23:20:29.1469554Z 	File: /modules/secure-bucket/main.tf:55-73
+checkov	Scan Terraform	2026-10-20T23:20:29.1469882Z 	Calling File: /envs/persistent/workload/main.tf:66-69
+checkov	Scan Terraform	2026-10-20T23:20:29.1470644Z 	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-iam-policies/ensure-iam-policies-do-not-allow-data-exfiltration
+checkov	Scan Terraform	2026-10-20T23:20:29.1471603Z Check: CKV_AWS_358: "Ensure AWS GitHub Actions OIDC authorization policies only allow safe claims and claim order"
+checkov	Scan Terraform	2026-10-20T23:20:29.1472227Z 	PASSED for resource: module.pipeline_state.aws_iam_policy_document.this
+checkov	Scan Terraform	2026-10-20T23:20:29.1472627Z 	File: /modules/secure-bucket/main.tf:55-73
+checkov	Scan Terraform	2026-10-20T23:20:29.1472952Z 	Calling File: /envs/persistent/workload/main.tf:66-69
+checkov	Scan Terraform	2026-10-20T23:20:29.1473533Z 	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-iam-policies/iam-358
+checkov	Scan Terraform	2026-10-20T23:20:29.1474217Z Check: CKV_AWS_111: "Ensure IAM policies does not allow write access without constraints"
+checkov	Scan Terraform	2026-10-20T23:20:29.1474746Z 	PASSED for resource: module.pipeline_state.aws_iam_policy_document.this
+checkov	Scan Terraform	2026-10-20T23:20:29.1475142Z 	File: /modules/secure-bucket/main.tf:55-73
+checkov	Scan Terraform	2026-10-20T23:20:29.1475639Z 	Calling File: /envs/persistent/workload/main.tf:66-69
+checkov	Scan Terraform	2026-10-20T23:20:29.1476477Z 	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-iam-policies/ensure-iam-policies-do-not-allow-write-access-without-constraint
+checkov	Scan Terraform	2026-10-20T23:20:29.1477500Z Check: CKV_AWS_356: "Ensure no IAM policies documents allow "*" as a statement's resource for restrictable actions"
+checkov	Scan Terraform	2026-10-20T23:20:29.1478254Z 	PASSED for resource: module.pipeline_state.aws_iam_policy_document.this
+checkov	Scan Terraform	2026-10-20T23:20:29.1478762Z 	File: /modules/secure-bucket/main.tf:55-73
+checkov	Scan Terraform	2026-10-20T23:20:29.1479095Z 	Calling File: /envs/persistent/workload/main.tf:66-69
+checkov	Scan Terraform	2026-10-20T23:20:29.1479679Z 	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-iam-policies/bc-aws-356
+checkov	Scan Terraform	2026-10-20T23:20:29.1480423Z Check: CKV_AWS_1: "Ensure IAM policies that allow full "*-*" administrative privileges are not created"
+checkov	Scan Terraform	2026-10-20T23:20:29.1481011Z 	PASSED for resource: module.pipeline_state.aws_iam_policy_document.this
+checkov	Scan Terraform	2026-10-20T23:20:29.1481412Z 	File: /modules/secure-bucket/main.tf:55-73
+checkov	Scan Terraform	2026-10-20T23:20:29.1481741Z 	Calling File: /envs/persistent/workload/main.tf:66-69
+checkov	Scan Terraform	2026-10-20T23:20:29.1482313Z 	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-iam-policies/iam-23
+checkov	Scan Terraform	2026-10-20T23:20:29.1482990Z Check: CKV_AWS_49: "Ensure no IAM policies documents allow "*" as a statement's actions"
+checkov	Scan Terraform	2026-10-20T23:20:29.1483526Z 	PASSED for resource: module.pipeline_state.aws_iam_policy_document.this
+checkov	Scan Terraform	2026-10-20T23:20:29.1483931Z 	File: /modules/secure-bucket/main.tf:55-73
+checkov	Scan Terraform	2026-10-20T23:20:29.1484259Z 	Calling File: /envs/persistent/workload/main.tf:66-69
+checkov	Scan Terraform	2026-10-20T23:20:29.1484853Z 	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-iam-policies/bc-aws-iam-43
+checkov	Scan Terraform	2026-10-20T23:20:29.1485663Z Check: CKV_AWS_110: "Ensure IAM policies does not allow privilege escalation"
+checkov	Scan Terraform	2026-10-20T23:20:29.1486162Z 	PASSED for resource: module.pipeline_state.aws_iam_policy_document.this
+checkov	Scan Terraform	2026-10-20T23:20:29.1486556Z 	File: /modules/secure-bucket/main.tf:55-73
+checkov	Scan Terraform	2026-10-20T23:20:29.1486881Z 	Calling File: /envs/persistent/workload/main.tf:66-69
+checkov	Scan Terraform	2026-10-20T23:20:29.1487657Z 	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-iam-policies/ensure-iam-policies-does-not-allow-privilege-escalation
+checkov	Scan Terraform	2026-10-20T23:20:29.1488673Z Check: CKV_AWS_93: "Ensure S3 bucket policy does not lockout all but root user. (Prevent lockouts needing root account fixes)"
+checkov	Scan Terraform	2026-10-20T23:20:29.1489304Z 	PASSED for resource: module.pipeline_state.aws_s3_bucket.this
+checkov	Scan Terraform	2026-10-20T23:20:29.1489688Z 	File: /modules/secure-bucket/main.tf:14-21
+checkov	Scan Terraform	2026-10-20T23:20:29.1490034Z 	Calling File: /envs/persistent/workload/main.tf:66-69
+checkov	Scan Terraform	2026-10-20T23:20:29.1490615Z 	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/s3-policies/bc-aws-s3-24
+checkov	Scan Terraform	2026-10-20T23:20:29.1491243Z Check: CKV_AWS_55: "Ensure S3 bucket has ignore public ACLs enabled"
+checkov	Scan Terraform	2026-10-20T23:20:29.1491746Z 	PASSED for resource: module.pipeline_state.aws_s3_bucket_public_access_block.this
+checkov	Scan Terraform	2026-10-20T23:20:29.1492190Z 	File: /modules/secure-bucket/main.tf:30-36
+checkov	Scan Terraform	2026-10-20T23:20:29.1492519Z 	Calling File: /envs/persistent/workload/main.tf:66-69
+checkov	Scan Terraform	2026-10-20T23:20:29.1493097Z 	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/s3-policies/bc-aws-s3-21
+checkov	Scan Terraform	2026-10-20T23:20:29.1493725Z Check: CKV_AWS_53: "Ensure S3 bucket has block public ACLS enabled"
+checkov	Scan Terraform	2026-10-20T23:20:29.1494213Z 	PASSED for resource: module.pipeline_state.aws_s3_bucket_public_access_block.this
+checkov	Scan Terraform	2026-10-20T23:20:29.1494655Z 	File: /modules/secure-bucket/main.tf:30-36
+checkov	Scan Terraform	2026-10-20T23:20:29.1494983Z 	Calling File: /envs/persistent/workload/main.tf:66-69
+checkov	Scan Terraform	2026-10-20T23:20:29.1495666Z 	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/s3-policies/bc-aws-s3-19
+checkov	Scan Terraform	2026-10-20T23:20:29.1496306Z Check: CKV_AWS_56: "Ensure S3 bucket has 'restrict_public_buckets' enabled"
+checkov	Scan Terraform	2026-10-20T23:20:29.1496823Z 	PASSED for resource: module.pipeline_state.aws_s3_bucket_public_access_block.this
+checkov	Scan Terraform	2026-10-20T23:20:29.1497258Z 	File: /modules/secure-bucket/main.tf:30-36
+checkov	Scan Terraform	2026-10-20T23:20:29.1497586Z 	Calling File: /envs/persistent/workload/main.tf:66-69
+checkov	Scan Terraform	2026-10-20T23:20:29.1498157Z 	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/s3-policies/bc-aws-s3-22
+checkov	Scan Terraform	2026-10-20T23:20:29.1498914Z Check: CKV_AWS_54: "Ensure S3 bucket has block public policy enabled"
+checkov	Scan Terraform	2026-10-20T23:20:29.1499405Z 	PASSED for resource: module.pipeline_state.aws_s3_bucket_public_access_block.this
+checkov	Scan Terraform	2026-10-20T23:20:29.1499939Z 	File: /modules/secure-bucket/main.tf:30-36
+checkov	Scan Terraform	2026-10-20T23:20:29.1500268Z 	Calling File: /envs/persistent/workload/main.tf:66-69
+checkov	Scan Terraform	2026-10-20T23:20:29.1500836Z 	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/s3-policies/bc-aws-s3-20
+checkov	Scan Terraform	2026-10-20T23:20:29.1501644Z Check: CKV_AWS_93: "Ensure S3 bucket policy does not lockout all but root user. (Prevent lockouts needing root account fixes)"
+checkov	Scan Terraform	2026-10-20T23:20:29.1502291Z 	PASSED for resource: module.pipeline_state.aws_s3_bucket_policy.this
+checkov	Scan Terraform	2026-10-20T23:20:29.1502681Z 	File: /modules/secure-bucket/main.tf:75-79
+checkov	Scan Terraform	2026-10-20T23:20:29.1503003Z 	Calling File: /envs/persistent/workload/main.tf:66-69
+checkov	Scan Terraform	2026-10-20T23:20:29.1503570Z 	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/s3-policies/bc-aws-s3-24
+checkov	Scan Terraform	2026-10-20T23:20:29.1504238Z Check: CKV2_AWS_56: "Ensure AWS Managed IAMFullAccess IAM policy is not used."
+checkov	Scan Terraform	2026-10-20T23:20:29.1504721Z 	PASSED for resource: aws_ssoadmin_managed_policy_attachment.this
+checkov	Scan Terraform	2026-10-20T23:20:29.1505125Z 	File: /envs/persistent/org/identity_center.tf:68-73
+checkov	Scan Terraform	2026-10-20T23:20:29.1505995Z 	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-iam-policies/bc-aws-2-56
+checkov	Scan Terraform	2026-10-20T23:20:29.1506676Z Check: CKV2_AWS_56: "Ensure AWS Managed IAMFullAccess IAM policy is not used."
+checkov	Scan Terraform	2026-10-20T23:20:29.1507091Z 	PASSED for resource: aws_iam_role.deploy
+checkov	Scan Terraform	2026-10-20T23:20:29.1507404Z 	File: /envs/persistent/workload/main.tf:31-35
+checkov	Scan Terraform	2026-10-20T23:20:29.1507974Z 	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-iam-policies/bc-aws-2-56
+checkov	Scan Terraform	2026-10-20T23:20:29.1508639Z Check: CKV2_AWS_56: "Ensure AWS Managed IAMFullAccess IAM policy is not used."
+checkov	Scan Terraform	2026-10-20T23:20:29.1509107Z 	PASSED for resource: aws_iam_role_policy_attachment.broad[0]
+checkov	Scan Terraform	2026-10-20T23:20:29.1509475Z 	File: /envs/persistent/workload/main.tf:38-42
+checkov	Scan Terraform	2026-10-20T23:20:29.1510060Z 	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-iam-policies/bc-aws-2-56
+checkov	Scan Terraform	2026-10-20T23:20:29.1510724Z Check: CKV2_AWS_65: "Ensure access control lists for S3 buckets are disabled"
+checkov	Scan Terraform	2026-10-20T23:20:29.1511218Z 	PASSED for resource: module.state.aws_s3_bucket_ownership_controls.this
+checkov	Scan Terraform	2026-10-20T23:20:29.1511623Z 	File: /modules/secure-bucket/main.tf:23-28
+checkov	Scan Terraform	2026-10-20T23:20:29.1512235Z 	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-general-policies/bc-aws-general-112
+checkov	Scan Terraform	2026-10-20T23:20:29.1512943Z Check: CKV2_AWS_65: "Ensure access control lists for S3 buckets are disabled"
+checkov	Scan Terraform	2026-10-20T23:20:29.1513451Z 	PASSED for resource: module.log_archive.aws_s3_bucket_ownership_controls.this
+checkov	Scan Terraform	2026-10-20T23:20:29.1513876Z 	File: /modules/secure-bucket/main.tf:23-28
+checkov	Scan Terraform	2026-10-20T23:20:29.1514494Z 	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-general-policies/bc-aws-general-112
+checkov	Scan Terraform	2026-10-20T23:20:29.1515201Z Check: CKV2_AWS_65: "Ensure access control lists for S3 buckets are disabled"
+checkov	Scan Terraform	2026-10-20T23:20:29.1515845Z 	PASSED for resource: module.pipeline_state.aws_s3_bucket_ownership_controls.this
+checkov	Scan Terraform	2026-10-20T23:20:29.1516284Z 	File: /modules/secure-bucket/main.tf:23-28
+checkov	Scan Terraform	2026-10-20T23:20:29.1516883Z 	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-general-policies/bc-aws-general-112
+checkov	Scan Terraform	2026-10-20T23:20:29.1517600Z Check: CKV_AWS_57: "S3 Bucket has an ACL defined which allows public WRITE access."
+checkov	Scan Terraform	2026-10-20T23:20:29.1518034Z 	PASSED for resource: aws_s3_bucket.public_test
+checkov	Scan Terraform	2026-10-20T23:20:29.1518353Z 	File: /envs/app/public_test.tf:1-3
+checkov	Scan Terraform	2026-10-20T23:20:29.1518974Z 	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/s3-policies/s3-2-acl-write-permissions-everyone
+checkov	Scan Terraform	2026-10-20T23:20:29.1519872Z Check: CKV_AWS_57: "S3 Bucket has an ACL defined which allows public WRITE access."
+checkov	Scan Terraform	2026-10-20T23:20:29.1520324Z 	PASSED for resource: module.state.aws_s3_bucket.this
+checkov	Scan Terraform	2026-10-20T23:20:29.1520764Z 	File: /modules/secure-bucket/main.tf:14-21
+checkov	Scan Terraform	2026-10-20T23:20:29.1521394Z 	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/s3-policies/s3-2-acl-write-permissions-everyone
+checkov	Scan Terraform	2026-10-20T23:20:29.1522141Z Check: CKV_AWS_57: "S3 Bucket has an ACL defined which allows public WRITE access."
+checkov	Scan Terraform	2026-10-20T23:20:29.1522602Z 	PASSED for resource: module.log_archive.aws_s3_bucket.this
+checkov	Scan Terraform	2026-10-20T23:20:29.1522965Z 	File: /modules/secure-bucket/main.tf:14-21
+checkov	Scan Terraform	2026-10-20T23:20:29.1523596Z 	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/s3-policies/s3-2-acl-write-permissions-everyone
+checkov	Scan Terraform	2026-10-20T23:20:29.1524335Z Check: CKV_AWS_57: "S3 Bucket has an ACL defined which allows public WRITE access."
+checkov	Scan Terraform	2026-10-20T23:20:29.1524809Z 	PASSED for resource: module.pipeline_state.aws_s3_bucket.this
+checkov	Scan Terraform	2026-10-20T23:20:29.1525219Z 	File: /modules/secure-bucket/main.tf:14-21
+checkov	Scan Terraform	2026-10-20T23:20:29.1525980Z 	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/s3-policies/s3-2-acl-write-permissions-everyone
+checkov	Scan Terraform	2026-10-20T23:20:29.1526740Z Check: CKV_AWS_21: "Ensure all data stored in the S3 bucket have versioning enabled"
+checkov	Scan Terraform	2026-10-20T23:20:29.1527207Z 	PASSED for resource: module.state.aws_s3_bucket.this
+checkov	Scan Terraform	2026-10-20T23:20:29.1527538Z 	File: /modules/secure-bucket/main.tf:14-21
+checkov	Scan Terraform	2026-10-20T23:20:29.1528125Z 	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/s3-policies/s3-16-enable-versioning
+checkov	Scan Terraform	2026-10-20T23:20:29.1528836Z Check: CKV_AWS_21: "Ensure all data stored in the S3 bucket have versioning enabled"
+checkov	Scan Terraform	2026-10-20T23:20:29.1529307Z 	PASSED for resource: module.log_archive.aws_s3_bucket.this
+checkov	Scan Terraform	2026-10-20T23:20:29.1529664Z 	File: /modules/secure-bucket/main.tf:14-21
+checkov	Scan Terraform	2026-10-20T23:20:29.1530245Z 	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/s3-policies/s3-16-enable-versioning
+checkov	Scan Terraform	2026-10-20T23:20:29.1530950Z Check: CKV_AWS_21: "Ensure all data stored in the S3 bucket have versioning enabled"
+checkov	Scan Terraform	2026-10-20T23:20:29.1531437Z 	PASSED for resource: module.pipeline_state.aws_s3_bucket.this
+checkov	Scan Terraform	2026-10-20T23:20:29.1531805Z 	File: /modules/secure-bucket/main.tf:14-21
+checkov	Scan Terraform	2026-10-20T23:20:29.1532388Z 	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/s3-policies/s3-16-enable-versioning
+checkov	Scan Terraform	2026-10-20T23:20:29.1533090Z Check: CKV2_AWS_40: "Ensure AWS IAM policy does not allow full IAM privileges"
+checkov	Scan Terraform	2026-10-20T23:20:29.1533567Z 	PASSED for resource: aws_iam_policy_document.engineer_guard
+checkov	Scan Terraform	2026-10-20T23:20:29.1533959Z 	File: /envs/persistent/org/identity_center.tf:75-89
+checkov	Scan Terraform	2026-10-20T23:20:29.1534548Z 	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-iam-policies/bc-aws-2-40
+checkov	Scan Terraform	2026-10-20T23:20:29.1535313Z Check: CKV2_AWS_40: "Ensure AWS IAM policy does not allow full IAM privileges"
+checkov	Scan Terraform	2026-10-20T23:20:29.1535891Z 	PASSED for resource: aws_iam_policy_document.cloudtrail
+checkov	Scan Terraform	2026-10-20T23:20:29.1536251Z 	File: /envs/persistent/org/trail.tf:11-44
+checkov	Scan Terraform	2026-10-20T23:20:29.1536807Z 	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-iam-policies/bc-aws-2-40
+checkov	Scan Terraform	2026-10-20T23:20:29.1537482Z Check: CKV2_AWS_40: "Ensure AWS IAM policy does not allow full IAM privileges"
+checkov	Scan Terraform	2026-10-20T23:20:29.1537940Z 	PASSED for resource: aws_iam_policy_document.deploy_trust
+checkov	Scan Terraform	2026-10-20T23:20:29.1538301Z 	File: /envs/persistent/workload/main.tf:9-29
+checkov	Scan Terraform	2026-10-20T23:20:29.1538862Z 	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-iam-policies/bc-aws-2-40
+checkov	Scan Terraform	2026-10-20T23:20:29.1539523Z Check: CKV2_AWS_40: "Ensure AWS IAM policy does not allow full IAM privileges"
+checkov	Scan Terraform	2026-10-20T23:20:29.1539969Z 	PASSED for resource: aws_iam_role_policy.broad_key_scan[0]
+checkov	Scan Terraform	2026-10-20T23:20:29.1540331Z 	File: /envs/persistent/workload/main.tf:44-52
+checkov	Scan Terraform	2026-10-20T23:20:29.1541024Z 	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-iam-policies/bc-aws-2-40
+checkov	Scan Terraform	2026-10-20T23:20:29.1541802Z Check: CKV2_AWS_40: "Ensure AWS IAM policy does not allow full IAM privileges"
+checkov	Scan Terraform	2026-10-20T23:20:29.1542308Z 	PASSED for resource: module.breakglass_alert.aws_iam_policy_document.topic
+checkov	Scan Terraform	2026-10-20T23:20:29.1542733Z 	File: /modules/breakglass-alert/main.tf:31-45
+checkov	Scan Terraform	2026-10-20T23:20:29.1543308Z 	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-iam-policies/bc-aws-2-40
+checkov	Scan Terraform	2026-10-20T23:20:29.1543987Z Check: CKV2_AWS_40: "Ensure AWS IAM policy does not allow full IAM privileges"
+checkov	Scan Terraform	2026-10-20T23:20:29.1544462Z 	PASSED for resource: module.state.aws_iam_policy_document.this
+checkov	Scan Terraform	2026-10-20T23:20:29.1544840Z 	File: /modules/secure-bucket/main.tf:55-73
+checkov	Scan Terraform	2026-10-20T23:20:29.1545657Z 	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-iam-policies/bc-aws-2-40
+checkov	Scan Terraform	2026-10-20T23:20:29.1546384Z Check: CKV2_AWS_40: "Ensure AWS IAM policy does not allow full IAM privileges"
+checkov	Scan Terraform	2026-10-20T23:20:29.1546884Z 	PASSED for resource: module.log_archive.aws_iam_policy_document.this
+checkov	Scan Terraform	2026-10-20T23:20:29.1547285Z 	File: /modules/secure-bucket/main.tf:55-73
+checkov	Scan Terraform	2026-10-20T23:20:29.1547857Z 	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-iam-policies/bc-aws-2-40
+checkov	Scan Terraform	2026-10-20T23:20:29.1548515Z Check: CKV2_AWS_40: "Ensure AWS IAM policy does not allow full IAM privileges"
+checkov	Scan Terraform	2026-10-20T23:20:29.1549009Z 	PASSED for resource: module.pipeline_state.aws_iam_policy_document.this
+checkov	Scan Terraform	2026-10-20T23:20:29.1549412Z 	File: /modules/secure-bucket/main.tf:55-73
+checkov	Scan Terraform	2026-10-20T23:20:29.1549963Z 	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-iam-policies/bc-aws-2-40
+checkov	Scan Terraform	2026-10-20T23:20:29.1550637Z Check: CKV_AWS_20: "S3 Bucket has an ACL defined which allows public READ access."
+checkov	Scan Terraform	2026-10-20T23:20:29.1551068Z 	PASSED for resource: aws_s3_bucket.public_test
+checkov	Scan Terraform	2026-10-20T23:20:29.1551388Z 	File: /envs/app/public_test.tf:1-3
+checkov	Scan Terraform	2026-10-20T23:20:29.1551998Z 	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/s3-policies/s3-1-acl-read-permissions-everyone
+checkov	Scan Terraform	2026-10-20T23:20:29.1552740Z Check: CKV_AWS_20: "S3 Bucket has an ACL defined which allows public READ access."
+checkov	Scan Terraform	2026-10-20T23:20:29.1553189Z 	PASSED for resource: module.state.aws_s3_bucket.this
+checkov	Scan Terraform	2026-10-20T23:20:29.1553525Z 	File: /modules/secure-bucket/main.tf:14-21
+checkov	Scan Terraform	2026-10-20T23:20:29.1554148Z 	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/s3-policies/s3-1-acl-read-permissions-everyone
+checkov	Scan Terraform	2026-10-20T23:20:29.1554886Z Check: CKV_AWS_20: "S3 Bucket has an ACL defined which allows public READ access."
+checkov	Scan Terraform	2026-10-20T23:20:29.1555350Z 	PASSED for resource: module.log_archive.aws_s3_bucket.this
+checkov	Scan Terraform	2026-10-20T23:20:29.1555827Z 	File: /modules/secure-bucket/main.tf:14-21
+checkov	Scan Terraform	2026-10-20T23:20:29.1556461Z 	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/s3-policies/s3-1-acl-read-permissions-everyone
+checkov	Scan Terraform	2026-10-20T23:20:29.1557191Z Check: CKV_AWS_20: "S3 Bucket has an ACL defined which allows public READ access."
+checkov	Scan Terraform	2026-10-20T23:20:29.1557668Z 	PASSED for resource: module.pipeline_state.aws_s3_bucket.this
+checkov	Scan Terraform	2026-10-20T23:20:29.1558035Z 	File: /modules/secure-bucket/main.tf:14-21
+checkov	Scan Terraform	2026-10-20T23:20:29.1558664Z 	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/s3-policies/s3-1-acl-read-permissions-everyone
+checkov	Scan Terraform	2026-10-20T23:20:29.1559379Z Check: CKV2_AWS_6: "Ensure that S3 bucket has a Public Access block"
+checkov	Scan Terraform	2026-10-20T23:20:29.1559790Z 	PASSED for resource: module.state.aws_s3_bucket.this
+checkov	Scan Terraform	2026-10-20T23:20:29.1560124Z 	File: /modules/secure-bucket/main.tf:14-21
+checkov	Scan Terraform	2026-10-20T23:20:29.1561142Z 	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-networking-policies/s3-bucket-should-have-public-access-blocks-defaults-to-false-if-the-public-access-block-is-not-attached
+checkov	Scan Terraform	2026-10-20T23:20:29.1562369Z Check: CKV2_AWS_6: "Ensure that S3 bucket has a Public Access block"
+checkov	Scan Terraform	2026-10-20T23:20:29.1562787Z 	PASSED for resource: module.log_archive.aws_s3_bucket.this
+checkov	Scan Terraform	2026-10-20T23:20:29.1563294Z 	File: /modules/secure-bucket/main.tf:14-21
+checkov	Scan Terraform	2026-10-20T23:20:29.1564315Z 	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-networking-policies/s3-bucket-should-have-public-access-blocks-defaults-to-false-if-the-public-access-block-is-not-attached
+checkov	Scan Terraform	2026-10-20T23:20:29.1565509Z Check: CKV2_AWS_6: "Ensure that S3 bucket has a Public Access block"
+checkov	Scan Terraform	2026-10-20T23:20:29.1565964Z 	PASSED for resource: module.pipeline_state.aws_s3_bucket.this
+checkov	Scan Terraform	2026-10-20T23:20:29.1566337Z 	File: /modules/secure-bucket/main.tf:14-21
+checkov	Scan Terraform	2026-10-20T23:20:29.1567371Z 	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-networking-policies/s3-bucket-should-have-public-access-blocks-defaults-to-false-if-the-public-access-block-is-not-attached
+checkov	Scan Terraform	2026-10-20T23:20:29.1568550Z Check: CKV_AWS_19: "Ensure all data stored in the S3 bucket is securely encrypted at rest"
+checkov	Scan Terraform	2026-10-20T23:20:29.1569028Z 	PASSED for resource: aws_s3_bucket.public_test
+checkov	Scan Terraform	2026-10-20T23:20:29.1569349Z 	File: /envs/app/public_test.tf:1-3
+checkov	Scan Terraform	2026-10-20T23:20:29.1569936Z 	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/s3-policies/s3-14-data-encrypted-at-rest
+checkov	Scan Terraform	2026-10-20T23:20:29.1570676Z Check: CKV_AWS_19: "Ensure all data stored in the S3 bucket is securely encrypted at rest"
+checkov	Scan Terraform	2026-10-20T23:20:29.1571149Z 	PASSED for resource: module.state.aws_s3_bucket.this
+checkov	Scan Terraform	2026-10-20T23:20:29.1571483Z 	File: /modules/secure-bucket/main.tf:14-21
+checkov	Scan Terraform	2026-10-20T23:20:29.1572081Z 	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/s3-policies/s3-14-data-encrypted-at-rest
+checkov	Scan Terraform	2026-10-20T23:20:29.1572813Z Check: CKV_AWS_19: "Ensure all data stored in the S3 bucket is securely encrypted at rest"
+checkov	Scan Terraform	2026-10-20T23:20:29.1573304Z 	PASSED for resource: module.log_archive.aws_s3_bucket.this
+checkov	Scan Terraform	2026-10-20T23:20:29.1573661Z 	File: /modules/secure-bucket/main.tf:14-21
+checkov	Scan Terraform	2026-10-20T23:20:29.1574259Z 	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/s3-policies/s3-14-data-encrypted-at-rest
+checkov	Scan Terraform	2026-10-20T23:20:29.1574993Z Check: CKV_AWS_19: "Ensure all data stored in the S3 bucket is securely encrypted at rest"
+checkov	Scan Terraform	2026-10-20T23:20:29.1575601Z 	PASSED for resource: module.pipeline_state.aws_s3_bucket.this
+checkov	Scan Terraform	2026-10-20T23:20:29.1575963Z 	File: /modules/secure-bucket/main.tf:14-21
+checkov	Scan Terraform	2026-10-20T23:20:29.1576561Z 	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/s3-policies/s3-14-data-encrypted-at-rest
+checkov	Scan Terraform	2026-10-20T23:20:29.1577230Z Check: CKV_AWS_55: "Ensure S3 bucket has ignore public ACLs enabled"
+checkov	Scan Terraform	2026-10-20T23:20:29.1577692Z 	FAILED for resource: aws_s3_bucket_public_access_block.public_test
+checkov	Scan Terraform	2026-10-20T23:20:29.1578062Z 	File: /envs/app/public_test.tf:5-11
+checkov	Scan Terraform	2026-10-20T23:20:29.1578584Z 	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/s3-policies/bc-aws-s3-21
+checkov	Scan Terraform	2026-10-20T23:20:29.1579204Z Check: CKV_AWS_53: "Ensure S3 bucket has block public ACLS enabled"
+checkov	Scan Terraform	2026-10-20T23:20:29.1579644Z 	FAILED for resource: aws_s3_bucket_public_access_block.public_test
+checkov	Scan Terraform	2026-10-20T23:20:29.1580010Z 	File: /envs/app/public_test.tf:5-11
+checkov	Scan Terraform	2026-10-20T23:20:29.1580531Z 	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/s3-policies/bc-aws-s3-19
+checkov	Scan Terraform	2026-10-20T23:20:29.1581169Z Check: CKV_AWS_56: "Ensure S3 bucket has 'restrict_public_buckets' enabled"
+checkov	Scan Terraform	2026-10-20T23:20:29.1581633Z 	FAILED for resource: aws_s3_bucket_public_access_block.public_test
+checkov	Scan Terraform	2026-10-20T23:20:29.1581993Z 	File: /envs/app/public_test.tf:5-11
+checkov	Scan Terraform	2026-10-20T23:20:29.1582507Z 	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/s3-policies/bc-aws-s3-22
+checkov	Scan Terraform	2026-10-20T23:20:29.1583129Z Check: CKV_AWS_54: "Ensure S3 bucket has block public policy enabled"
+checkov	Scan Terraform	2026-10-20T23:20:29.1583695Z 	FAILED for resource: aws_s3_bucket_public_access_block.public_test
+checkov	Scan Terraform	2026-10-20T23:20:29.1584057Z 	File: /envs/app/public_test.tf:5-11
+checkov	Scan Terraform	2026-10-20T23:20:29.1584676Z 	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/s3-policies/bc-aws-s3-20
+checkov	Scan Terraform	2026-10-20T23:20:29.1585325Z Check: CKV2_AWS_62: "Ensure S3 buckets should have event notifications enabled"
+checkov	Scan Terraform	2026-10-20T23:20:29.1586067Z 	FAILED for resource: aws_s3_bucket.public_test
+checkov	Scan Terraform	2026-10-20T23:20:29.1586385Z 	File: /envs/app/public_test.tf:1-3
+checkov	Scan Terraform	2026-10-20T23:20:29.1586944Z 	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-logging-policies/bc-aws-2-62
+checkov	Scan Terraform	2026-10-20T23:20:29.1587631Z Check: CKV_AWS_144: "Ensure that S3 bucket has cross-region replication enabled"
+checkov	Scan Terraform	2026-10-20T23:20:29.1588049Z 	FAILED for resource: aws_s3_bucket.public_test
+checkov	Scan Terraform	2026-10-20T23:20:29.1588348Z 	File: /envs/app/public_test.tf:1-3
+checkov	Scan Terraform	2026-10-20T23:20:29.1589095Z 	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-general-policies/ensure-that-s3-bucket-has-cross-region-replication-enabled
+checkov	Scan Terraform	2026-10-20T23:20:29.1589947Z Check: CKV_AWS_18: "Ensure the S3 bucket has access logging enabled"
+checkov	Scan Terraform	2026-10-20T23:20:29.1590341Z 	FAILED for resource: aws_s3_bucket.public_test
+checkov	Scan Terraform	2026-10-20T23:20:29.1590639Z 	File: /envs/app/public_test.tf:1-3
+checkov	Scan Terraform	2026-10-20T23:20:29.1591178Z 	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/s3-policies/s3-13-enable-logging
+checkov	Scan Terraform	2026-10-20T23:20:29.1591863Z Check: CKV_AWS_21: "Ensure all data stored in the S3 bucket have versioning enabled"
+checkov	Scan Terraform	2026-10-20T23:20:29.1592296Z 	FAILED for resource: aws_s3_bucket.public_test
+checkov	Scan Terraform	2026-10-20T23:20:29.1592592Z 	File: /envs/app/public_test.tf:1-3
+checkov	Scan Terraform	2026-10-20T23:20:29.1593148Z 	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/s3-policies/s3-16-enable-versioning
+checkov	Scan Terraform	2026-10-20T23:20:29.1593833Z Check: CKV2_AWS_61: "Ensure that an S3 bucket has a lifecycle configuration"
+checkov	Scan Terraform	2026-10-20T23:20:29.1594253Z 	FAILED for resource: aws_s3_bucket.public_test
+checkov	Scan Terraform	2026-10-20T23:20:29.1594549Z 	File: /envs/app/public_test.tf:1-3
+checkov	Scan Terraform	2026-10-20T23:20:29.1595103Z 	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-logging-policies/bc-aws-2-61
+checkov	Scan Terraform	2026-10-20T23:20:29.1596278Z Check: CKV2_AWS_6: "Ensure that S3 bucket has a Public Access block"
+checkov	Scan Terraform	2026-10-20T23:20:29.1596839Z 	FAILED for resource: aws_s3_bucket.public_test
+checkov	Scan Terraform	2026-10-20T23:20:29.1597153Z 	File: /envs/app/public_test.tf:1-3
+checkov	Scan Terraform	2026-10-20T23:20:29.1598164Z 	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-networking-policies/s3-bucket-should-have-public-access-blocks-defaults-to-false-if-the-public-access-block-is-not-attached
+checkov	Scan Terraform	2026-10-20T23:20:29.1599294Z Check: CKV_AWS_145: "Ensure that S3 buckets are encrypted with KMS by default"
+checkov	Scan Terraform	2026-10-20T23:20:29.1599711Z 	FAILED for resource: aws_s3_bucket.public_test
+checkov	Scan Terraform	2026-10-20T23:20:29.1600015Z 	File: /envs/app/public_test.tf:1-3
+checkov	Scan Terraform	2026-10-20T23:20:29.1600763Z 	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-general-policies/ensure-that-s3-buckets-are-encrypted-with-kms-by-default
+checkov	Scan Terraform	2026-10-20T23:20:29.1601645Z Check: CKV_AWS_35: "Ensure CloudTrail logs are encrypted at rest using KMS CMKs"
+checkov	Scan Terraform	2026-10-20T23:20:29.1602072Z 	SKIPPED for resource: aws_cloudtrail.org
+checkov	Scan Terraform	2026-10-20T23:20:29.1602869Z 	Suppress comment: SSE-S3 on the log archive; CMK deferred to avoid locking CloudTrail out through a key policy. Tracked in POA&M.
+checkov	Scan Terraform	2026-10-20T23:20:29.1603572Z 	File: /envs/persistent/org/trail.tf:52-63
+checkov	Scan Terraform	2026-10-20T23:20:29.1604581Z 	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-logging-policies/logging-7
+checkov	Scan Terraform	2026-10-20T23:20:29.1605309Z Check: CKV_AWS_252: "Ensure CloudTrail defines an SNS Topic"
+checkov	Scan Terraform	2026-10-20T23:20:29.1606352Z 	SKIPPED for resource: aws_cloudtrail.org
+checkov	Scan Terraform	2026-10-20T23:20:29.1607099Z 	Suppress comment: Per delivery SNS not needed; break glass alerting is EventBridge. Tracked in POA&M.
+checkov	Scan Terraform	2026-10-20T23:20:29.1607891Z 	File: /envs/persistent/org/trail.tf:52-63
+checkov	Scan Terraform	2026-10-20T23:20:29.1608768Z 	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-general-policies/ensure-aws-cloudtrail-defines-an-sns-topic
+checkov	Scan Terraform	2026-10-20T23:20:29.1609817Z Check: CKV_AWS_26: "Ensure all data stored in the SNS topic is encrypted"
+checkov	Scan Terraform	2026-10-20T23:20:29.1610354Z 	SKIPPED for resource: module.breakglass_alert.aws_sns_topic.this
+checkov	Scan Terraform	2026-10-20T23:20:29.1611238Z 	Suppress comment: EventBridge cannot publish to a topic encrypted with the AWS managed SNS key; the alert carries no sensitive data. Tracked in POA&M.
+checkov	Scan Terraform	2026-10-20T23:20:29.1612000Z 	File: /modules/breakglass-alert/main.tf:9-12
+checkov	Scan Terraform	2026-10-20T23:20:29.1612546Z 	Calling File: /envs/persistent/org/identity_center.tf:111-114
+checkov	Scan Terraform	2026-10-20T23:20:29.1613314Z 	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-general-policies/general-15
+checkov	Scan Terraform	2026-10-20T23:20:29.1624133Z Check: CKV_AWS_26: "Ensure all data stored in the SNS topic is encrypted"
+checkov	Scan Terraform	2026-10-20T23:20:29.1624675Z 	SKIPPED for resource: module.breakglass_alert.aws_sns_topic.this
+checkov	Scan Terraform	2026-10-20T23:20:29.1625762Z 	Suppress comment: EventBridge cannot publish to a topic encrypted with the AWS managed SNS key; the alert carries no sensitive data. Tracked in POA&M.
+checkov	Scan Terraform	2026-10-20T23:20:29.1626466Z 	File: /modules/breakglass-alert/main.tf:9-12
+checkov	Scan Terraform	2026-10-20T23:20:29.1626832Z 	Calling File: /envs/persistent/workload/main.tf:71-74
+checkov	Scan Terraform	2026-10-20T23:20:29.1627478Z 	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-general-policies/general-15
+checkov	Scan Terraform	2026-10-20T23:20:29.1628185Z Check: CKV2_AWS_62: "Ensure S3 buckets should have event notifications enabled"
+checkov	Scan Terraform	2026-10-20T23:20:29.1628642Z 	SKIPPED for resource: module.state.aws_s3_bucket.this
+checkov	Scan Terraform	2026-10-20T23:20:29.1629085Z 	Suppress comment: No consumer for event notifications. Tracked in POA&M.
+checkov	Scan Terraform	2026-10-20T23:20:29.1629494Z 	File: /modules/secure-bucket/main.tf:14-21
+checkov	Scan Terraform	2026-10-20T23:20:29.1630085Z 	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-logging-policies/bc-aws-2-62
+checkov	Scan Terraform	2026-10-20T23:20:29.1630773Z Check: CKV2_AWS_62: "Ensure S3 buckets should have event notifications enabled"
+checkov	Scan Terraform	2026-10-20T23:20:29.1631241Z 	SKIPPED for resource: module.log_archive.aws_s3_bucket.this
+checkov	Scan Terraform	2026-10-20T23:20:29.1631689Z 	Suppress comment: No consumer for event notifications. Tracked in POA&M.
+checkov	Scan Terraform	2026-10-20T23:20:29.1632095Z 	File: /modules/secure-bucket/main.tf:14-21
+checkov	Scan Terraform	2026-10-20T23:20:29.1632675Z 	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-logging-policies/bc-aws-2-62
+checkov	Scan Terraform	2026-10-20T23:20:29.1633351Z Check: CKV2_AWS_62: "Ensure S3 buckets should have event notifications enabled"
+checkov	Scan Terraform	2026-10-20T23:20:29.1633818Z 	SKIPPED for resource: module.pipeline_state.aws_s3_bucket.this
+checkov	Scan Terraform	2026-10-20T23:20:29.1634268Z 	Suppress comment: No consumer for event notifications. Tracked in POA&M.
+checkov	Scan Terraform	2026-10-20T23:20:29.1634659Z 	File: /modules/secure-bucket/main.tf:14-21
+checkov	Scan Terraform	2026-10-20T23:20:29.1635225Z 	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-logging-policies/bc-aws-2-62
+checkov	Scan Terraform	2026-10-20T23:20:29.1636065Z Check: CKV2_AWS_10: "Ensure CloudTrail trails are integrated with CloudWatch Logs"
+checkov	Scan Terraform	2026-10-20T23:20:29.1636490Z 	SKIPPED for resource: aws_cloudtrail.org
+checkov	Scan Terraform	2026-10-20T23:20:29.1637003Z 	Suppress comment: CloudWatch Logs delivery costs per GB; Sentinel reads the S3 archive in M5. Tracked in POA&M.
+checkov	Scan Terraform	2026-10-20T23:20:29.1637534Z 	File: /envs/persistent/org/trail.tf:52-63
+checkov	Scan Terraform	2026-10-20T23:20:29.1638317Z 	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-logging-policies/ensure-cloudtrail-trails-are-integrated-with-cloudwatch-logs
+checkov	Scan Terraform	2026-10-20T23:20:29.1639156Z Check: CKV2_AWS_34: "AWS SSM Parameter should be Encrypted"
+checkov	Scan Terraform	2026-10-20T23:20:29.1639528Z 	SKIPPED for resource: aws_ssm_parameter.model_id
+checkov	Scan Terraform	2026-10-20T23:20:29.1640056Z 	Suppress comment: Model id is public configuration, not a secret; String type on purpose. Tracked in POA&M.
+checkov	Scan Terraform	2026-10-20T23:20:29.1640764Z 	File: /envs/app/main.tf:38-44
+checkov	Scan Terraform	2026-10-20T23:20:29.1641425Z 	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-general-policies/ensure-aws-ssm-parameter-is-encrypted
+checkov	Scan Terraform	2026-10-20T23:20:29.1642329Z Check: CKV_AWS_144: "Ensure that S3 bucket has cross-region replication enabled"
+checkov	Scan Terraform	2026-10-20T23:20:29.1642785Z 	SKIPPED for resource: module.state.aws_s3_bucket.this
+checkov	Scan Terraform	2026-10-20T23:20:29.1643248Z 	Suppress comment: Single region lab; versioning covers recovery. Tracked in POA&M.
+checkov	Scan Terraform	2026-10-20T23:20:29.1643705Z 	File: /modules/secure-bucket/main.tf:14-21
+checkov	Scan Terraform	2026-10-20T23:20:29.1644479Z 	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-general-policies/ensure-that-s3-bucket-has-cross-region-replication-enabled
+checkov	Scan Terraform	2026-10-20T23:20:29.1645485Z Check: CKV_AWS_144: "Ensure that S3 bucket has cross-region replication enabled"
+checkov	Scan Terraform	2026-10-20T23:20:29.1646159Z 	SKIPPED for resource: module.log_archive.aws_s3_bucket.this
+checkov	Scan Terraform	2026-10-20T23:20:29.1646653Z 	Suppress comment: Single region lab; versioning covers recovery. Tracked in POA&M.
+checkov	Scan Terraform	2026-10-20T23:20:29.1647105Z 	File: /modules/secure-bucket/main.tf:14-21
+checkov	Scan Terraform	2026-10-20T23:20:29.1647872Z 	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-general-policies/ensure-that-s3-bucket-has-cross-region-replication-enabled
+checkov	Scan Terraform	2026-10-20T23:20:29.1648743Z Check: CKV_AWS_144: "Ensure that S3 bucket has cross-region replication enabled"
+checkov	Scan Terraform	2026-10-20T23:20:29.1649219Z 	SKIPPED for resource: module.pipeline_state.aws_s3_bucket.this
+checkov	Scan Terraform	2026-10-20T23:20:29.1649709Z 	Suppress comment: Single region lab; versioning covers recovery. Tracked in POA&M.
+checkov	Scan Terraform	2026-10-20T23:20:29.1650156Z 	File: /modules/secure-bucket/main.tf:14-21
+checkov	Scan Terraform	2026-10-20T23:20:29.1650919Z 	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-general-policies/ensure-that-s3-bucket-has-cross-region-replication-enabled
+checkov	Scan Terraform	2026-10-20T23:20:29.1651762Z Check: CKV_AWS_18: "Ensure the S3 bucket has access logging enabled"
+checkov	Scan Terraform	2026-10-20T23:20:29.1652175Z 	SKIPPED for resource: module.state.aws_s3_bucket.this
+checkov	Scan Terraform	2026-10-20T23:20:29.1652735Z 	Suppress comment: No access log bucket in the lab; the org trail records bucket management calls. Tracked in POA&M.
+checkov	Scan Terraform	2026-10-20T23:20:29.1653266Z 	File: /modules/secure-bucket/main.tf:14-21
+checkov	Scan Terraform	2026-10-20T23:20:29.1653835Z 	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/s3-policies/s3-13-enable-logging
+checkov	Scan Terraform	2026-10-20T23:20:29.1654478Z Check: CKV_AWS_18: "Ensure the S3 bucket has access logging enabled"
+checkov	Scan Terraform	2026-10-20T23:20:29.1654896Z 	SKIPPED for resource: module.log_archive.aws_s3_bucket.this
+checkov	Scan Terraform	2026-10-20T23:20:29.1655596Z 	Suppress comment: No access log bucket in the lab; the org trail records bucket management calls. Tracked in POA&M.
+checkov	Scan Terraform	2026-10-20T23:20:29.1656142Z 	File: /modules/secure-bucket/main.tf:14-21
+checkov	Scan Terraform	2026-10-20T23:20:29.1656698Z 	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/s3-policies/s3-13-enable-logging
+checkov	Scan Terraform	2026-10-20T23:20:29.1657345Z Check: CKV_AWS_18: "Ensure the S3 bucket has access logging enabled"
+checkov	Scan Terraform	2026-10-20T23:20:29.1657780Z 	SKIPPED for resource: module.pipeline_state.aws_s3_bucket.this
+checkov	Scan Terraform	2026-10-20T23:20:29.1658358Z 	Suppress comment: No access log bucket in the lab; the org trail records bucket management calls. Tracked in POA&M.
+checkov	Scan Terraform	2026-10-20T23:20:29.1658900Z 	File: /modules/secure-bucket/main.tf:14-21
+checkov	Scan Terraform	2026-10-20T23:20:29.1659477Z 	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/s3-policies/s3-13-enable-logging
+checkov	Scan Terraform	2026-10-20T23:20:29.1660149Z Check: CKV2_AWS_61: "Ensure that an S3 bucket has a lifecycle configuration"
+checkov	Scan Terraform	2026-10-20T23:20:29.1660585Z 	SKIPPED for resource: module.state.aws_s3_bucket.this
+checkov	Scan Terraform	2026-10-20T23:20:29.1661102Z 	Suppress comment: Lab lifetime under 30 days; noncurrent versions kept on purpose. Tracked in POA&M.
+checkov	Scan Terraform	2026-10-20T23:20:29.1661596Z 	File: /modules/secure-bucket/main.tf:14-21
+checkov	Scan Terraform	2026-10-20T23:20:29.1662304Z 	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-logging-policies/bc-aws-2-61
+checkov	Scan Terraform	2026-10-20T23:20:29.1663079Z Check: CKV2_AWS_61: "Ensure that an S3 bucket has a lifecycle configuration"
+checkov	Scan Terraform	2026-10-20T23:20:29.1663526Z 	SKIPPED for resource: module.log_archive.aws_s3_bucket.this
+checkov	Scan Terraform	2026-10-20T23:20:29.1664054Z 	Suppress comment: Lab lifetime under 30 days; noncurrent versions kept on purpose. Tracked in POA&M.
+checkov	Scan Terraform	2026-10-20T23:20:29.1664541Z 	File: /modules/secure-bucket/main.tf:14-21
+checkov	Scan Terraform	2026-10-20T23:20:29.1665104Z 	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-logging-policies/bc-aws-2-61
+checkov	Scan Terraform	2026-10-20T23:20:29.1666072Z Check: CKV2_AWS_61: "Ensure that an S3 bucket has a lifecycle configuration"
+checkov	Scan Terraform	2026-10-20T23:20:29.1666547Z 	SKIPPED for resource: module.pipeline_state.aws_s3_bucket.this
+checkov	Scan Terraform	2026-10-20T23:20:29.1667093Z 	Suppress comment: Lab lifetime under 30 days; noncurrent versions kept on purpose. Tracked in POA&M.
+checkov	Scan Terraform	2026-10-20T23:20:29.1667600Z 	File: /modules/secure-bucket/main.tf:14-21
+checkov	Scan Terraform	2026-10-20T23:20:29.1668188Z 	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-logging-policies/bc-aws-2-61
+checkov	Scan Terraform	2026-10-20T23:20:29.1668880Z Check: CKV_AWS_145: "Ensure that S3 buckets are encrypted with KMS by default"
+checkov	Scan Terraform	2026-10-20T23:20:29.1669317Z 	SKIPPED for resource: module.state.aws_s3_bucket.this
+checkov	Scan Terraform	2026-10-20T23:20:29.1670043Z 	Suppress comment: SSE-S3 for state and log buckets; a CMK key policy mistake would lock out CloudTrail and Terraform. Data buckets get CMKs in M3. Tracked in POA&M.
+checkov	Scan Terraform	2026-10-20T23:20:29.1670741Z 	File: /modules/secure-bucket/main.tf:14-21
+checkov	Scan Terraform	2026-10-20T23:20:29.1671501Z 	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-general-policies/ensure-that-s3-buckets-are-encrypted-with-kms-by-default
+checkov	Scan Terraform	2026-10-20T23:20:29.1672359Z Check: CKV_AWS_145: "Ensure that S3 buckets are encrypted with KMS by default"
+checkov	Scan Terraform	2026-10-20T23:20:29.1672821Z 	SKIPPED for resource: module.log_archive.aws_s3_bucket.this
+checkov	Scan Terraform	2026-10-20T23:20:29.1673572Z 	Suppress comment: SSE-S3 for state and log buckets; a CMK key policy mistake would lock out CloudTrail and Terraform. Data buckets get CMKs in M3. Tracked in POA&M.
+checkov	Scan Terraform	2026-10-20T23:20:29.1674270Z 	File: /modules/secure-bucket/main.tf:14-21
+checkov	Scan Terraform	2026-10-20T23:20:29.1675030Z 	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-general-policies/ensure-that-s3-buckets-are-encrypted-with-kms-by-default
+checkov	Scan Terraform	2026-10-20T23:20:29.1676032Z Check: CKV_AWS_145: "Ensure that S3 buckets are encrypted with KMS by default"
+checkov	Scan Terraform	2026-10-20T23:20:29.1676509Z 	SKIPPED for resource: module.pipeline_state.aws_s3_bucket.this
+checkov	Scan Terraform	2026-10-20T23:20:29.1677252Z 	Suppress comment: SSE-S3 for state and log buckets; a CMK key policy mistake would lock out CloudTrail and Terraform. Data buckets get CMKs in M3. Tracked in POA&M.
+checkov	Scan Terraform	2026-10-20T23:20:29.1677933Z 	File: /modules/secure-bucket/main.tf:14-21
+checkov	Scan Terraform	2026-10-20T23:20:29.1678720Z 	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-general-policies/ensure-that-s3-buckets-are-encrypted-with-kms-by-default
+checkov	Scan Terraform	2026-10-20T23:20:29.1679399Z 
+checkov	Scan Terraform	2026-10-20T23:20:29.6287550Z ##[error]Process completed with exit code 1.
+checkov	Post Run actions/checkout@v4	∩╗┐2026-10-20T23:20:29.6435971Z Post job cleanup.
+checkov	Post Run actions/checkout@v4	2026-10-20T23:20:29.7310690Z [command]/usr/bin/git version
+checkov	Post Run actions/checkout@v4	2026-10-20T23:20:29.7355995Z git version 2.55.0
+checkov	Post Run actions/checkout@v4	2026-10-20T23:20:29.7430018Z Temporarily overriding HOME='/home/runner/work/_temp/c7d35636-b710-4c2d-8073-0f734119898d' before making global git config changes
+checkov	Post Run actions/checkout@v4	2026-10-20T23:20:29.7431599Z Adding repository directory to the temporary git global config as a safe directory
+checkov	Post Run actions/checkout@v4	2026-10-20T23:20:29.7434251Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/cloud_security_engineering_project/cloud_security_engineering_project
+checkov	Post Run actions/checkout@v4	2026-10-20T23:20:29.7484947Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+checkov	Post Run actions/checkout@v4	2026-10-20T23:20:29.7514919Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+checkov	Post Run actions/checkout@v4	2026-10-20T23:20:29.7768807Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+checkov	Post Run actions/checkout@v4	2026-10-20T23:20:29.7800192Z http.https://github.com/.extraheader
+checkov	Post Run actions/checkout@v4	2026-10-20T23:20:29.7812288Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+checkov	Post Run actions/checkout@v4	2026-10-20T23:20:29.7847335Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+checkov	Post Run actions/checkout@v4	2026-10-20T23:20:29.8114211Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+checkov	Post Run actions/checkout@v4	2026-10-20T23:20:29.8165715Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+checkov	Complete job	∩╗┐2026-10-20T23:20:29.8559888Z Cleaning up orphan processes
+checkov	Complete job	2026-10-20T23:20:29.8849661Z ##[warning]Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4, actions/setup-python@v5. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+

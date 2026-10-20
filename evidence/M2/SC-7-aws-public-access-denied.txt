@@ -1,0 +1,4 @@
+﻿# 2026-10-20T23:28:42Z  profile=mgmt-platform  exit=254
+$ aws s3control put-public-access-block --account-id 622896097641 --public-access-block-configuration BlockPublicAcls=false,IgnorePublicAcls=false,BlockPublicPolicy=false,RestrictPublicBuckets=false --region us-east-1 --profile workload-engineer
+An error occurred (AccessDenied) when calling the PutPublicAccessBlock operation: User: arn:aws:sts::622896097641:assumed-role/AWSReservedSSO_Engineer_2572360652bc3d64/nextuse is not authorized to perform: s3:PutAccountPublicAccessBlock with an explicit deny in a service control policy: arn:aws:organizations::797260139831:policy/o-hsguteqhwe/service_control_policy/p-2l845n8o
+

@@ -1,0 +1,6 @@
+﻿# 2026-10-20T05:33:52Z  profile=  exit=0
+$ $n = "mtest$(Get-Random -Maximum 99999)"; az storage account create -n $n -g rg-meridian -l eastus --sku Standard_LRS --allow-blob-public-access false --https-only true --tags project=meridian owner=austin milestone=M2 data_class=internal --query "{name:name, location:location, publicBlob:allowBlobPublicAccess}" -o table; az storage account delete -n $n -g rg-meridian --yes
+Name        Location    PublicBlob
+----------  ----------  ------------
+mtest74198  eastus      False
+

@@ -1,0 +1,61 @@
+﻿# 2026-10-20T05:37:43Z  profile=  exit=1
+$ az storage account create -n "mtest$(Get-Random -Maximum 99999)" -g rg-meridian -l northeurope --sku Standard_LRS --allow-blob-public-access false --https-only true --tags project=meridian owner=austin milestone=M2 data_class=internal
+ERROR: (RequestDisallowedByPolicy) Resource 'mtest41898' was disallowed by policy. Policy identifiers: '[{"policyAssignment":{"name":"meridian baseline","id":"/providers/Microsoft.Management/managementGroups/meridian/providers/Microsoft.Authorization/policyAssignments/meridian-baseline"},"policyDefinition":{"name":"Allowed locations","id":"/providers/Microsoft.Authorization/policyDefinitions/e56962a6-4747-49cd-b67b-bf8b01975c4c","version":"1.1.0"},"policySetDefinition":{"name":"meridian baseline","id":"/providers/Microsoft.Management/managementGroups/meridian/providers/Microsoft.Authorization/policySetDefinitions/meridian-baseline","version":"1.0.0"}}]'.
+Code: RequestDisallowedByPolicy
+Message: Resource 'mtest41898' was disallowed by policy. Policy identifiers: '[{"policyAssignment":{"name":"meridian baseline","id":"/providers/Microsoft.Management/managementGroups/meridian/providers/Microsoft.Authorization/policyAssignments/meridian-baseline"},"policyDefinition":{"name":"Allowed locations","id":"/providers/Microsoft.Authorization/policyDefinitions/e56962a6-4747-49cd-b67b-bf8b01975c4c","version":"1.1.0"},"policySetDefinition":{"name":"meridian baseline","id":"/providers/Microsoft.Management/managementGroups/meridian/providers/Microsoft.Authorization/policySetDefinitions/meridian-baseline","version":"1.0.0"}}]'.
+Target: mtest41898
+Additional Information:Type: PolicyViolation
+Info: {
+    "evaluationDetails": {
+        "evaluatedExpressions": [
+            {
+                "result": "True",
+                "expressionKind": "Field",
+                "expression": "location",
+                "path": "location",
+                "expressionValue": "northeurope",
+                "targetValue": [
+                    "eastus",
+                    "westus2"
+                ],
+                "operator": "NotIn"
+            },
+            {
+                "result": "True",
+                "expressionKind": "Field",
+                "expression": "location",
+                "path": "location",
+                "expressionValue": "northeurope",
+                "targetValue": "global",
+                "operator": "NotEquals"
+            },
+            {
+                "result": "True",
+                "expressionKind": "Field",
+                "expression": "type",
+                "path": "type",
+                "expressionValue": "Microsoft.Storage/storageAccounts",
+                "targetValue": "Microsoft.AzureActiveDirectory/b2cDirectories",
+                "operator": "NotEquals"
+            }
+        ]
+    },
+    "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/e56962a6-4747-49cd-b67b-bf8b01975c4c",
+    "policySetDefinitionId": "/providers/Microsoft.Management/managementGroups/meridian/providers/Microsoft.Authorization/policySetDefinitions/meridian-baseline",
+    "policyDefinitionReferenceId": "allowed-locations",
+    "policySetDefinitionName": "meridian-baseline",
+    "policySetDefinitionDisplayName": "meridian baseline",
+    "policySetDefinitionVersion": "1.0.0",
+    "policyDefinitionName": "e56962a6-4747-49cd-b67b-bf8b01975c4c",
+    "policyDefinitionDisplayName": "Allowed locations",
+    "policyDefinitionVersion": "1.1.0",
+    "policyDefinitionEffect": "Deny",
+    "policyAssignmentId": "/providers/Microsoft.Management/managementGroups/meridian/providers/Microsoft.Authorization/policyAssignments/meridian-baseline",
+    "policyAssignmentName": "meridian-baseline",
+    "policyAssignmentDisplayName": "meridian baseline",
+    "policyAssignmentScope": "/providers/Microsoft.Management/managementGroups/meridian",
+    "policyAssignmentParameters": {},
+    "policyExemptionIds": [],
+    "policyEnrollmentIds": []
+}
+

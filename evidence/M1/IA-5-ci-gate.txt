@@ -1,0 +1,18 @@
+﻿# 2026-10-19T06:04:18Z  profile=mgmt-platform  exit=0
+$ gh run view 39206755201 --log | Select-String "PASS|FAIL|root keys|iam users"
+
+deploy	Fail on any static credential	∩╗┐2026-10-19T06:02:44.7521994Z ##[group]Run ./scripts/key_scan.sh
+deploy	Fail on any static credential	2026-10-19T06:02:44.7522326Z ^[[36;1m./scripts/key_scan.sh^[[0m
+deploy	Fail on any static credential	2026-10-19T06:02:44.7767739Z shell: /usr/bin/bash -e {0}
+deploy	Fail on any static credential	2026-10-19T06:02:44.7768047Z env:
+deploy	Fail on any static credential	2026-10-19T06:02:44.7768245Z   AWS_DEFAULT_REGION: us-east-1
+deploy	Fail on any static credential	2026-10-19T06:02:44.7768471Z   AWS_REGION: us-east-1
+deploy	Fail on any static credential	2026-10-19T06:02:44.7769002Z   AWS_ACCESS_KEY_ID: ***
+deploy	Fail on any static credential	2026-10-19T06:02:44.7769348Z   AWS_SECRET_ACCESS_KEY: ***
+deploy	Fail on any static credential	2026-10-19T06:02:44.7773489Z   AWS_SESSION_TOKEN: ***
+deploy	Fail on any static credential	2026-10-19T06:02:44.7773698Z ##[endgroup]
+deploy	Fail on any static credential	2026-10-19T06:02:51.1986210Z account: 622896097641  root access keys: 0  iam users: 0
+deploy	Fail on any static credential	2026-10-19T06:02:51.1986976Z PASS no static credentials
+
+
+

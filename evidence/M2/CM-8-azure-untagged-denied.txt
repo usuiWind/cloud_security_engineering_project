@@ -1,0 +1,168 @@
+﻿# 2026-10-20T05:32:18Z  profile=  exit=1
+$ az group create -n rg-untagged -l eastus
+ERROR: (RequestDisallowedByPolicy) Resource 'rg-untagged' was disallowed by policy. Policy identifiers: '[{"policyAssignment":{"name":"meridian baseline","id":"/providers/Microsoft.Management/managementGroups/meridian/providers/Microsoft.Authorization/policyAssignments/meridian-baseline"},"policyDefinition":{"name":"Require a tag on resource groups","id":"/providers/Microsoft.Authorization/policyDefinitions/96670d01-0a4d-4649-9c89-2d3abc0a5025","version":"1.0.0"},"policySetDefinition":{"name":"meridian baseline","id":"/providers/Microsoft.Management/managementGroups/meridian/providers/Microsoft.Authorization/policySetDefinitions/meridian-baseline","version":"1.0.0"}},{"policyAssignment":{"name":"meridian baseline","id":"/providers/Microsoft.Management/managementGroups/meridian/providers/Microsoft.Authorization/policyAssignments/meridian-baseline"},"policyDefinition":{"name":"Require a tag on resource groups","id":"/providers/Microsoft.Authorization/policyDefinitions/96670d01-0a4d-4649-9c89-2d3abc0a5025","version":"1.0.0"},"policySetDefinition":{"name":"meridian baseline","id":"/providers/Microsoft.Management/managementGroups/meridian/providers/Microsoft.Authorization/policySetDefinitions/meridian-baseline","version":"1.0.0"}},{"policyAssignment":{"name":"meridian baseline","id":"/providers/Microsoft.Management/managementGroups/meridian/providers/Microsoft.Authorization/policyAssignments/meridian-baseline"},"policyDefinition":{"name":"Require a tag on resource groups","id":"/providers/Microsoft.Authorization/policyDefinitions/96670d01-0a4d-4649-9c89-2d3abc0a5025","version":"1.0.0"},"policySetDefinition":{"name":"meridian baseline","id":"/providers/Microsoft.Management/managementGroups/meridian/providers/Microsoft.Authorization/policySetDefinitions/meridian-baseline","version":"1.0.0"}},{"policyAssignment":{"name":"meridian baseline","id":"/providers/Microsoft.Management/managementGroups/meridian/providers/Microsoft.Authorization/policyAssignments/meridian-baseline"},"policyDefinition":{"name":"Require a tag on resource groups","id":"/providers/Microsoft.Authorization/policyDefinitions/96670d01-0a4d-4649-9c89-2d3abc0a5025","version":"1.0.0"},"policySetDefinition":{"name":"meridian baseline","id":"/providers/Microsoft.Management/managementGroups/meridian/providers/Microsoft.Authorization/policySetDefinitions/meridian-baseline","version":"1.0.0"}}]'.
+Code: RequestDisallowedByPolicy
+Message: Resource 'rg-untagged' was disallowed by policy. Policy identifiers: '[{"policyAssignment":{"name":"meridian baseline","id":"/providers/Microsoft.Management/managementGroups/meridian/providers/Microsoft.Authorization/policyAssignments/meridian-baseline"},"policyDefinition":{"name":"Require a tag on resource groups","id":"/providers/Microsoft.Authorization/policyDefinitions/96670d01-0a4d-4649-9c89-2d3abc0a5025","version":"1.0.0"},"policySetDefinition":{"name":"meridian baseline","id":"/providers/Microsoft.Management/managementGroups/meridian/providers/Microsoft.Authorization/policySetDefinitions/meridian-baseline","version":"1.0.0"}},{"policyAssignment":{"name":"meridian baseline","id":"/providers/Microsoft.Management/managementGroups/meridian/providers/Microsoft.Authorization/policyAssignments/meridian-baseline"},"policyDefinition":{"name":"Require a tag on resource groups","id":"/providers/Microsoft.Authorization/policyDefinitions/96670d01-0a4d-4649-9c89-2d3abc0a5025","version":"1.0.0"},"policySetDefinition":{"name":"meridian baseline","id":"/providers/Microsoft.Management/managementGroups/meridian/providers/Microsoft.Authorization/policySetDefinitions/meridian-baseline","version":"1.0.0"}},{"policyAssignment":{"name":"meridian baseline","id":"/providers/Microsoft.Management/managementGroups/meridian/providers/Microsoft.Authorization/policyAssignments/meridian-baseline"},"policyDefinition":{"name":"Require a tag on resource groups","id":"/providers/Microsoft.Authorization/policyDefinitions/96670d01-0a4d-4649-9c89-2d3abc0a5025","version":"1.0.0"},"policySetDefinition":{"name":"meridian baseline","id":"/providers/Microsoft.Management/managementGroups/meridian/providers/Microsoft.Authorization/policySetDefinitions/meridian-baseline","version":"1.0.0"}},{"policyAssignment":{"name":"meridian baseline","id":"/providers/Microsoft.Management/managementGroups/meridian/providers/Microsoft.Authorization/policyAssignments/meridian-baseline"},"policyDefinition":{"name":"Require a tag on resource groups","id":"/providers/Microsoft.Authorization/policyDefinitions/96670d01-0a4d-4649-9c89-2d3abc0a5025","version":"1.0.0"},"policySetDefinition":{"name":"meridian baseline","id":"/providers/Microsoft.Management/managementGroups/meridian/providers/Microsoft.Authorization/policySetDefinitions/meridian-baseline","version":"1.0.0"}}]'.
+Target: rg-untagged
+Additional Information:Type: PolicyViolation
+Info: {
+    "evaluationDetails": {
+        "evaluatedExpressions": [
+            {
+                "result": "True",
+                "expressionKind": "Field",
+                "expression": "type",
+                "path": "type",
+                "expressionValue": "Microsoft.Resources/subscriptions/resourcegroups",
+                "targetValue": "Microsoft.Resources/subscriptions/resourceGroups",
+                "operator": "Equals"
+            },
+            {
+                "result": "True",
+                "expressionKind": "Field",
+                "expression": "tags[project]",
+                "path": "tags[project]",
+                "targetValue": "false",
+                "operator": "Exists"
+            }
+        ]
+    },
+    "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/96670d01-0a4d-4649-9c89-2d3abc0a5025",
+    "policySetDefinitionId": "/providers/Microsoft.Management/managementGroups/meridian/providers/Microsoft.Authorization/policySetDefinitions/meridian-baseline",
+    "policyDefinitionReferenceId": "rg-tag-project",
+    "policySetDefinitionName": "meridian-baseline",
+    "policySetDefinitionDisplayName": "meridian baseline",
+    "policySetDefinitionVersion": "1.0.0",
+    "policyDefinitionName": "96670d01-0a4d-4649-9c89-2d3abc0a5025",
+    "policyDefinitionDisplayName": "Require a tag on resource groups",
+    "policyDefinitionVersion": "1.0.0",
+    "policyDefinitionEffect": "deny",
+    "policyAssignmentId": "/providers/Microsoft.Management/managementGroups/meridian/providers/Microsoft.Authorization/policyAssignments/meridian-baseline",
+    "policyAssignmentName": "meridian-baseline",
+    "policyAssignmentDisplayName": "meridian baseline",
+    "policyAssignmentScope": "/providers/Microsoft.Management/managementGroups/meridian",
+    "policyAssignmentParameters": {},
+    "policyExemptionIds": [],
+    "policyEnrollmentIds": []
+}Type: PolicyViolation
+Info: {
+    "evaluationDetails": {
+        "evaluatedExpressions": [
+            {
+                "result": "True",
+                "expressionKind": "Field",
+                "expression": "type",
+                "path": "type",
+                "expressionValue": "Microsoft.Resources/subscriptions/resourcegroups",
+                "targetValue": "Microsoft.Resources/subscriptions/resourceGroups",
+                "operator": "Equals"
+            },
+            {
+                "result": "True",
+                "expressionKind": "Field",
+                "expression": "tags[owner]",
+                "path": "tags[owner]",
+                "targetValue": "false",
+                "operator": "Exists"
+            }
+        ]
+    },
+    "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/96670d01-0a4d-4649-9c89-2d3abc0a5025",
+    "policySetDefinitionId": "/providers/Microsoft.Management/managementGroups/meridian/providers/Microsoft.Authorization/policySetDefinitions/meridian-baseline",
+    "policyDefinitionReferenceId": "rg-tag-owner",
+    "policySetDefinitionName": "meridian-baseline",
+    "policySetDefinitionDisplayName": "meridian baseline",
+    "policySetDefinitionVersion": "1.0.0",
+    "policyDefinitionName": "96670d01-0a4d-4649-9c89-2d3abc0a5025",
+    "policyDefinitionDisplayName": "Require a tag on resource groups",
+    "policyDefinitionVersion": "1.0.0",
+    "policyDefinitionEffect": "deny",
+    "policyAssignmentId": "/providers/Microsoft.Management/managementGroups/meridian/providers/Microsoft.Authorization/policyAssignments/meridian-baseline",
+    "policyAssignmentName": "meridian-baseline",
+    "policyAssignmentDisplayName": "meridian baseline",
+    "policyAssignmentScope": "/providers/Microsoft.Management/managementGroups/meridian",
+    "policyAssignmentParameters": {},
+    "policyExemptionIds": [],
+    "policyEnrollmentIds": []
+}Type: PolicyViolation
+Info: {
+    "evaluationDetails": {
+        "evaluatedExpressions": [
+            {
+                "result": "True",
+                "expressionKind": "Field",
+                "expression": "type",
+                "path": "type",
+                "expressionValue": "Microsoft.Resources/subscriptions/resourcegroups",
+                "targetValue": "Microsoft.Resources/subscriptions/resourceGroups",
+                "operator": "Equals"
+            },
+            {
+                "result": "True",
+                "expressionKind": "Field",
+                "expression": "tags[milestone]",
+                "path": "tags[milestone]",
+                "targetValue": "false",
+                "operator": "Exists"
+            }
+        ]
+    },
+    "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/96670d01-0a4d-4649-9c89-2d3abc0a5025",
+    "policySetDefinitionId": "/providers/Microsoft.Management/managementGroups/meridian/providers/Microsoft.Authorization/policySetDefinitions/meridian-baseline",
+    "policyDefinitionReferenceId": "rg-tag-milestone",
+    "policySetDefinitionName": "meridian-baseline",
+    "policySetDefinitionDisplayName": "meridian baseline",
+    "policySetDefinitionVersion": "1.0.0",
+    "policyDefinitionName": "96670d01-0a4d-4649-9c89-2d3abc0a5025",
+    "policyDefinitionDisplayName": "Require a tag on resource groups",
+    "policyDefinitionVersion": "1.0.0",
+    "policyDefinitionEffect": "deny",
+    "policyAssignmentId": "/providers/Microsoft.Management/managementGroups/meridian/providers/Microsoft.Authorization/policyAssignments/meridian-baseline",
+    "policyAssignmentName": "meridian-baseline",
+    "policyAssignmentDisplayName": "meridian baseline",
+    "policyAssignmentScope": "/providers/Microsoft.Management/managementGroups/meridian",
+    "policyAssignmentParameters": {},
+    "policyExemptionIds": [],
+    "policyEnrollmentIds": []
+}Type: PolicyViolation
+Info: {
+    "evaluationDetails": {
+        "evaluatedExpressions": [
+            {
+                "result": "True",
+                "expressionKind": "Field",
+                "expression": "type",
+                "path": "type",
+                "expressionValue": "Microsoft.Resources/subscriptions/resourcegroups",
+                "targetValue": "Microsoft.Resources/subscriptions/resourceGroups",
+                "operator": "Equals"
+            },
+            {
+                "result": "True",
+                "expressionKind": "Field",
+                "expression": "tags[data_class]",
+                "path": "tags[data_class]",
+                "targetValue": "false",
+                "operator": "Exists"
+            }
+        ]
+    },
+    "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/96670d01-0a4d-4649-9c89-2d3abc0a5025",
+    "policySetDefinitionId": "/providers/Microsoft.Management/managementGroups/meridian/providers/Microsoft.Authorization/policySetDefinitions/meridian-baseline",
+    "policyDefinitionReferenceId": "rg-tag-data_class",
+    "policySetDefinitionName": "meridian-baseline",
+    "policySetDefinitionDisplayName": "meridian baseline",
+    "policySetDefinitionVersion": "1.0.0",
+    "policyDefinitionName": "96670d01-0a4d-4649-9c89-2d3abc0a5025",
+    "policyDefinitionDisplayName": "Require a tag on resource groups",
+    "policyDefinitionVersion": "1.0.0",
+    "policyDefinitionEffect": "deny",
+    "policyAssignmentId": "/providers/Microsoft.Management/managementGroups/meridian/providers/Microsoft.Authorization/policyAssignments/meridian-baseline",
+    "policyAssignmentName": "meridian-baseline",
+    "policyAssignmentDisplayName": "meridian baseline",
+    "policyAssignmentScope": "/providers/Microsoft.Management/managementGroups/meridian",
+    "policyAssignmentParameters": {},
+    "policyExemptionIds": [],
+    "policyEnrollmentIds": []
+}
+

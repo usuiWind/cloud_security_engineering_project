@@ -1,0 +1,6 @@
+﻿# 2026-10-20T05:40:18Z  profile=  exit=0
+$ az policy state summarize --management-group meridian --policy-assignment meridian-nist-800-53 --query "results.{nonCompliantResources:nonCompliantResources, nonCompliantPolicies:nonCompliantPolicies}" -o table
+NonCompliantResources    NonCompliantPolicies
+-----------------------  ----------------------
+0                        0
+

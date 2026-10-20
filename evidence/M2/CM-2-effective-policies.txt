@@ -1,0 +1,11 @@
+﻿# 2026-10-20T23:10:32Z  profile=mgmt-platform  exit=0
+$ $ou = aws organizations list-organizational-units-for-parent --parent-id (aws organizations list-roots --query "Roots[0].Id" --output text --profile mgmt-audit) --query "OrganizationalUnits[?Name=='workloads'].Id" --output text --profile mgmt-audit; aws organizations list-policies-for-target --target-id $ou --filter SERVICE_CONTROL_POLICY --query "Policies[].[Name,Id]" --output text --profile mgmt-audit; aws organizations list-accounts-for-parent --parent-id $ou --query "Accounts[].[Id,Name]" --output text --profile mgmt-audit; az policy assignment list --scope (terraform "-chdir=envs/persistent/azure" output -raw management_group_id) --query "[].{name:name, enforcement:enforcementMode}" -o table
+meridian-guardrails	p-2l845n8o
+FullAWSAccess	p-FullAWSAccess
+meridian-allowed-regions	p-xevy7zc4
+622896097641	meridian-workload
+Name                  Enforcement
+--------------------  -------------
+meridian-baseline     Default
+meridian-nist-800-53  DoNotEnforce
+

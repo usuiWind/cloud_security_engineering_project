@@ -1,0 +1,10 @@
+﻿# 2026-10-19T06:57:22Z  profile=  exit=0
+$ aws iam list-organizations-features --profile mgmt-audit
+{
+    "OrganizationId": "o-hsguteqhwe",
+    "EnabledFeatures": [
+        "RootSessions",
+        "RootCredentialsManagement"
+    ]
+}
+

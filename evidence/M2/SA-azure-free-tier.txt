@@ -1,0 +1,9 @@
+﻿# 2026-10-20T05:52:41Z  profile=  exit=0
+$ az rest --method get --url "https://management.azure.com/subscriptions/$(az account show --query id -o tsv)?api-version=2022-12-01" --query "{name:displayName, quotaId:subscriptionPolicies.quotaId, spendingLimit:subscriptionPolicies.spendingLimit}" -o json; az rest --method get --url https://graph.microsoft.com/v1.0/subscribedSkus --query "value[].skuPartNumber" -o json
+{
+  "name": "Azure subscription 1",
+  "quotaId": "FreeTrial_2014-09-01",
+  "spendingLimit": "On"
+}
+[]
+

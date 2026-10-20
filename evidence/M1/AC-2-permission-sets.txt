@@ -1,0 +1,7 @@
+﻿# 2026-10-19T06:57:25Z  profile=  exit=0
+$ $arn = aws sso-admin list-instances --query "Instances[0].InstanceArn" --output text --profile mgmt-audit; (aws sso-admin list-permission-sets --instance-arn $arn --query "PermissionSets[]" --output text --profile mgmt-audit) -split "\s+" | ForEach-Object { aws sso-admin describe-permission-set --instance-arn $arn --permission-set-arn $_ --query "PermissionSet.[Name,SessionDuration]" --output text --profile mgmt-audit }
+Engineer	PT8H
+BreakGlass	PT1H
+AuditReadOnly	PT4H
+PlatformAdmin	PT1H
+

@@ -13,3 +13,15 @@
 | M2-4 | `meridian-deploy` custom role adds `Microsoft.Resources` resource group and deployment actions beyond the plan's five namespaces; the pipeline cannot create a resource group without them. | AC-6 | M2 |
 | M2-5 | NIST SP 800-53 Rev. 5 initiative assigned with enforcement off (audit only). | CA-7 | M2 |
 | M2-6 | Required tag Deny can block resource groups that Azure services create automatically; handled by hand. | CM-8 | M2 |
+| M2-7 | Policy gate scans Terraform source, not a plan: pull requests have no cloud credentials by design (M1). Plan level checks run only where a plan exists. | CM-6 | M2 |
+| M2-8 | CKV_AWS_145: state, log and pipeline buckets use SSE-S3, not a CMK, to avoid locking CloudTrail or Terraform out through a key policy. Data buckets get CMKs in M3. | SC-28 | M2 |
+| M2-9 | CKV_AWS_144: no cross region replication on lab buckets; versioning covers recovery. | CP-9 | M2 |
+| M2-10 | CKV_AWS_18: no S3 access logging; the org trail records bucket management calls. | AU-2 | M2 |
+| M2-11 | CKV2_AWS_61: no lifecycle rules; lab lifetime under 30 days. | SI-12 | M2 |
+| M2-12 | CKV2_AWS_62: no S3 event notifications; no consumer. | SI-4 | M2 |
+| M2-13 | CKV_AWS_35: org trail logs on SSE-S3, not a CMK. | AU-9 | M2 |
+| M2-14 | CKV2_AWS_10: org trail not sent to CloudWatch Logs; Sentinel reads the S3 archive in M5. | AU-6 | M2 |
+| M2-15 | CKV_AWS_252: no SNS on trail delivery; break glass alerting is EventBridge. | AU-5 | M2 |
+| M2-16 | CKV2_AWS_34: `/meridian/config/model_id` is a String, not a SecureString; it is not a secret. | SC-28 | M2 |
+| M2-17 | SCPs do not apply to the management account by AWS design; it holds no workload and is reached only through PlatformAdmin and BreakGlass. | CM-7 | M2 |
+| M2-18 | Protected service actions are exempt for BreakGlass, so the day 4 GuardDuty teardown runs as BreakGlass and triggers the alert. | AU-9 | M2 |

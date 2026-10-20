@@ -1,0 +1,13 @@
+﻿# 2026-10-20T05:52:03Z  profile=  exit=0
+$ az ad group list --display-name meridian- --query "[].{name:displayName, id:id}" -o table; az role assignment list --all --query "[?contains(principalName, 'meridian') || contains(roleDefinitionName, 'meridian')].{who:principalName, role:roleDefinitionName, scope:scope}" -o table
+Name
+-------------------
+meridian-engineer
+meridian-audit
+meridian-breakglass
+Who                                   Role             Scope
+------------------------------------  ---------------  ---------------------------------------------------------
+cff9f2cc-6989-4506-a871-62c6d3c43d40  meridian-deploy  /subscriptions/11b88d87-2dc9-41c0-b10d-e3dffd37b00e
+meridian-engineer                     Contributor      /subscriptions/11b88d87-2dc9-41c0-b10d-e3dffd37b00e
+meridian-audit                        Reader           /providers/Microsoft.Management/managementGroups/meridian
+

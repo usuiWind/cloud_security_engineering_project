@@ -1,0 +1,16 @@
+﻿# 2026-10-19T06:20:17Z  profile=mgmt-platform  exit=0
+$ aws iam list-attached-role-policies --role-name meridian-gha-deploy --profile workload-audit; aws iam list-role-policies --role-name meridian-gha-deploy --profile workload-audit
+{
+    "AttachedPolicies": [
+        {
+            "PolicyName": "PowerUserAccess",
+            "PolicyArn": "arn:aws:iam::aws:policy/PowerUserAccess"
+        }
+    ]
+}
+{
+    "PolicyNames": [
+        "key-scan-read"
+    ]
+}
+

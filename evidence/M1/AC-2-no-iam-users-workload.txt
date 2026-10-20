@@ -1,0 +1,6 @@
+﻿# 2026-10-19T06:33:15Z  profile=mgmt-platform  exit=0
+$ aws iam list-users --profile workload-audit
+{
+    "Users": []
+}
+

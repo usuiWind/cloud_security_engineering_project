@@ -1,0 +1,58 @@
+﻿# 2026-10-19T06:14:04Z  profile=mgmt-platform  exit=0
+$ aws cloudtrail lookup-events --lookup-attributes AttributeKey=EventName,AttributeValue=AssumeRoleWithWebIdentity --max-items 5 --profile workload-audit
+{
+    "Events": [
+        {
+            "EventId": "da3e03c1-cd94-43fa-8d2d-b87e88142b0d",
+            "EventName": "AssumeRoleWithWebIdentity",
+            "ReadOnly": "true",
+            "EventTime": "2026-10-19T01:10:45-05:00",
+            "EventSource": "sts.amazonaws.com",
+            "Username": "repo:usuiWind@178834418/cloud_security_engineering_project@1406480055:pull_request",
+            "Resources": [],
+            "CloudTrailEvent": "{\"eventVersion\":\"1.11\",\"userIdentity\":{\"type\":\"WebIdentityUser\",\"principalId\":\"arn:aws:iam::622896097641:oidc-provider/token.actions.githubusercontent.com:sts.amazonaws.com:repo:usuiWind@178834418/cloud_security_engineering_project@1406480055:pull_request\",\"userName\":\"repo:usuiWind@178834418/cloud_security_engineering_project@1406480055:pull_request\",\"identityProvider\":\"arn:aws:iam::622896097641:oidc-provider/token.actions.githubusercontent.com\"},\"eventTime\":\"2026-10-19T06:10:45Z\",\"eventSource\":\"sts.amazonaws.com\",\"eventName\":\"AssumeRoleWithWebIdentity\",\"awsRegion\":\"us-east-1\",\"sourceIPAddress\":\"130.131.239.65\",\"userAgent\":\"aws-sdk-js/3.859.0 ua/2.1 os/linux#6.17.0-1022-azure lang/js md/nodejs#24.19.0 api/sts#3.859.0 m/E configure-aws-credentials-for-github-actions\",\"errorCode\":\"AccessDenied\",\"errorMessage\":\"Not authorized to perform sts:AssumeRoleWithWebIdentity\",\"requestParameters\":null,\"responseElements\":null,\"requestID\":\"42c1f0bc-0dea-4402-b749-f8e4d9e1420d\",\"eventID\":\"da3e03c1-cd94-43fa-8d2d-b87e88142b0d\",\"readOnly\":true,\"resources\":[{\"accountId\":\"622896097641\",\"type\":\"AWS::IAM::OIDCProvider\",\"ARN\":\"arn:aws:iam::622896097641:oidc-provider/token.actions.githubusercontent.com\"},{\"accountId\":\"622896097641\",\"type\":\"AWS::IAM::Role\",\"ARN\":\"arn:aws:iam::622896097641:role/meridian-gha-deploy\"}],\"eventType\":\"AwsApiCall\",\"managementEvent\":true,\"recipientAccountId\":\"622896097641\",\"eventCategory\":\"Management\",\"tlsDetails\":{\"tlsVersion\":\"TLSv1.3\",\"cipherSuite\":\"TLS_AES_128_GCM_SHA256\",\"clientProvidedHostHeader\":\"sts.us-east-1.amazonaws.com\",\"keyExchange\":\"X25519MLKEM768\"}}"
+        },
+        {
+            "EventId": "d765144f-cf14-4e20-8824-a60d3f277452",
+            "EventName": "AssumeRoleWithWebIdentity",
+            "ReadOnly": "true",
+            "EventTime": "2026-10-19T01:10:31-05:00",
+            "EventSource": "sts.amazonaws.com",
+            "Username": "repo:usuiWind@178834418/cloud_security_engineering_project@1406480055:pull_request",
+            "Resources": [],
+            "CloudTrailEvent": "{\"eventVersion\":\"1.11\",\"userIdentity\":{\"type\":\"WebIdentityUser\",\"principalId\":\"arn:aws:iam::622896097641:oidc-provider/token.actions.githubusercontent.com:sts.amazonaws.com:repo:usuiWind@178834418/cloud_security_engineering_project@1406480055:pull_request\",\"userName\":\"repo:usuiWind@178834418/cloud_security_engineering_project@1406480055:pull_request\",\"identityProvider\":\"arn:aws:iam::622896097641:oidc-provider/token.actions.githubusercontent.com\"},\"eventTime\":\"2026-10-19T06:10:31Z\",\"eventSource\":\"sts.amazonaws.com\",\"eventName\":\"AssumeRoleWithWebIdentity\",\"awsRegion\":\"us-east-1\",\"sourceIPAddress\":\"130.131.239.65\",\"userAgent\":\"aws-sdk-js/3.859.0 ua/2.1 os/linux#6.17.0-1022-azure lang/js md/nodejs#24.19.0 api/sts#3.859.0 m/E configure-aws-credentials-for-github-actions\",\"errorCode\":\"AccessDenied\",\"errorMessage\":\"Not authorized to perform sts:AssumeRoleWithWebIdentity\",\"requestParameters\":null,\"responseElements\":null,\"requestID\":\"11210c51-227f-4203-ac78-0dedaad84a56\",\"eventID\":\"d765144f-cf14-4e20-8824-a60d3f277452\",\"readOnly\":true,\"resources\":[{\"accountId\":\"622896097641\",\"type\":\"AWS::IAM::OIDCProvider\",\"ARN\":\"arn:aws:iam::622896097641:oidc-provider/token.actions.githubusercontent.com\"},{\"accountId\":\"622896097641\",\"type\":\"AWS::IAM::Role\",\"ARN\":\"arn:aws:iam::622896097641:role/meridian-gha-deploy\"}],\"eventType\":\"AwsApiCall\",\"managementEvent\":true,\"recipientAccountId\":\"622896097641\",\"eventCategory\":\"Management\",\"tlsDetails\":{\"tlsVersion\":\"TLSv1.3\",\"cipherSuite\":\"TLS_AES_128_GCM_SHA256\",\"clientProvidedHostHeader\":\"sts.us-east-1.amazonaws.com\",\"keyExchange\":\"X25519MLKEM768\"}}"
+        },
+        {
+            "EventId": "b3ee7d02-7846-42bf-9582-5da104612a52",
+            "EventName": "AssumeRoleWithWebIdentity",
+            "ReadOnly": "true",
+            "EventTime": "2026-10-19T01:10:14-05:00",
+            "EventSource": "sts.amazonaws.com",
+            "Username": "repo:usuiWind@178834418/cloud_security_engineering_project@1406480055:pull_request",
+            "Resources": [],
+            "CloudTrailEvent": "{\"eventVersion\":\"1.11\",\"userIdentity\":{\"type\":\"WebIdentityUser\",\"principalId\":\"arn:aws:iam::622896097641:oidc-provider/token.actions.githubusercontent.com:sts.amazonaws.com:repo:usuiWind@178834418/cloud_security_engineering_project@1406480055:pull_request\",\"userName\":\"repo:usuiWind@178834418/cloud_security_engineering_project@1406480055:pull_request\",\"identityProvider\":\"arn:aws:iam::622896097641:oidc-provider/token.actions.githubusercontent.com\"},\"eventTime\":\"2026-10-19T06:10:14Z\",\"eventSource\":\"sts.amazonaws.com\",\"eventName\":\"AssumeRoleWithWebIdentity\",\"awsRegion\":\"us-east-1\",\"sourceIPAddress\":\"130.131.239.65\",\"userAgent\":\"aws-sdk-js/3.859.0 ua/2.1 os/linux#6.17.0-1022-azure lang/js md/nodejs#24.19.0 api/sts#3.859.0 m/E configure-aws-credentials-for-github-actions\",\"errorCode\":\"AccessDenied\",\"errorMessage\":\"Not authorized to perform sts:AssumeRoleWithWebIdentity\",\"requestParameters\":null,\"responseElements\":null,\"requestID\":\"2eb56fb8-1c7c-4320-8c51-9d2375c92d18\",\"eventID\":\"b3ee7d02-7846-42bf-9582-5da104612a52\",\"readOnly\":true,\"resources\":[{\"accountId\":\"622896097641\",\"type\":\"AWS::IAM::OIDCProvider\",\"ARN\":\"arn:aws:iam::622896097641:oidc-provider/token.actions.githubusercontent.com\"},{\"accountId\":\"622896097641\",\"type\":\"AWS::IAM::Role\",\"ARN\":\"arn:aws:iam::622896097641:role/meridian-gha-deploy\"}],\"eventType\":\"AwsApiCall\",\"managementEvent\":true,\"recipientAccountId\":\"622896097641\",\"eventCategory\":\"Management\",\"tlsDetails\":{\"tlsVersion\":\"TLSv1.3\",\"cipherSuite\":\"TLS_AES_128_GCM_SHA256\",\"clientProvidedHostHeader\":\"sts.us-east-1.amazonaws.com\",\"keyExchange\":\"X25519MLKEM768\"}}"
+        },
+        {
+            "EventId": "861574ef-290e-4ad4-812e-1a9b1310f1f3",
+            "EventName": "AssumeRoleWithWebIdentity",
+            "ReadOnly": "true",
+            "EventTime": "2026-10-19T01:10:09-05:00",
+            "EventSource": "sts.amazonaws.com",
+            "Username": "repo:usuiWind@178834418/cloud_security_engineering_project@1406480055:pull_request",
+            "Resources": [],
+            "CloudTrailEvent": "{\"eventVersion\":\"1.11\",\"userIdentity\":{\"type\":\"WebIdentityUser\",\"principalId\":\"arn:aws:iam::622896097641:oidc-provider/token.actions.githubusercontent.com:sts.amazonaws.com:repo:usuiWind@178834418/cloud_security_engineering_project@1406480055:pull_request\",\"userName\":\"repo:usuiWind@178834418/cloud_security_engineering_project@1406480055:pull_request\",\"identityProvider\":\"arn:aws:iam::622896097641:oidc-provider/token.actions.githubusercontent.com\"},\"eventTime\":\"2026-10-19T06:10:09Z\",\"eventSource\":\"sts.amazonaws.com\",\"eventName\":\"AssumeRoleWithWebIdentity\",\"awsRegion\":\"us-east-1\",\"sourceIPAddress\":\"130.131.239.65\",\"userAgent\":\"aws-sdk-js/3.859.0 ua/2.1 os/linux#6.17.0-1022-azure lang/js md/nodejs#24.19.0 api/sts#3.859.0 m/E configure-aws-credentials-for-github-actions\",\"errorCode\":\"AccessDenied\",\"errorMessage\":\"Not authorized to perform sts:AssumeRoleWithWebIdentity\",\"requestParameters\":null,\"responseElements\":null,\"requestID\":\"8905a023-68da-4aad-963c-4e1f2d5538b1\",\"eventID\":\"861574ef-290e-4ad4-812e-1a9b1310f1f3\",\"readOnly\":true,\"resources\":[{\"accountId\":\"622896097641\",\"type\":\"AWS::IAM::OIDCProvider\",\"ARN\":\"arn:aws:iam::622896097641:oidc-provider/token.actions.githubusercontent.com\"},{\"accountId\":\"622896097641\",\"type\":\"AWS::IAM::Role\",\"ARN\":\"arn:aws:iam::622896097641:role/meridian-gha-deploy\"}],\"eventType\":\"AwsApiCall\",\"managementEvent\":true,\"recipientAccountId\":\"622896097641\",\"eventCategory\":\"Management\",\"tlsDetails\":{\"tlsVersion\":\"TLSv1.3\",\"cipherSuite\":\"TLS_AES_128_GCM_SHA256\",\"clientProvidedHostHeader\":\"sts.us-east-1.amazonaws.com\",\"keyExchange\":\"X25519MLKEM768\"}}"
+        },
+        {
+            "EventId": "6ceb90e8-9d46-4699-9509-44654396320d",
+            "EventName": "AssumeRoleWithWebIdentity",
+            "ReadOnly": "true",
+            "EventTime": "2026-10-19T01:10:08-05:00",
+            "EventSource": "sts.amazonaws.com",
+            "Username": "repo:usuiWind@178834418/cloud_security_engineering_project@1406480055:pull_request",
+            "Resources": [],
+            "CloudTrailEvent": "{\"eventVersion\":\"1.11\",\"userIdentity\":{\"type\":\"WebIdentityUser\",\"principalId\":\"arn:aws:iam::622896097641:oidc-provider/token.actions.githubusercontent.com:sts.amazonaws.com:repo:usuiWind@178834418/cloud_security_engineering_project@1406480055:pull_request\",\"userName\":\"repo:usuiWind@178834418/cloud_security_engineering_project@1406480055:pull_request\",\"identityProvider\":\"arn:aws:iam::622896097641:oidc-provider/token.actions.githubusercontent.com\"},\"eventTime\":\"2026-10-19T06:10:08Z\",\"eventSource\":\"sts.amazonaws.com\",\"eventName\":\"AssumeRoleWithWebIdentity\",\"awsRegion\":\"us-east-1\",\"sourceIPAddress\":\"130.131.239.65\",\"userAgent\":\"aws-sdk-js/3.859.0 ua/2.1 os/linux#6.17.0-1022-azure lang/js md/nodejs#24.19.0 api/sts#3.859.0 m/E configure-aws-credentials-for-github-actions\",\"errorCode\":\"AccessDenied\",\"errorMessage\":\"Not authorized to perform sts:AssumeRoleWithWebIdentity\",\"requestParameters\":null,\"responseElements\":null,\"requestID\":\"8f7fac57-f6c3-4103-86e5-70f493826307\",\"eventID\":\"6ceb90e8-9d46-4699-9509-44654396320d\",\"readOnly\":true,\"resources\":[{\"accountId\":\"622896097641\",\"type\":\"AWS::IAM::OIDCProvider\",\"ARN\":\"arn:aws:iam::622896097641:oidc-provider/token.actions.githubusercontent.com\"},{\"accountId\":\"622896097641\",\"type\":\"AWS::IAM::Role\",\"ARN\":\"arn:aws:iam::622896097641:role/meridian-gha-deploy\"}],\"eventType\":\"AwsApiCall\",\"managementEvent\":true,\"recipientAccountId\":\"622896097641\",\"eventCategory\":\"Management\",\"tlsDetails\":{\"tlsVersion\":\"TLSv1.3\",\"cipherSuite\":\"TLS_AES_128_GCM_SHA256\",\"clientProvidedHostHeader\":\"sts.us-east-1.amazonaws.com\",\"keyExchange\":\"X25519MLKEM768\"}}"
+        }
+    ],
+    "NextToken": "eyJOZXh0VG9rZW4iOiBudWxsLCAiYm90b190cnVuY2F0ZV9hbW91bnQiOiA1fQ=="
+}
+

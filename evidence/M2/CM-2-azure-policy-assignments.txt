@@ -1,0 +1,7 @@
+﻿# 2026-10-20T05:52:06Z  profile=  exit=0
+$ az policy assignment list --management-group meridian --query "[].{name:name, enforcement:enforcementMode, definition:policyDefinitionId}" -o table
+Name                  Enforcement    Definition
+--------------------  -------------  ----------------------------------------------------------------------------------------------------------------------------------
+meridian-baseline     Default        /providers/Microsoft.Management/managementGroups/meridian/providers/Microsoft.Authorization/policySetDefinitions/meridian-baseline
+meridian-nist-800-53  DoNotEnforce   /providers/Microsoft.Authorization/policySetDefinitions/179d1daa-458f-4e47-8086-2a68d0d6c38f
+

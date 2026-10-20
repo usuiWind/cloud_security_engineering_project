@@ -1,0 +1,144 @@
+﻿# 2026-10-20T06:09:17Z  profile=  exit=0
+$ gh run view 39378675916 --log
+pr-cannot-deploy	Set up job	∩╗┐2026-10-20T06:08:22.1040207Z Current runner version: '2.337.0'
+pr-cannot-deploy	Set up job	2026-10-20T06:08:22.1065812Z ##[group]Runner Image Provisioner
+pr-cannot-deploy	Set up job	2026-10-20T06:08:22.1066782Z Hosted Compute Agent
+pr-cannot-deploy	Set up job	2026-10-20T06:08:22.1067302Z Version: 20261015.610
+pr-cannot-deploy	Set up job	2026-10-20T06:08:22.1067947Z Commit: 267fdb4e8bbec4ab5ea31367f3a00d5c480c7656
+pr-cannot-deploy	Set up job	2026-10-20T06:08:22.1068639Z Build Date: 2026-10-14T17:06:54Z
+pr-cannot-deploy	Set up job	2026-10-20T06:08:22.1069279Z Worker ID: {93da2fbb-b462-4e2b-bf91-8b734bdb792e}
+pr-cannot-deploy	Set up job	2026-10-20T06:08:22.1069965Z Region: westus3
+pr-cannot-deploy	Set up job	2026-10-20T06:08:22.1070534Z Cloud: Azure
+pr-cannot-deploy	Set up job	2026-10-20T06:08:22.1071052Z ##[endgroup]
+pr-cannot-deploy	Set up job	2026-10-20T06:08:22.1072382Z ##[group]Operating System
+pr-cannot-deploy	Set up job	2026-10-20T06:08:22.1073170Z Ubuntu
+pr-cannot-deploy	Set up job	2026-10-20T06:08:22.1073868Z 24.04.5
+pr-cannot-deploy	Set up job	2026-10-20T06:08:22.1074337Z LTS
+pr-cannot-deploy	Set up job	2026-10-20T06:08:22.1074836Z ##[endgroup]
+pr-cannot-deploy	Set up job	2026-10-20T06:08:22.1075341Z ##[group]Runner Image
+pr-cannot-deploy	Set up job	2026-10-20T06:08:22.1075891Z Image: ubuntu-24.04
+pr-cannot-deploy	Set up job	2026-10-20T06:08:22.1076484Z Version: 20261018.339.1
+pr-cannot-deploy	Set up job	2026-10-20T06:08:22.1077456Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20261018.339/images/ubuntu/Ubuntu2404-Readme.md
+pr-cannot-deploy	Set up job	2026-10-20T06:08:22.1079063Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20261018.339
+pr-cannot-deploy	Set up job	2026-10-20T06:08:22.1079924Z ##[endgroup]
+pr-cannot-deploy	Set up job	2026-10-20T06:08:22.1081027Z ##[group]GITHUB_TOKEN Permissions
+pr-cannot-deploy	Set up job	2026-10-20T06:08:22.1082852Z Contents: read
+pr-cannot-deploy	Set up job	2026-10-20T06:08:22.1083603Z Metadata: read
+pr-cannot-deploy	Set up job	2026-10-20T06:08:22.1084112Z ##[endgroup]
+pr-cannot-deploy	Set up job	2026-10-20T06:08:22.1086501Z Secret source: Actions
+pr-cannot-deploy	Set up job	2026-10-20T06:08:22.1087446Z Cache mode: write
+pr-cannot-deploy	Set up job	2026-10-20T06:08:22.1088089Z Prepare workflow directory
+pr-cannot-deploy	Set up job	2026-10-20T06:08:22.1406523Z Prepare all required actions
+pr-cannot-deploy	Set up job	2026-10-20T06:08:22.1454348Z Getting action download info
+pr-cannot-deploy	Set up job	2026-10-20T06:08:22.4451949Z Download action repository 'aws-actions/configure-aws-credentials@v4' (SHA:7474bc4690e29a8392af63c5b98e7449536d5c3a)
+pr-cannot-deploy	Set up job	2026-10-20T06:08:23.1389179Z Complete job name: pr-cannot-deploy
+pr-cannot-deploy	Try the deploy role from a pull request	∩╗┐2026-10-20T06:08:23.2179587Z ##[group]Run aws-actions/configure-aws-credentials@v4
+pr-cannot-deploy	Try the deploy role from a pull request	2026-10-20T06:08:23.2180761Z with:
+pr-cannot-deploy	Try the deploy role from a pull request	2026-10-20T06:08:23.2181549Z   role-to-assume: arn:aws:iam::622896097641:role/meridian-gha-deploy
+pr-cannot-deploy	Try the deploy role from a pull request	2026-10-20T06:08:23.2182477Z   aws-region: us-east-1
+pr-cannot-deploy	Try the deploy role from a pull request	2026-10-20T06:08:23.2183402Z   audience: sts.amazonaws.com
+pr-cannot-deploy	Try the deploy role from a pull request	2026-10-20T06:08:23.2184141Z   output-env-credentials: true
+pr-cannot-deploy	Try the deploy role from a pull request	2026-10-20T06:08:23.2185066Z ##[endgroup]
+pr-cannot-deploy	Try the deploy role from a pull request	2026-10-20T06:08:23.5618040Z Assuming role with OIDC
+pr-cannot-deploy	Try the deploy role from a pull request	2026-10-20T06:08:23.7974488Z Assuming role with OIDC
+pr-cannot-deploy	Try the deploy role from a pull request	2026-10-20T06:08:23.8858729Z Assuming role with OIDC
+pr-cannot-deploy	Try the deploy role from a pull request	2026-10-20T06:08:23.9649182Z Assuming role with OIDC
+pr-cannot-deploy	Try the deploy role from a pull request	2026-10-20T06:08:24.0428824Z Assuming role with OIDC
+pr-cannot-deploy	Try the deploy role from a pull request	2026-10-20T06:08:24.8736309Z Assuming role with OIDC
+pr-cannot-deploy	Try the deploy role from a pull request	2026-10-20T06:08:24.9646645Z Assuming role with OIDC
+pr-cannot-deploy	Try the deploy role from a pull request	2026-10-20T06:08:27.5037572Z Assuming role with OIDC
+pr-cannot-deploy	Try the deploy role from a pull request	2026-10-20T06:08:27.7815841Z Assuming role with OIDC
+pr-cannot-deploy	Try the deploy role from a pull request	2026-10-20T06:08:35.2396180Z Assuming role with OIDC
+pr-cannot-deploy	Try the deploy role from a pull request	2026-10-20T06:08:53.8061825Z Assuming role with OIDC
+pr-cannot-deploy	Try the deploy role from a pull request	2026-10-20T06:09:04.7262161Z Assuming role with OIDC
+pr-cannot-deploy	Try the deploy role from a pull request	2026-10-20T06:09:19.6822775Z ##[error]Could not assume role with OIDC: Not authorized to perform sts:AssumeRoleWithWebIdentity
+pr-cannot-deploy	Assert it was refused	∩╗┐2026-10-20T06:09:19.7016444Z ##[group]Run if [ "failure" = "success" ]; then
+pr-cannot-deploy	Assert it was refused	2026-10-20T06:09:19.7016978Z ^[[36;1mif [ "failure" = "success" ]; then^[[0m
+pr-cannot-deploy	Assert it was refused	2026-10-20T06:09:19.7017425Z ^[[36;1m  echo "FAIL pull_request token assumed the deploy role"^[[0m
+pr-cannot-deploy	Assert it was refused	2026-10-20T06:09:19.7017819Z ^[[36;1m  exit 1^[[0m
+pr-cannot-deploy	Assert it was refused	2026-10-20T06:09:19.7018048Z ^[[36;1mfi^[[0m
+pr-cannot-deploy	Assert it was refused	2026-10-20T06:09:19.7018366Z ^[[36;1mecho "PASS deploy role refused for a pull_request token"^[[0m
+pr-cannot-deploy	Assert it was refused	2026-10-20T06:09:19.7176671Z shell: /usr/bin/bash -e {0}
+pr-cannot-deploy	Assert it was refused	2026-10-20T06:09:19.7177039Z env:
+pr-cannot-deploy	Assert it was refused	2026-10-20T06:09:19.7177294Z   AWS_DEFAULT_REGION: us-east-1
+pr-cannot-deploy	Assert it was refused	2026-10-20T06:09:19.7177630Z   AWS_REGION: us-east-1
+pr-cannot-deploy	Assert it was refused	2026-10-20T06:09:19.7177863Z ##[endgroup]
+pr-cannot-deploy	Assert it was refused	2026-10-20T06:09:19.7260530Z PASS deploy role refused for a pull_request token
+pr-cannot-deploy	Post Try the deploy role from a pull request	∩╗┐2026-10-20T06:09:19.7391640Z Post job cleanup.
+pr-cannot-deploy	Complete job	∩╗┐2026-10-20T06:09:19.8453702Z Cleaning up orphan processes
+pr-cannot-deploy	Complete job	2026-10-20T06:09:19.8762770Z ##[warning]Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: aws-actions/configure-aws-credentials@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+pr-cannot-reach-azure	Set up job	∩╗┐2026-10-20T06:08:21.9120309Z Current runner version: '2.337.0'
+pr-cannot-reach-azure	Set up job	2026-10-20T06:08:21.9156932Z ##[group]Runner Image Provisioner
+pr-cannot-reach-azure	Set up job	2026-10-20T06:08:21.9158597Z Hosted Compute Agent
+pr-cannot-reach-azure	Set up job	2026-10-20T06:08:21.9159732Z Version: 20261015.610
+pr-cannot-reach-azure	Set up job	2026-10-20T06:08:21.9161026Z Commit: 267fdb4e8bbec4ab5ea31367f3a00d5c480c7656
+pr-cannot-reach-azure	Set up job	2026-10-20T06:08:21.9162349Z Build Date: 2026-10-14T17:06:54Z
+pr-cannot-reach-azure	Set up job	2026-10-20T06:08:21.9163618Z Worker ID: {e83d0589-84b7-4a98-ac9e-dba8d7a0bb46}
+pr-cannot-reach-azure	Set up job	2026-10-20T06:08:21.9165132Z Region: southcentralus
+pr-cannot-reach-azure	Set up job	2026-10-20T06:08:21.9166311Z Cloud: Azure
+pr-cannot-reach-azure	Set up job	2026-10-20T06:08:21.9167788Z ##[endgroup]
+pr-cannot-reach-azure	Set up job	2026-10-20T06:08:21.9170205Z ##[group]Operating System
+pr-cannot-reach-azure	Set up job	2026-10-20T06:08:21.9171311Z Ubuntu
+pr-cannot-reach-azure	Set up job	2026-10-20T06:08:21.9172378Z 24.04.5
+pr-cannot-reach-azure	Set up job	2026-10-20T06:08:21.9173339Z LTS
+pr-cannot-reach-azure	Set up job	2026-10-20T06:08:21.9174313Z ##[endgroup]
+pr-cannot-reach-azure	Set up job	2026-10-20T06:08:21.9175414Z ##[group]Runner Image
+pr-cannot-reach-azure	Set up job	2026-10-20T06:08:21.9176450Z Image: ubuntu-24.04
+pr-cannot-reach-azure	Set up job	2026-10-20T06:08:21.9177808Z Version: 20261018.339.1
+pr-cannot-reach-azure	Set up job	2026-10-20T06:08:21.9179863Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20261018.339/images/ubuntu/Ubuntu2404-Readme.md
+pr-cannot-reach-azure	Set up job	2026-10-20T06:08:21.9183153Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20261018.339
+pr-cannot-reach-azure	Set up job	2026-10-20T06:08:21.9184851Z ##[endgroup]
+pr-cannot-reach-azure	Set up job	2026-10-20T06:08:21.9186798Z ##[group]GITHUB_TOKEN Permissions
+pr-cannot-reach-azure	Set up job	2026-10-20T06:08:21.9190095Z Contents: read
+pr-cannot-reach-azure	Set up job	2026-10-20T06:08:21.9191250Z Metadata: read
+pr-cannot-reach-azure	Set up job	2026-10-20T06:08:21.9192280Z ##[endgroup]
+pr-cannot-reach-azure	Set up job	2026-10-20T06:08:21.9195764Z Secret source: Actions
+pr-cannot-reach-azure	Set up job	2026-10-20T06:08:21.9197628Z Cache mode: write
+pr-cannot-reach-azure	Set up job	2026-10-20T06:08:21.9199657Z Prepare workflow directory
+pr-cannot-reach-azure	Set up job	2026-10-20T06:08:21.9558926Z Prepare all required actions
+pr-cannot-reach-azure	Set up job	2026-10-20T06:08:21.9627676Z Getting action download info
+pr-cannot-reach-azure	Set up job	2026-10-20T06:08:22.2373819Z Download action repository 'azure/login@v2' (SHA:7184910d9eb2b1c5e48f7073824a90609bb9b6d6)
+pr-cannot-reach-azure	Set up job	2026-10-20T06:08:22.6609521Z Complete job name: pr-cannot-reach-azure
+pr-cannot-reach-azure	Try the Azure federated credential from a pull request	∩╗┐2026-10-20T06:08:22.7425767Z ##[group]Run azure/login@v2
+pr-cannot-reach-azure	Try the Azure federated credential from a pull request	2026-10-20T06:08:22.7426720Z with:
+pr-cannot-reach-azure	Try the Azure federated credential from a pull request	2026-10-20T06:08:22.7427245Z   client-id: cff9f2cc-6989-4506-a871-62c6d3c43d40
+pr-cannot-reach-azure	Try the Azure federated credential from a pull request	2026-10-20T06:08:22.7428175Z   tenant-id: 201d985b-1557-4012-9958-564c74cb2d60
+pr-cannot-reach-azure	Try the Azure federated credential from a pull request	2026-10-20T06:08:22.7428901Z   subscription-id: 11b88d87-2dc9-41c0-b10d-e3dffd37b00e
+pr-cannot-reach-azure	Try the Azure federated credential from a pull request	2026-10-20T06:08:22.7429580Z   enable-AzPSSession: false
+pr-cannot-reach-azure	Try the Azure federated credential from a pull request	2026-10-20T06:08:22.7430109Z   environment: azurecloud
+pr-cannot-reach-azure	Try the Azure federated credential from a pull request	2026-10-20T06:08:22.7430635Z   allow-no-subscriptions: false
+pr-cannot-reach-azure	Try the Azure federated credential from a pull request	2026-10-20T06:08:22.7431203Z   audience: api://AzureADTokenExchange
+pr-cannot-reach-azure	Try the Azure federated credential from a pull request	2026-10-20T06:08:22.7432035Z   auth-type: SERVICE_PRINCIPAL
+pr-cannot-reach-azure	Try the Azure federated credential from a pull request	2026-10-20T06:08:22.7433119Z ##[endgroup]
+pr-cannot-reach-azure	Try the Azure federated credential from a pull request	2026-10-20T06:08:22.7969441Z Running Azure CLI Login.
+pr-cannot-reach-azure	Try the Azure federated credential from a pull request	2026-10-20T06:08:23.9689423Z [command]/usr/bin/az cloud set -n azurecloud
+pr-cannot-reach-azure	Try the Azure federated credential from a pull request	2026-10-20T06:08:24.3463924Z Done setting cloud: "azurecloud"
+pr-cannot-reach-azure	Try the Azure federated credential from a pull request	2026-10-20T06:08:24.5144969Z Federated token details:
+pr-cannot-reach-azure	Try the Azure federated credential from a pull request	2026-10-20T06:08:24.5146864Z  issuer - https://token.actions.githubusercontent.com
+pr-cannot-reach-azure	Try the Azure federated credential from a pull request	2026-10-20T06:08:24.5149876Z  subject claim - repo:usuiWind@178834418/cloud_security_engineering_project@1406480055:pull_request
+pr-cannot-reach-azure	Try the Azure federated credential from a pull request	2026-10-20T06:08:24.5151672Z  audience - api://AzureADTokenExchange
+pr-cannot-reach-azure	Try the Azure federated credential from a pull request	2026-10-20T06:08:24.5153589Z  job_workflow_ref - usuiWind/cloud_security_engineering_project/.github/workflows/oidc-negative-test.yml@refs/pull/3/merge
+pr-cannot-reach-azure	Try the Azure federated credential from a pull request	2026-10-20T06:08:24.5155705Z Attempting Azure CLI login by using OIDC...
+pr-cannot-reach-azure	Try the Azure federated credential from a pull request	2026-10-20T06:08:25.1660703Z ##[error]AADSTS700213: No matching federated identity record found for presented assertion subject 'repo:usuiWind@178834418/cloud_security_engineering_project@1406480055:pull_request'. Check your federated identity credential Subject, Audience and Issuer against the presented assertion. https://learn.microsoft.com/entra/workload-id/workload-identity-federation Trace ID: ef7e8fca-5f84-4220-9192-f20787999200 Correlation ID: 22258e18-55d0-4772-aba8-e52a55a9ab36 Timestamp: 2026-10-20 06:08:24Z
+pr-cannot-reach-azure	Try the Azure federated credential from a pull request	
+pr-cannot-reach-azure	Try the Azure federated credential from a pull request	2026-10-20T06:08:25.1671113Z ##[error]Run the command below to authenticate interactively; additional arguments may be added as needed:
+pr-cannot-reach-azure	Try the Azure federated credential from a pull request	az logout
+pr-cannot-reach-azure	Try the Azure federated credential from a pull request	az login
+pr-cannot-reach-azure	Try the Azure federated credential from a pull request	
+pr-cannot-reach-azure	Try the Azure federated credential from a pull request	2026-10-20T06:08:25.2419511Z ##[error]Login failed with Error: The process '/usr/bin/az' failed with exit code 1. Double check if the 'auth-type' is correct. Refer to https://github.com/Azure/login#readme for more information.
+pr-cannot-reach-azure	Assert it was refused	∩╗┐2026-10-20T06:08:25.2726897Z ##[group]Run if [ "failure" = "success" ]; then
+pr-cannot-reach-azure	Assert it was refused	2026-10-20T06:08:25.2728032Z ^[[36;1mif [ "failure" = "success" ]; then^[[0m
+pr-cannot-reach-azure	Assert it was refused	2026-10-20T06:08:25.2728798Z ^[[36;1m  echo "FAIL pull_request token reached Azure"^[[0m
+pr-cannot-reach-azure	Assert it was refused	2026-10-20T06:08:25.2729494Z ^[[36;1m  exit 1^[[0m
+pr-cannot-reach-azure	Assert it was refused	2026-10-20T06:08:25.2730005Z ^[[36;1mfi^[[0m
+pr-cannot-reach-azure	Assert it was refused	2026-10-20T06:08:25.2730710Z ^[[36;1mecho "PASS Azure federated credential refused for a pull_request token"^[[0m
+pr-cannot-reach-azure	Assert it was refused	2026-10-20T06:08:25.2970939Z shell: /usr/bin/bash -e {0}
+pr-cannot-reach-azure	Assert it was refused	2026-10-20T06:08:25.2971620Z ##[endgroup]
+pr-cannot-reach-azure	Assert it was refused	2026-10-20T06:08:25.3103852Z PASS Azure federated credential refused for a pull_request token
+pr-cannot-reach-azure	Post Try the Azure federated credential from a pull request	∩╗┐2026-10-20T06:08:25.3229886Z Post job cleanup.
+pr-cannot-reach-azure	Post Try the Azure federated credential from a pull request	2026-10-20T06:08:25.3702417Z Clearing azure cli accounts from the local cache.
+pr-cannot-reach-azure	Post Try the Azure federated credential from a pull request	2026-10-20T06:08:25.3712014Z [command]/usr/bin/az account clear
+pr-cannot-reach-azure	Complete job	∩╗┐2026-10-20T06:08:25.9198635Z Cleaning up orphan processes
+pr-cannot-reach-azure	Complete job	2026-10-20T06:08:25.9920938Z Terminate orphan process: pid (2349) (python3)
+pr-cannot-reach-azure	Complete job	2026-10-20T06:08:25.9929509Z ##[warning]Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: azure/login@v2. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+
