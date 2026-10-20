@@ -1,0 +1,29 @@
+# Policy gate: checkov over every Terraform stack, no soft fail.
+# Scans source, not a plan: a pull request has no cloud credentials by design
+# (M1), so it cannot produce a plan. Every skip is inline with a reason and a
+# POA&M line.
+name: policy-gate
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  checkov:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install checkov
+        run: pip install checkov==3.3.29
+
+      - name: Scan Terraform
+        run: checkov -d . --framework terraform --compact

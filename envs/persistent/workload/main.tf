@@ -80,3 +80,12 @@ output "deploy_role_arn" {
 output "pipeline_state_bucket" {
   value = module.pipeline_state.id
 }
+
+# Account wide S3 public access block. Apply before the M2 SCP, which then
+# denies s3:PutAccountPublicAccessBlock so it cannot be reopened.
+resource "aws_s3_account_public_access_block" "this" {
+  block_public_acls       = true
+  ignore_public_acls      = true
+  block_public_policy     = true
+  restrict_public_buckets = true
+}

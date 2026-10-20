@@ -1,4 +1,5 @@
-# Groups mirroring the AWS permission sets, MFA for every human, one excluded emergency account.
+# Groups mirroring the AWS permission sets. MFA for every user comes from Entra Security Defaults,
+# a tenant switch left on by hand: Conditional Access needs a P1/P2 license this tenant cannot activate (POA&M).
 
 resource "azuread_group" "this" {
   for_each         = toset(["audit", "engineer", "breakglass"])
@@ -19,29 +20,4 @@ resource "azurerm_role_assignment" "engineer_contributor" {
   principal_id         = azuread_group.this["engineer"].object_id
 }
 
-# breakglass has no standing role; the emergency account below is the real break glass.
-
-data "azuread_user" "emergency" {
-  user_principal_name = var.emergency_upn
-}
-
-resource "azuread_conditional_access_policy" "mfa" {
-  display_name = "meridian-require-mfa"
-  state        = "enabled"
-
-  conditions {
-    client_app_types = ["all"]
-    applications {
-      included_applications = ["All"]
-    }
-    users {
-      included_users = ["All"]
-      excluded_users = [data.azuread_user.emergency.object_id]
-    }
-  }
-
-  grant_controls {
-    operator          = "OR"
-    built_in_controls = ["mfa"]
-  }
-}
+# breakglass has no standing role; the hand-made emergency account is the real break glass.

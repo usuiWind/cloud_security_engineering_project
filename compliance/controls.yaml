@@ -77,7 +77,7 @@ controls:
     status: planned
     milestone: M1
     threats: []
-    implementation: "Human access only through Identity Center with MFA; Entra Conditional Access MFA for Azure (M2)."
+    implementation: "Human access only through Identity Center with MFA; Entra Security Defaults MFA for Azure (M2)."
     terraform: envs/persistent/org
     evidence: evidence/M1/AC-17-mfa-required.png
     tested: null
@@ -157,7 +157,7 @@ controls:
     milestone: M2
     threats: []
     implementation: "checkov on the Terraform plan in CI, no soft fail; every inline skip becomes a POA&M line."
-    terraform: .github/workflows/deploy.yml
+    terraform: .github/workflows/policy-gate.yml
     evidence: evidence/M2/CM-6-checkov-blocked.txt
     tested: null
     residual_risk: "CKV_AWS_26 skip on the break glass SNS topic (POA&M)."
@@ -168,7 +168,7 @@ controls:
     milestone: M2
     threats: []
     implementation: "SCP denies regions outside allowed_regions.aws; Azure allowed locations; IMDSv2 required."
-    terraform: modules/governance
+    terraform: envs/persistent/org/scp.tf, envs/persistent/azure/governance.tf
     evidence: evidence/M2/CM-7-aws-region-denied.txt
     tested: null
     residual_risk: ""
@@ -179,7 +179,7 @@ controls:
     milestone: M2
     threats: []
     implementation: "Required tags (project, owner, milestone, data_class) enforced at create in both clouds."
-    terraform: modules/governance
+    terraform: envs/persistent/org/scp.tf, envs/persistent/azure/governance.tf
     evidence: evidence/M2/CM-8-aws-untagged-denied.txt
     tested: null
     residual_risk: ""
@@ -189,7 +189,7 @@ controls:
     status: planned
     milestone: M2
     threats: [T-12]
-    implementation: "Entra smart lockout plus Conditional Access MFA for all users."
+    implementation: "Entra smart lockout plus Security Defaults MFA for all users."
     terraform: envs/persistent/azure
     evidence: evidence/M2/AC-7-entra-lockout.png
     tested: null
@@ -427,7 +427,7 @@ controls:
     milestone: M5
     threats: [T-28, T-29]
     implementation: "SCP denies StopLogging, DeleteTrail, UpdateTrail except BreakGlass; versioned log archive bucket with public access blocked."
-    terraform: modules/governance
+    terraform: envs/persistent/org/scp.tf
     evidence: evidence/M2/AU-9-stoplogging-denied.txt
     tested: null
     residual_risk: ""

@@ -19,6 +19,9 @@ terraform {
 provider "azurerm" {
   features {}
   subscription_id = var.subscription_id
+  # The default registers ~70 providers (Databricks, AVS...) and takes minutes on a new subscription.
+  resource_provider_registrations = "core"
+  resource_providers_to_register  = ["Microsoft.PolicyInsights", "Microsoft.KeyVault", "Microsoft.OperationalInsights", "Microsoft.Insights"]
 }
 
 provider "azuread" {}

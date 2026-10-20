@@ -50,6 +50,9 @@ module "log_archive" {
 }
 
 resource "aws_cloudtrail" "org" {
+  #checkov:skip=CKV_AWS_35:SSE-S3 on the log archive; CMK deferred to avoid locking CloudTrail out through a key policy. Tracked in POA&M.
+  #checkov:skip=CKV2_AWS_10:CloudWatch Logs delivery costs per GB; Sentinel reads the S3 archive in M5. Tracked in POA&M.
+  #checkov:skip=CKV_AWS_252:Per delivery SNS not needed; break glass alerting is EventBridge. Tracked in POA&M.
   name                          = local.trail_name
   s3_bucket_name                = module.log_archive.id
   is_organization_trail         = true

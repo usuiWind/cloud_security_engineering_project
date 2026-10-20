@@ -30,3 +30,17 @@ variable "budget_limit_usd" {
   type    = string
   default = "75"
 }
+
+# From policy/intent.auto.tfvars, passed with -var-file
+variable "allowed_regions" {
+  type = map(list(string))
+}
+
+variable "required_tags" {
+  type = list(string)
+}
+
+variable "protected_services" {
+  type    = list(string)
+  default = []
+}

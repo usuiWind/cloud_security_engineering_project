@@ -36,6 +36,7 @@ provider "aws" {
 }
 
 resource "aws_ssm_parameter" "model_id" {
+  #checkov:skip=CKV2_AWS_34:Model id is public configuration, not a secret; String type on purpose. Tracked in POA&M.
   name        = "/meridian/config/model_id"
   description = "Bedrock model the assistant invokes. Set in Session 3."
   type        = "String"

@@ -12,6 +12,11 @@ variable "policy_json" {
 }
 
 resource "aws_s3_bucket" "this" {
+  #checkov:skip=CKV_AWS_145:SSE-S3 for state and log buckets; a CMK key policy mistake would lock out CloudTrail and Terraform. Data buckets get CMKs in M3. Tracked in POA&M.
+  #checkov:skip=CKV_AWS_144:Single region lab; versioning covers recovery. Tracked in POA&M.
+  #checkov:skip=CKV_AWS_18:No access log bucket in the lab; the org trail records bucket management calls. Tracked in POA&M.
+  #checkov:skip=CKV2_AWS_61:Lab lifetime under 30 days; noncurrent versions kept on purpose. Tracked in POA&M.
+  #checkov:skip=CKV2_AWS_62:No consumer for event notifications. Tracked in POA&M.
   bucket = var.name
 }
 
