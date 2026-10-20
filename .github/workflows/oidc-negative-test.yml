@@ -30,3 +30,23 @@ jobs:
             exit 1
           fi
           echo "PASS deploy role refused for a pull_request token"
+
+  pr-cannot-reach-azure:
+    if: ${{ vars.AZURE_CLIENT_ID != '' }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Try the Azure federated credential from a pull request
+        id: login
+        continue-on-error: true
+        uses: azure/login@v2
+        with:
+          client-id: ${{ vars.AZURE_CLIENT_ID }}
+          tenant-id: ${{ vars.AZURE_TENANT_ID }}
+          subscription-id: ${{ vars.AZURE_SUBSCRIPTION_ID }}
+      - name: Assert it was refused
+        run: |
+          if [ "${{ steps.login.outcome }}" = "success" ]; then
+            echo "FAIL pull_request token reached Azure"
+            exit 1
+          fi
+          echo "PASS Azure federated credential refused for a pull_request token"
