@@ -8,8 +8,8 @@
 | AC-2 | Account Management | implemented | M1 | evidence/M1/AC-2-permission-sets.txt |
 | AC-3 | Access Enforcement | implemented | M1 | evidence/M1/AC-3-oidc-pr-denied.txt |
 | AC-6 | Least Privilege | partial | M1 | evidence/M1/AC-6-deploy-role-after.txt |
-| AC-17 | Remote Access | planned | M1 | evidence/M1/AC-17-mfa-required.png |
-| IA-2 | Identification and Authentication of Organizational Users | planned | M1 | evidence/M1/AC-17-mfa-required.png |
+| AC-17 | Remote Access | implemented | M1 | evidence/M1/AC-17-mfa-required.png |
+| IA-2 | Identification and Authentication of Organizational Users | implemented | M1 | evidence/M1/AC-17-mfa-required.png |
 | IA-5 | Authenticator Management | implemented | M1 | evidence/M1/IA-5-key-scan-workload.txt |
 | IA-8 | Identification and Authentication of Non Organizational Users | implemented | M1 | evidence/M1/IA-8-oidc-main-success.txt |
 | AU-2 | Event Logging | partial | M1 | evidence/M1/AU-2-org-trail.txt |
@@ -62,9 +62,9 @@
 | Milestone | Implemented | Cumulative |
 |---|---|---|
 | M0 | 0 | 0 |
-| M1 | 4 | 4 |
-| M2 | 5 | 9 |
-| M3 | 0 | 9 |
-| M4 | 0 | 9 |
-| M5 | 0 | 9 |
-| M6 | 0 | 9 |
+| M1 | 6 | 6 |
+| M2 | 5 | 11 |
+| M3 | 0 | 11 |
+| M4 | 0 | 11 |
+| M5 | 0 | 11 |
+| M6 | 0 | 11 |

@@ -44,7 +44,7 @@ controls:
     status: implemented
     milestone: M1
     threats: [T-01, T-32]
-    implementation: "Identity Center only, no IAM users; permission sets AuditReadOnly, Engineer, PlatformAdmin, BreakGlass (1 h); BreakGlass use alerts via EventBridge to SNS. Entra groups meridian-audit/engineer/breakglass mirror them (evidence/M2/AC-2-entra-groups.txt)."
+    implementation: "Identity Center only, no IAM users; permission sets AuditReadOnly, Engineer, PlatformAdmin, BreakGlass (1 h); BreakGlass use alerts via EventBridge to SNS (evidence/M1/AC-2-breakglass-alert.png, source IP redacted). Entra groups meridian-audit/engineer/breakglass mirror them (evidence/M2/AC-2-entra-groups.txt)."
     terraform: envs/persistent/org
     evidence: evidence/M1/AC-2-permission-sets.txt
     tested: 2026-10-19
@@ -74,24 +74,24 @@ controls:
   - id: AC-17
     title: Remote Access
     baseline: moderate
-    status: planned
+    status: implemented
     milestone: M1
     threats: []
-    implementation: "Human access only through Identity Center with MFA; Entra Security Defaults MFA for Azure (M2)."
+    implementation: "Human access only through Identity Center with MFA on every sign in; Entra Security Defaults MFA for Azure (evidence/M2/IA-2-security-defaults.png)."
     terraform: envs/persistent/org
     evidence: evidence/M1/AC-17-mfa-required.png
-    tested: null
+    tested: 2026-10-19
     residual_risk: ""
   - id: IA-2
     title: Identification and Authentication of Organizational Users
     baseline: moderate
-    status: planned
+    status: implemented
     milestone: M1
     threats: [T-06, T-12, T-14, T-32]
-    implementation: "MFA on Identity Center and Entra; caller id bound as session tag on every case lookup."
+    implementation: "MFA on Identity Center (always on) and Entra Security Defaults (evidence/M2/IA-2-security-defaults.png); caller id bound as session tag on every case lookup (M3)."
     terraform: envs/persistent/org
     evidence: evidence/M1/AC-17-mfa-required.png
-    tested: null
+    tested: 2026-10-19
     residual_risk: "Caller id comes from the test harness until APIM forwards the Entra claim (T-06)."
   - id: IA-5
     title: Authenticator Management

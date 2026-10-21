@@ -1,0 +1,4 @@
+﻿# 2026-10-21T03:03:15Z  profile=mgmt-platform  exit=254
+$ aws kms schedule-key-deletion --key-id $corpus --pending-window-in-days 7 --profile workload-engineer
+An error occurred (AccessDeniedException) when calling the ScheduleKeyDeletion operation: User: arn:aws:sts::622896097641:assumed-role/AWSReservedSSO_Engineer_2572360652bc3d64/nextuse is not authorized to perform: kms:ScheduleKeyDeletion on resource: arn:aws:kms:us-east-1:622896097641:key/79690cac-e4db-45cc-a2a8-193a1fd1bfd8 with an explicit deny in a service control policy: arn:aws:organizations::797260139831:policy/o-hsguteqhwe/service_control_policy/p-2l845n8o
+

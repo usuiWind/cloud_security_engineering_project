@@ -1,0 +1,119 @@
+﻿# 2026-10-21T03:03:10Z  profile=mgmt-platform  exit=0
+$ foreach ($k in $corpus, $records) { $k; aws kms get-key-rotation-status --key-id $k --profile workload-engineer; aws kms get-key-policy --key-id $k --policy-name default --output text --profile workload-engineer }
+arn:aws:kms:us-east-1:622896097641:key/79690cac-e4db-45cc-a2a8-193a1fd1bfd8
+{
+    "KeyRotationEnabled": true,
+    "KeyId": "arn:aws:kms:us-east-1:622896097641:key/79690cac-e4db-45cc-a2a8-193a1fd1bfd8",
+    "RotationPeriodInDays": 365,
+    "NextRotationDate": "2027-10-20T21:57:17.400000-05:00"
+}
+{
+  "Version" : "2012-10-17",
+  "Statement" : [ {
+    "Sid" : "TerraformAdmin",
+    "Effect" : "Allow",
+    "Principal" : {
+      "AWS" : "arn:aws:iam::622896097641:role/OrganizationAccountAccessRole"
+    },
+    "Action" : [ "kms:UpdateAlias", "kms:Update*", "kms:UntagResource", "kms:TagResource", "kms:ScheduleKeyDeletion", "kms:Revoke*", "kms:Put*", "kms:List*", "kms:Get*", "kms:Enable*", "kms:Disable*", "kms:Describe*", "kms:DeleteAlias", "kms:CreateAlias", "kms:CancelKeyDeletion" ],
+    "Resource" : "*"
+  }, {
+    "Sid" : "EngineerAdmin",
+    "Effect" : "Allow",
+    "Principal" : {
+      "AWS" : "arn:aws:iam::622896097641:root"
+    },
+    "Action" : [ "kms:UpdateAlias", "kms:Update*", "kms:UntagResource", "kms:TagResource", "kms:ScheduleKeyDeletion", "kms:Revoke*", "kms:Put*", "kms:List*", "kms:Get*", "kms:Enable*", "kms:Disable*", "kms:Describe*", "kms:DeleteAlias", "kms:CreateAlias", "kms:CancelKeyDeletion" ],
+    "Resource" : "*",
+    "Condition" : {
+      "ArnLike" : {
+        "aws:PrincipalArn" : "arn:aws:iam::622896097641:role/aws-reserved/sso.amazonaws.com/AWSReservedSSO_Engineer_*"
+      }
+    }
+  }, {
+    "Sid" : "TerraformLoadViaService",
+    "Effect" : "Allow",
+    "Principal" : {
+      "AWS" : "arn:aws:iam::622896097641:role/OrganizationAccountAccessRole"
+    },
+    "Action" : [ "kms:ReEncrypt*", "kms:GenerateDataKey*", "kms:Encrypt", "kms:DescribeKey", "kms:Decrypt", "kms:CreateGrant" ],
+    "Resource" : "*",
+    "Condition" : {
+      "StringEquals" : {
+        "kms:ViaService" : "s3.us-east-1.amazonaws.com"
+      }
+    }
+  }, {
+    "Sid" : "ToolUseViaService",
+    "Effect" : "Allow",
+    "Principal" : {
+      "AWS" : "arn:aws:iam::622896097641:role/meridian-tool-docsearch"
+    },
+    "Action" : [ "kms:DescribeKey", "kms:Decrypt" ],
+    "Resource" : "*",
+    "Condition" : {
+      "StringEquals" : {
+        "kms:ViaService" : "s3.us-east-1.amazonaws.com"
+      }
+    }
+  } ]
+}	default
+arn:aws:kms:us-east-1:622896097641:key/28ac2b96-1c1f-4b34-a4c6-149b5059105e
+{
+    "KeyRotationEnabled": true,
+    "KeyId": "arn:aws:kms:us-east-1:622896097641:key/28ac2b96-1c1f-4b34-a4c6-149b5059105e",
+    "RotationPeriodInDays": 365,
+    "NextRotationDate": "2027-10-20T21:57:09.435000-05:00"
+}
+{
+  "Version" : "2012-10-17",
+  "Statement" : [ {
+    "Sid" : "TerraformAdmin",
+    "Effect" : "Allow",
+    "Principal" : {
+      "AWS" : "arn:aws:iam::622896097641:role/OrganizationAccountAccessRole"
+    },
+    "Action" : [ "kms:UpdateAlias", "kms:Update*", "kms:UntagResource", "kms:TagResource", "kms:ScheduleKeyDeletion", "kms:Revoke*", "kms:Put*", "kms:List*", "kms:Get*", "kms:Enable*", "kms:Disable*", "kms:Describe*", "kms:DeleteAlias", "kms:CreateAlias", "kms:CancelKeyDeletion" ],
+    "Resource" : "*"
+  }, {
+    "Sid" : "EngineerAdmin",
+    "Effect" : "Allow",
+    "Principal" : {
+      "AWS" : "arn:aws:iam::622896097641:root"
+    },
+    "Action" : [ "kms:UpdateAlias", "kms:Update*", "kms:UntagResource", "kms:TagResource", "kms:ScheduleKeyDeletion", "kms:Revoke*", "kms:Put*", "kms:List*", "kms:Get*", "kms:Enable*", "kms:Disable*", "kms:Describe*", "kms:DeleteAlias", "kms:CreateAlias", "kms:CancelKeyDeletion" ],
+    "Resource" : "*",
+    "Condition" : {
+      "ArnLike" : {
+        "aws:PrincipalArn" : "arn:aws:iam::622896097641:role/aws-reserved/sso.amazonaws.com/AWSReservedSSO_Engineer_*"
+      }
+    }
+  }, {
+    "Sid" : "TerraformLoadViaService",
+    "Effect" : "Allow",
+    "Principal" : {
+      "AWS" : "arn:aws:iam::622896097641:role/OrganizationAccountAccessRole"
+    },
+    "Action" : [ "kms:ReEncrypt*", "kms:GenerateDataKey*", "kms:Encrypt", "kms:DescribeKey", "kms:Decrypt", "kms:CreateGrant" ],
+    "Resource" : "*",
+    "Condition" : {
+      "StringEquals" : {
+        "kms:ViaService" : "dynamodb.us-east-1.amazonaws.com"
+      }
+    }
+  }, {
+    "Sid" : "ToolUseViaService",
+    "Effect" : "Allow",
+    "Principal" : {
+      "AWS" : "arn:aws:iam::622896097641:role/meridian-tool-caselookup"
+    },
+    "Action" : [ "kms:DescribeKey", "kms:Decrypt" ],
+    "Resource" : "*",
+    "Condition" : {
+      "StringEquals" : {
+        "kms:ViaService" : "dynamodb.us-east-1.amazonaws.com"
+      }
+    }
+  } ]
+}	default
+
