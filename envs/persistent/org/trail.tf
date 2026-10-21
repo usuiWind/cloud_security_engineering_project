@@ -6,6 +6,8 @@ locals {
   trail_name = "meridian-org-trail"
   trail_arn  = "arn:aws:cloudtrail:${var.region}:${data.aws_caller_identity.me.account_id}:trail/${local.trail_name}"
   log_bucket = "meridian-logs-${data.aws_caller_identity.me.account_id}"
+  # M3: data events for this one table only, so Session 4 can show a denied GetItem.
+  cases_table_arn = "arn:aws:dynamodb:${var.region}:${aws_organizations_account.workload.id}:table/meridian-cases"
 }
 
 data "aws_iam_policy_document" "cloudtrail" {
@@ -43,10 +45,52 @@ data "aws_iam_policy_document" "cloudtrail" {
   }
 }
 
+data "aws_iam_policy_document" "flow_logs" {
+  # M3: workload VPC flow logs land beside the trail, where Sentinel reads them in M5.
+  statement {
+    sid       = "FlowLogsAclCheck"
+    actions   = ["s3:GetBucketAcl", "s3:ListBucket"]
+    resources = ["arn:aws:s3:::${local.log_bucket}"]
+    principals {
+      type        = "Service"
+      identifiers = ["delivery.logs.amazonaws.com"]
+    }
+    condition {
+      test     = "StringEquals"
+      variable = "aws:SourceAccount"
+      values   = [aws_organizations_account.workload.id]
+    }
+  }
+
+  statement {
+    sid       = "FlowLogsWrite"
+    actions   = ["s3:PutObject"]
+    resources = ["arn:aws:s3:::${local.log_bucket}/AWSLogs/${aws_organizations_account.workload.id}/*"]
+    principals {
+      type        = "Service"
+      identifiers = ["delivery.logs.amazonaws.com"]
+    }
+    condition {
+      test     = "StringEquals"
+      variable = "aws:SourceAccount"
+      values   = [aws_organizations_account.workload.id]
+    }
+    condition {
+      test     = "StringEquals"
+      variable = "s3:x-amz-acl"
+      values   = ["bucket-owner-full-control"]
+    }
+  }
+}
+
+data "aws_iam_policy_document" "log_archive" {
+  source_policy_documents = [data.aws_iam_policy_document.cloudtrail.json, data.aws_iam_policy_document.flow_logs.json]
+}
+
 module "log_archive" {
   source      = "../../../modules/secure-bucket"
   name        = local.log_bucket
-  policy_json = data.aws_iam_policy_document.cloudtrail.json
+  policy_json = data.aws_iam_policy_document.log_archive.json
 }
 
 resource "aws_cloudtrail" "org" {
@@ -59,5 +103,29 @@ resource "aws_cloudtrail" "org" {
   is_multi_region_trail         = true
   include_global_service_events = true
   enable_log_file_validation    = true
-  depends_on                    = [module.log_archive, aws_organizations_organization.this]
+
+  advanced_event_selector {
+    name = "Management events"
+    field_selector {
+      field  = "eventCategory"
+      equals = ["Management"]
+    }
+  }
+
+  advanced_event_selector {
+    name = "Cases table data events"
+    field_selector {
+      field  = "eventCategory"
+      equals = ["Data"]
+    }
+    field_selector {
+      field  = "resources.type"
+      equals = ["AWS::DynamoDB::Table"]
+    }
+    field_selector {
+      field  = "resources.ARN"
+      equals = [local.cases_table_arn]
+    }
+  }
+  depends_on = [module.log_archive, aws_organizations_organization.this]
 }

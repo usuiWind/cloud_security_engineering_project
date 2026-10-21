@@ -33,3 +33,15 @@ variable "deploy_policy_mode" {
     error_message = "deploy_policy_mode must be broad or scoped."
   }
 }
+
+variable "model_id" {
+  type        = string
+  default     = "amazon.nova-lite-v1:0"
+  description = "Bedrock model app-task may invoke. Nova Lite runs in region in us-east-1, so no cross region profile and no us-east-2 in the region SCP."
+}
+
+variable "scoped_tools" {
+  type        = bool
+  default     = false
+  description = "Session 4: false for runs A and B, true for run C (dynamodb:LeadingKeys bound to the caller tag)."
+}

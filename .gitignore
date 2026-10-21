@@ -15,3 +15,6 @@ terraform.tfvars
 envs/backend.hcl
 crash.log
 __pycache__/
+
+# Lambda zip built at plan time
+envs/ephemeral/build/

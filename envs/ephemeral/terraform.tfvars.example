@@ -1,0 +1,4 @@
+owner               = "austin"
+workload_account_id = "222222222222"
+log_bucket          = "meridian-logs-111111111111"
+subscription_id     = "00000000-0000-0000-0000-000000000000"
