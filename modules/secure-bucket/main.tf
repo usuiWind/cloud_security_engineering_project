@@ -5,6 +5,12 @@ variable "name" {
   type = string
 }
 
+variable "kms_key_arn" {
+  type        = string
+  default     = null
+  description = "CMK for SSE-KMS. Null keeps SSE-S3 (state and log buckets)."
+}
+
 variable "policy_json" {
   type        = string
   default     = null
@@ -42,13 +48,15 @@ resource "aws_s3_bucket_versioning" "this" {
   }
 }
 
-# SSE-S3 on purpose: no KMS key charge in Session 1. CMKs arrive in Session 3.
+# SSE-S3 unless a CMK is passed: state and log buckets stay on SSE-S3, data buckets get CMKs (M3).
 resource "aws_s3_bucket_server_side_encryption_configuration" "this" {
   bucket = aws_s3_bucket.this.id
   rule {
     apply_server_side_encryption_by_default {
-      sse_algorithm = "AES256"
+      sse_algorithm     = var.kms_key_arn == null ? "AES256" : "aws:kms"
+      kms_master_key_id = var.kms_key_arn
     }
+    bucket_key_enabled = var.kms_key_arn != null
   }
 }
 

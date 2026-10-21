@@ -12,12 +12,21 @@ terraform {
       source  = "hashicorp/azuread"
       version = "~> 3.0"
     }
+    azapi = {
+      source  = "Azure/azapi"
+      version = "~> 2.0"
+    }
   }
   backend "s3" {}
 }
 
 provider "azurerm" {
-  features {}
+  features {
+    storage {
+      # M3 storage refuses the laptop's network; manage it through ARM only.
+      data_plane_available = false
+    }
+  }
   subscription_id = var.subscription_id
   # The default registers ~70 providers (Databricks, AVS...) and takes minutes on a new subscription.
   resource_provider_registrations = "core"
@@ -25,6 +34,8 @@ provider "azurerm" {
 }
 
 provider "azuread" {}
+
+provider "azapi" {}
 
 data "azuread_client_config" "me" {}
 

@@ -40,5 +40,5 @@ resource "aws_ssm_parameter" "model_id" {
   name        = "/meridian/config/model_id"
   description = "Bedrock model the assistant invokes. Set in Session 3."
   type        = "String"
-  value       = "unset-until-session-3"
+  value       = "amazon.nova-lite-v1:0"
 }
