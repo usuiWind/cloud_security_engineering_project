@@ -1,4 +1,4 @@
-# M3 data: two CMKs, the policy corpus bucket and the cases table, seeded with
+# M3 data: three CMKs (corpus, records, the model key secret), the policy corpus bucket and the cases table, seeded with
 # synthetic records. Persistent, because the SCP denies kms:ScheduleKeyDeletion
 # outside BreakGlass, so keys must never live in envs/ephemeral.
 
@@ -12,6 +12,7 @@ locals {
   keys = {
     corpus  = { service = "s3", user = aws_iam_role.tool["docsearch"].arn }
     records = { service = "dynamodb", user = aws_iam_role.tool["caselookup"].arn }
+    secrets = { service = "secretsmanager", user = aws_iam_role.gateway.arn }
   }
 
   # Manage, never use. No kms:CreateGrant (a grant would hand out use) and no
@@ -77,6 +78,31 @@ data "aws_iam_policy_document" "key" {
       test     = "StringEquals"
       variable = "kms:ViaService"
       values   = ["${each.value.service}.${var.region}.amazonaws.com"]
+    }
+  }
+
+  # Engineer stores the Gemini key (put-secret-value) but cannot read it back:
+  # the secret's resource policy denies GetSecretValue to all but the gateway.
+  dynamic "statement" {
+    for_each = each.key == "secrets" ? [1] : []
+    content {
+      sid       = "EngineerWriteViaService"
+      actions   = ["kms:GenerateDataKey", "kms:Decrypt", "kms:DescribeKey"]
+      resources = ["*"]
+      principals {
+        type        = "AWS"
+        identifiers = ["arn:aws:iam::${local.account_id}:root"]
+      }
+      condition {
+        test     = "ArnLike"
+        variable = "aws:PrincipalArn"
+        values   = [local.engineer_role]
+      }
+      condition {
+        test     = "StringEquals"
+        variable = "kms:ViaService"
+        values   = ["secretsmanager.${var.region}.amazonaws.com"]
+      }
     }
   }
 

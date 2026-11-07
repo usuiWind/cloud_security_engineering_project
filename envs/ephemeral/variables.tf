@@ -25,22 +25,16 @@ variable "azure_location" {
   default = "eastus"
 }
 
-variable "model_id" {
+variable "gateway_function" {
   type        = string
-  default     = "amazon.nova-lite-v1:0"
-  description = "The one model the Bedrock endpoint policy allows. Must match envs/persistent/workload."
+  default     = "meridian-ai-gateway"
+  description = "What the app invokes. Set to another function name only for the AC-4 endpoint policy test."
 }
 
-variable "lambda_model_id" {
-  type        = string
-  default     = "amazon.nova-lite-v1:0"
-  description = "What the Lambda asks for. Set to another model only for the AC-4 endpoint policy test."
-}
-
-variable "bedrock_endpoint" {
+variable "gateway_endpoint" {
   type        = bool
   default     = true
-  description = "false removes the bedrock-runtime endpoint for the SC-7 no-path test."
+  description = "false removes the lambda interface endpoint for the SC-7 no-path test."
 }
 
 variable "reserved_concurrency" {

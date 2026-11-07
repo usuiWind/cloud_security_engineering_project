@@ -1,9 +1,10 @@
 # M3 roles. app-task runs the Lambda and touches no data. Each tool runs
 # under its own role, assumed per call; caselookup carries the caller as a
-# session tag so Session 4 can bind reads to it.
+# session tag so Session 4 can bind reads to it. The model sits behind
+# meridian-ai-gateway, the only role that can read the Gemini key.
 
 locals {
-  model_arn = "arn:aws:bedrock:${var.region}::foundation-model/${var.model_id}"
+  gateway_arn = "arn:aws:lambda:${var.region}:${local.account_id}:function:meridian-ai-gateway"
 }
 
 data "aws_iam_policy_document" "lambda_trust" {
@@ -38,8 +39,32 @@ resource "aws_iam_role_policy" "app_task" {
   policy = jsonencode({
     Version = "2012-10-17"
     Statement = [
-      { Sid = "OneModel", Effect = "Allow", Action = "bedrock:InvokeModel", Resource = local.model_arn },
+      { Sid = "OneGateway", Effect = "Allow", Action = "lambda:InvokeFunction", Resource = local.gateway_arn },
       { Sid = "ToolRoles", Effect = "Allow", Action = ["sts:AssumeRole", "sts:TagSession"], Resource = [for r in aws_iam_role.tool : r.arn] },
+    ]
+  })
+}
+
+resource "aws_iam_role" "gateway" {
+  name               = "meridian-ai-gateway"
+  assume_role_policy = data.aws_iam_policy_document.lambda_trust.json
+  tags               = local.m3_tags
+}
+
+resource "aws_iam_role_policy_attachment" "gateway_logs" {
+  role       = aws_iam_role.gateway.name
+  policy_arn = "arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
+}
+
+# The key, and the model name the pipeline sets (CM-5). Decrypt comes from the key policy.
+resource "aws_iam_role_policy" "gateway" {
+  name = "gateway"
+  role = aws_iam_role.gateway.id
+  policy = jsonencode({
+    Version = "2012-10-17"
+    Statement = [
+      { Sid = "ModelKey", Effect = "Allow", Action = "secretsmanager:GetSecretValue", Resource = aws_secretsmanager_secret.gemini.arn },
+      { Sid = "ModelName", Effect = "Allow", Action = "ssm:GetParameter", Resource = "arn:aws:ssm:${var.region}:${local.account_id}:parameter/meridian/config/model_id" },
     ]
   })
 }
@@ -100,6 +125,10 @@ resource "aws_iam_role_policy" "caselookup" {
 
 output "app_task_role_arn" {
   value = aws_iam_role.app_task.arn
+}
+
+output "gateway_role_arn" {
+  value = aws_iam_role.gateway.arn
 }
 
 output "tool_role_arns" {
