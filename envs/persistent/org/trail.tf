@@ -8,6 +8,8 @@ locals {
   log_bucket = "meridian-logs-${data.aws_caller_identity.me.account_id}"
   # M3: data events for this one table only, so Session 4 can show a denied GetItem.
   cases_table_arn = "arn:aws:dynamodb:${var.region}:${aws_organizations_account.workload.id}:table/meridian-cases"
+  # Gemini pivot: Invoke on the AI gateway, so SC-8 shows the call crossed the lambda endpoint.
+  gateway_arn = "arn:aws:lambda:${var.region}:${aws_organizations_account.workload.id}:function:meridian-ai-gateway"
 }
 
 data "aws_iam_policy_document" "cloudtrail" {
@@ -125,6 +127,22 @@ resource "aws_cloudtrail" "org" {
     field_selector {
       field  = "resources.ARN"
       equals = [local.cases_table_arn]
+    }
+  }
+
+  advanced_event_selector {
+    name = "AI gateway invokes"
+    field_selector {
+      field  = "eventCategory"
+      equals = ["Data"]
+    }
+    field_selector {
+      field  = "resources.type"
+      equals = ["AWS::Lambda::Function"]
+    }
+    field_selector {
+      field  = "resources.ARN"
+      equals = [local.gateway_arn]
     }
   }
   depends_on = [module.log_archive, aws_organizations_organization.this]

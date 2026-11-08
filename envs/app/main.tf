@@ -38,7 +38,7 @@ provider "aws" {
 resource "aws_ssm_parameter" "model_id" {
   #checkov:skip=CKV2_AWS_34:Model id is public configuration, not a secret; String type on purpose. Tracked in POA&M.
   name        = "/meridian/config/model_id"
-  description = "Bedrock model the assistant invokes. Set in Session 3."
+  description = "Gemini model the AI gateway calls (Google AI Studio). Bedrock access was refused."
   type        = "String"
-  value       = "amazon.nova-lite-v1:0"
+  value       = "gemini-3.5-flash-lite"
 }

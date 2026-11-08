@@ -99,11 +99,11 @@ controls:
     status: implemented
     milestone: M1
     threats: [T-01, T-12]
-    implementation: "Zero IAM users and access keys; root credentials centrally managed; scripts/key_scan.sh gates every CI run."
+    implementation: "Zero IAM users and access keys; root credentials centrally managed; scripts/key_scan.sh gates every CI run and fails on a Google API key in the repo. One third party credential, the Gemini API key, lives only in Secrets Manager and only the gateway role can read it (M3)."
     terraform: envs/persistent/org
     evidence: evidence/M1/IA-5-key-scan-workload.txt
     tested: 2026-10-19
-    residual_risk: "Management account root cannot be removed; MFA on, no keys (POA&M)."
+    residual_risk: "Management account root cannot be removed; MFA on, no keys (POA&M). The Gemini key is a static credential with manual rotation (POA&M, M3)."
   - id: IA-8
     title: Identification and Authentication of Non Organizational Users
     baseline: moderate

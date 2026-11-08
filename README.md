@@ -1,6 +1,6 @@
 # Cloud-Native AI Application Threat Model
 
-Threat model and control plan for a cross-cloud AI assistant: AWS (Bedrock + Guardrails, tool roles over S3 docs and DynamoDB case records) fronted by Azure (Entra ID, API Management, AI Content Safety), deployed from GitHub Actions via OIDC + Terraform, monitored by Sentinel.
+Threat model and control plan for a cross-cloud AI assistant: AWS (tool roles over S3 docs and DynamoDB case records, with the model reached through an AI gateway Lambda: Gemini API, since Bedrock access was refused) fronted by Azure (Entra ID, API Management, AI Content Safety), deployed from GitHub Actions via OIDC + Terraform, monitored by Sentinel.
 
 ## Source of truth
 
