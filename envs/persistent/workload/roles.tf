@@ -56,7 +56,7 @@ resource "aws_iam_role_policy_attachment" "gateway_logs" {
   policy_arn = "arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
 }
 
-# The key, and the model name the pipeline sets (CM-5). Decrypt comes from the key policy.
+# The key, the model name the pipeline sets (CM-5), and M4's token for Azure. Decrypt comes from the key policy.
 resource "aws_iam_role_policy" "gateway" {
   name = "gateway"
   role = aws_iam_role.gateway.id
@@ -65,6 +65,9 @@ resource "aws_iam_role_policy" "gateway" {
     Statement = [
       { Sid = "ModelKey", Effect = "Allow", Action = "secretsmanager:GetSecretValue", Resource = aws_secretsmanager_secret.gemini.arn },
       { Sid = "ModelName", Effect = "Allow", Action = "ssm:GetParameter", Resource = "arn:aws:ssm:${var.region}:${local.account_id}:parameter/meridian/config/model_id" },
+      # M4: a signed STS token Entra trades for a Content Safety token (keyless).
+      # ponytail: Resource "*" as the docs show; add an audience condition once the key name is confirmed.
+      { Sid = "AzureToken", Effect = "Allow", Action = "sts:GetWebIdentityToken", Resource = "*" },
     ]
   })
 }

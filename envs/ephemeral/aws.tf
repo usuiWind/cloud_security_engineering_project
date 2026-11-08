@@ -208,6 +208,10 @@ resource "aws_lambda_function" "gateway" {
     variables = {
       SECRET_ID   = "meridian/gemini-api-key"
       MODEL_PARAM = "/meridian/config/model_id"
+      # M4: keyless Content Safety (outputs of envs/persistent/azure). Ids and a URL, no secret.
+      AZURE_TENANT_ID         = var.azure_tenant_id
+      AZURE_CLIENT_ID         = var.gateway_client_id
+      CONTENT_SAFETY_ENDPOINT = var.content_safety_endpoint
     }
   }
 }
@@ -236,6 +240,8 @@ resource "aws_lambda_function" "app" {
   environment {
     variables = {
       GATEWAY_FUNCTION    = var.gateway_function
+      STAGE               = var.stage
+      LINK_ALLOWLIST      = var.stage == "C" ? join(",", var.link_allowlist) : ""
       CORPUS_BUCKET       = "meridian-corpus-${var.workload_account_id}"
       CASES_TABLE         = "meridian-cases"
       DOCSEARCH_ROLE_ARN  = local.tool_arns.docsearch

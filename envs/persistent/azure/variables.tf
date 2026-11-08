@@ -28,3 +28,14 @@ variable "protected_services" {
   type    = list(string)
   default = []
 }
+
+# M4: the AWS gateway's keyless path to Content Safety (contentsafety.tf).
+variable "aws_outbound_issuer" {
+  type        = string
+  description = "IssuerIdentifier from aws iam get-outbound-web-identity-federation-info in the workload account (runbook 4.3)."
+}
+
+variable "aws_gateway_role_arn" {
+  type        = string
+  description = "arn:aws:iam::<workload account>:role/meridian-ai-gateway, the subject Entra accepts."
+}
