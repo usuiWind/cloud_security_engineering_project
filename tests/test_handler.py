@@ -48,6 +48,11 @@ try:
     raise AssertionError("non Content Safety host must be refused")
 except RuntimeError as e:
     assert "not a Content Safety host" in str(e)
+# Documents-only shield (tool results): Content Safety omits userPromptAnalysis.
+real_cs = gateway.content_safety
+gateway.content_safety = lambda path, body: {"documentsAnalysis": [{"attackDetected": True}]}
+assert gateway.handler({"op": "shield", "documents": ["x"]}) == {"user": False, "documents": [True]}
+gateway.content_safety = real_cs
 print("ok")
 
 # M4: every indirect payload must actually retrieve a poisoned doc.

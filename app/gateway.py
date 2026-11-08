@@ -92,7 +92,8 @@ def handler(event, context=None):
         # Prompt Shields: user prompt attacks and document (indirect) attacks. Inputs cap at 10k characters.
         r = content_safety("text:shieldPrompt", {"userPrompt": event.get("user", "")[:10000],
                                                  "documents": [d[:10000] for d in event.get("documents", [])]})
-        return {"user": r["userPromptAnalysis"]["attackDetected"],
+        # A documents-only call (tool results) gets no userPromptAnalysis back.
+        return {"user": r.get("userPromptAnalysis", {}).get("attackDetected", False),
                 "documents": [d["attackDetected"] for d in r.get("documentsAnalysis", [])]}
     if op == "analyze":
         r = content_safety("text:analyze", {"text": event["text"][:10000], "outputType": "FourSeverityLevels"})
