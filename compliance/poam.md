@@ -22,6 +22,6 @@
 | M2-13 | CKV_AWS_35: org trail logs on SSE-S3, not a CMK. | AU-9 | M2 |
 | M2-14 | CKV2_AWS_10: org trail not sent to CloudWatch Logs; Sentinel reads the S3 archive in M5. | AU-6 | M2 |
 | M2-15 | CKV_AWS_252: no SNS on trail delivery; break glass alerting is EventBridge. | AU-5 | M2 |
-| M2-16 | CKV2_AWS_34: `/meridian/config/model_id` is a String, not a SecureString; it is not a secret. | SC-28 | M2 |
+| M2-16 | CKV2_AWS_34: `/meridian/config/model_id` (the Gemini model name) is a String, not a SecureString; it is not a secret. | SC-28 | M2 |
 | M2-17 | SCPs do not apply to the management account by AWS design; it holds no workload and is reached only through PlatformAdmin and BreakGlass. | CM-7 | M2 |
 | M2-18 | Protected service actions are exempt for BreakGlass, so the day 4 GuardDuty teardown runs as BreakGlass and triggers the alert. | AU-9 | M2 |

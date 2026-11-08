@@ -1,5 +1,6 @@
 # One private subnet, no internet gateway, no NAT. The only ways out are four
-# endpoints, and each endpoint policy names what may cross it.
+# endpoints, and each endpoint policy names what may cross it. The model is
+# behind meridian-ai-gateway, outside the VPC, reached through the lambda endpoint.
 
 locals {
   app_task_arn = "arn:aws:iam::${var.workload_account_id}:role/meridian-app-task"
@@ -7,14 +8,15 @@ locals {
     docsearch  = "arn:aws:iam::${var.workload_account_id}:role/meridian-tool-docsearch"
     caselookup = "arn:aws:iam::${var.workload_account_id}:role/meridian-tool-caselookup"
   }
-  corpus_arn = "arn:aws:s3:::meridian-corpus-${var.workload_account_id}"
-  cases_arn  = "arn:aws:dynamodb:${var.region}:${var.workload_account_id}:table/meridian-cases"
-  # M4 adds the guardrail ARN here.
-  bedrock_resources = ["arn:aws:bedrock:${var.region}::foundation-model/${var.model_id}"]
+  corpus_arn  = "arn:aws:s3:::meridian-corpus-${var.workload_account_id}"
+  cases_arn   = "arn:aws:dynamodb:${var.region}:${var.workload_account_id}:table/meridian-cases"
+  gateway_arn = "arn:aws:lambda:${var.region}:${var.workload_account_id}:function:meridian-ai-gateway"
+  # Invoke may name the function or a qualified version of it.
+  gateway_resources = [local.gateway_arn, "${local.gateway_arn}:*"]
 
   interface = merge(
     { sts = data.aws_iam_policy_document.sts_endpoint.json },
-    var.bedrock_endpoint ? { "bedrock-runtime" = data.aws_iam_policy_document.bedrock_endpoint.json } : {},
+    var.gateway_endpoint ? { lambda = data.aws_iam_policy_document.lambda_endpoint.json } : {},
   )
 }
 
@@ -82,11 +84,11 @@ resource "aws_vpc_endpoint" "gateway" {
   policy            = each.value
 }
 
-data "aws_iam_policy_document" "bedrock_endpoint" {
+data "aws_iam_policy_document" "lambda_endpoint" {
   statement {
     sid       = "AppTaskOnly"
-    actions   = ["bedrock:InvokeModel", "bedrock:ApplyGuardrail"]
-    resources = local.bedrock_resources
+    actions   = ["lambda:InvokeFunction"]
+    resources = local.gateway_resources
     principals {
       type        = "*"
       identifiers = ["*"]
@@ -97,12 +99,12 @@ data "aws_iam_policy_document" "bedrock_endpoint" {
       values   = [local.app_task_arn]
     }
   }
-  # Explicit, so a wrong model id names the endpoint policy in the denial.
+  # Explicit, so invoking any other function names the endpoint policy in the denial.
   statement {
     sid           = "NothingElse"
     effect        = "Deny"
-    actions       = ["bedrock:*"]
-    not_resources = local.bedrock_resources
+    actions       = ["lambda:*"]
+    not_resources = local.gateway_resources
     principals {
       type        = "*"
       identifiers = ["*"]
@@ -178,18 +180,55 @@ data "archive_file" "app" {
   output_path = "${path.module}/build/app.zip"
 }
 
+data "archive_file" "gateway" {
+  type        = "zip"
+  source_file = "${path.module}/../../app/gateway.py"
+  output_path = "${path.module}/build/gateway.zip"
+}
+
+# The one function that reaches the model provider. Outside the VPC on
+# purpose: it is the egress. Its code pins the host (POA&M: the network does not).
+resource "aws_lambda_function" "gateway" {
+  #checkov:skip=CKV_AWS_117:Outside a VPC by design; it is the single egress to the model provider. Tracked in POA&M.
+  #checkov:skip=CKV_AWS_116:Invoked synchronously by meridian-app only; a DLQ has nothing to hold. Tracked in POA&M.
+  #checkov:skip=CKV_AWS_173:Environment holds a secret name and a parameter name, not the key. Tracked in POA&M.
+  #checkov:skip=CKV_AWS_272:Code signing set to Enforce arrives in M6 (supply chain). Tracked in POA&M.
+  #checkov:skip=CKV_AWS_50:No X-Ray in the lab. Tracked in POA&M.
+  function_name                  = "meridian-ai-gateway"
+  role                           = "arn:aws:iam::${var.workload_account_id}:role/meridian-ai-gateway"
+  runtime                        = "python3.12"
+  handler                        = "gateway.handler"
+  filename                       = data.archive_file.gateway.output_path
+  source_code_hash               = data.archive_file.gateway.output_base64sha256
+  timeout                        = 60
+  memory_size                    = 256
+  reserved_concurrent_executions = var.reserved_concurrency
+
+  environment {
+    variables = {
+      SECRET_ID   = "meridian/gemini-api-key"
+      MODEL_PARAM = "/meridian/config/model_id"
+      # M4: keyless Content Safety (outputs of envs/persistent/azure). Ids and a URL, no secret.
+      AZURE_TENANT_ID         = var.azure_tenant_id
+      AZURE_CLIENT_ID         = var.gateway_client_id
+      CONTENT_SAFETY_ENDPOINT = var.content_safety_endpoint
+    }
+  }
+}
+
 resource "aws_lambda_function" "app" {
   #checkov:skip=CKV_AWS_116:Invoked synchronously only; the caller sees every failure, so a DLQ has nothing to hold. Tracked in POA&M.
   #checkov:skip=CKV_AWS_173:Environment holds ids and ARNs, no secrets; default Lambda encryption at rest. Tracked in POA&M.
   #checkov:skip=CKV_AWS_272:Code signing set to Enforce arrives in M6 (supply chain). Tracked in POA&M.
   #checkov:skip=CKV_AWS_50:No X-Ray: it would need another interface endpoint for a lab with one function. Tracked in POA&M.
-  function_name                  = "meridian-app"
-  role                           = local.app_task_arn
-  runtime                        = "python3.12"
-  handler                        = "handler.handler"
-  filename                       = data.archive_file.app.output_path
-  source_code_hash               = data.archive_file.app.output_base64sha256
-  timeout                        = 60
+  function_name    = "meridian-app"
+  role             = local.app_task_arn
+  runtime          = "python3.12"
+  handler          = "handler.handler"
+  filename         = data.archive_file.app.output_path
+  source_code_hash = data.archive_file.app.output_base64sha256
+  # Up to 4 model calls, each with the gateway's 429 backoff, plus the tools.
+  timeout                        = 120
   memory_size                    = 256
   reserved_concurrent_executions = var.reserved_concurrency
 
@@ -200,7 +239,9 @@ resource "aws_lambda_function" "app" {
 
   environment {
     variables = {
-      MODEL_ID            = var.lambda_model_id
+      GATEWAY_FUNCTION    = var.gateway_function
+      STAGE               = var.stage
+      LINK_ALLOWLIST      = var.stage == "C" ? join(",", var.link_allowlist) : ""
       CORPUS_BUCKET       = "meridian-corpus-${var.workload_account_id}"
       CASES_TABLE         = "meridian-cases"
       DOCSEARCH_ROLE_ARN  = local.tool_arns.docsearch
@@ -217,4 +258,8 @@ resource "aws_lambda_function" "app" {
 
 output "function_name" {
   value = aws_lambda_function.app.function_name
+}
+
+output "gateway_function_name" {
+  value = aws_lambda_function.gateway.function_name
 }
