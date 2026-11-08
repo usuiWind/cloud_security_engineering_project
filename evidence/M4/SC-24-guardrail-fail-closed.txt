@@ -1,11 +1,11 @@
-﻿# 2026-11-08T05:09:42Z  profile=mgmt-platform  exit=0
-$ aws lambda invoke --function-name meridian-app --cli-binary-format raw-in-base64-out --payload "file://$env:TEMP/q1.json" "$env:TEMP\fc-out.json" --profile workload-engineer; Get-Content "$env:TEMP\fc-out.json"; Start-Sleep 10; aws logs filter-log-events --log-group-name /aws/lambda/meridian-app --filter-pattern request_failed --max-items 1 --query "events[].message" --output text --profile workload-engineer
+﻿# 2026-11-08T18:14:53Z  profile=mgmt-platform  exit=0
+$ aws lambda invoke --function-name meridian-app --cli-binary-format raw-in-base64-out --payload "file://$env:TEMP/q1.json" "$env:TEMP\fc-out.json" --profile workload-engineer; $a = Get-Content "$env:TEMP\fc-out.json" -Raw; $a; $ref = [regex]::Match($a, "Reference ([0-9a-f-]{36})").Groups[1].Value; "reference=$ref"; Start-Sleep 15; aws logs filter-log-events --log-group-name /aws/lambda/meridian-app --filter-pattern request_failed --start-time $t --query "events[].message" --output text --profile workload-engineer
 {
     "StatusCode": 200,
     "ExecutedVersion": "$LATEST"
 }
-{"answer": "The gross monthly income limit for a household of three is **2,798 USD** (at or below 130 percent of the federal poverty level).", "tool_calls": [{"name": "search_policies", "input": {"query": "income limit household of three"}}]}
-{"event": "request_failed", "request_id": "da831e64-c484-4e9d-8190-5ce89bdd30a1", "error": "RuntimeError('gateway chat error: model provider returned HTTP 429')"}
+{"answer": "Sorry, this request could not be completed. Reference 29d8f1dd-3dee-49b1-9dcf-9d11c4cc4b98.", "tool_calls": []}
+reference=29d8f1dd-3dee-49b1-9dcf-9d11c4cc4b98
+{"event": "request_failed", "request_id": "29d8f1dd-3dee-49b1-9dcf-9d11c4cc4b98", "error": "RuntimeError('gateway shield error: Entra token exchange returned HTTP 400')"}
 
-None
 

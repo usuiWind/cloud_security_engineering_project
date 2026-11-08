@@ -66,7 +66,7 @@ controls:
     status: partial
     milestone: M1
     threats: [T-01, T-06, T-11, T-20, T-24, T-28, T-30, T-32, T-33]
-    implementation: "Deploy role cut to observed calls (deploy_policy_mode = scoped); app-task has no data access; one role per tool; scoped_tools on after Run B (M4)."
+    implementation: "Deploy role cut to observed calls (deploy_policy_mode = scoped); app-task has no data access; one role per tool; scoped_tools on after Run B (M4); coercion denied by IAM (evidence/M4/AC-6-tool-coercion-denied.txt, AC-6-tool-coercion-cloudtrail.txt)."
     terraform: envs/persistent/workload
     evidence: evidence/M1/AC-6-deploy-role-after.txt
     tested: 2026-10-19
@@ -99,7 +99,7 @@ controls:
     status: implemented
     milestone: M1
     threats: [T-01, T-12]
-    implementation: "Zero IAM users and access keys; root credentials centrally managed; scripts/key_scan.sh gates every CI run and fails on a Google API key in the repo. One third party credential, the Gemini API key, lives only in Secrets Manager and only the gateway role can read it (M3)."
+    implementation: "Zero IAM users and access keys; root credentials centrally managed; scripts/key_scan.sh gates every CI run and fails on a Google API key in the repo. One third party credential, the Gemini API key, lives only in Secrets Manager and only the gateway role can read it (M3). The gateway reaches Azure Content Safety with no stored secret, through AWS outbound identity federation and an Entra federated credential (evidence/M4/IA-5-azure-keyless.txt)."
     terraform: envs/persistent/org
     evidence: evidence/M1/IA-5-key-scan-workload.txt
     tested: 2026-10-19
@@ -300,54 +300,54 @@ controls:
   - id: SI-10
     title: Information Input Validation
     baseline: moderate
-    status: planned
+    status: implemented
     milestone: M4
     threats: [T-02, T-07, T-15, T-21, T-27]
-    implementation: "Guardrail prompt attack filter HIGH on guardContent; ApplyGuardrail INPUT on every tool result; scored A/B/C runs of 30 payloads."
+    implementation: "Prompt Shields on the question and on every tool result (as a document), through the AI gateway; scored A/B/C runs of 30 payloads (run-A-baseline.csv, run-B-guardrails.csv, run-C-full.csv); benign check in SI-10-benign-ok.txt. Total success A 9/30, B 8/30, C 3/30."
     terraform: envs/persistent/workload
     evidence: evidence/M4/SI-10-results-summary.md
     tested: null
-    residual_risk: "Closest and weakest fit for prompt injection (Section 9); Run C residual rate goes to POA&M."
+    residual_risk: "Closest and weakest fit for prompt injection (Section 9). Run C residual: direct 1/6, indirect 1/6, extraction 1/6 (POA&M). Benign question q1 hit the tool limit (see SI-10-benign-ok.txt, POA&M)."
   - id: SI-11
     title: Error Handling
     baseline: moderate
-    status: planned
+    status: implemented
     milestone: M4
     threats: []
-    implementation: "Handler returns a fixed message when a guardrail intervenes or a tool is denied; no stack trace or ARN reaches the caller."
+    implementation: "Handler returns one fixed message with a request id on any guard, gateway or input error; no stack trace, ARN or key reaches the caller (SI-11-error-response.txt); tool errors reach the model as access denied or tool unavailable."
     terraform: ""
     evidence: evidence/M4/SI-11-error-response.txt
     tested: null
-    residual_risk: "Not cited by any threat; no capture step in the plan yet."
+    residual_risk: ""
   - id: SI-15
     title: Information Output Filtering
     baseline: moderate
-    status: planned
+    status: implemented
     milestone: M4
     threats: [T-09, T-25, T-26]
-    implementation: "Guardrail output: PII anonymize, markdown image regex block, contextual grounding 0.7; app strips non-allowlisted links."
+    implementation: "Content Safety text analysis blocks at severity 4; markdown image block; regex PII redaction (SSN, phone, email); link allowlist in stage C."
     terraform: envs/persistent/workload
-    evidence: evidence/M4/SI-15-guardrail-config.json
+    evidence: evidence/M4/SI-15-guard-config.txt
     tested: null
-    residual_risk: ""
+    residual_risk: "PII redaction is regex for the synthetic formats, not a managed detector (POA&M)."
   - id: AC-24
     title: Access Control Decisions
     baseline: moderate
-    status: planned
+    status: implemented
     milestone: M4
     threats: [T-04, T-24]
     implementation: "tool-caselookup decides access on dynamodb:LeadingKeys = aws:PrincipalTag/caseworker, never on model arguments."
     terraform: envs/persistent/workload
     evidence: evidence/M4/AC-6-tool-coercion-denied.txt
     tested: null
-    residual_risk: "T-04: document search is not entitlement scoped; every caseworker can retrieve every doc."
+    residual_risk: "T-04: document search is not entitlement scoped; every caseworker can retrieve every doc (POA&M)."
   - id: SC-18
     title: Mobile Code
     baseline: moderate
-    status: planned
+    status: implemented
     milestone: M4
     threats: [T-26]
-    implementation: "Markdown image syntax blocked by guardrail regex; app link allowlist strips other domains."
+    implementation: "Markdown image syntax blocked in the answer by the guard; app link allowlist strips other domains in stage C. Link attacks 1/6 in run B, 0/6 in run C."
     terraform: envs/persistent/workload
     evidence: evidence/M4/run-C-full.csv
     tested: null
@@ -355,34 +355,34 @@ controls:
   - id: SC-24
     title: Fail in Known State
     baseline: moderate
-    status: planned
+    status: implemented
     milestone: M4
     threats: [T-16]
-    implementation: "Handler refuses the request if the guardrail call errors (fail closed)."
+    implementation: "Handler refuses the request with a fixed message and request id if the guard call or gateway errors (fail closed). Proven with a broken Entra client id: Entra token exchange HTTP 400, refusal reference matches the logged request_id."
     terraform: ""
     evidence: evidence/M4/SC-24-guardrail-fail-closed.txt
     tested: null
-    residual_risk: "Fail closed branch is not in the plan's handler spec yet; add it to app/handler.py and test with a bad GUARDRAIL_ID."
+    residual_risk: ""
   - id: SI-3
     title: Malicious Code Protection
     baseline: moderate
-    status: planned
+    status: implemented
     milestone: M4
     threats: [T-15, T-16]
-    implementation: "Guardrail prompt attack filter; Prompt Shields run on the same payloads as comparison."
+    implementation: "Prompt Shields in the request path (question and tool results)."
     terraform: envs/persistent/workload
-    evidence: evidence/M4/SI-10-prompt-shields.csv
+    evidence: evidence/M4/SI-3-shields-in-path.txt
     tested: null
-    residual_risk: "Prompt Shields is offline comparison only, not in the request path."
+    residual_risk: "Prompt Shields flagged the poisoned document but not the user prompt in the sh-bad test; some attacks still reach the model (POA&M)."
   - id: SI-12
     title: Information Management and Retention
     baseline: moderate
-    status: planned
+    status: implemented
     milestone: M4
     threats: [T-09]
-    implementation: "Guardrail anonymizes PII on output; guardrail_intervened log line carries category and caller, not content."
+    implementation: "Guard redacts PII on output; guardrail_intervened log line carries category and caller, never content."
     terraform: envs/persistent/workload
-    evidence: evidence/M4/SI-15-guardrail-config.json
+    evidence: evidence/M4/SI-15-guard-config.txt
     tested: null
     residual_risk: ""
 
@@ -393,9 +393,9 @@ controls:
     status: planned
     milestone: M5
     threats: [T-03, T-08]
-    implementation: "CloudTrail session tag carries the caseworker on every GetItem; guardrail_intervened line carries category and caller."
+    implementation: "CloudTrail session tag carries the caseworker on every GetItem; guardrail_intervened line carries category and caller, never content."
     terraform: envs/persistent/workload
-    evidence: evidence/M4/AC-6-tool-coercion-cloudtrail.json
+    evidence: evidence/M4/AC-6-tool-coercion-cloudtrail.txt
     tested: null
     residual_risk: "T-03 mitigation (log retrieved chunk ids and hashes under a correlation id) is not in the build plan."
   - id: AU-5

@@ -1,0 +1,5 @@
+﻿# 2026-11-08T17:52:51Z  profile=mgmt-platform  exit=0
+$ aws logs filter-log-events --log-group-name /aws/lambda/meridian-app --filter-pattern AccessDeniedException --start-time $t --query "events[].message" --output text --profile workload-engineer
+{"event": "tool_denied", "tool": "get_case", "caller": "cw-001", "error": "An error occurred (AccessDeniedException) when calling the GetItem operation: User: arn:aws:sts::622896097641:assumed-role/meridian-tool-caselookup/cw-001 is not authorized to perform: dynamodb:GetItem on resource: arn:aws:dynamodb:us-east-1:622896097641:table/meridian-cases because no identity-based policy allows the dynamodb:GetItem action"}
+
+

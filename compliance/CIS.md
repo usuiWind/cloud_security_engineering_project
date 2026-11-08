@@ -28,15 +28,15 @@
 | SC-13 | Cryptographic Protection | planned | M3 | evidence/M3/SC-12-key-config.txt |
 | SC-28 | Protection of Information at Rest | planned | M3 | evidence/M3/SC-28-kms-denied.txt |
 | SC-23 | Session Authenticity | planned | M3 |  |
-| SI-10 | Information Input Validation | planned | M4 | evidence/M4/SI-10-results-summary.md |
-| SI-11 | Error Handling | planned | M4 | evidence/M4/SI-11-error-response.txt |
-| SI-15 | Information Output Filtering | planned | M4 | evidence/M4/SI-15-guardrail-config.json |
-| AC-24 | Access Control Decisions | planned | M4 | evidence/M4/AC-6-tool-coercion-denied.txt |
-| SC-18 | Mobile Code | planned | M4 | evidence/M4/run-C-full.csv |
-| SC-24 | Fail in Known State | planned | M4 | evidence/M4/SC-24-guardrail-fail-closed.txt |
-| SI-3 | Malicious Code Protection | planned | M4 | evidence/M4/SI-10-prompt-shields.csv |
-| SI-12 | Information Management and Retention | planned | M4 | evidence/M4/SI-15-guardrail-config.json |
-| AU-3 | Content of Audit Records | planned | M5 | evidence/M4/AC-6-tool-coercion-cloudtrail.json |
+| SI-10 | Information Input Validation | implemented | M4 | evidence/M4/SI-10-results-summary.md |
+| SI-11 | Error Handling | implemented | M4 | evidence/M4/SI-11-error-response.txt |
+| SI-15 | Information Output Filtering | implemented | M4 | evidence/M4/SI-15-guard-config.txt |
+| AC-24 | Access Control Decisions | implemented | M4 | evidence/M4/AC-6-tool-coercion-denied.txt |
+| SC-18 | Mobile Code | implemented | M4 | evidence/M4/run-C-full.csv |
+| SC-24 | Fail in Known State | implemented | M4 | evidence/M4/SC-24-guardrail-fail-closed.txt |
+| SI-3 | Malicious Code Protection | implemented | M4 | evidence/M4/SI-3-shields-in-path.txt |
+| SI-12 | Information Management and Retention | implemented | M4 | evidence/M4/SI-15-guard-config.txt |
+| AU-3 | Content of Audit Records | planned | M5 | evidence/M4/AC-6-tool-coercion-cloudtrail.txt |
 | AU-5 | Response to Audit Logging Process Failures | planned | M5 |  |
 | AU-6 | Audit Record Review Analysis and Reporting | planned | M5 | evidence/M5/AU-6-mttd.md |
 | AU-9 | Protection of Audit Information | planned | M5 | evidence/M2/AU-9-stoplogging-denied.txt |
@@ -65,6 +65,6 @@
 | M1 | 6 | 6 |
 | M2 | 5 | 11 |
 | M3 | 0 | 11 |
-| M4 | 0 | 11 |
-| M5 | 0 | 11 |
-| M6 | 0 | 11 |
+| M4 | 8 | 19 |
+| M5 | 0 | 19 |
+| M6 | 0 | 19 |
