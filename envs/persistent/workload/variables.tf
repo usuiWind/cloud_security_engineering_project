@@ -39,3 +39,15 @@ variable "scoped_tools" {
   default     = false
   description = "Session 4: false for runs A and B, true for run C (dynamodb:LeadingKeys bound to the caller tag)."
 }
+
+variable "detection" {
+  type        = bool
+  default     = true
+  description = "Session 5: GuardDuty, Security Hub (NIST 800-53) and Config on. false on day 4 suspends GuardDuty and removes the other two."
+}
+
+variable "guardrail_alarm" {
+  type        = bool
+  default     = false
+  description = "Session 5 fallback for R3: a CloudWatch alarm on guardrail_intervened if the Sentinel CloudWatch export fails."
+}

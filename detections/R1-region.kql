@@ -1,0 +1,5 @@
+// R1: activity in an unapproved region, including denied attempts (the region SCP).
+AWSCloudTrail
+| where AWSRegion !in ("us-east-1", "us-west-2")
+| summarize Calls = count(), Denied = countif(isnotempty(ErrorCode)), Events = make_set(EventName, 10)
+    by UserIdentityArn, AWSRegion

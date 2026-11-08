@@ -1,0 +1,8 @@
+// R2: the Gemini key read, or attempted, by anyone but the AI gateway.
+// Replaces the plan's "model invoked outside the app": Bedrock was refused, and
+// the key is now the one path to the model. GetSecretValue is a management event.
+AWSCloudTrail
+| where EventSource == "secretsmanager.amazonaws.com" and EventName == "GetSecretValue"
+| where RequestParameters has "meridian/gemini-api-key"
+| where UserIdentityArn !has "meridian-ai-gateway"
+| project TimeGenerated, UserIdentityArn, SourceIpAddress, ErrorCode, ErrorMessage

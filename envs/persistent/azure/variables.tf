@@ -39,3 +39,16 @@ variable "aws_gateway_role_arn" {
   type        = string
   description = "arn:aws:iam::<workload account>:role/meridian-ai-gateway, the subject Entra accepts."
 }
+
+# M5
+variable "defender_cspm" {
+  type        = bool
+  default     = true
+  description = "Defender CSPM trial (CloudPosture Standard). false on day 4."
+}
+
+variable "sentinel_rules" {
+  type        = bool
+  default     = false
+  description = "true once AWSCloudTrail has data (runbook 5.7); a rule on an empty table fails to create."
+}

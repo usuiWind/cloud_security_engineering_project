@@ -95,6 +95,23 @@ module "log_archive" {
   policy_json = data.aws_iam_policy_document.log_archive.json
 }
 
+# M5, AU-11: current log files never expire; replaced or deleted versions are
+# kept a year, so an overwrite cannot quietly erase history.
+resource "aws_s3_bucket_lifecycle_configuration" "log_archive" {
+  bucket = module.log_archive.id
+  rule {
+    id     = "keep-noncurrent-365d"
+    status = "Enabled"
+    filter {}
+    noncurrent_version_expiration {
+      noncurrent_days = 365
+    }
+    abort_incomplete_multipart_upload {
+      days_after_initiation = 7
+    }
+  }
+}
+
 resource "aws_cloudtrail" "org" {
   #checkov:skip=CKV_AWS_35:SSE-S3 on the log archive; CMK deferred to avoid locking CloudTrail out through a key policy. Tracked in POA&M.
   #checkov:skip=CKV2_AWS_10:CloudWatch Logs delivery costs per GB; Sentinel reads the S3 archive in M5. Tracked in POA&M.

@@ -18,7 +18,7 @@ switch ($Target) {
         Copy-Item docs/threat-model-v* $pack -ErrorAction SilentlyContinue
         Copy-Item compliance/CIS.md, compliance/poam.md $pack -ErrorAction SilentlyContinue
         Copy-Item detections $pack -Recurse -ErrorAction SilentlyContinue
-        Copy-Item evidence/M6 $pack -Recurse -ErrorAction SilentlyContinue
+        Copy-Item evidence/M5, evidence/M6 $pack -Recurse -ErrorAction SilentlyContinue
         Compress-Archive -Path $pack -DestinationPath dist/evidence-pack.zip -Force
         Write-Host "built dist/evidence-pack.zip"
     }
