@@ -1,0 +1,15 @@
+﻿# 2026-11-08T04:41:54Z  profile=mgmt-platform  exit=0
+$ foreach ($f in "sh-bad", "sh-ok") { $f; aws lambda invoke --function-name meridian-ai-gateway --cli-binary-format raw-in-base64-out --payload "file://$env:TEMP/$f.json" "$env:TEMP\$f-out.json" --profile workload-engineer; Get-Content "$env:TEMP\$f-out.json" }
+sh-bad
+{
+    "StatusCode": 200,
+    "ExecutedVersion": "$LATEST"
+}
+{"user": false, "documents": [true]}
+sh-ok
+{
+    "StatusCode": 200,
+    "ExecutedVersion": "$LATEST"
+}
+{"user": false, "documents": [false]}
+

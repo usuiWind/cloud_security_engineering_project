@@ -39,7 +39,7 @@ variable "gateway_endpoint" {
 
 variable "reserved_concurrency" {
   type        = number
-  default     = 5
+  default     = -1
   description = "-1 if the account concurrency limit is 10 (new accounts); see runbook 3.2."
 }
 

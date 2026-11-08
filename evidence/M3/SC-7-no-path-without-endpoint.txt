@@ -1,0 +1,9 @@
+﻿# 2026-11-08T02:43:17Z  profile=mgmt-platform  exit=0
+$ aws lambda invoke --function-name meridian-app --cli-read-timeout 150 --cli-binary-format raw-in-base64-out --payload "file://$env:TEMP/q1.json" "$env:TEMP\nopath-out.json" --profile workload-engineer; Get-Content "$env:TEMP\nopath-out.json"
+{
+    "StatusCode": 200,
+    "FunctionError": "Unhandled",
+    "ExecutedVersion": "$LATEST"
+}
+{"errorType":"Sandbox.Timedout","errorMessage":"RequestId: d9fbd896-e8f1-4082-b965-b96ad80d441d Error: Task timed out after 120.00 seconds"}
+

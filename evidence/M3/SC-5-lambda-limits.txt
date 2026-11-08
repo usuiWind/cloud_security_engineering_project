@@ -1,0 +1,24 @@
+﻿# 2026-11-08T02:12:54Z  profile=mgmt-platform  exit=0
+$ foreach ($f in "meridian-app", "meridian-ai-gateway") { aws lambda get-function-configuration --function-name $f --query "{name:FunctionName, timeout:Timeout, memory:MemorySize, subnets:VpcConfig.SubnetIds}" --profile workload-engineer; aws lambda get-function-concurrency --function-name $f --profile workload-engineer }; aws lambda get-account-settings --query "AccountLimit.ConcurrentExecutions" --profile workload-engineer; Select-String "MAX_TOOL_TURNS = |RETRY = |range\(tries\)" app\handler.py, app\gateway.py
+{
+    "name": "meridian-app",
+    "timeout": 120,
+    "memory": 256,
+    "subnets": [
+        "subnet-0b10bf8f75659c00d"
+    ]
+}
+{
+    "name": "meridian-ai-gateway",
+    "timeout": 60,
+    "memory": 256,
+    "subnets": null
+}
+5
+
+app\handler.py:21:MAX_TOOL_TURNS = 3
+app\gateway.py:20:RETRY = (429, 500, 503)
+app\gateway.py:35:    for i in range(tries):
+
+
+

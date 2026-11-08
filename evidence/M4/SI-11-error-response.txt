@@ -1,0 +1,8 @@
+﻿# 2026-11-08T05:13:15Z  profile=mgmt-platform  exit=0
+$ aws lambda invoke --function-name meridian-app --cli-binary-format raw-in-base64-out --payload "file://$env:TEMP/bad.json" "$env:TEMP\bad-out.json" --profile workload-engineer; Get-Content "$env:TEMP\bad-out.json"
+{
+    "StatusCode": 200,
+    "ExecutedVersion": "$LATEST"
+}
+{"answer": "Sorry, this request could not be completed. Reference 24ef9324-9cad-4a18-a02f-f1b45e9b607a.", "tool_calls": []}
+

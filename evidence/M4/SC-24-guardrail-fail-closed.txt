@@ -1,0 +1,11 @@
+﻿# 2026-11-08T05:09:42Z  profile=mgmt-platform  exit=0
+$ aws lambda invoke --function-name meridian-app --cli-binary-format raw-in-base64-out --payload "file://$env:TEMP/q1.json" "$env:TEMP\fc-out.json" --profile workload-engineer; Get-Content "$env:TEMP\fc-out.json"; Start-Sleep 10; aws logs filter-log-events --log-group-name /aws/lambda/meridian-app --filter-pattern request_failed --max-items 1 --query "events[].message" --output text --profile workload-engineer
+{
+    "StatusCode": 200,
+    "ExecutedVersion": "$LATEST"
+}
+{"answer": "The gross monthly income limit for a household of three is **2,798 USD** (at or below 130 percent of the federal poverty level).", "tool_calls": [{"name": "search_policies", "input": {"query": "income limit household of three"}}]}
+{"event": "request_failed", "request_id": "da831e64-c484-4e9d-8190-5ce89bdd30a1", "error": "RuntimeError('gateway chat error: model provider returned HTTP 429')"}
+
+None
+

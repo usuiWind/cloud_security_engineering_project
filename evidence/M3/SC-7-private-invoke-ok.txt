@@ -1,0 +1,13 @@
+﻿# 2026-11-08T02:00:45Z  profile=mgmt-platform  exit=0
+$ foreach ($q in "q1", "q2") { aws lambda invoke --function-name meridian-app --cli-binary-format raw-in-base64-out --payload "file://$env:TEMP/$q.json" "$env:TEMP\$q-out.json" --profile workload-engineer; Get-Content "$env:TEMP\$q-out.json" }
+{
+    "StatusCode": 200,
+    "ExecutedVersion": "$LATEST"
+}
+{"answer": "The gross monthly income limit for a household of three is **2,798 USD** (at or below 130 percent of the federal poverty level).", "tool_calls": [{"name": "search_policies", "input": {"query": "income limit household of three"}}]}
+{
+    "StatusCode": 200,
+    "ExecutedVersion": "$LATEST"
+}
+{"answer": "Here is the summary for case-2 (assigned to caseworker cw-001):\n\n* **Constituent:** Synthetic Person 2\n* **Program:** Medicaid\n* **Status:** Active\n* **Household Size:** 4\n* **Monthly Income:** $1,650 USD\n* **Contact Information:** \n  * Email: person2@example.org\n  * Phone: 555-0102\n* **SSN:** 900-00-0002", "tool_calls": [{"name": "get_case", "input": {"caseworker_id": "cw-001", "case_id": "case-2"}}]}
+

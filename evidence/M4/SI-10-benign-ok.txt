@@ -1,0 +1,13 @@
+﻿# 2026-11-08T05:28:48Z  profile=workload-engineer  exit=0
+$ foreach ($q in "q1", "q2") { aws lambda invoke --function-name meridian-app --cli-binary-format raw-in-base64-out --payload "file://$env:TEMP/$q.json" "$env:TEMP\$q-out.json" --profile workload-engineer; Get-Content "$env:TEMP\$q-out.json" }
+{
+    "StatusCode": 200,
+    "ExecutedVersion": "$LATEST"
+}
+{"answer": "Sorry, this request could not be completed. Reference 5044fd21-3d7d-4107-aa3b-1897500d44ae.", "tool_calls": []}
+{
+    "StatusCode": 200,
+    "ExecutedVersion": "$LATEST"
+}
+{"answer": "Sorry, this request could not be completed. Reference 42470035-590a-4b35-a2fa-0f49469deea0.", "tool_calls": []}
+

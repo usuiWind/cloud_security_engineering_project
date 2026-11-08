@@ -25,3 +25,20 @@
 | M2-16 | CKV2_AWS_34: `/meridian/config/model_id` (the Gemini model name) is a String, not a SecureString; it is not a secret. | SC-28 | M2 |
 | M2-17 | SCPs do not apply to the management account by AWS design; it holds no workload and is reached only through PlatformAdmin and BreakGlass. | CM-7 | M2 |
 | M2-18 | Protected service actions are exempt for BreakGlass, so the day 4 GuardDuty teardown runs as BreakGlass and triggers the alert. | AU-9 | M2 |
+| M3-1 | Single AZ, single private subnet; an AZ outage takes the assistant down. | SC-7 | M3 |
+| M3-2 | The assistant trusts `caller_id` from whoever invokes it, until APIM forwards the Entra claim (T-17). | IA-3 | M3 |
+| M3-3 | Key administrators hold `kms:PutKeyPolicy` and could rewrite a policy to grant themselves use. Alert on PutKeyPolicy in M5. | SC-12 | M3 |
+| M3-4 | The Terraform role can use the keys through S3, DynamoDB and Secrets Manager, to seed data. A separate loader role is the production pattern. | SC-28 | M3 |
+| M3-5 | Gateway endpoint policies allow any principal in the VPC on the named resources. The tool roles are the principal control. | AC-4 | M3 |
+| M3-6 | Lambda skips: CKV_AWS_116 (no DLQ, synchronous only, both functions); CKV_AWS_173 (no secrets in the environment); CKV_AWS_272 (code signing in M6); CKV_AWS_50 (no X-Ray endpoint); CKV_AWS_117 (the gateway is outside a VPC by design). | SI-4 | M3 |
+| M3-7 | Azure data account skips: CKV_AZURE_206 (LRS), CKV_AZURE_33 (no queues), CKV2_AZURE_38 (no soft delete), CKV2_AZURE_41 (shared key off, so no SAS). CKV2_AZURE_33 and CKV2_AZURE_32: private endpoints live in the ephemeral stack. CKV2_AZURE_21: blob logging arrives in M5. | SC-28 | M3 |
+| M3-8 | Flow log storage account: Microsoft managed keys, shared key at the default, public network on with default Deny and only the trusted service bypass, 7 day retention (CKV2_AZURE_1, CKV2_AZURE_40, CKV_AZURE_59, CKV_AZURE_12, plus CKV_AZURE_33, CKV_AZURE_206, CKV2_AZURE_38, CKV2_AZURE_41). | AU-9 | M3 |
+| M3-9 | Concurrency cap of 5 comes from the workload account's Lambda limit (5), not reserved concurrency, which AWS refuses below 10 unreserved. Each request uses 2 (app and gateway). If AWS raises the limit, set `reserved_concurrency = 5` in envs/ephemeral. | SC-5 | M3 |
+| M3-10 | Bedrock model access refused by AWS for both accounts (support case denied, 2026-10). Model moved to the Gemini API behind `meridian-ai-gateway`. | SA-9, AC-20 | M3 |
+| M3-11 | The Gemini API key is a static credential. It is in Secrets Manager under `alias/meridian-secrets`; only the gateway reads it, and Engineer can write but not read it. Rotation is manual (CKV2_AWS_57 skip). | IA-5 | M3 |
+| M3-12 | Free tier: Google may use prompts to improve its products. All data is synthetic. | AC-20, SA-9 | M3 |
+| M3-13 | The gateway has unrestricted internet egress; only its code pins the host. | SC-7 | M3 |
+| M3-14 | Model calls are not in CloudTrail. The gateway logs `model_call` (model, finish reason, tokens); Google's usage page is the provider side. | AU-2 | M3 |
+| M3-15 | Google spend is outside the AWS budget. The free tier is $0; if billing is ever linked, set a Google Cloud budget alert. | SA-9 | M3 |
+| M3-16 | The storage CMK's rotation policy is under `ignore_changes`: Azure echoes action types capitalised and the azapi schema accepts only lowercase, so it would drift on every plan. A policy edit in code is not applied; change it with `az keyvault key rotation-policy update`. | SC-12 | M3 |
+| M3-17 | With the lambda endpoint gone the app fails slow: the 5 s connect timeout is per attempt, so it runs to its 120 s Lambda timeout, and the CLI's 60 s read timeout re-invokes it (duplicate billed runs). Bound the gateway call's total time in `app/handler.py`. | SC-5 | M3 |

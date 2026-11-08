@@ -1,0 +1,24 @@
+﻿# 2026-11-08T04:51:34Z  profile=mgmt-platform  exit=0
+$ Select-String "SEVERITY_BLOCK =|PII = |MARKDOWN_IMAGE =|BLOCKED =|REFUSED =" app\handler.py; Select-String "def shield_question|def shield_tool_result|def guard_answer|def strip_links" app\handler.py; Select-String "text:shieldPrompt|text:analyze|FourSeverityLevels|CS_API =" app\gateway.py; aws lambda get-function-configuration --function-name meridian-app --query "Environment.Variables.{stage:STAGE, links:LINK_ALLOWLIST}" --profile workload-engineer
+
+app\handler.py:38:BLOCKED = "Blocked by Meridian policy."
+app\handler.py:39:REFUSED = "Sorry, this request could not be completed."
+app\handler.py:41:SEVERITY_BLOCK = 4
+app\handler.py:42:PII = [(re.compile(r"\b\d{3}-\d{2}-\d{4}\b"), "[SSN]"),
+app\handler.py:45:MARKDOWN_IMAGE = re.compile(r"!\[[^\]]*\]\([^)]*\)")
+app\handler.py:138:def shield_question(text, caller):
+app\handler.py:145:def shield_tool_result(text, caller, tool):
+app\handler.py:153:def guard_answer(text, caller):
+app\handler.py:171:def strip_links(text, allowlist):
+app\gateway.py:26:CS_API = "api-version=2024-09-01"
+app\gateway.py:93:        r = content_safety("text:shieldPrompt", {"userPrompt": 
+event.get("user", "")[:10000],
+app\gateway.py:98:        r = content_safety("text:analyze", {"text": event["text"][:10000], 
+"outputType": "FourSeverityLevels"})
+{
+    "stage": "A",
+    "links": ""
+}
+
+
+

@@ -1,0 +1,9 @@
+﻿# 2026-11-08T02:18:17Z  profile=mgmt-platform  exit=0
+$ aws lambda invoke --function-name meridian-app --cli-binary-format raw-in-base64-out --payload "file://$env:TEMP/q1.json" "$env:TEMP\deny-out.json" --profile workload-engineer; Get-Content "$env:TEMP\deny-out.json"
+{
+    "StatusCode": 200,
+    "FunctionError": "Unhandled",
+    "ExecutedVersion": "$LATEST"
+}
+{"errorMessage": "An error occurred (AccessDeniedException) when calling the Invoke operation: User: arn:aws:sts::622896097641:assumed-role/meridian-app-task/meridian-app is not authorized to perform: lambda:InvokeFunction on resource: arn:aws:lambda:us-east-1:622896097641:function:meridian-app with an explicit deny in a VPC endpoint policy", "errorType": "ClientError", "requestId": "e28d0f5c-55e1-43b2-a380-cd4c58475177", "stackTrace": ["  File \"/var/task/handler.py\", line 110, in handler\n    msg = chat(messages)\n", "  File \"/var/task/handler.py\", line 97, in chat\n    r = lam.invoke(FunctionName=os.environ[\"GATEWAY_FUNCTION\"], Payload=json.dumps(\n", "  File \"/var/lang/lib/python3.12/site-packages/botocore/client.py\", line 606, in _api_call\n    return self._make_api_call(operation_name, kwargs)\n", "  File \"/var/lang/lib/python3.12/site-packages/botocore/context.py\", line 123, in wrapper\n    return func(*args, **kwargs)\n", "  File \"/var/lang/lib/python3.12/site-packages/botocore/client.py\", line 1094, in _make_api_call\n    raise error_class(parsed_response, operation_name)\n"]}
+

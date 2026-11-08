@@ -1,0 +1,13 @@
+﻿# 2026-11-08T02:12:24Z  profile=mgmt-platform  exit=0
+$ foreach ($f in "meridian-app", "meridian-ai-gateway") { $f; aws lambda get-policy --function-name $f --profile workload-engineer; aws lambda list-function-url-configs --function-name $f --profile workload-engineer }
+meridian-app
+An error occurred (ResourceNotFoundException) when calling the GetPolicy operation: The resource you requested does not exist.
+{
+    "FunctionUrlConfigs": []
+}
+meridian-ai-gateway
+An error occurred (ResourceNotFoundException) when calling the GetPolicy operation: The resource you requested does not exist.
+{
+    "FunctionUrlConfigs": []
+}
+

@@ -1,0 +1,4 @@
+﻿# 2026-11-08T05:29:40Z  profile=mgmt-platform  exit=0
+$ python tests\trail_denied.py $day
+0 denied GetItem events under AWSLogs/o-hsguteqhwe/622896097641/CloudTrail/us-east-1/2026/11/08/
+

@@ -45,12 +45,22 @@ resource "azapi_resource" "cmk" {
       keySize = 2048
       keyOps  = ["wrapKey", "unwrapKey"]
       rotationPolicy = {
-        attributes      = { expiryTime = "P1Y" }
-        lifetimeActions = [{ action = { type = "rotate" }, trigger = { timeAfterCreate = "P90D" } }]
+        attributes = { expiryTime = "P1Y" }
+        # Azure adds this Notify by default; listing it keeps plans clean.
+        lifetimeActions = [
+          { action = { type = "rotate" }, trigger = { timeAfterCreate = "P90D" } },
+          { action = { type = "notify" }, trigger = { timeBeforeExpiry = "P30D" } },
+        ]
       }
     }
   }
   response_export_values = ["properties.keyUri"]
+  # ponytail: Azure echoes action types capitalised ("Rotate") but the azapi schema
+  # only accepts lowercase, so the policy would show drift on every plan. Edit the
+  # policy with az keyvault key rotation-policy update if it must change; never taint (replaces the CMK).
+  lifecycle {
+    ignore_changes = [body.properties.rotationPolicy]
+  }
 }
 
 resource "azurerm_role_assignment" "storage_key" {

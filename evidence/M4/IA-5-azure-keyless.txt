@@ -1,0 +1,18 @@
+﻿# 2026-11-08T04:41:08Z  profile=mgmt-platform  exit=0
+$ az ad app credential list --id $app; az ad app federated-credential list --id $app --query "[].{name:name, issuer:issuer, subject:subject, audiences:audiences}" -o json; az cognitiveservices account show -n cs-meridian-11b88d872d -g rg-meridian --query "{disableLocalAuth:properties.disableLocalAuth, endpoint:properties.endpoint}" -o json
+[]
+[
+  {
+    "audiences": [
+      "api://AzureADTokenExchange"
+    ],
+    "issuer": "https://a1fb3223-bce5-4f4d-817d-92d902b43904.tokens.sts.global.api.aws",
+    "name": "aws-meridian-ai-gateway",
+    "subject": "arn:aws:iam::622896097641:role/meridian-ai-gateway"
+  }
+]
+{
+  "disableLocalAuth": true,
+  "endpoint": "https://cs-meridian-11b88d872d.cognitiveservices.azure.com/"
+}
+

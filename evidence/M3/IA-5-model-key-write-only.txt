@@ -1,0 +1,29 @@
+﻿# 2026-11-07T23:58:01Z  profile=mgmt-platform  exit=0
+$ aws secretsmanager get-secret-value --secret-id meridian/gemini-api-key --profile workload-engineer; aws secretsmanager describe-secret --secret-id meridian/gemini-api-key --query "{name:Name, kms:KmsKeyId, versions:VersionIdsToStages, rotation:RotationEnabled}" --profile workload-engineer; aws secretsmanager get-resource-policy --secret-id meridian/gemini-api-key --query ResourcePolicy --output text --profile workload-engineer
+An error occurred (AccessDeniedException) when calling the GetSecretValue operation: User: arn:aws:sts::622896097641:assumed-role/AWSReservedSSO_Engineer_2572360652bc3d64/nextuse is not authorized to perform: secretsmanager:GetSecretValue on resource: meridian/gemini-api-key with an explicit deny in a resource-based policy
+{
+    "name": "meridian/gemini-api-key",
+    "kms": "arn:aws:kms:us-east-1:622896097641:key/94dcf6b5-78eb-456b-9f57-415c40d5dd20",
+    "versions": {
+        "31d03fad-2536-4346-8adb-287f5ad441d5": [
+            "AWSCURRENT"
+        ]
+    },
+    "rotation": null
+}
+{
+  "Version" : "2012-10-17",
+  "Statement" : [ {
+    "Sid" : "OnlyTheGatewayReads",
+    "Effect" : "Deny",
+    "Principal" : "*",
+    "Action" : "secretsmanager:GetSecretValue",
+    "Resource" : "*",
+    "Condition" : {
+      "StringNotEquals" : {
+        "aws:PrincipalArn" : "arn:aws:iam::622896097641:role/meridian-ai-gateway"
+      }
+    }
+  } ]
+}
+
