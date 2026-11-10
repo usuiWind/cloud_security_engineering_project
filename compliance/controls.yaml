@@ -9,18 +9,18 @@ controls:
     status: partial
     milestone: M0
     threats: []
-    implementation: "Architecture v1 with boundaries B1-B9 and flows F1-F18; v2 delta after M3 records the compressed build (Lambda, stores behind gateway endpoints, APIM deferred)."
+    implementation: "Architecture v1 with boundaries B1-B9 and flows F1-F18; the as-built architecture is docs/architecture.drawio."
     terraform: ""
     evidence: docs/threat-model-v1.docx
     tested: null
-    residual_risk: "Diagram is still v1 until threat-model-v2.md lands in M3."
+    residual_risk: "The v1 diagram (docs/architecture-v1.png) is the design-time plan and still shows parts cut later (Bedrock, API Management, Azure OpenAI, supply chain); docs/architecture.drawio is the as-built view."
   - id: RA-3
     title: Risk Assessment
     baseline: moderate
     status: partial
     milestone: M0
     threats: []
-    implementation: "STRIDE per flow plus OWASP LLM Top 10, 35 threats rated; v2 after M3, v3 after M4 testing."
+    implementation: "STRIDE per flow plus OWASP LLM Top 10, 35 threats rated."
     terraform: ""
     evidence: docs/threat-model-v1.docx
     tested: null
@@ -529,9 +529,9 @@ controls:
     threats: []
     implementation: "Prowler NIST 800-53 scan, fix, rescan."
     terraform: ""
-    evidence: evidence/M6/RA-5-prowler-after
+    evidence: null
     tested: null
-    residual_risk: ""
+    residual_risk: "Out of scope: M6 (assessment and supply chain) was not built."
   - id: CA-5
     title: Plan of Action and Milestones
     baseline: moderate
@@ -542,7 +542,7 @@ controls:
     terraform: ""
     evidence: compliance/poam.md
     tested: null
-    residual_risk: ""
+    residual_risk: "Out of scope: M6 was not built. The POA&M itself is kept per milestone (compliance/poam.md); the M6 review adding a decision and date to each line was not done."
   - id: CA-7
     title: Continuous Monitoring
     baseline: moderate
@@ -551,9 +551,9 @@ controls:
     threats: []
     implementation: "Security Hub NIST standard and Azure NIST initiative, before and after."
     terraform: ""
-    evidence: evidence/M6/CA-7-azure-compliance.txt
+    evidence: null
     tested: null
-    residual_risk: ""
+    residual_risk: "Out of scope: M6 (assessment and supply chain) was not built."
   - id: RA-5
     title: Vulnerability Monitoring and Scanning
     baseline: moderate
@@ -562,9 +562,9 @@ controls:
     threats: []
     implementation: "Prowler before and after with fix commits noted."
     terraform: ""
-    evidence: evidence/M6/RA-5-prowler-after
+    evidence: null
     tested: null
-    residual_risk: "Unfixed Prowler findings go to POA&M."
+    residual_risk: "Out of scope: M6 (assessment and supply chain) was not built."
   - id: SA-11
     title: Developer Testing and Evaluation
     baseline: moderate
@@ -573,9 +573,9 @@ controls:
     threats: []
     implementation: "Key scan and checkov in every CI run; payload harness tests/run.py."
     terraform: .github/workflows/deploy.yml
-    evidence: evidence/M6/SA-11-ci-security-tests.txt
+    evidence: null
     tested: null
-    residual_risk: ""
+    residual_risk: "Out of scope: M6 (assessment and supply chain) was not built."
   - id: SR-4
     title: Provenance
     baseline: moderate
@@ -584,9 +584,9 @@ controls:
     threats: []
     implementation: "Syft SPDX SBOM of app/ in CI."
     terraform: .github/workflows/deploy.yml
-    evidence: evidence/M6/SR-4-sbom.spdx.json
+    evidence: null
     tested: null
-    residual_risk: ""
+    residual_risk: "Out of scope: M6 (assessment and supply chain) was not built."
   - id: SR-11
     title: Component Authenticity
     baseline: moderate
@@ -595,9 +595,9 @@ controls:
     threats: [T-34]
     implementation: "AWS Signer profile and Lambda code signing config set to Enforce; pipeline deploys only the signed object."
     terraform: envs/persistent/workload
-    evidence: evidence/M6/SR-11-unsigned-deploy-denied.txt
+    evidence: null
     tested: null
-    residual_risk: ""
+    residual_risk: "Out of scope: M6 (assessment and supply chain) was not built."
   - id: SI-7
     title: Software Firmware and Information Integrity
     baseline: moderate
@@ -606,6 +606,6 @@ controls:
     threats: [T-23, T-34, T-35]
     implementation: "Code signing Enforce refuses unsigned code; versioned artifact bucket."
     terraform: envs/persistent/workload
-    evidence: evidence/M6/SR-11-unsigned-deploy-denied.txt
+    evidence: null
     tested: null
-    residual_risk: ""
+    residual_risk: "Out of scope: M6 (assessment and supply chain) was not built."

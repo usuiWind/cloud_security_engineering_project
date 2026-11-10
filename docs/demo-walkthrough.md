@@ -13,7 +13,7 @@ Script: `.\scripts\demo.ps1` (about 12 minutes). Every number below comes from a
    `aws lambda get-function-configuration --function-name meridian-app --query Environment.Variables.STAGE --profile workload-engineer` prints `"C"`.
    If not, `terraform apply` in `envs\ephemeral` (about 5 minutes).
 3. Open these tabs:
-   - `CloudSecurityProj.png` (architecture)
+   - `docs/architecture.drawio.png` (architecture)
    - Defender portal, Incidents: the newest *Meridian R1-region* and *Meridian R2-model-key-read*
    - CloudWatch (account ending 7641, N. Virginia), Alarms, `meridian-injection-spike`
    - `compliance/CIS.md`

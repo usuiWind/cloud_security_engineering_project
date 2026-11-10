@@ -48,14 +48,14 @@
 | IR-5 | Incident Monitoring | implemented | M5 | evidence/M5/SI-4-R1-incident.png |
 | SI-4 | System Monitoring | implemented | M5 | evidence/M5/SI-4-incidents.txt |
 | AC-20 | Use of External Systems | implemented | M5 | evidence/M5/AC-20-sentinel-role.txt |
-| CA-2 | Control Assessments | planned | M6 | evidence/M6/RA-5-prowler-after |
+| CA-2 | Control Assessments | planned | M6 |  |
 | CA-5 | Plan of Action and Milestones | planned | M6 | compliance/poam.md |
-| CA-7 | Continuous Monitoring | planned | M6 | evidence/M6/CA-7-azure-compliance.txt |
-| RA-5 | Vulnerability Monitoring and Scanning | planned | M6 | evidence/M6/RA-5-prowler-after |
-| SA-11 | Developer Testing and Evaluation | planned | M6 | evidence/M6/SA-11-ci-security-tests.txt |
-| SR-4 | Provenance | planned | M6 | evidence/M6/SR-4-sbom.spdx.json |
-| SR-11 | Component Authenticity | planned | M6 | evidence/M6/SR-11-unsigned-deploy-denied.txt |
-| SI-7 | Software Firmware and Information Integrity | planned | M6 | evidence/M6/SR-11-unsigned-deploy-denied.txt |
+| CA-7 | Continuous Monitoring | planned | M6 |  |
+| RA-5 | Vulnerability Monitoring and Scanning | planned | M6 |  |
+| SA-11 | Developer Testing and Evaluation | planned | M6 |  |
+| SR-4 | Provenance | planned | M6 |  |
+| SR-11 | Component Authenticity | planned | M6 |  |
+| SI-7 | Software Firmware and Information Integrity | planned | M6 |  |
 
 ## Coverage by milestone
 
