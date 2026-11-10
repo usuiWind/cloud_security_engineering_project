@@ -23,7 +23,18 @@ Edit `controls.yaml`, then `./make.ps1 render`. Render fails if a control is `im
 | M3 | Network and crypto | AC-4, IA-3, SC-5/7/8/12/13/23/28 |
 | M4 | AI input/output guardrails | SI-3/10/11/12/15, AC-24, SC-18/24 |
 | M5 | Logging, detection, response | AU-3/5/6/9/10/11/12, CM-3, IR-4/5, SI-4, AC-20 |
-| M6 | Assessment and supply chain | CA-2/5/7, RA-5, SA-11, SR-4/11, SI-7 |
+| M6 | Assessment and supply chain | CA-2/5/7, RA-5, SA-11, SR-4/11, SI-7 (not built; those controls stay planned) |
+
+## Demo
+
+With the ephemeral stack up (stage C) and `aws sso login --sso-session meridian`:
+
+```powershell
+.\scripts\demo.ps1              # about 12 minutes, pauses between steps
+.\scripts\demo.ps1 -SkipAlarm   # without the 2 minute alarm step
+```
+
+Walkthrough and talking points: `docs/demo-walkthrough.md`. The centerpiece is one coercion attack across three configurations: no guards, classifiers only, and a scoped tool role.
 
 ## Commands
 
