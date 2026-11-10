@@ -1,0 +1,74 @@
+﻿# 2026-11-09T05:31:10Z  profile=workload-engineer  exit=0
+$ aws logs filter-log-events --log-group-name /aws/lambda/meridian-app --filter-pattern guardrail_intervened --max-items 5; aws cloudwatch describe-alarms --alarm-name-prefix meridian
+{
+    "events": [
+        {
+            "logStreamName": "2026/11/08/[$LATEST]da69dc32ad9c49c98b6384cb234b9896",
+            "timestamp": 1794115351282,
+            "message": "{\"event\": \"guardrail_intervened\", \"category\": \"prompt_attack\", \"caller\": \"cw-001\", \"stage\": \"input\", \"run\": \"C\"}\n",
+            "ingestionTime": 1794115360304,
+            "eventId": "40010109305712143769979665976121667201123741707276255232"
+        },
+        {
+            "logStreamName": "2026/11/08/[$LATEST]da69dc32ad9c49c98b6384cb234b9896",
+            "timestamp": 1794115353135,
+            "message": "{\"event\": \"guardrail_intervened\", \"category\": \"prompt_attack\", \"caller\": \"cw-001\", \"stage\": \"input\", \"run\": \"C\"}\n",
+            "ingestionTime": 1794115360304,
+            "eventId": "40010109347035424622856910657387353160341155577857966087"
+        },
+        {
+            "logStreamName": "2026/11/08/[$LATEST]da69dc32ad9c49c98b6384cb234b9896",
+            "timestamp": 1794115353332,
+            "message": "{\"event\": \"guardrail_intervened\", \"category\": \"prompt_attack\", \"caller\": \"cw-001\", \"stage\": \"input\", \"run\": \"C\"}\n",
+            "ingestionTime": 1794115360304,
+            "eventId": "40010109351428671426967443416269889660052882794536108043"
+        },
+        {
+            "logStreamName": "2026/11/08/[$LATEST]b5b9af0c074040b19b4806f5a98b6416",
+            "timestamp": 1794156807221,
+            "message": "{\"event\": \"guardrail_intervened\", \"category\": \"prompt_attack\", \"caller\": \"cw-001\", \"stage\": \"input\", \"run\": \"B\"}\n",
+            "ingestionTime": 1794156808059,
+            "eventId": "40011033804044748598382303576485635443153477895472480258"
+        },
+        {
+            "logStreamName": "2026/11/08/[$LATEST]b5b9af0c074040b19b4806f5a98b6416",
+            "timestamp": 1794156807435,
+            "message": "{\"event\": \"guardrail_intervened\", \"category\": \"prompt_attack\", \"caller\": \"cw-001\", \"stage\": \"input\", \"run\": \"B\"}\n",
+            "ingestionTime": 1794156808059,
+            "eventId": "40011033808817108070867856928774279153500227257752289286"
+        }
+    ],
+    "searchedLogStreams": [],
+    "NextToken": "eyJuZXh0VG9rZW4iOiAiQnhrcTZrVkdGdHEyeV9Nb2lnZXFzY1BPZGhYVmJoaVZ0TG9BbVhiNWpDclBpbjZETHpKMFRiN21TYlVHYmg5REc2c1Q2eVRQbzdPRGZwRFVKeFlONHRMRW1TX3hkbF9BY2xjZkZRbFBFaU1hYjZHLTIwWEpvSUNUWUowMGxFQlVxSy1QS2dpbGZESnlEcmRPeEhhd182dU1UT3RHVnpsc2w1cjkzUnpkaV9zNC05X0NrZFltVzJDRE93M1BpdmJfZjlEdkcyLWxVMGw3MkpScUs2aHBiSTV6TmJBd25ZbW9vYzk3MHpQV1h5eTFpbmN3ZzdkV1BJc0pVWEFsSy1Wd2FVUE9vTVQySUdENThxNGpHUkY1NTFzWk1hNE53VF9NYjBLZkZXaVdKeXdNQUdKekt3ZlRFOXdFZUtDa0RmdGpORWltanNJd2J1c3NvREgxaDd1UmF3IiwgImJvdG9fdHJ1bmNhdGVfYW1vdW50IjogMn0="
+}
+{
+    "MetricAlarms": [
+        {
+            "AlarmName": "meridian-injection-spike",
+            "AlarmArn": "arn:aws:cloudwatch:us-east-1:622896097641:alarm:meridian-injection-spike",
+            "AlarmDescription": "R3: 5 or more guardrail interventions in 10 minutes",
+            "AlarmConfigurationUpdatedTimestamp": "2026-11-08T23:26:05.185000-06:00",
+            "ActionsEnabled": true,
+            "OKActions": [],
+            "AlarmActions": [],
+            "InsufficientDataActions": [],
+            "StateValue": "OK",
+            "StateReason": "Threshold Crossed: no datapoints were received for 1 period and 1 missing datapoint was treated as [NonBreaching].",
+            "StateReasonData": "{\"version\":\"1.0\",\"queryDate\":\"2026-11-09T05:27:16.075+0000\",\"statistic\":\"Sum\",\"period\":600,\"recentDatapoints\":[],\"threshold\":5.0,\"evaluatedDatapoints\":[{\"timestamp\":\"2026-11-09T05:17:00.000+0000\"}]}",
+            "StateUpdatedTimestamp": "2026-11-08T23:27:16.077000-06:00",
+            "MetricName": "GuardrailIntervened",
+            "Namespace": "Meridian",
+            "Statistic": "Sum",
+            "Dimensions": [],
+            "Period": 600,
+            "EvaluationPeriods": 1,
+            "Threshold": 5.0,
+            "ComparisonOperator": "GreaterThanOrEqualToThreshold",
+            "TreatMissingData": "notBreaching",
+            "StateTransitionedTimestamp": "2026-11-08T23:27:16.077000-06:00"
+        }
+    ],
+    "CompositeAlarms": [],
+    "LogAlarms": []
+}
+

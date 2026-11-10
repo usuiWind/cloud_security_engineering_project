@@ -1,0 +1,4 @@
+﻿# 2026-11-08T23:42:25Z  profile=mgmt-platform  exit=254
+$ aws guardduty delete-detector --detector-id $det --profile workload-engineer
+aws: [ERROR]: An error occurred (AccessDeniedException) when calling the DeleteDetector operation: User: arn:aws:sts::622896097641:assumed-role/AWSReservedSSO_Engineer_2572360652bc3d64/nextuse is not authorized to perform: guardduty:DeleteDetector on resource: arn:aws:guardduty:us-east-1:622896097641:detector/764ab40ba6ba453f920d5d372e347583 with an explicit deny in a service control policy: arn:aws:organizations::797260139831:policy/o-hsguteqhwe/service_control_policy/p-2l845n8o
+

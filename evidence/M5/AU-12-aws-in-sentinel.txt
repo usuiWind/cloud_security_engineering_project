@@ -1,0 +1,9 @@
+# 2026-11-10T01:06:44Z  profile=mgmt-platform  exit=0
+$ az monitor log-analytics query -w e7b1ac16-70fa-4dce-80cf-0ba674d9bbe3 --analytics-query 'AWSCloudTrail | summarize CloudTrailEvents=count()' -o table; az monitor log-analytics query -w e7b1ac16-70fa-4dce-80cf-0ba674d9bbe3 --analytics-query 'AWSVPCFlow | summarize VpcFlowRecords=count()' -o table
+CloudTrailEvents    TableName
+------------------  -------------
+5891                PrimaryResult
+TableName      VpcFlowRecords
+-------------  ----------------
+PrimaryResult  11965
+

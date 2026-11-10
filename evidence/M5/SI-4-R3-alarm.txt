@@ -1,0 +1,13 @@
+# 2026-11-10T01:26:47Z  profile=mgmt-platform  exit=0
+$ aws cloudwatch describe-alarms --alarm-names meridian-injection-spike --profile workload-engineer --query "MetricAlarms[].{name:AlarmName,state:StateValue,reason:StateReason,updated:StateUpdatedTimestamp}"; aws cloudwatch describe-alarm-history --alarm-name meridian-injection-spike --history-item-type StateUpdate --max-items 4 --profile workload-engineer --query "AlarmHistoryItems[].[Timestamp,HistorySummary]" --output text
+[
+    {
+        "name": "meridian-injection-spike",
+        "state": "ALARM",
+        "reason": "Threshold Crossed: 1 datapoint [7.0 (10/11/26 01:16:00)] was greater than or equal to the threshold (5.0).",
+        "updated": "2026-11-09T19:26:36.737000-06:00"
+    }
+]
+2026-11-09T19:26:36.737000-06:00	Alarm updated from OK to ALARM
+2026-11-08T23:27:16.077000-06:00	Alarm updated from INSUFFICIENT_DATA to OK
+

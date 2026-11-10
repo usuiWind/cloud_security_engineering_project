@@ -14,8 +14,35 @@ resource "azurerm_log_analytics_workspace" "meridian" {
   tags           = merge(local.tags, { milestone = "M5" })
 }
 
+# Onboarding makes a SecurityInsights solution resource with no tags, which the
+# meridian-baseline tag deny refuses. Create it here, tagged, before onboarding runs.
+resource "azurerm_log_analytics_solution" "sentinel" {
+  solution_name         = "SecurityInsights"
+  location              = azurerm_resource_group.meridian.location
+  resource_group_name   = azurerm_resource_group.meridian.name
+  workspace_resource_id = azurerm_log_analytics_workspace.meridian.id
+  workspace_name        = azurerm_log_analytics_workspace.meridian.name
+  plan {
+    publisher = "Microsoft"
+    product   = "OMSGallery/SecurityInsights"
+  }
+  tags = merge(local.tags, { milestone = "M5" })
+}
+
+# Onboarding re-PUTs that solution without tags. Waive the tag rules on that one
+# resource only; an RG-scope exemption would also blind the rg-meridian tag tests.
+resource "azurerm_resource_policy_exemption" "sentinel_tags" {
+  name                            = "sentinel-solution-tags"
+  resource_id                     = azurerm_log_analytics_solution.sentinel.id
+  policy_assignment_id            = azurerm_management_group_policy_assignment.baseline.id
+  exemption_category              = "Waiver"
+  policy_definition_reference_ids = [for t in var.required_tags : "resource-tag-${t}"]
+  description                     = "Sentinel onboarding writes the SecurityInsights solution without tags; Terraform tags it."
+}
+
 resource "azurerm_sentinel_log_analytics_workspace_onboarding" "meridian" {
   workspace_id = azurerm_log_analytics_workspace.meridian.id
+  depends_on   = [azurerm_resource_policy_exemption.sentinel_tags]
 }
 
 # Day 4: defender_cspm = false puts the plan back to Free.

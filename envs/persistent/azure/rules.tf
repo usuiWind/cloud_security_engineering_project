@@ -14,6 +14,10 @@ resource "azurerm_sentinel_alert_rule_scheduled" "this" {
   query_period               = "PT1H"
   trigger_operator           = "GreaterThan"
   trigger_threshold          = 0
+  # One incident per event, not one per 5 minute run for the whole 1h lookback.
+  # ponytail: a second distinct event inside the hour is not a new incident.
+  suppression_enabled  = true
+  suppression_duration = "PT1H"
 
   incident {
     create_incident_enabled = true

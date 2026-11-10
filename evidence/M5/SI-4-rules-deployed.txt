@@ -1,0 +1,8 @@
+# 2026-11-10T01:25:55Z  profile=mgmt-platform  exit=0
+$ az rest --method get --url "https://management.azure.com/subscriptions/11b88d87-2dc9-41c0-b10d-e3dffd37b00e/resourceGroups/rg-meridian/providers/Microsoft.OperationalInsights/workspaces/law-meridian/providers/Microsoft.SecurityInsights/alertRules?api-version=2024-03-01" --query "value[].{name:properties.displayName, enabled:properties.enabled, every:properties.queryFrequency, over:properties.queryPeriod, suppress:properties.suppressionEnabled, suppressFor:properties.suppressionDuration}" -o table
+Name                                  Enabled    Every    Over    Suppress    SuppressFor
+------------------------------------  ---------  -------  ------  ----------  -------------
+Advanced Multistage Attack Detection  True
+Meridian R1-region                    True       PT5M     PT1H    True        PT1H
+Meridian R2-model-key-read            True       PT5M     PT1H    True        PT1H
+

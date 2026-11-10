@@ -1,0 +1,53 @@
+# 2026-11-10T01:39:59Z  profile=mgmt-platform  exit=0
+$ az storage blob list --account-name stmeridian11b88d872d -c docs --auth-mode login -o table; az keyvault key list --vault-name kv-meridian-11b88d872d -o table; az network private-endpoint list -g rg-meridian --query "[].{name:name, state:privateLinkServiceConnections[0].privateLinkServiceConnectionState.status}" -o table
+ERROR: 
+The request may be blocked by network rules of storage account. Please check network rule set using 'az storage account show -n accountname --query networkRuleSet'.
+If you want to change the default action to apply when no rule matches, please use 'az storage account update'.
+                    
+ERROR: (Forbidden) Caller is not authorized to perform action on resource.
+
+If role assignments, deny assignments or role definitions were changed recently, please observe propagation time.
+
+Caller: appid=04b07795-8ddb-461a-bbee-02f9e1bf7b46;oid=b397eb32-1aca-4f4f-9d85-4d937776a91e;iss=https://sts.windows.net/201d985b-1557-4012-9958-564c74cb2d60/
+
+Action: 'Microsoft.KeyVault/vaults/keys/read'
+
+Resource: '/subscriptions/11b88d87-2dc9-41c0-b10d-e3dffd37b00e/resourcegroups/rg-meridian/providers/microsoft.keyvault/vaults/kv-meridian-11b88d872d'
+
+Assignment: (not found)
+
+DenyAssignmentId: null
+
+DecisionReason: null 
+
+Vault: kv-meridian-11b88d872d;location=eastus
+
+
+Code: Forbidden
+Message: Caller is not authorized to perform action on resource.
+
+If role assignments, deny assignments or role definitions were changed recently, please observe propagation time.
+
+Caller: appid=04b07795-8ddb-461a-bbee-02f9e1bf7b46;oid=b397eb32-1aca-4f4f-9d85-4d937776a91e;iss=https://sts.windows.net/201d985b-1557-4012-9958-564c74cb2d60/
+
+Action: 'Microsoft.KeyVault/vaults/keys/read'
+
+Resource: '/subscriptions/11b88d87-2dc9-41c0-b10d-e3dffd37b00e/resourcegroups/rg-meridian/providers/microsoft.keyvault/vaults/kv-meridian-11b88d872d'
+
+Assignment: (not found)
+
+DenyAssignmentId: null
+
+DecisionReason: null 
+
+Vault: kv-meridian-11b88d872d;location=eastus
+
+
+Inner error: {
+    "code": "ForbiddenByRbac"
+}
+Name               State
+-----------------  --------
+pe-meridian-blob   Approved
+pe-meridian-vault  Approved
+

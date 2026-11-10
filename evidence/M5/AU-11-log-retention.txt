@@ -1,0 +1,24 @@
+﻿# 2026-11-08T23:42:41Z  profile=mgmt-platform  exit=0
+$ aws s3api get-bucket-versioning --bucket meridian-logs-797260139831; aws s3api get-bucket-lifecycle-configuration --bucket meridian-logs-797260139831
+{
+    "Status": "Enabled"
+}
+{
+    "TransitionDefaultMinimumObjectSize": "all_storage_classes_128K",
+    "Rules": [
+        {
+            "ID": "keep-noncurrent-365d",
+            "Filter": {
+                "Prefix": ""
+            },
+            "Status": "Enabled",
+            "NoncurrentVersionExpiration": {
+                "NoncurrentDays": 365
+            },
+            "AbortIncompleteMultipartUpload": {
+                "DaysAfterInitiation": 7
+            }
+        }
+    ]
+}
+

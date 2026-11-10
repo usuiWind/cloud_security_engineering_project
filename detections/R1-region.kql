@@ -1,5 +1,8 @@
 // R1: activity in an unapproved region, including denied attempts (the region SCP).
 AWSCloudTrail
 | where AWSRegion !in ("us-east-1", "us-west-2")
+// Denied calls only: the region SCP's denial is the signal. Without this, AWS service
+// and read-only calls in us-east-2 made ~28 incidents every 3 hours.
+| where isnotempty(ErrorCode)
 | summarize Calls = count(), Denied = countif(isnotempty(ErrorCode)), Events = make_set(EventName, 10)
     by UserIdentityArn, AWSRegion

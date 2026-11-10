@@ -1,5 +1,0 @@
-// R3: injection campaign, guard layer interventions spike (app log line from M4).
-AWSCloudWatch
-| where Message has "guardrail_intervened"
-| summarize Hits = count() by bin(TimeGenerated, 10m)
-| where Hits >= 5

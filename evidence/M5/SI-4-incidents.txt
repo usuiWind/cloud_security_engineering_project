@@ -1,0 +1,9 @@
+# 2026-11-10T01:33:21Z  profile=mgmt-platform  exit=0
+$ az monitor log-analytics query -w e7b1ac16-70fa-4dce-80cf-0ba674d9bbe3 --analytics-query 'SecurityIncident | where CreatedTime > datetime(2026-11-10T01:23:00Z) | summarize arg_max(TimeGenerated, *) by IncidentNumber | project IncidentNumber, Title, Severity, FirstActivityTime, CreatedTime' -o table; az monitor log-analytics query -w e7b1ac16-70fa-4dce-80cf-0ba674d9bbe3 --analytics-query 'SecurityIncident | where Title has ''R2'' | summarize arg_max(TimeGenerated, *) by IncidentNumber | summarize R2Incidents=count(), FirstCreated=min(CreatedTime)' -o table
+CreatedTime                   FirstActivityTime     IncidentNumber    Severity    TableName      Title
+----------------------------  --------------------  ----------------  ----------  -------------  ------------------
+2026-11-10T01:29:43.1133333Z  2026-11-10T00:23:47Z  196               Medium      PrimaryResult  Meridian R1-region
+FirstCreated                  R2Incidents    TableName
+----------------------------  -------------  -------------
+2026-11-09T06:02:30.3333333Z  8              PrimaryResult
+

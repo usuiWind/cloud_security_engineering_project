@@ -1,0 +1,27 @@
+﻿# 2026-11-09T05:18:42Z  profile=mgmt-platform  exit=0
+$ aws iam get-role --role-name OIDC_MeridianSentinel --query Role.AssumeRolePolicyDocument; aws iam list-role-policies --role-name OIDC_MeridianSentinel; aws iam list-attached-role-policies --role-name OIDC_MeridianSentinel
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Principal": {
+                "Federated": "arn:aws:iam::797260139831:oidc-provider/sts.windows.net/33e01921-4d64-4f8c-a055-5bdaffd5e33d/"
+            },
+            "Action": "sts:AssumeRoleWithWebIdentity",
+            "Condition": {
+                "StringEquals": {
+                    "sts.windows.net/33e01921-4d64-4f8c-a055-5bdaffd5e33d/:aud": "api://1462b192-27f7-4cb9-8523-0f4ecb54b47e",
+                    "sts:RoleSessionName": "MicrosoftSentinel_e7b1ac16-70fa-4dce-80cf-0ba674d9bbe3"
+                }
+            }
+        }
+    ]
+}
+{
+    "PolicyNames": []
+}
+{
+    "AttachedPolicies": []
+}
+

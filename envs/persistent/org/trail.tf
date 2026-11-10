@@ -87,6 +87,21 @@ data "aws_iam_policy_document" "flow_logs" {
 
 data "aws_iam_policy_document" "log_archive" {
   source_policy_documents = [data.aws_iam_policy_document.cloudtrail.json, data.aws_iam_policy_document.flow_logs.json]
+
+  # M5: the Sentinel S3 connector's role (runbook 5.5; made by Microsoft's script, not here).
+  # The script wrote this as GetObject on /*; narrowed to the two prefixes Sentinel reads.
+  statement {
+    sid     = "SentinelRead"
+    actions = ["s3:GetObject"]
+    resources = [
+      "arn:aws:s3:::${local.log_bucket}/AWSLogs/${aws_organizations_organization.this.id}/*",
+      "arn:aws:s3:::${local.log_bucket}/AWSLogs/${aws_organizations_account.workload.id}/vpcflowlogs/*",
+    ]
+    principals {
+      type        = "AWS"
+      identifiers = ["arn:aws:iam::${data.aws_caller_identity.me.account_id}:role/OIDC_MeridianSentinel"]
+    }
+  }
 }
 
 module "log_archive" {

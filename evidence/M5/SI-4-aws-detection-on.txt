@@ -1,0 +1,38 @@
+﻿# 2026-11-08T19:42:37Z  profile=mgmt-platform  exit=0
+$ aws guardduty list-detectors --profile workload-engineer; aws securityhub get-enabled-standards --query "StandardsSubscriptions[].{arn:StandardsArn,status:StandardsStatus}" --profile workload-engineer; aws configservice describe-configuration-recorder-status --profile workload-engineer; aws configservice describe-configuration-recorders --query "ConfigurationRecorders[].recordingGroup.resourceTypes" --profile workload-engineer
+{
+    "DetectorIds": [
+        "764ab40ba6ba453f920d5d372e347583"
+    ]
+}
+[
+    {
+        "arn": "arn:aws:securityhub:us-east-1::standards/nist-800-53/v/5.0.0",
+        "status": "READY"
+    }
+]
+{
+    "ConfigurationRecordersStatus": [
+        {
+            "arn": "arn:aws:config:us-east-1:622896097641:configuration-recorder/default/ltgmpd7t19qgins2",
+            "name": "default",
+            "lastStartTime": "2026-11-08T12:45:16.531000-06:00",
+            "recording": true,
+            "lastStatus": "SUCCESS",
+            "lastStatusChangeTime": "2026-11-08T12:45:27.042000-06:00"
+        }
+    ]
+}
+[
+    [
+        "AWS::EC2::SecurityGroup",
+        "AWS::EC2::VPCEndpoint",
+        "AWS::KMS::Key",
+        "AWS::DynamoDB::Table",
+        "AWS::Lambda::Function",
+        "AWS::IAM::Role",
+        "AWS::S3::Bucket",
+        "AWS::EC2::VPC"
+    ]
+]
+

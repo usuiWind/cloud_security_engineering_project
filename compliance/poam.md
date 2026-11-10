@@ -8,7 +8,7 @@
 | M1-4 | One person holds every role, so separation of duties cannot be shown in the lab. | AC-5 | M1 |
 | M1-5 | Actions added by hand to the scoped deploy policy in 1.9: one line per action with its commit (to fill in). | AC-6 | M1 |
 | M2-1 | PIM not configured. Threat model B9 claims time bound activation; the breakglass group has no standing role and the hand-made emergency account is the real break glass. Revisit after M5. | AC-2 | M2 |
-| M2-2 | Emergency account sign in is not yet alerted. Alert on it in Session 5 (Sentinel). | AC-2 | M2 |
+| M2-2 | Emergency account sign in is not alerted. It needs Entra sign-in logs in Sentinel, and exporting them needs Entra ID P1/P2, which this tenant cannot activate (M2-3). | AC-2 | M2 |
 | M2-3 | MFA is enforced by Entra Security Defaults, not Conditional Access: the P1/P2 trial cannot be activated on a tenant created by a personal Microsoft account. Covers every user, emergency account included; no per-app or per-location conditions, and the setting is a tenant switch, not code. Revisit if a P1 license becomes available. | IA-2 | M2 |
 | M2-4 | `meridian-deploy` custom role adds `Microsoft.Resources` resource group and deployment actions beyond the plan's five namespaces; the pipeline cannot create a resource group without them. | AC-6 | M2 |
 | M2-5 | NIST SP 800-53 Rev. 5 initiative assigned with enforcement off (audit only). | CA-7 | M2 |
@@ -54,3 +54,16 @@
 | M4-10 | CKV_AZURE_249 skip: the check assumes a GitHub issuer. The federated credential trusts one AWS issuer and one role ARN. | IA-5 | M4 |
 | M4-11 | AWS outbound identity federation was turned on by hand (`scripts/outbound-federation.ps1`), not in Terraform. The gateway's `sts:GetWebIdentityToken` has no audience condition yet. | CM-2, AC-6 | M4 |
 | M4-12 | Content Safety F0 rate limits and monthly caps. A throttle past the retries refuses the request (fail closed), which shows as an error in a run, not a pass. Model rate limits (HTTP 429) also cost requests in run A (3/30 lost). | SC-5 | M4 |
+| M5-1 | The Sentinel connector role, queues and notifications were made by Microsoft's script, not Terraform; the log archive bucket policy statement for it is in `trail.tf`, narrowed to two prefixes. | AC-20, CM-2 | M5 |
+| M5-2 | Detection lag is 6 to 30 minutes (R1 6, R2 30) because of S3 delivery plus the 5 minute schedule. There is no real-time path. | AU-6, SI-4 | M5 |
+| M5-3 | R3 is a CloudWatch alarm on `guardrail_intervened`, not a Sentinel rule: the S3 connector does not ingest Lambda logs. The alarm has no notification action. | SI-4 | M5 |
+| M5-4 | R1 matches denied calls only (the region SCP's denial); a successful call in an unapproved region by an exempt service would not alert. Before this filter it made 187 incidents from AWS service activity in us-east-2. | SI-4 | M5 |
+| M5-5 | R1 and R2 suppress for 1 hour after firing, so a second distinct event inside the hour is not a new incident. R2 also matches any denied `GetSecretValue`, which is fine with one secret. | SI-4 | M5 |
+| M5-6 | R2 sees key reads, not model use. Model calls are logged only by the gateway (`model_call` lines in CloudWatch), which Sentinel does not ingest. | AU-2, SI-4 | M5 |
+| M5-7 | Detection skips: CKV2_AWS_3 (no GuardDuty org admin), CKV2_AWS_48 and CKV2_AWS_45 (Config records eight lab types only, by design). | SI-4, CM-8 | M5 |
+| M5-8 | The diagnostic settings DeployIfNotExists switch was never built; M2 has no diagnostic settings policy. The Activity log goes to the workspace directly. | AU-2, CA-7 | M5 |
+| M5-9 | Sentinel onboarding writes the SecurityInsights solution without tags, which the tag deny refuses. Terraform tags it, and a policy exemption waives the tag rules on that one resource. | CM-6 | M5 |
+| M5-10 | The M3 line on alerting for `PutKeyPolicy` (M3-3) stays open. No rule was built for it. | SC-12 | M5 |
+| M5-11 | AU-5 (audit failure response) has no build step: no trail delivery failure alarm. Status stays planned. | AU-5 | M5 |
+| M5-12 | `terraform plan` in the workload stack always shows two GuardDuty feature changes (RDS_LOGIN_EVENTS, RUNTIME_MONITORING): AWS returns extra DISABLED settings the code does not declare. No security effect. | CM-3 | M5 |
+| M3-18 | The Key Vault public-network denial could not be shown cleanly: `az keyvault key list` from the laptop is refused by RBAC (`ForbiddenByRbac`), because the caller has no data-plane role, so the network layer is not what answers. Proof is the vault config (`publicNetwork: Disabled`) and the Approved private endpoint. Granting a read role would make the network denial show. | SC-7 | M3 |

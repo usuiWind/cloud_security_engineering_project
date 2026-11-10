@@ -1,0 +1,13 @@
+﻿# 2026-11-08T20:36:24Z  profile=mgmt-platform  exit=0
+$ az monitor log-analytics workspace show -g rg-meridian -n law-meridian --query "{name:name, sku:sku.name, dailyCapGb:workspaceCapping.dailyQuotaGb, retention:retentionInDays}" -o json; az security pricing show -n CloudPosture --query "{plan:name, tier:pricingTier}" -o json
+{
+  "dailyCapGb": 1.0,
+  "name": "law-meridian",
+  "retention": 30,
+  "sku": "PerGB2018"
+}
+{
+  "plan": "CloudPosture",
+  "tier": "Standard"
+}
+

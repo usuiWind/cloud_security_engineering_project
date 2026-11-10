@@ -3,6 +3,8 @@
 // the key is now the one path to the model. GetSecretValue is a management event.
 AWSCloudTrail
 | where EventSource == "secretsmanager.amazonaws.com" and EventName == "GetSecretValue"
-| where RequestParameters has "meridian/gemini-api-key"
+// Denied calls carry no RequestParameters, so match the denial text too.
+// ponytail: any AccessDenied GetSecretValue also matches; this lab has one secret.
+| where RequestParameters has "meridian/gemini-api-key" or ErrorMessage has "meridian/gemini-api-key" or ErrorCode == "AccessDenied"
 | where UserIdentityArn !has "meridian-ai-gateway"
 | project TimeGenerated, UserIdentityArn, SourceIpAddress, ErrorCode, ErrorMessage

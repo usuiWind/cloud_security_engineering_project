@@ -99,7 +99,7 @@ controls:
     status: implemented
     milestone: M1
     threats: [T-01, T-12]
-    implementation: "Zero IAM users and access keys; root credentials centrally managed; scripts/key_scan.sh gates every CI run and fails on a Google API key in the repo. One third party credential, the Gemini API key, lives only in Secrets Manager and only the gateway role can read it (M3). The gateway reaches Azure Content Safety with no stored secret, through AWS outbound identity federation and an Entra federated credential (evidence/M4/IA-5-azure-keyless.txt)."
+    implementation: "Zero IAM users and access keys; root credentials centrally managed; scripts/key_scan.sh gates every CI run and fails on a Google API key in the repo. One third party credential, the Gemini API key, lives only in Secrets Manager and only the gateway role can read it (M3). The gateway reaches Azure Content Safety with no stored secret, through AWS outbound identity federation and an Entra federated credential (evidence/M4/IA-5-azure-keyless.txt). Gemini key write-only for Engineer: IA-5-model-key-write-only.txt."
     terraform: envs/persistent/org
     evidence: evidence/M1/IA-5-key-scan-workload.txt
     tested: 2026-10-19
@@ -118,25 +118,25 @@ controls:
   - id: AU-2
     title: Event Logging
     baseline: moderate
-    status: partial
+    status: implemented
     milestone: M1
     threats: [T-08]
-    implementation: "Organization trail, multi region, log file validation; data events on the cases table (M3)."
+    implementation: "Organization trail, multi region, log file validation; data events on the cases table (M3); ingested into Sentinel (AU-12-aws-in-sentinel.txt)."
     terraform: envs/persistent/org
     evidence: evidence/M1/AU-2-org-trail.txt
-    tested: 2026-10-19
-    residual_risk: "Partial until Sentinel ingestion in M5."
+    tested: 2026-11-10
+    residual_risk: "Model calls are logged only by the gateway, not CloudTrail or Sentinel (POA&M M5-6)."
   - id: CM-5
     title: Access Restrictions for Change
     baseline: moderate
-    status: planned
+    status: partial
     milestone: M1
     threats: [T-23, T-30, T-34]
     implementation: "Only the main branch pipeline can assume the deploy role; runtime config (/meridian/config/model_id) changes only through it; code signing Enforce (M6)."
     terraform: envs/persistent/workload
     evidence: evidence/M1/AC-3-oidc-pr-denied.txt
-    tested: null
-    residual_risk: ""
+    tested: 2026-10-20
+    residual_risk: "Code signing (M6) was not built, so a laptop apply in envs/ephemeral can still deploy local code."
 
   # M2 configuration baseline
   - id: CM-2
@@ -199,90 +199,90 @@ controls:
   - id: AC-4
     title: Information Flow Enforcement
     baseline: moderate
-    status: planned
+    status: implemented
     milestone: M3
     threats: [T-22]
-    implementation: "Bedrock endpoint policy allows only app-task on one model and guardrail; gateway endpoint policies name only the corpus bucket and cases table."
+    implementation: "lambda endpoint policy allows only app-task to invoke only meridian-ai-gateway; gateway endpoint policies name only the corpus bucket and cases table"
     terraform: envs/ephemeral
     evidence: evidence/M3/AC-4-endpoint-policy-deny.txt
-    tested: null
+    tested: 2026-11-08
     residual_risk: ""
   - id: IA-3
     title: Device Identification and Authentication
     baseline: moderate
-    status: planned
+    status: partial
     milestone: M3
     threats: [T-17]
     implementation: "Lambda invocable only by IAM principals, no function URL; APIM caller verification deferred."
     terraform: envs/ephemeral
     evidence: evidence/M3/IA-3-lambda-resource-policy.txt
-    tested: null
+    tested: 2026-11-08
     residual_risk: "T-17 open: assistant trusts caller_id from its invoker until the APIM path is built (POA&M)."
   - id: SC-5
     title: Denial of Service Protection
     baseline: moderate
-    status: planned
+    status: implemented
     milestone: M3
     threats: [T-05, T-10, T-13, T-31]
-    implementation: "Reserved concurrency 5, 60 s timeout, max 3 tool turns per request; budget alerts at $25/$50/$75."
+    implementation: "Reserved concurrency 5, 60 s timeout, max 3 tool turns per request; budget alerts at $25/$50/$75. Concurrency is capped at 5 by the account limit, not the function (POA&M)."
     terraform: envs/ephemeral
     evidence: evidence/M3/SC-5-lambda-limits.txt
-    tested: null
+    tested: 2026-11-08
     residual_risk: "Edge rate limiting deferred with APIM (T-13)."
   - id: SC-7
     title: Boundary Protection
     baseline: moderate
-    status: partial
+    status: implemented
     milestone: M3
     threats: [T-22]
-    implementation: "M2: S3 account public access block locked by SCP; Azure public blob access denied by policy (evidence/M2/SC-7-azure-public-blob-denied.txt). M3: private subnet, no IGW or NAT; SG egress 443 to endpoints and prefix lists only; Azure storage and vault private only."
+    implementation: "M2: S3 account public access block locked by SCP; Azure public blob access denied by policy (evidence/M2/SC-7-azure-public-blob-denied.txt). M3: private subnet, no IGW or NAT; SG egress 443 to endpoints and prefix lists only; Azure storage and vault private only. Also: SC-7-private-invoke-ok.txt, SC-7-flowlogs-sample.txt, and Azure blob and vault through private endpoints (SC-7-azure-public-denied.txt)."
     terraform: envs/persistent/org/scp.tf, envs/ephemeral
-    evidence: evidence/M2/SC-7-aws-public-access-denied.txt
-    tested: 2026-10-20
-    residual_risk: "Single AZ (POA&M)."
+    evidence: evidence/M3/SC-7-no-path-without-endpoint.txt
+    tested: 2026-11-10
+    residual_risk: "Key Vault public denial shows ForbiddenByRbac, not ForbiddenByConnection: the caller has no data-plane role, so RBAC answers first. The vault config (publicNetwork Disabled, SC-28-azure-config.txt) and the Approved private endpoint are the proof (POA&M)."
   - id: SC-8
     title: Transmission Confidentiality and Integrity
     baseline: moderate
-    status: planned
+    status: implemented
     milestone: M3
     threats: [T-17, T-18, T-22]
-    implementation: "Bedrock calls cross the interface endpoint over TLS; Azure blob and vault through private endpoints."
+    implementation: "app to gateway over TLS through the lambda interface endpoint (CloudTrail vpcEndpointId); gateway to the Gemini API over TLS to a pinned host (app/gateway.py); Azure blob and vault through private endpoints"
     terraform: envs/ephemeral
-    evidence: evidence/M3/SC-8-bedrock-via-vpce.json
-    tested: null
+    evidence: evidence/M3/SC-8-gateway-via-vpce.txt
+    tested: 2026-11-08
     residual_risk: "Cross cloud F4 path deferred with APIM (T-18)."
   - id: SC-12
     title: Cryptographic Key Establishment and Management
     baseline: moderate
-    status: planned
+    status: implemented
     milestone: M3
     threats: [T-20]
-    implementation: "Two CMKs (corpus, records) with rotation; admin and user statements split; SCP blocks key deletion; Key Vault key with purge protection."
+    implementation: "Two CMKs (corpus, records) with rotation; admin and user statements split; SCP blocks key deletion; Key Vault key with purge protection. Azure vault and storage CMK: SC-28-azure-config.txt."
     terraform: envs/persistent/workload
     evidence: evidence/M3/SC-12-key-config.txt
-    tested: null
+    tested: 2026-11-10
     residual_risk: ""
   - id: SC-13
     title: Cryptographic Protection
     baseline: moderate
-    status: planned
+    status: implemented
     milestone: M3
     threats: [T-18]
     implementation: "AWS KMS and Azure Key Vault managed keys; TLS on every endpoint."
     terraform: envs/persistent/workload
     evidence: evidence/M3/SC-12-key-config.txt
-    tested: null
+    tested: 2026-11-08
     residual_risk: ""
   - id: SC-28
     title: Protection of Information at Rest
     baseline: moderate
-    status: planned
+    status: implemented
     milestone: M3
     threats: [T-09, T-20, T-33]
-    implementation: "Corpus and cases encrypted with CMKs scoped by kms:ViaService to the tool roles; state bucket encrypted; Azure storage CMK."
+    implementation: "Corpus and cases encrypted with CMKs scoped by kms:ViaService to the tool roles; state bucket encrypted; Azure storage CMK. Azure: SC-28-azure-config.txt. Model key write-only for Engineer: IA-5-model-key-write-only.txt."
     terraform: envs/persistent/workload
     evidence: evidence/M3/SC-28-kms-denied.txt
-    tested: null
+    tested: 2026-11-10
     residual_risk: ""
   - id: SC-23
     title: Session Authenticity
@@ -390,13 +390,13 @@ controls:
   - id: AU-3
     title: Content of Audit Records
     baseline: moderate
-    status: planned
+    status: implemented
     milestone: M5
     threats: [T-03, T-08]
     implementation: "CloudTrail session tag carries the caseworker on every GetItem; guardrail_intervened line carries category and caller, never content."
     terraform: envs/persistent/workload
-    evidence: evidence/M4/AC-6-tool-coercion-cloudtrail.txt
-    tested: null
+    evidence: evidence/M5/AU-3-guardrail-signal.txt
+    tested: 2026-11-08
     residual_risk: "T-03 mitigation (log retrieved chunk ids and hashes under a correlation id) is not in the build plan."
   - id: AU-5
     title: Response to Audit Logging Process Failures
@@ -412,112 +412,112 @@ controls:
   - id: AU-6
     title: Audit Record Review Analysis and Reporting
     baseline: moderate
-    status: planned
+    status: implemented
     milestone: M5
     threats: [T-32]
-    implementation: "Sentinel rules R1-R3 every 5 min over 1 h; MTTD measured per simulation."
+    implementation: "Sentinel rules R1 and R2 every 5 min over 1 h, and the R3 alarm; MTTD measured per simulation: R1 6 min, R2 30 min, R3 1 min 40 s."
     terraform: detections
     evidence: evidence/M5/AU-6-mttd.md
-    tested: null
-    residual_risk: "5 to 20 min detection lag from S3 delivery."
+    tested: 2026-11-10
+    residual_risk: "6 to 30 min detection lag from S3 delivery for R1 and R2; no real-time path (POA&M)."
   - id: AU-9
     title: Protection of Audit Information
     baseline: moderate
-    status: planned
+    status: implemented
     milestone: M5
     threats: [T-28, T-29]
-    implementation: "SCP denies StopLogging, DeleteTrail, UpdateTrail except BreakGlass; versioned log archive bucket with public access blocked."
+    implementation: "SCP denies StopLogging, DeleteTrail, UpdateTrail except BreakGlass, and Engineer cannot delete the GuardDuty detector; versioned log archive bucket with public access blocked."
     terraform: envs/persistent/org/scp.tf
-    evidence: evidence/M2/AU-9-stoplogging-denied.txt
-    tested: null
+    evidence: evidence/M5/AU-9-protected-services-denied.txt
+    tested: 2026-11-08
     residual_risk: ""
   - id: AU-10
     title: Non Repudiation
     baseline: moderate
-    status: planned
+    status: implemented
     milestone: M5
     threats: [T-03, T-08, T-19]
     implementation: "CloudTrail log file validation; caller bound to every record read through the session tag."
     terraform: envs/persistent/org
     evidence: evidence/M5/AU-10-validate-logs.txt
-    tested: null
+    tested: 2026-11-08
     residual_risk: ""
   - id: AU-11
     title: Audit Record Retention
     baseline: moderate
-    status: planned
+    status: implemented
     milestone: M5
     threats: [T-28]
     implementation: "Versioned log archive bucket; workload cannot delete; retention period set by lifecycle rule."
     terraform: envs/persistent/org
     evidence: evidence/M5/AU-11-log-retention.txt
-    tested: null
-    residual_risk: "Plan sets no retention period; add a lifecycle rule."
+    tested: 2026-11-08
+    residual_risk: "Lifecycle keeps noncurrent versions 365 days; current objects never expire."
   - id: AU-12
     title: Audit Record Generation
     baseline: moderate
-    status: planned
+    status: implemented
     milestone: M5
     threats: []
     implementation: "CloudTrail and VPC flow logs from the archive bucket into Sentinel via the S3 connector."
     terraform: envs/persistent/azure
     evidence: evidence/M5/AU-12-aws-in-sentinel.txt
-    tested: null
+    tested: 2026-11-10
     residual_risk: ""
   - id: CM-3
     title: Configuration Change Control
     baseline: moderate
-    status: planned
+    status: implemented
     milestone: M5
     threats: [T-23, T-33, T-35]
     implementation: "Every change through a PR, checkov gate, and the main branch pipeline; state bucket versioned with native lock."
     terraform: .github/workflows/deploy.yml
     evidence: evidence/M2/CM-6-checkov-blocked.txt
-    tested: null
+    tested: 2026-10-20
     residual_risk: "T-35: corpus publishing review not modelled; corpus is static synthetic data."
   - id: IR-4
     title: Incident Handling
     baseline: moderate
-    status: planned
+    status: implemented
     milestone: M5
     threats: [T-30, T-31]
     implementation: "Runbooks R1-R3: what it means, first checks, containment, false positives."
     terraform: ""
     evidence: detections/runbooks/R1.md
-    tested: null
+    tested: 2026-11-10
     residual_risk: "F15b auto remediation Lambda is cut from the build; containment is manual."
   - id: IR-5
     title: Incident Monitoring
     baseline: moderate
-    status: planned
+    status: implemented
     milestone: M5
     threats: []
-    implementation: "Sentinel incidents from R1-R3 simulations."
+    implementation: "Sentinel incidents from the R1 and R2 simulations (SI-4-R1-incident.png, SI-4-R2-incident.png); R3 alarm history (SI-4-R3-incident.png)."
     terraform: detections
     evidence: evidence/M5/SI-4-R1-incident.png
-    tested: null
+    tested: 2026-11-10
     residual_risk: ""
   - id: SI-4
     title: System Monitoring
     baseline: moderate
-    status: planned
+    status: implemented
     milestone: M5
     threats: []
-    implementation: "GuardDuty, Security Hub CSPM, Config, Defender for Cloud; R1 region, R2 non app model use, R3 injection spike."
+    implementation: "GuardDuty, Security Hub CSPM, Config and Defender for Cloud; Sentinel rules R1 (denied calls in unapproved regions) and R2 (model key read by anyone but the gateway), each suppressed for 1 h; R3 is a CloudWatch alarm on guardrail_intervened (5 in 10 min) because the Sentinel S3 connector does not ingest Lambda logs."
     terraform: detections
-    evidence: evidence/M5/SI-4-R1-incident.png
-    tested: null
-    residual_risk: ""
+    evidence: evidence/M5/SI-4-incidents.txt
+    tested: 2026-11-10
+    residual_risk: "R3 alarm has no notification action; R2 sees key reads, not model use (POA&M)."
   - id: AC-20
     title: Use of External Systems
     baseline: moderate
-    status: planned
+    status: implemented
     milestone: M5
     threats: [T-29]
-    implementation: "Sentinel reads the log archive through a read only role scoped to the connector queues and bucket."
+    implementation: "External systems: the Sentinel connector role (read only on the log archive prefixes, trust bound to the Sentinel workspace); the Gemini API (static key in Secrets Manager, M3); Azure Content Safety, reached keyless through Entra federation (M4)."
     terraform: envs/persistent/org
     evidence: evidence/M5/AC-20-sentinel-role.txt
-    tested: null
+    tested: 2026-11-08
     residual_risk: ""
 
   # M6 assessment and supply chain

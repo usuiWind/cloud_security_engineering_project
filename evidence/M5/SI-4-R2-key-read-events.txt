@@ -1,0 +1,11 @@
+# 2026-11-10T01:06:51Z  profile=mgmt-platform  exit=0
+$ az monitor log-analytics query -w e7b1ac16-70fa-4dce-80cf-0ba674d9bbe3 --analytics-query 'AWSCloudTrail | where EventSource == ''secretsmanager.amazonaws.com'' and EventName == ''GetSecretValue'' | project TimeGenerated, UserIdentityArn, ErrorCode, Who=iff(UserIdentityArn has ''meridian-ai-gateway'', ''gateway'', ''other'') | order by TimeGenerated asc' -o table; az monitor log-analytics query -w e7b1ac16-70fa-4dce-80cf-0ba674d9bbe3 --analytics-query 'SecurityIncident | where Title has ''R2'' | summarize arg_max(TimeGenerated, *) by IncidentNumber | summarize Incidents=count(), FirstActivity=min(FirstActivityTime), FirstIncidentCreated=min(CreatedTime)' -o table
+ErrorCode     TableName      TimeGenerated         UserIdentityArn                                                                          Who
+------------  -------------  --------------------  ---------------------------------------------------------------------------------------  -------
+AccessDenied  PrimaryResult  2026-11-08T23:34:57Z  arn:aws:sts::622896097641:assumed-role/AWSReservedSSO_Engineer_2572360652bc3d64/nextuse  other
+              PrimaryResult  2026-11-08T23:35:36Z  arn:aws:sts::622896097641:assumed-role/meridian-ai-gateway/meridian-ai-gateway           gateway
+AccessDenied  PrimaryResult  2026-11-09T05:32:28Z  arn:aws:sts::622896097641:assumed-role/AWSReservedSSO_Engineer_2572360652bc3d64/nextuse  other
+FirstActivity         FirstIncidentCreated          Incidents    TableName
+--------------------  ----------------------------  -----------  -------------
+2026-11-09T05:32:28Z  2026-11-09T06:02:30.3333333Z  8            PrimaryResult
+

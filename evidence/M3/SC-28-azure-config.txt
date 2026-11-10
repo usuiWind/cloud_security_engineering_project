@@ -1,0 +1,16 @@
+# 2026-11-10T01:40:05Z  profile=mgmt-platform  exit=0
+$ az storage account show -n stmeridian11b88d872d --query "{publicNetwork:publicNetworkAccess, sharedKey:allowSharedKeyAccess, keySource:encryption.keySource, keyUri:encryption.keyVaultProperties.keyVaultUri, tls:minimumTlsVersion}" -o json; az keyvault show -n kv-meridian-11b88d872d --query "{purgeProtection:properties.enablePurgeProtection, publicNetwork:properties.publicNetworkAccess, rbac:properties.enableRbacAuthorization, bypass:properties.networkAcls.bypass}" -o json
+{
+  "keySource": "Microsoft.Keyvault",
+  "keyUri": "https://kv-meridian-11b88d872d.vault.azure.net",
+  "publicNetwork": "Disabled",
+  "sharedKey": false,
+  "tls": "TLS1_2"
+}
+{
+  "bypass": "AzureServices",
+  "publicNetwork": "Disabled",
+  "purgeProtection": true,
+  "rbac": true
+}
+

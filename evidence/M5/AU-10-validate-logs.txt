@@ -1,0 +1,10 @@
+﻿# 2026-11-09T05:18:46Z  profile=mgmt-platform  exit=0
+$ aws cloudtrail validate-logs --trail-arn arn:aws:cloudtrail:us-east-1:797260139831:trail/meridian-org-trail --account-id 797260139831 --start-time 2026-11-08T23:18:46Z
+Validating log files for trail arn:aws:cloudtrail:us-east-1:797260139831:trail/meridian-org-trail between 2026-11-08T23:18:46Z and 2026-11-09T05:18:46Z
+
+Results requested for 2026-11-08T23:18:46Z to 2026-11-09T05:18:46Z
+Results found for 2026-11-08T23:18:46Z to 2026-11-09T04:44:32Z:
+
+6/6 digest files valid
+73/73 log files valid
+
